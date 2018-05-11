@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ReaderBoard.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="szServerName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ice1</Value>
+    </Setting>
+    <Setting Name="dwSwitchID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">11006</Value>
+    </Setting>
+    <Setting Name="Phone_ENG" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">6001</Value>
+    </Setting>
+    <Setting Name="Phone_FRE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">6002</Value>
+    </Setting>
+    <Setting Name="G2T_ENG" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">6013</Value>
+    </Setting>
+    <Setting Name="G2T_FRE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">6014</Value>
+    </Setting>
+    <Setting Name="Chat_ENG" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">6007</Value>
+    </Setting>
+    <Setting Name="Chat_FRE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">6008</Value>
+    </Setting>
+    <Setting Name="ChatApp_ENG" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">6020</Value>
+    </Setting>
+    <Setting Name="ChatApp_FRE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">6021</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
