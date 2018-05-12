@@ -112,5 +112,14 @@ namespace ReaderBoard.Properties {
                 return ((string)(this["ChatApp_FRE"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        public string Refreshing {
+            get {
+                return ((string)(this["Refreshing"]));
+            }
+        }
     }
 }

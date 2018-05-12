@@ -12,6 +12,7 @@ namespace ReaderBoard
     public partial class _Default : Page
     {
         CTIServiceClient client = new CTIServiceClient();
+        string refreshing = Properties.Settings.Default.Refreshing;//Default 3- second;
         string szServerName = Properties.Settings.Default.szServerName; //"ice1"
         string dwSwitchID = Properties.Settings.Default.dwSwitchID; //"11006";
         string iQueueID_Phone_ENG = Properties.Settings.Default.Phone_ENG;//"6001";
@@ -47,7 +48,7 @@ namespace ReaderBoard
             }
 
 
-            Response.AppendHeader("Refresh", "30");
+            Response.AppendHeader("Refresh", refreshing);
         }
 
         protected void Timer1_Tick(object sender, EventArgs e)
