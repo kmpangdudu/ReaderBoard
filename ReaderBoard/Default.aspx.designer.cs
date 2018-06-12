@@ -571,6 +571,96 @@ namespace ReaderBoard {
         protected global::System.Web.UI.WebControls.Label lblWaitTime_ChatAppF;
         
         /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// lblQueueStats control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblQueueStats;
+        
+        /// <summary>
+        /// lblChat_Eng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChat_Eng;
+        
+        /// <summary>
+        /// lblChatApp_Eng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChatApp_Eng;
+        
+        /// <summary>
+        /// GetTargetASA_phone_Eng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label GetTargetASA_phone_Eng;
+        
+        /// <summary>
+        /// GetTargetASA_Chat_Eng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label GetTargetASA_Chat_Eng;
+        
+        /// <summary>
+        /// GetTargetASA_ChatApp_Eng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label GetTargetASA_ChatApp_Eng;
+        
+        /// <summary>
+        /// lblHandledLessThanTargetASA_Phone_E control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHandledLessThanTargetASA_Phone_E;
+        
+        /// <summary>
+        /// lblHandledLessThanTargetASA_Chat_E control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHandledLessThanTargetASA_Chat_E;
+        
+        /// <summary>
+        /// lblHandledLessThanTargetASA_ChatApp_E control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHandledLessThanTargetASA_ChatApp_E;
+        
+        /// <summary>
         /// lblerror control.
         /// </summary>
         /// <remarks>

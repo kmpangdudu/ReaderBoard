@@ -41,6 +41,8 @@ namespace ReaderBoard
                 Chat_FRE();
                 ChatApp_ENG();
                 ChatApp_FRE();
+
+                Test();
             }
             catch (Exception erd)
             {
@@ -201,6 +203,35 @@ namespace ReaderBoard
             {
                 lblerror.Text = erd.ToString();
             }
+        }
+
+
+        protected void Test()
+        {
+            string aaa = "10";
+            try
+            {
+                lblQueueStats.Text =  client.GetQueueStatsString(dwSwitchID, iQueueID_Phone_ENG,aaa, szServerName);
+                lblChat_Eng.Text = client.GetQueueStatsString(dwSwitchID,iQueueID_Chat_ENG,aaa, szServerName);
+                lblChatApp_Eng.Text = client.GetQueueStatsString(dwSwitchID,iQueueID_ChatApp_ENG,aaa,szServerName);
+
+                GetTargetASA_phone_Eng.Text = client.GetTargetASA(dwSwitchID, iQueueID_ChatApp_ENG, szServerName); 
+                GetTargetASA_Chat_Eng.Text = client.GetTargetASA(dwSwitchID, iQueueID_ChatApp_ENG, szServerName); 
+                GetTargetASA_ChatApp_Eng.Text =client.GetTargetASA(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+
+                lblHandledLessThanTargetASA_Phone_E.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Phone_ENG, szServerName);
+                lblHandledLessThanTargetASA_Chat_E.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+                lblHandledLessThanTargetASA_ChatApp_E.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+            }
+            catch (Exception erd)
+            {
+                lblerror.Text = erd.ToString();
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Test();
         }
     }
 }

@@ -132,6 +132,31 @@
             </div>
         </div>
         <div>
+        <div>
+            <br /><br /><br />
+            <asp:Button ID="Button1" runat="server" Text="testing others" OnClick="Button1_Click" />
+        </div>
+            <div id="test1">
+                <p>QueueStats Phone_Eng: <asp:Label ID="lblQueueStats" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+                <p>QueueStats Chat_Eng: <asp:Label ID="lblChat_Eng" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+                <p>QueueStats ChatApp_Eng: <asp:Label ID="lblChatApp_Eng" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+                <br/>
+                <p>GetTargetASA phone_Eng: <asp:Label ID="GetTargetASA_phone_Eng" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></p>
+                <p>GetTargetASA Chat_Eng: <asp:Label ID="GetTargetASA_Chat_Eng" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></p>
+                <p>GetTargetASA ChatApp_Eng: <asp:Label ID="GetTargetASA_ChatApp_Eng" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></p>
+                <br/>
+                <p>NumHandledLessThanTargetASA phone_Eng: <asp:Label ID="lblHandledLessThanTargetASA_Phone_E" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></p>
+                <p>NumHandledLessThanTargetASA Chat_Eng: <asp:Label ID="lblHandledLessThanTargetASA_Chat_E" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+                <p>NumHandledLessThanTargetASA ChatApp_Eng:<asp:Label ID="lblHandledLessThanTargetASA_ChatApp_E" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+            </div>
+            <div id ="test2">
+
+            </div>
+       </div>
+
+
+
+        <div>
             <asp:Label ID="lblerror" runat="server" Text=""></asp:Label>
         </div>
 
