@@ -10,10 +10,10 @@
         .container > div {
           flex: 1; /*grow*/
         }
-        #ENG {
+        #ENG,phone {
             background-color:lightcoral;padding:5px,10px,5px,10px;margin: 5px,10px,5px,5px;border:double;border-color:lightcoral;border-width:10px
         }
-        #FRE{
+        #FRE,chat{
         background-color:lightgrey;padding:5px,10px,5px,10px;margin: 0px,10px,5px,10px;border:double;border-color:lightgrey;border-width:10px
         }
         p{padding:0px,0px,0px,10px; margin:0px;}
@@ -42,6 +42,24 @@
             </asp:Timer>
         </ContentTemplate>
         </asp:UpdatePanel>
+        <div id="phone">
+            <h2>Phone</h2>
+            <p>Grade of Service:&nbsp <asp:Label ID="lblPhoneGradeService" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+            <p>Longest Current wait time:&nbsp <asp:Label ID="lblPhoneLongestWaitTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+            <p>Average wait time:&nbsp <asp:Label ID="lblPhoneAverageWaitTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+            <p>Calls today:&nbsp <asp:Label ID="lblPhoneCallToday" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+            <p>Young people in queue:&nbsp <asp:Label ID="lblPhonePeopleInQueue" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+            <p>Counselor Available: &nbsp <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+        </div>
+        <div id="chat">
+            <h2>Chat</h2>
+            <p>Grade of Service:&nbsp <asp:Label ID="lblChatGradeService" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+            <p>Longest Current wait time:&nbsp <asp:Label ID="lblChatLongestWaitTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+            <p>Average wait time:&nbsp <asp:Label ID="lblChatAverageWaitTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+            <p>Calls today:&nbsp <asp:Label ID="lblChatCallToday" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+            <p>Young people in queue:&nbsp <asp:Label ID="lblChatPeopleInQueue" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+            <p>Counselor Available: &nbsp <asp:Label ID="lblChatCounselorAvailable" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+        </div>
 
             <div id="ENG" class="container">
                 <h2> English </h2>

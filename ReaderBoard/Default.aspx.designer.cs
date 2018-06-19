@@ -67,6 +67,114 @@ namespace ReaderBoard {
         protected global::System.Web.UI.Timer Timer1;
         
         /// <summary>
+        /// lblPhoneGradeService control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPhoneGradeService;
+        
+        /// <summary>
+        /// lblPhoneLongestWaitTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPhoneLongestWaitTime;
+        
+        /// <summary>
+        /// lblPhoneAverageWaitTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPhoneAverageWaitTime;
+        
+        /// <summary>
+        /// lblPhoneCallToday control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPhoneCallToday;
+        
+        /// <summary>
+        /// lblPhonePeopleInQueue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPhonePeopleInQueue;
+        
+        /// <summary>
+        /// lblPhoneCounselorAvailable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPhoneCounselorAvailable;
+        
+        /// <summary>
+        /// lblChatGradeService control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChatGradeService;
+        
+        /// <summary>
+        /// lblChatLongestWaitTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChatLongestWaitTime;
+        
+        /// <summary>
+        /// lblChatAverageWaitTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChatAverageWaitTime;
+        
+        /// <summary>
+        /// lblChatCallToday control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChatCallToday;
+        
+        /// <summary>
+        /// lblChatPeopleInQueue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChatPeopleInQueue;
+        
+        /// <summary>
+        /// lblChatCounselorAvailable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChatCounselorAvailable;
+        
+        /// <summary>
         /// lblCurQueued control.
         /// </summary>
         /// <remarks>
