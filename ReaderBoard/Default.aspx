@@ -3,17 +3,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <script src="http://d3js.org/d3.v3.min.js" lang="JavaScript"></script>
+    <script src="Scripts/liquidFillGauge.js" lang="JavaScript"></script>
+    <script src="Scripts/liquidFillGauge.js" lang="JavaScript"></script>
     <style>
+        .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
         .container {
             display: flex;
         }
         .container > div {
           flex: 1; /*grow*/
         }
-        #ENG,phone {
+        #ENG,#phone {
             background-color:lightcoral;padding:5px,10px,5px,10px;margin: 5px,10px,5px,5px;border:double;border-color:lightcoral;border-width:10px
         }
-        #FRE,chat{
+        #FRE,#chat{
         background-color:lightgrey;padding:5px,10px,5px,10px;margin: 0px,10px,5px,10px;border:double;border-color:lightgrey;border-width:10px
         }
         p{padding:0px,0px,0px,10px; margin:0px;}
@@ -27,161 +31,167 @@
         #G2TF{background-color:lightgoldenrodyellow;padding:2px,5px;margin: 2px,5px;}
         #ChatF{background-color:lime;padding:2px,5px;margin: 2px,5px;}
         #ChatAppF {background-color:lightblue;padding:2px,5px;margin: 2px,5px;}
-
+        .bigfont {
+            font-size:116px;
+        }
+        .midfont {
+            font-size:42px;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
 
-        <ContentTemplate >
-            <asp:Label ID="lblDate" runat="server" Font-Size="XX-Large" Text="Refreshing"></asp:Label> @
-            <asp:Label ID="lblTime" runat="server"  Font-Size="XX-Large" BackColor="#CCFF99" Text="Refreshing"></asp:Label>
-            <asp:Timer ID="Timer1" runat="server" Interval="1000" ontick="Timer1_Tick">
-            </asp:Timer>
-        </ContentTemplate>
-        </asp:UpdatePanel>
-        <div id="phone">
-            <h2>Phone</h2>
-            <p>Grade of Service:&nbsp <asp:Label ID="lblPhoneGradeService" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-            <p>Longest Current wait time:&nbsp <asp:Label ID="lblPhoneLongestWaitTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-            <p>Average wait time:&nbsp <asp:Label ID="lblPhoneAverageWaitTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-            <p>Calls today:&nbsp <asp:Label ID="lblPhoneCallToday" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-            <p>Young people in queue:&nbsp <asp:Label ID="lblPhonePeopleInQueue" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-            <p>Counselor Available: &nbsp <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-        </div>
-        <div id="chat">
-            <h2>Chat</h2>
-            <p>Grade of Service:&nbsp <asp:Label ID="lblChatGradeService" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-            <p>Longest Current wait time:&nbsp <asp:Label ID="lblChatLongestWaitTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-            <p>Average wait time:&nbsp <asp:Label ID="lblChatAverageWaitTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-            <p>Calls today:&nbsp <asp:Label ID="lblChatCallToday" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-            <p>Young people in queue:&nbsp <asp:Label ID="lblChatPeopleInQueue" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-            <p>Counselor Available: &nbsp <asp:Label ID="lblChatCounselorAvailable" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-        </div>
+        <div id="phone" class="container">
+            <div class="midfont">
+                <h2>Phones</h2>
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <div>
+                            <asp:Label ID="lblDate" runat="server" Text="Refreshing" CssClass="midfont"></asp:Label>
+                        </div>
+                        <div>
+                            <asp:Label ID="lblTime" runat="server" Text="Refreshing" CssClass="midfont"></asp:Label>
+                        </div>
+                        <asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer1_Tick">
+                        </asp:Timer>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
+            <div>
+                <div class="bigfont">
+                    <asp:Label ID="lblPhoneGradeService" runat="server" Text=""></asp:Label>
+                </div>
+                <div class="midfont">Grade of Service</div>
+            </div>
 
-            <div id="ENG" class="container">
-                <h2> English </h2>
-           
-            <div id="phoneE">
-                <h3>Phone</h3>
-                <p>Current Queued:&nbsp<asp:Label ID="lblCurQueued" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of Agents Logged On:&nbsp<asp:Label ID="lblAgentsLoggedOn" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of Agents Ready:&nbsp<asp:Label ID="lblAgentsReady" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of offered:&nbsp<asp:Label ID="lbloffered" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Number of Handled in this queue:&nbsp<asp:Label ID="lblHandled" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaitTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+            <div>
+                <div class="bigfont">
+                    <asp:Label ID="lblPhoneLongestWaitTime" runat="server" Text=""></asp:Label>
+                </div>
+                <div class="midfont">Longest Current wait time </div>
+
+                <div class="bigfont">
+                    <asp:Label ID="lblPhoneAverageWaitTime" runat="server" Text=""></asp:Label>
+                </div>
+                <div class="midfont">Average wait time</div>
+
+                <div class="bigfont">
+                    <asp:Label ID="lblPhoneCallToday" runat="server" Text=""></asp:Label>
+                </div>
+                <div class="midfont">Calls today</div>
             </div>
-            <div id="G2TE">
-                <h3>Good to Talk</h3>
-                <p>Current Queued:&nbsp<asp:Label ID="lblCurQueued_g2t" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of Agents Logged On:&nbsp<asp:Label ID="lblAgentsLoggedOn_g2t" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of Agents Ready:&nbsp<asp:Label ID="lblAgentsReady_g2t" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of offered:&nbsp<asp:Label ID="lbloffered_g2t" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Number of Handled in this queue:&nbsp<asp:Label ID="lblHandled_g2t" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaittime_g2t" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime_g2t" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+            <div>
+                <div class="bigfont">
+                    <asp:HiddenField ID="lblPhonePeopleInQueue" runat="server"></asp:HiddenField></div>
+             
+                   <div>
+                    <svg id="fillgauge_PhoneQueued" width="320" height="550" onclick="gauge5.update(NewValue());"></svg>
+                    <script>
+                        var config4 = liquidFillGaugeDefaultSettings();
+                        config4.circleThickness = 0.15; //0.15
+                        config4.circleColor = "#808015";
+                        config4.textColor = "#555500";
+                        config4.waveTextColor = "#FFFFAA";
+                        config4.waveColor = "#AAAA39";
+                        config4.textVertPosition = 0.55; //0.8
+                        config4.waveAnimateTime = 1000;
+                        config4.waveHeight = 0.1;
+                        config4.waveAnimate = true;
+                        config4.waveRise = false; //false
+                        config4.waveHeightScaling = true;
+                        config4.waveOffset = 0.35; //0.25
+                        config4.textSize = 2.0;//0.75
+                        config4.waveCount = 4;//3
+	                    config4.displayPercent = false; //true
+	                    var thevalue=document.getElementById('lblPhonePeopleInQueue').value; 
+                        var gauge5 = loadLiquidFillGauge("fillgauge_PhoneQueued", thevalue, config4);
+                    </script>
+                </div>
+                <div class="midfont">Young people in queue</div>
+
             </div>
-            <div id="ChatE">
-                <h3>Chat Desktop</h3>
-                <p>Current Queued:&nbsp<asp:Label ID="lblCurQueued_ChatE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of Agents Logged On:&nbsp<asp:Label ID="lblAgentsLoggedOn_ChatE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of Agents Ready:&nbsp<asp:Label ID="lblAgentsReady_ChatE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of offered:&nbsp<asp:Label ID="lbloffered_ChatE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Number of Handled in this queue:&nbsp<asp:Label ID="lblHandle_ChatEd" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaittime_ChatE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime_ChatE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-            </div>
-            <div id="ChatAppE">
-                <h3>Chat Mobile</h3>
-                <p>Current Queued:&nbsp<asp:Label ID="lblCurQueued_ChatAppE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of Agents Logged On:&nbsp<asp:Label ID="lblAgentsLoggedOn_ChatAppE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of Agents Ready:&nbsp<asp:Label ID="lblAgentsReady_ChatAppE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of offered:&nbsp<asp:Label ID="lbloffered_ChatAppE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Number of Handled in this queue:&nbsp<asp:Label ID="lblHandled_ChatAppE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaittime_ChatAppE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime_ChatAppE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-            </div>
-         </div>
-             <br />
-        <div id="FRE" class="container">
-            <h2>French</h2>
-            <div id="PhoneF">
-            <h3>Phone</h3>
-                <p>Current Queued:&nbsp<asp:Label ID="lblCurQueued_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of Agents Logged On:&nbsp<asp:Label ID="lblAgentsLoggedOn_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of Agents Ready:&nbsp<asp:Label ID="lblAgentsReady_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of offered:&nbsp<asp:Label ID="lbloffered_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Number of Handled in this queue:&nbsp<asp:Label ID="lblHandled_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaitTime_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-            </div>
-            <div id="G2TF">
-                <h3>Good to Talk</h3>
-                <p>Current Queued:&nbsp<asp:Label ID="lblCurQueued_g2t_f" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of Agents Logged On:&nbsp<asp:Label ID="lblAgentsLoggedOn_g2t_f" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of Agents Ready:&nbsp<asp:Label ID="lblAgentsReady_g2t_f" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of offered:&nbsp<asp:Label ID="lbloffered_g2t_f" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Number of Handled in this queue:&nbsp<asp:Label ID="lblHandled_g2t_f" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaitTime_g2t_f" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime_g2t_f" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-            </div>
-            <div id="ChatF">
-                <h3>Chat Desk</h3>
-                <p>Current Queued:&nbsp<asp:Label ID="lblCurQueued_ChatF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of Agents Logged On:&nbsp<asp:Label ID="lblAgentsLoggedOn_ChatF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of Agents Ready:&nbsp<asp:Label ID="lblAgentsReady_ChatF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of offered:&nbsp<asp:Label ID="lbloffered_ChatF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Number of Handled in this queue:&nbsp<asp:Label ID="lblHandled_ChatF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaitTime_ChatF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime_ChatF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-            </div>
-            <div id="ChatAppF">
-                <h3>Chat Mobile</h3>
-                <p>Current Queued:&nbsp<asp:Label ID="lblCurQueued_ChatAppF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of Agents Logged On:&nbsp<asp:Label ID="lblAgentsLoggedOn_ChatAppF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of Agents Ready:&nbsp<asp:Label ID="lblAgentsReady_ChatAppF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Num of offered:&nbsp<asp:Label ID="lbloffered_ChatAppF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Number of Handled in this queue:&nbsp<asp:Label ID="lblHandled_ChatAppF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaittime_ChatAppF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime_ChatAppF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+            <div>
+                <div class="bigfont">
+                    <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text=""></asp:Label>
+                </div>
+                <div class="midfont">Counselor Available</div>
+
             </div>
         </div>
-        <div>
-        <div>
-            <br /><br /><br />
-            <asp:Button ID="Button1" runat="server" Text="testing others" OnClick="Button1_Click" />
-        </div>
-            <div id="test1">
-                <p>QueueStats Phone_Eng: <asp:Label ID="lblQueueStats" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>QueueStats Chat_Eng: <asp:Label ID="lblChat_Eng" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>QueueStats ChatApp_Eng: <asp:Label ID="lblChatApp_Eng" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <br/>
-                <p>GetTargetASA phone_Eng: <asp:Label ID="GetTargetASA_phone_Eng" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></p>
-                <p>GetTargetASA Chat_Eng: <asp:Label ID="GetTargetASA_Chat_Eng" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></p>
-                <p>GetTargetASA ChatApp_Eng: <asp:Label ID="GetTargetASA_ChatApp_Eng" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></p>
-                <br/>
-                <p>NumHandledLessThanTargetASA phone_Eng: <asp:Label ID="lblHandledLessThanTargetASA_Phone_E" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></p>
-                <p>NumHandledLessThanTargetASA Chat_Eng: <asp:Label ID="lblHandledLessThanTargetASA_Chat_E" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>NumHandledLessThanTargetASA ChatApp_Eng:<asp:Label ID="lblHandledLessThanTargetASA_ChatApp_E" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+        <br />
+        <div id="chat" class="container">
+            <div class="midfont">
+                <h2>Live Chat</h2>
             </div>
-            <div id ="test2">
 
+            <div> 
+                <div class="bigfont"><asp:Label ID="lblChatGradeService" runat="server" Text=""></asp:Label></div>
+                <div class="midfont">
+                    Grade of Service:&nbsp
+                   
+                </div>
             </div>
-       </div>
+            <div>
+                <div class="bigfont">
+                    <asp:Label ID="lblChatLongestWaitTime" runat="server" Text=""></asp:Label>
+                </div>
+                <div class="midfont">Longest Current wait time</div>
 
+                <div class="bigfont">
+                    <asp:Label ID="lblChatAverageWaitTime" runat="server" Text=""></asp:Label>
+                </div>
+                <div class="midfont">Average wait time</div>
 
+                <div class="bigfont">
+                    <asp:Label ID="lblChatCallToday" runat="server" Text=""></asp:Label>
+                </div>
+                <div class="midfont">Calls today</div>
+            </div>
+            <div>
+                <div class="bigfont">
+                    <asp:HiddenField ID="lblChatPeopleInQueue" runat="server" ></asp:HiddenField>
+                </div>
+                <div>
+                    <svg id="fillgauge_ChatQueued" width="320" height="550" onclick="gauge5.update(NewValue());"></svg>
+                    <script>
+                        var config5 = liquidFillGaugeDefaultSettings();
+                        config5.circleThickness = 0.15; //0.15
+                        config5.circleColor = "#808015";
+                        config5.textColor = "#555500";
+                        config5.waveTextColor = "#FFFFAA";
+                        config5.waveColor = "#AAAA39";
+                        config5.textVertPosition = 0.55; //0.8
+                        config5.waveAnimateTime = 1000;
+                        config5.waveHeight = 0.2;
+                        config5.waveAnimate = true;
+                        config5.waveRise = true; //false
+                        config5.waveHeightScaling = true;
+                        config5.waveOffset = 0.25; //0.25
+                        config5.textSize = 2.0;//0.75
+                        config5.waveCount = 4;//3
+	                    config5.displayPercent = false; //true
+	                    var thevalue=document.getElementById('lblChatPeopleInQueue').value; 
+                        var gauge5 = loadLiquidFillGauge("fillgauge_ChatQueued", thevalue, config5);
+                    </script>
+                </div>
+                <div class="midfont">Young people in queue</div>
+            </div>
+            <div>
+                <div class="bigfont">
 
-        <div>
-            <asp:Label ID="lblerror" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="lblChatCounselorAvailable" runat="server" Text=""></asp:Label>
+
+                </div>
+                <div class="midfont">Counselor Available</div>
+            </div>
         </div>
-
-
-
-
-
+        <div style="display: none">
+            <div>
+                <asp:Label ID="lblerror" runat="server" Text=""></asp:Label>
+            </div>
+        </div>
 
     </form>
 </body>
