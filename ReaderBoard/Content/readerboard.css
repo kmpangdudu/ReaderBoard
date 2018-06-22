@@ -1,0 +1,124 @@
+﻿.liquidFillGaugeText {
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+.flex-container {
+    display: flex;
+    align-items: stretch;
+}
+
+    .flex-container > div {
+        
+        width: 22.5%;
+        text-align: center;
+        margin: 8px 3px;
+        background-color: lightsteelblue;
+    }
+
+#ENG, #phone {
+    background-color: lightcoral;
+    padding: 5px,10px,5px,10px;
+    margin: 5px,10px,5px,5px;
+    border: double;
+    border-color: lightcoral;
+    border-width: 10px
+}
+
+#FRE, #chat {
+    background-color: lightgrey;
+    padding: 5px,10px,5px,10px;
+    margin: 0px,10px,5px,10px;
+    border: double;
+    border-color: lightgrey;
+    border-width: 10px
+}
+
+p {
+    padding: 0px,0px,0px,10px;
+    margin: 0px;
+}
+
+#phoneE {
+    background-color: lightblue;
+    padding: 2px,5px;
+    margin: 2px,5px;
+}
+
+#G2TE {
+    background-color: plum;
+    padding: 2px,5px;
+    margin: 2px,5px;
+}
+
+#ChatE {
+    background-color: lightgoldenrodyellow;
+    padding: 2px,5px;
+    margin: 2px,5px;
+}
+
+#ChatAppE {
+    background-color: lightgray;
+    padding: 2px,5px;
+    margin: 2px,5px;
+}
+
+#PhoneF {
+    background-color: coral;
+    padding: 2px,5px;
+    margin: 2px,5px;
+}
+
+#G2TF {
+    background-color: lightgoldenrodyellow;
+    padding: 2px,5px;
+    margin: 2px,5px;
+}
+
+#ChatF {
+    background-color: lime;
+    padding: 2px,5px;
+    margin: 2px,5px;
+}
+
+#ChatAppF {
+    background-color: lightblue;
+    padding: 2px,5px;
+    margin: 2px,5px;
+}
+
+.bigfont {
+    font-size: 96px;
+}
+
+.midfont {
+    font-size: 30px;
+}
+
+.midfont_title {
+    font-size: 42px;
+}
+
+#chart_div1, #chart_div2, #chart_div3, #chart_div4 {
+    width: 98%;
+    /* height: 220px;*/
+    border: 1px solid #000000;
+    text-align: center;
+    align-content:center;
+    align-self:center;
+}
+
+table, tbody{
+    align-self:center;
+}
+
+.line1
+{
+    height:30px;
+}
+.debugboard1 {
+    border: 1px solid #00FF00;
+}
+.debugboard2 {
+    border: 1px solid #000000;
+}

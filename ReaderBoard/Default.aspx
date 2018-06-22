@@ -2,49 +2,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Readerboard</title>
     <script src="http://d3js.org/d3.v3.min.js" lang="JavaScript"></script>
     <script src="Scripts/liquidFillGauge.js" lang="JavaScript"></script>
-    <script src="Scripts/liquidFillGauge.js" lang="JavaScript"></script>
-    <style>
-        .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
-        .container {
-            display: flex;
-        }
-        .container > div {
-          flex: 1; /*grow*/
-        }
-        #ENG,#phone {
-            background-color:lightcoral;padding:5px,10px,5px,10px;margin: 5px,10px,5px,5px;border:double;border-color:lightcoral;border-width:10px
-        }
-        #FRE,#chat{
-        background-color:lightgrey;padding:5px,10px,5px,10px;margin: 0px,10px,5px,10px;border:double;border-color:lightgrey;border-width:10px
-        }
-        p{padding:0px,0px,0px,10px; margin:0px;}
-
-        #phoneE{background-color:lightblue;padding:2px,5px;margin: 2px,5px;}
-        #G2TE{background-color:plum;padding:2px,5px;margin: 2px,5px;}
-        #ChatE{background-color:lightgoldenrodyellow;padding:2px,5px;margin: 2px,5px;}
-        #ChatAppE {background-color:lightgray;padding:2px,5px;margin: 2px,5px;}
-
-        #PhoneF{background-color:coral;padding:2px,5px;margin: 2px,5px;}
-        #G2TF{background-color:lightgoldenrodyellow;padding:2px,5px;margin: 2px,5px;}
-        #ChatF{background-color:lime;padding:2px,5px;margin: 2px,5px;}
-        #ChatAppF {background-color:lightblue;padding:2px,5px;margin: 2px,5px;}
-        .bigfont {
-            font-size:116px;
-        }
-        .midfont {
-            font-size:42px;
-        }
-    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="Scripts/googleGauge.js"></script>
+    <link href="Content/readerboard.css" rel="stylesheet" />
+ 
 </head>
 <body>
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-        <div id="phone" class="container">
-            <div class="midfont">
+        <div id="phone" class="flex-container ">
+            <div class="midfont_title" style="flex-basis:12.5%">
                 <h2>Phones</h2>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
@@ -60,34 +31,38 @@
                 </asp:UpdatePanel>
             </div>
             <div>
-                <div class="bigfont">
-                    <asp:Label ID="lblPhoneGradeService" runat="server" Text=""></asp:Label>
+                <div>
+                    <div>
+                        <asp:HiddenField ID="lblPhoneGradeService" runat="server"></asp:HiddenField>
+                    </div>
+                    <div id="chart_div1"></div>
                 </div>
-                <div class="midfont">Grade of Service</div>
+                <div class="midfont">Grade of Service (%)</div>
+                <div>
+                    <asp:HiddenField ID="lblPhoneGradeService24" runat="server"></asp:HiddenField>
+                    <div id="chart_div2"></div>
+                </div>
             </div>
 
             <div>
                 <div class="bigfont">
                     <asp:Label ID="lblPhoneLongestWaitTime" runat="server" Text=""></asp:Label>
                 </div>
-                <div class="midfont">Longest Current wait time </div>
-
+                <div class="midfont">Longest current wait time </div>
+                <p class="line1">&nbsp;</p>
                 <div class="bigfont">
                     <asp:Label ID="lblPhoneAverageWaitTime" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="midfont">Average wait time</div>
-
+                <p class="line1">&nbsp;</p>
                 <div class="bigfont">
                     <asp:Label ID="lblPhoneCallToday" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="midfont">Calls today</div>
             </div>
-            <div>
-                <div class="bigfont">
-                    <asp:HiddenField ID="lblPhonePeopleInQueue" runat="server"></asp:HiddenField></div>
-             
-                   <div>
-                    <svg id="fillgauge_PhoneQueued" width="320" height="550" onclick="gauge5.update(NewValue());"></svg>
+            <div >
+                <div class="bigfont"><asp:HiddenField ID="lblPhonePeopleInQueue" runat="server"></asp:HiddenField></div>
+                    <svg id="fillgauge_PhoneQueued" width="320" height="430" onclick="gauge5.update(NewValue());"></svg>
                     <script>
                         var config4 = liquidFillGaugeDefaultSettings();
                         config4.circleThickness = 0.15; //0.15
@@ -108,53 +83,61 @@
 	                    var thevalue=document.getElementById('lblPhonePeopleInQueue').value; 
                         var gauge5 = loadLiquidFillGauge("fillgauge_PhoneQueued", thevalue, config4);
                     </script>
-                </div>
-                <div class="midfont">Young people in queue</div>
+               
+                <div class="midfont">In Queued</div>
 
             </div>
             <div>
+                <div class="midfont">Counselor Available</div>
                 <div class="bigfont">
                     <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text=""></asp:Label>
                 </div>
-                <div class="midfont">Counselor Available</div>
+                
 
             </div>
         </div>
         <br />
-        <div id="chat" class="container">
-            <div class="midfont">
+        <div id="chat" class="flex-container ">
+            <div class="midfont" style="flex-basis:12.5%">
                 <h2>Live Chat</h2>
             </div>
-
-            <div> 
-                <div class="bigfont"><asp:Label ID="lblChatGradeService" runat="server" Text=""></asp:Label></div>
-                <div class="midfont">
-                    Grade of Service:&nbsp
-                   
+            <div>
+                <div>
+                    <div>
+                        <asp:HiddenField ID="lblChatGradeService" runat="server" />
+                    </div>
+                    <div id="chart_div3"></div>
+                </div>
+                <div class="midfont">Grade of Service (%)</div>
+                <div>
+                    <div class="bigfont">
+                        <asp:HiddenField ID="lblChatGradeService24" runat="server"></asp:HiddenField>
+                    </div>
+                    <div id="chart_div4"></div>
                 </div>
             </div>
             <div>
                 <div class="bigfont">
                     <asp:Label ID="lblChatLongestWaitTime" runat="server" Text=""></asp:Label>
                 </div>
-                <div class="midfont">Longest Current wait time</div>
-
+                <div class="midfont">Longest current wait time</div>
+                <p class="line1">&nbsp;</p>
                 <div class="bigfont">
                     <asp:Label ID="lblChatAverageWaitTime" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="midfont">Average wait time</div>
-
+                <p class="line1">&nbsp;</p>
                 <div class="bigfont">
                     <asp:Label ID="lblChatCallToday" runat="server" Text=""></asp:Label>
                 </div>
                 <div class="midfont">Calls today</div>
             </div>
-            <div>
+            <div >
                 <div class="bigfont">
                     <asp:HiddenField ID="lblChatPeopleInQueue" runat="server" ></asp:HiddenField>
                 </div>
                 <div>
-                    <svg id="fillgauge_ChatQueued" width="320" height="550" onclick="gauge5.update(NewValue());"></svg>
+                    <svg id="fillgauge_ChatQueued" width="320" height="430" onclick="gauge5.update(NewValue());"></svg>
                     <script>
                         var config5 = liquidFillGaugeDefaultSettings();
                         config5.circleThickness = 0.15; //0.15
@@ -176,15 +159,14 @@
                         var gauge5 = loadLiquidFillGauge("fillgauge_ChatQueued", thevalue, config5);
                     </script>
                 </div>
-                <div class="midfont">Young people in queue</div>
+                <div class="midfont">In Queued</div>
             </div>
             <div>
+                 <div class="midfont">Counselor Available</div>
                 <div class="bigfont">
-
                     <asp:Label ID="lblChatCounselorAvailable" runat="server" Text=""></asp:Label>
-
                 </div>
-                <div class="midfont">Counselor Available</div>
+
             </div>
         </div>
         <div style="display: none">

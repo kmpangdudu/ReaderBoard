@@ -73,7 +73,16 @@ namespace ReaderBoard {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPhoneGradeService;
+        protected global::System.Web.UI.WebControls.HiddenField lblPhoneGradeService;
+        
+        /// <summary>
+        /// lblPhoneGradeService24 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField lblPhoneGradeService24;
         
         /// <summary>
         /// lblPhoneLongestWaitTime control.
@@ -127,7 +136,16 @@ namespace ReaderBoard {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblChatGradeService;
+        protected global::System.Web.UI.WebControls.HiddenField lblChatGradeService;
+        
+        /// <summary>
+        /// lblChatGradeService24 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField lblChatGradeService24;
         
         /// <summary>
         /// lblChatLongestWaitTime control.
