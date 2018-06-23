@@ -1,4 +1,35 @@
-﻿.liquidFillGaugeText {
+﻿body::-webkit-scrollbar {
+    width: 0.1em;
+}
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: black;
+    outline: 1px solid slategrey;
+}
+body {
+    background-color: #ccc;
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2{
+    margin:5px;
+}
+p {
+    padding: 0px,0px,0px,10px;
+    margin: 0px;
+}
+div {
+    border-radius: 8px;
+    background-color: #fcfcfc;
+
+}
+
+.liquidFillGaugeText {
     font-family: Helvetica;
     font-weight: bold;
 }
@@ -6,119 +37,116 @@
 .flex-container {
     display: flex;
     align-items: stretch;
+    border-radius: 8px;
+    padding-top:10px;
 }
 
     .flex-container > div {
-        
         width: 22.5%;
         text-align: center;
-        margin: 8px 3px;
-        background-color: lightsteelblue;
+        margin: 0px;
+        background-color: #FCFCFC;
+        border-radius: 7px;
+        padding: 5px 0 5px 0;
     }
 
-#ENG, #phone {
-    background-color: lightcoral;
-    padding: 5px,10px,5px,10px;
-    margin: 5px,10px,5px,5px;
+#ENG, #phone, #chat, #phoneE, #G2TE, #ChatE, #ChatAppE {
+    /*background-color: lightgrey;*/
+    padding: 2px;
+    margin: 2px 2px 0px 2px;
     border: double;
-    border-color: lightcoral;
-    border-width: 10px
+    border: 20px double #999;
+    border-width: 1px;
 }
 
-#FRE, #chat {
+#FRE, #PhoneF, #G2TF, #ChatF, #ChatAppF {
     background-color: lightgrey;
-    padding: 5px,10px,5px,10px;
-    margin: 0px,10px,5px,10px;
+    padding: 2px;
+    margin: 0px 2px 0px 2px;
     border: double;
     border-color: lightgrey;
-    border-width: 10px
+    border-width: 1px
 }
 
-p {
-    padding: 0px,0px,0px,10px;
-    margin: 0px;
+.emptyline{
+    margin:3px 0px 3px 0px;
 }
-
-#phoneE {
-    background-color: lightblue;
-    padding: 2px,5px;
-    margin: 2px,5px;
-}
-
-#G2TE {
-    background-color: plum;
-    padding: 2px,5px;
-    margin: 2px,5px;
-}
-
-#ChatE {
-    background-color: lightgoldenrodyellow;
-    padding: 2px,5px;
-    margin: 2px,5px;
-}
-
-#ChatAppE {
-    background-color: lightgray;
-    padding: 2px,5px;
-    margin: 2px,5px;
-}
-
-#PhoneF {
-    background-color: coral;
-    padding: 2px,5px;
-    margin: 2px,5px;
-}
-
-#G2TF {
-    background-color: lightgoldenrodyellow;
-    padding: 2px,5px;
-    margin: 2px,5px;
-}
-
-#ChatF {
-    background-color: lime;
-    padding: 2px,5px;
-    margin: 2px,5px;
-}
-
-#ChatAppF {
-    background-color: lightblue;
-    padding: 2px,5px;
-    margin: 2px,5px;
-}
-
 .bigfont {
-    font-size: 96px;
+    font-size: 98px;
+    font-weight: bold;
 }
 
 .midfont {
-    font-size: 30px;
+    font-size: 28px;
 }
 
 .midfont_title {
     font-size: 42px;
 }
+.Top-min-XXpx
+{
+    margin-top:-55px;
+}
 
 #chart_div1, #chart_div2, #chart_div3, #chart_div4 {
-    width: 98%;
-    /* height: 220px;*/
-    border: 1px solid #000000;
     text-align: center;
-    align-content:center;
-    align-self:center;
+    align-content: center;
+    align-self: center;
+    margin-top:13px;
 }
 
-table, tbody{
-    align-self:center;
+.logodiv {
+    padding: 15px 2px 0px 8px;
+}
+.logostyle {
+    padding: 5px;
+    width: 95%;
+    margin-bottom:0px;
 }
 
-.line1
-{
-    height:30px;
+.container_parent {
+    width: 98%;
+    margin: 3px;
+    padding: 3px;
+    text-align: center;
 }
-.debugboard1 {
-    border: 1px solid #00FF00;
+
+.center_child {
+    display: inline-block;
+    border: 0px solid #fff;
+     
 }
-.debugboard2 {
-    border: 1px solid #000000;
+
+.center_child {
+    _display: inline;
 }
+    /*针对ie6 hack*/
+    .center_child a {
+        float: left;
+        border: 1px solid #fff;
+        padding: 5px 10px;
+        margin: 10px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+.borderShadow {
+    box-shadow: 3px 3px 5px #777;
+    border: 2px double #aaa;
+    margin: 7px 1px 6px 8px;
+    padding-bottom: 12px;
+    width: 95%;
+    /*height: 160px;*/
+    background-color: #FCFCFC;
+    border-radius: 5px 5px 5px 5px;
+
+}
+ 
+.borderLine {
+    /*border: 2px double #CCC;*/
+}
+.borderLineThick {
+    border: 5px double #FF0000;
+}
+
+

@@ -2,14 +2,14 @@
 google.charts.setOnLoadCallback(drawPhoneChart);
 
 var options = {
-    width: 350,   height:230,  //Gauge height
+    width: 250,   height:220,  //Gauge height  250*220 id best
     redColor: "#FF0000",
-    redFrom: 0, redTo: 40,
+    redFrom: 0, redTo: 50,
     yellowColor: "#FFFF00",
-    yellowFrom: 40, yellowTo: 80,
+    yellowFrom: 50, yellowTo: 82.5,
     greenColor: "00FF00",
-    greenFrom: 80, greenTo: 100,
-    minorTicks: 20
+    greenFrom: 82.5, greenTo: 100,
+    minorTicks: 10
 };
 
 function drawPhoneChart() {
