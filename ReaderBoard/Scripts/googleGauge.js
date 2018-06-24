@@ -6,10 +6,10 @@ var options = {
     redColor: "#FF0000",
     redFrom: 0, redTo: 50,
     yellowColor: "#FFFF00",
-    yellowFrom: 50, yellowTo: 82.5,
+    yellowFrom: 50, yellowTo: 75,
     greenColor: "00FF00",
-    greenFrom: 82.5, greenTo: 100,
-    minorTicks: 10
+    greenFrom: 75, greenTo: 100,
+    minorTicks: 5
 };
 
 function drawPhoneChart() {

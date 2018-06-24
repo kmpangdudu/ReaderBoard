@@ -65,7 +65,7 @@ namespace ReaderBoard
             }
 
 
-            //Response.AppendHeader("Refresh", refreshing);
+           // Response.AppendHeader("Refresh", refreshing);
         }
 
         protected void Timer1_Tick(object sender, EventArgs e)
@@ -91,9 +91,9 @@ namespace ReaderBoard
                 int PeopleInQueue             = Convert.ToInt32(stru_Phone_ENG.CurrentInQueued) + Convert.ToInt32(stru_Phone_FRE.CurrentInQueued) + Convert.ToInt32(stru_G2T_ENG.CurrentInQueued) + Convert.ToInt32(stru_G2T_FRE.CurrentInQueued);
                 int CounselorAvailable        = Convert.ToInt32(stru_Phone_ENG.CounselorAvailable) + Convert.ToInt32(stru_Phone_FRE.CounselorAvailable) + Convert.ToInt32(stru_G2T_ENG.CounselorAvailable) + Convert.ToInt32(stru_G2T_FRE.CounselorAvailable);
 
-
-                lblPhoneGradeService.Value = (iNumOffered != 0 ?  100 * iNumhundledLessThanTarget / iNumOffered : 0 ).ToString("N2");
-                lblPhoneGradeService24.Value = (iNumOffered != 0 ? 100 * iNumhundledLessThanTarget / iNumOffered : 0 ).ToString("N2"); 
+                Double ASA = 100.0 * iNumhundledLessThanTarget / iNumOffered;
+                lblPhoneGradeService.Value = (iNumOffered != 0 ?  ASA : 0.00 ).ToString("N2");
+                lblPhoneGradeService24.Value = (iNumOffered != 0 ? ASA : 0.00 ).ToString("N2"); 
                 lblPhoneLongestWaitTime.Text = LongestWaitTime.ToString();
                 lblPhoneAverageWaitTime.Text = AverageWaitTime.ToString();
                 lblPhoneCallToday.Text = CallToday.ToString();
@@ -121,8 +121,9 @@ namespace ReaderBoard
                 int PeopleInQueue =             Convert.ToInt32(stru_Chat_ENG.CurrentInQueued) + Convert.ToInt32(stru_Chat_FRE.CurrentInQueued) + Convert.ToInt32(stru_ChatApp_ENG.CurrentInQueued) + Convert.ToInt32(stru_ChatApp_FRE.CurrentInQueued);
                 int CounselorAvailable =        Convert.ToInt32(stru_Chat_ENG.CounselorAvailable) + Convert.ToInt32(stru_Chat_FRE.CounselorAvailable) + Convert.ToInt32(stru_ChatApp_ENG.CounselorAvailable) + Convert.ToInt32(stru_ChatApp_FRE.CounselorAvailable);
 
-                lblChatGradeService.Value = (iNumOffered != 0 ? 100 * iNumhundledLessThanTarget / iNumOffered : 0).ToString("N2"); ;
-                lblChatGradeService24.Value = (iNumOffered != 0 ? 100 * iNumhundledLessThanTarget / iNumOffered : 0).ToString("N2"); ;
+                double asa1 = 100.00 * iNumhundledLessThanTarget / iNumOffered;
+                lblChatGradeService.Value = (iNumOffered != 0 ? asa1 : 0.00).ToString("N2"); 
+                lblChatGradeService24.Value = (iNumOffered != 0 ? asa1 : 0.00).ToString("N2"); 
 
                 lblChatLongestWaitTime.Text = LongestWaitTime.ToString();
                 lblChatAverageWaitTime.Text = AverageWaitTime.ToString();

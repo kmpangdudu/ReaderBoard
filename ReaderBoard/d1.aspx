@@ -1,20 +1,22 @@
-﻿<%@ Page Title="KHP Status" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ReaderBoard._Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ReaderBoard._Default" %>
+
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Readerboard</title>
+    <title>DarkTheme</title>
     <script src="http://d3js.org/d3.v3.min.js" lang="JavaScript"></script>
     <script src="Scripts/liquidFillGauge.js" lang="JavaScript"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="Scripts/googleGauge.js"></script>
-    <link href="Content/readerboard.css" rel="stylesheet" />
+    <link href="Content/dark.css" rel="stylesheet" />
  
 </head>
 <body>
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-        <div id="phone" class="flex-container effect5  borderLineThick">
+        <div id="phone" class="flex-container effect5 borderLineThick">
             <div class="midfont_title  borderLine"  style="flex-basis: 15%" >
                 <div class="logodiv">
                     <img src="Content/KHP_EN_RGB.svg" alt="Home" class="logostyle">
@@ -28,7 +30,7 @@
                             <asp:Label ID="lblDate" runat="server" Text="Refreshing" CssClass="clock"></asp:Label>
                         </div>
                         <div>
-                            <asp:Label ID="lblTime" runat="server" Text="Refreshing" CssClass="clock"></asp:Label>
+                            <asp:Label ID="lblTime" runat="server" Text="Refreshing"   CssClass="clock"></asp:Label>
                         </div>
                         <asp:Timer ID="Timer1" runat="server" Interval="500" OnTick="Timer1_Tick">
                         </asp:Timer>
@@ -91,19 +93,19 @@
                     <script>
                         var config4 = liquidFillGaugeDefaultSettings();
                         config4.circleThickness = 0.10; //0.15
-                        config4.circleColor = "#0462F7";
-                        config4.textColor = "#333333";
+                        config4.circleColor = "#00FFFF";
+                        config4.textColor = "#FCFCFC";
                         config4.waveTextColor = "#FFFFAA";
-                        config4.waveColor = "#AAAA39";
+                        config4.waveColor = "#00FFFF";
                         config4.textVertPosition = 0.55; //0.8
                         config4.waveAnimateTime = 1000;
-                        config4.waveHeight = 0.3;
+                        config4.waveHeight = 0.1;
                         config4.waveAnimate = true;
                         config4.waveRise = false; //false
                         config4.waveHeightScaling = true;
                         config4.waveOffset = 0.35; //0.25
                         config4.textSize = 2.2;//0.75
-                        config4.waveCount = 3;//3
+                        config4.waveCount = 4;//3
                         config4.displayPercent = false; //true
                         var thevalue = document.getElementById('lblPhonePeopleInQueue').value;
                         var gauge5 = loadLiquidFillGauge("fillgauge_PhoneQueued", thevalue, config4);
@@ -130,7 +132,7 @@
         </div>
 
 
-        <p style="height:7px;">&nbsp;</p>
+       <%-- <p style="height:-1px;">&nbsp;</p>--%>
 
 
         <div id="chat" class="flex-container effect5 borderLineThick">  
@@ -198,19 +200,19 @@
                     <script>
                         var config5 = liquidFillGaugeDefaultSettings();
                         config5.circleThickness = 0.10; //0.15
-                        config5.circleColor = "#0462F7";//808015
-                        config5.textColor = "#333333";
+                        config5.circleColor = "#00FFFF";//808015
+                        config5.textColor = "#FCFCFC";
                         config5.waveTextColor = "#FFFFAA";//FFFFAA
-                        config5.waveColor = "#AAAA39";   //AAAA39
+                        config5.waveColor = "#00FFFF";   //AAAA39
                         config5.textVertPosition = 0.55; //0.8
                         config5.waveAnimateTime = 1000;
-                        config5.waveHeight = 0.2;
+                        config5.waveHeight = 0.3;
                         config5.waveAnimate = true;
                         config5.waveRise = true; //false
                         config5.waveHeightScaling = true;
-                        config5.waveOffset = 0.25; //0.25
+                        config5.waveOffset = 0.35; //0.25
                         config5.textSize = 2.1;//0.75
-                        config5.waveCount = 4;//3
+                        config5.waveCount = 3;//3
                         config5.displayPercent = false; //true
                         var thevalue = document.getElementById('lblChatPeopleInQueue').value;
                         var gauge5 = loadLiquidFillGauge("fillgauge_ChatQueued", thevalue, config5);
