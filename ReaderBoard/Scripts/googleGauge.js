@@ -3,7 +3,7 @@ google.charts.setOnLoadCallback(drawPhoneChart);
 
 var options = {
     width: 250,   height:220,  //Gauge height  250*220 id best
-    redColor: "#FF0000",
+    redColor: "#FF00FF",
     redFrom: 0, redTo: 50,
     yellowColor: "#FFFF00",
     yellowFrom: 50, yellowTo: 75,

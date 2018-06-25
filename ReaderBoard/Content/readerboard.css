@@ -14,11 +14,33 @@ body {
     background-color: #ccc;
     color: #333333;
     font-family: Arial, Helvetica, sans-serif;
+    margin:18px 10px 10px 10px;
+
+}
+h1 {
+    font-size: 98px;
+    font-weight: bold;
+    text-shadow: 7px 7px 7px #999;
+    margin:0px;
+}
+h2 {
+    font-size: 72px;
+    text-shadow: 5px 5px 5px #999;
+    margin: 5px;
 }
 
-h2{
-    margin:5px;
+h3 {
+    font-size: 28px;
+    text-shadow: 4px 4px 4px #999;
+    margin: 0px;
 }
+
+.clock {
+    font-size: 36px !important;
+    color: #0462F7 !important;
+    text-shadow: 4px 4px 4px #99d6ff;
+}
+
 p {
     padding: 0px,0px,0px,10px;
     margin: 0px;
@@ -44,14 +66,14 @@ div {
     .flex-container > div {
         width: 22.5%;
         text-align: center;
-        margin: 0px;
-        background-color: #FCFCFC;
-        border-radius: 7px;
+        margin: 0px 2px;
+        background-color:   #FCFCFC;
+        / border-radius: 7px;
         padding: 5px 0 5px 0;
     }
 
 #ENG, #phone, #chat, #phoneE, #G2TE, #ChatE, #ChatAppE {
-    /*background-color: lightgrey;*/
+    background-color: #ddd;
     padding: 2px;
     margin: 2px 2px 0px 2px;
     border: double;
@@ -71,27 +93,13 @@ div {
 .emptyline{
     margin:3px 0px 3px 0px;
 }
-.bigfont {
-    font-size: 98px;
-    font-weight: bold;
-}
 
-.midfont {
-    font-size: 28px;
-}
-
-.midfont_title {
-    font-size: 42px;
-}
 .Top-min-XXpx
 {
     margin-top:-55px;
 }
 
-.clock {
-    font-size: 36px!important;
-    color: #333!important;
-}
+
 
 #chart_div1, #chart_div2, #chart_div3, #chart_div4 {
     text-align: center;
@@ -148,14 +156,16 @@ div {
 }
  
 .borderLine {
-    /*border: 3px double #AAA;*/
+    border: 1px double #AAA;
  
 }
 .borderLineThick {
     border: 5px double #FF0000;
 }
-
-
+.phonebackground
+{
+    background-color :red;
+}
 /*==================================================
  * Effect 5
  * ===============================================*/
@@ -178,10 +188,10 @@ div {
         width: 50%;
         top: 80%;
         max-width: 400px;
-        background: #777;
-        -webkit-box-shadow: 0 35px 20px #777;
-        -moz-box-shadow: 0 35px 20px #777;
-        box-shadow: 5px 35px 20px #777;
+        background: #777; /** 777 */
+        -webkit-box-shadow: 0 35px 20px #777; /*777**/
+        -moz-box-shadow: 0 35px 20px #777; /*777**/
+        box-shadow: 5px 35px 20px #333; /*555*/
         -webkit-transform: rotate(-8deg);
         -moz-transform: rotate(-8deg);
         -o-transform: rotate(-8deg);
@@ -202,4 +212,13 @@ div {
 
 sub{
     font-size:24px;
+}
+
+
+
+#BarContainer {
+    margin: 200px;
+    width: 100px;
+    height: 100px;
+    /*position: relative;*/
 }

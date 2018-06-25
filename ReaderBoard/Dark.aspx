@@ -17,9 +17,10 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
         <div id="phone" class="flex-container effect5 borderLineThick">
-            <div class="midfont_title  borderLine"  style="flex-basis: 15%" >
+ 
+            <div class="  borderLine"  style="flex-basis: 15%" >
                 <div class="logodiv">
-                    <img src="Content/KHP_EN_RGB.svg" alt="Home" class="logostyle">
+                    <img src="Content/KHP_EN_RGB.svg" alt="Home" class="logostyle" />
                 </div>
                 <div>
                     <h2>Phone</h2>
@@ -49,7 +50,7 @@
                     </div>
                     <div id="chart_div1" class="center_child"></div>
                 </div>
-                <div class="midfont">Grade of Service (%)</div>
+                <h3>Grade of Service (%)</h3>
                 <div class="container">
                     <asp:HiddenField ID="lblPhoneGradeService24" runat="server"></asp:HiddenField>
                     <div id="chart_div2" class="center_child"></div>
@@ -61,23 +62,23 @@
             <!-- Phone wait time  -->
             <div class="  borderLine">
                 <div class="borderShadow">
-                    <div class="bigfont">
+                    <h1 class="bigfont">
                         <asp:Label ID="lblPhoneLongestWaitTime" runat="server" Text=""></asp:Label>  
                         
-                    </div>
-                    <div class="midfont">Current wait time (min.)</div>
+                    </h1>
+                    <h3 class="">Current wait time (min.)</h3>
                 </div>
                 <div class="borderShadow">
-                    <div class="bigfont">
+                    <h1 class="bigfont">
                         <asp:Label ID="lblPhoneAverageWaitTime" runat="server" Text=""></asp:Label>
-                    </div>
-                    <div class="midfont">Average wait time (min.)</div>
+                    </h1>
+                    <h3 class="">Average wait time (min.)</h3>
                 </div>
                 <div class="borderShadow">
-                    <div class="bigfont">
+                    <h1 class="bigfont">
                         <asp:Label ID="lblPhoneCallToday" runat="server" Text=""></asp:Label>
-                    </div>
-                    <div class="midfont">Calls today</div>
+                    </h1>
+                    <h3 class="">Calls today</h3>
                 </div>
             </div>
 
@@ -85,9 +86,9 @@
 
             <!-- Phone in Queued -->
             <div class=" borderLine">
-                <div class="bigfont">
+                <h1 class="bigfont">
                     <asp:HiddenField ID="lblPhonePeopleInQueue" runat="server"></asp:HiddenField>
-                </div>
+                </h1>
                 <div>
                     <svg id="fillgauge_PhoneQueued" width="280" height="500" onclick="gauge5.update(NewValue());"></svg>
                     <script>
@@ -110,7 +111,7 @@
                         var thevalue = document.getElementById('lblPhonePeopleInQueue').value;
                         var gauge5 = loadLiquidFillGauge("fillgauge_PhoneQueued", thevalue, config4);
                     </script>
-                    <div class="midfont Top-min-XXpx">In Queued</div>
+                    <div class=" Top-min-XXpx">In Queued</div>
                 </div>
             </div>
 
@@ -118,10 +119,10 @@
 
             <!-- Phone Counselor Availabele  -->
             <div class=" borderLine">
-                <div class="midfont">Counselor Available</div>
-                <div class="bigfont">
+                <h3 class="">Counselor Available</h3>
+                <h1 class="bigfont">
                     <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text=""></asp:Label>
-                </div>
+                </h1>
                 <div style="background-color:lightblue; ">
                     <p>phone_Eng: XXXX</p>
                     <p>phone_Fre: XXXX</p>
@@ -129,6 +130,8 @@
                     <p>G2T_Fre: #####</p>
                 </div>
             </div>
+
+   
         </div>
 
 
@@ -154,11 +157,11 @@
                     </div>
                     <div id="chart_div3" class="center_child"></div>
                 </div>
-                <div class="midfont">Grade of Service (%)</div>
+                <h3 class="">Grade of Service (%)</h3>
                 <div>
-                    <div class="bigfont">
+                    <h1 class="bigfont">
                         <asp:HiddenField ID="lblChatGradeService24" runat="server"></asp:HiddenField>
-                    </div>
+                    </h1>
                     <div id="chart_div4" class="center_child"></div>
                 </div>
             </div>
@@ -168,22 +171,22 @@
             <!--  Chat wait time    -->
             <div class=" borderLine">
                 <div class="borderShadow">
-                    <div class="bigfont">
+                    <h1 class="bigfont">
                         <asp:Label ID="lblChatLongestWaitTime" runat="server" Text=""></asp:Label>
-                    </div>
-                    <div class="midfont">Current wait time (min.)</div>
+                    </h1>
+                    <h3 class="">Current wait time (min.)</h3>
                 </div>
                 <div class="borderShadow">
-                    <div class="bigfont">
+                    <h1 class="bigfont">
                         <asp:Label ID="lblChatAverageWaitTime" runat="server" Text=""></asp:Label>
-                    </div>
-                    <div class="midfont">Average wait time (min.)</div>
+                    </h1>
+                    <h3 class="">Average wait time (min.)</h3>
                 </div>
                 <div class="borderShadow">
-                    <div class="bigfont">
+                    <h1 class="bigfont">
                         <asp:Label ID="lblChatCallToday" runat="server" Text=""></asp:Label>
-                    </div>
-                    <div class="midfont">Chats today</div>
+                    </h1>
+                    <h3 class="">Chats today</h3>
                 </div>
             </div>
 
@@ -191,9 +194,9 @@
 
             <!-- Chat In Queued       -->
             <div class="borderLine ">
-                <div class="bigfont">
+                <h1 class="bigfont">
                     <asp:HiddenField ID="lblChatPeopleInQueue" runat="server"></asp:HiddenField>
-                </div>
+                </h1>
                 <div>
                     <svg id="fillgauge_ChatQueued" width="280" height="500" onclick="gauge5.update(NewValue());"></svg>
                     <%--width 280 X height="500"  down  best --%>
@@ -218,17 +221,17 @@
                         var gauge5 = loadLiquidFillGauge("fillgauge_ChatQueued", thevalue, config5);
                     </script>
                 </div>
-                <div class="midfont Top-min-XXpx">In Queued</div>
+                <div class=" Top-min-XXpx">In Queued</div>
             </div>
 
 
 
             <!-- Chat Counselor Available       -->
             <div class="borderLine ">
-                <div class="midfont emptyline">Counselor Available</div>
-                <div class="bigfont">
+                <div class=" emptyline">Counselor Available</div>
+                <h1 class="bigfont">
                     <asp:Label ID="lblChatCounselorAvailable" runat="server" Text=""></asp:Label>
-                </div>
+                </h1>
                 <p>WebChat_Eng: XXXX</p>
                 <p>WebChat_Fre: XXXX</p>
                 <p>ChatApp_Eng: #####</p>
