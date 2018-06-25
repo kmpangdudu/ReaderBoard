@@ -18,10 +18,10 @@
 
         <div id="phone" class="flex-container effect5  borderLineThick">
             <div class="midfont_title  borderLine"  style="flex-basis: 15%" >
-                <div class="logodiv">
+                <div class="logodiv ChatDivDown">
                     <img src="Content/KHP_EN_RGB.svg" alt="Home" class="logostyle" />
                 </div>
-                <div>
+                <div class="ChatDivDown">
                     <h2>Phone</h2>
                 </div>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -32,7 +32,7 @@
                         <div>
                             <asp:Label ID="lblTime" runat="server" Text="Refreshing" CssClass="clock"></asp:Label>
                         </div>
-                        <asp:Timer ID="Timer1" runat="server" Interval="500" OnTick="Timer1_Tick">
+                        <asp:Timer ID="Timer1" runat="server" Interval="5000" OnTick="Timer1_Tick">
                         </asp:Timer>
                     </ContentTemplate>
                 </asp:UpdatePanel>
@@ -92,7 +92,7 @@
                     <script>
                         var config4 = liquidFillGaugeDefaultSettings();
                         config4.circleThickness = 0.10; //0.15
-                        config4.circleColor = "#0462F7";
+                        config4.circleColor = "#0095C8"    //KHP Blue";
                         config4.textColor = "#333333";
                         config4.waveTextColor = "#FFFFAA";
                         config4.waveColor = "#AAAA39";
@@ -136,15 +136,18 @@
 
         <div id="chat" class="flex-container effect5 borderLineThick">  
             <div class="midfont_title  borderLine" style="flex-basis: 15%" >
-                <div class="logodiv">
-                    <img src="Content/KHP_EN_RGB.svg" alt="Home" class="logostyle">
+                <div class="logodiv ChatDivDown">
+                    <%--<img src="Content/KHP_EN_RGB.svg" alt="Home" class="logostyle">--%>
                 </div>
                 <div>
                     <h2>Live Chat</h2>
                 </div>
-                
-                   <div id="BarContainer" style="background-color:blue"></div>
-                
+
+                <div class="container_parent">
+                    <div id="progress"  class="center_child"></div>
+                    <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
+                    <script src="Scripts/progress.js"></script>
+                </div>
             </div>
 
 
@@ -202,7 +205,7 @@
                     <script>
                         var config5 = liquidFillGaugeDefaultSettings();
                         config5.circleThickness = 0.10; //0.15
-                        config5.circleColor = "#0462F7";//808015
+                        config5.circleColor = "#0095C8";//808015  //0095C8 KHP Blue
                         config5.textColor = "#333333";
                         config5.waveTextColor = "#FFFFAA";//FFFFAA
                         config5.waveColor = "#AAAA39";   //AAAA39

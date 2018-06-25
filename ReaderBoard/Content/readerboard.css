@@ -14,31 +14,31 @@ body {
     background-color: #ccc;
     color: #333333;
     font-family: Arial, Helvetica, sans-serif;
-    margin:18px 10px 10px 10px;
+    margin:10px 10px 10px 10px;
 
 }
 h1 {
     font-size: 98px;
     font-weight: bold;
-    text-shadow: 7px 7px 7px #999;
+    text-shadow: -7px -7px 7px #999;
     margin:0px;
 }
 h2 {
     font-size: 72px;
-    text-shadow: 5px 5px 5px #999;
+    text-shadow: -5px -5px 5px #999;
     margin: 5px;
 }
 
 h3 {
     font-size: 28px;
-    text-shadow: 4px 4px 4px #999;
+    text-shadow: -4px -4px 4px #999;
     margin: 0px;
 }
 
 .clock {
     font-size: 36px !important;
-    color: #0462F7 !important;
-    text-shadow: 4px 4px 4px #99d6ff;
+    color: #0095C8 !important;
+    text-shadow: -4px -4px 4px #99d6ff;
 }
 
 p {
@@ -115,6 +115,12 @@ div {
     padding: 5px;
     width: 95%;
     margin-bottom:0px;
+}
+.ChatDivDown{
+    padding:20px 0;
+}
+.ChatLogoDiv{
+    margin:15px 0 0 -15px;
 }
 
 .container_parent {
@@ -210,15 +216,12 @@ div {
     }
 
 
-sub{
-    font-size:24px;
-}
-
-
-
-#BarContainer {
-    margin: 200px;
-    width: 100px;
-    height: 100px;
-    /*position: relative;*/
+#progress {
+    margin: 0;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    background-image: url("KHP_Sq.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }

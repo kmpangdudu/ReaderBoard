@@ -20,25 +20,25 @@ body {
 h1 {
     font-size: 98px;
     font-weight: bold;
-    text-shadow: 7px 7px 7px #999;
+    text-shadow: -7px -7px 7px #999;
     margin: 0px;
 }
 
 h2 {
-    font-size: 42px;
-    text-shadow: 5px 5px 5px #888;
+    font-size: 72px;
+    text-shadow: -5px -5px 5px #888;
     margin: 5px;
 }
 h3 {
     font-size: 28px;
-    text-shadow: 4px 4px 4px #888;
+    text-shadow: -4px -4px 4px #888;
     margin: 0px;
 }
 
 .clock {
     font-size: 36px !important;
-    color: #00FF00 !important;
-    text-shadow: 2px 2px 3px #a8edae;
+    color: #02E2FF !important;
+    text-shadow: -2px -2px 3px #a8edae;
 }
 
 p {
@@ -116,6 +116,11 @@ div {
     width: 95%;
     margin-bottom:0px;
 }
+.ChatDivDown {
+    padding: 20px 0;
+}
+
+
 
 .container_parent {
     width: 98%;
@@ -209,3 +214,13 @@ div {
         right: 10px;
         left: auto;
     }
+
+#progress {
+    margin: 0;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    background-image: url("KHP_Sq.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

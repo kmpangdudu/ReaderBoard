@@ -65,7 +65,7 @@ namespace ReaderBoard
             }
 
 
-           // Response.AppendHeader("Refresh", refreshing);
+            Response.AppendHeader("Refresh", refreshing);
         }
 
         protected void Timer1_Tick(object sender, EventArgs e)
