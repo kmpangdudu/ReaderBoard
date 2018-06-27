@@ -130,6 +130,78 @@ namespace ReaderBoard {
         protected global::System.Web.UI.WebControls.Label lblPhoneCounselorAvailable;
         
         /// <summary>
+        /// HiddenPhone_Eng_In control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenPhone_Eng_In;
+        
+        /// <summary>
+        /// HiddenPhone_Fre_In control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenPhone_Fre_In;
+        
+        /// <summary>
+        /// HiddenG2T_Eng_In control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenG2T_Eng_In;
+        
+        /// <summary>
+        /// HiddenG2T_Fre_In control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenG2T_Fre_In;
+        
+        /// <summary>
+        /// HiddenPhone_Eng_Availabe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenPhone_Eng_Availabe;
+        
+        /// <summary>
+        /// HiddenPhone_Fre_Availabe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenPhone_Fre_Availabe;
+        
+        /// <summary>
+        /// HiddenG2T_Eng_Availabe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenG2T_Eng_Availabe;
+        
+        /// <summary>
+        /// HiddenG2T_Fre_Availabe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenG2T_Fre_Availabe;
+        
+        /// <summary>
         /// lblChatGradeService control.
         /// </summary>
         /// <remarks>
@@ -191,6 +263,78 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblChatCounselorAvailable;
+        
+        /// <summary>
+        /// HiddenWebChat_Eng_In control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenWebChat_Eng_In;
+        
+        /// <summary>
+        /// HiddenWebChat_Fre_In control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenWebChat_Fre_In;
+        
+        /// <summary>
+        /// HiddenChatApp_Eng_In control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenChatApp_Eng_In;
+        
+        /// <summary>
+        /// HiddenChatApp_Fre_In control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenChatApp_Fre_In;
+        
+        /// <summary>
+        /// HiddenWebChat_Eng_Avaiable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenWebChat_Eng_Avaiable;
+        
+        /// <summary>
+        /// HiddenWebChat_Fre_Avaiable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenWebChat_Fre_Avaiable;
+        
+        /// <summary>
+        /// HiddenChatApp_Eng_Avaiable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenChatApp_Eng_Avaiable;
+        
+        /// <summary>
+        /// HiddenChatApp_Fre_Avaiable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenChatApp_Fre_Avaiable;
         
         /// <summary>
         /// lblerror control.

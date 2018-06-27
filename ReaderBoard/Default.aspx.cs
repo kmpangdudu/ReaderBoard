@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.DataVisualization.Charting;
 using System.Web.UI.WebControls;
 
 namespace ReaderBoard
@@ -18,6 +19,7 @@ namespace ReaderBoard
         public string HandledToday;
         public string CurrentInQueued;
         public string CounselorAvailable;
+        public string CounselorLogin;
     }
 
 
@@ -148,6 +150,9 @@ namespace ReaderBoard
             stru_Phone_ENG.HandledToday             = client.GetNumHandledInThisQueue(      dwSwitchID, iQueueID_Phone_ENG, szServerName);
             stru_Phone_ENG.CurrentInQueued          = client.GetCurQueued(                  dwSwitchID, iQueueID_Phone_ENG, szServerName);
             stru_Phone_ENG.CounselorAvailable       = client.GetNumAgentsReady(             dwSwitchID, iQueueID_Phone_ENG, szServerName);
+            stru_Phone_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Phone_ENG, szServerName);
+            HiddenPhone_Eng_In.Value = stru_Phone_ENG.CounselorLogin;
+            HiddenPhone_Eng_Availabe.Value = stru_Phone_ENG.CounselorAvailable;
 
             //phone_fre
             stru_Phone_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Phone_FRE, szServerName);
@@ -157,7 +162,9 @@ namespace ReaderBoard
             stru_Phone_FRE.HandledToday             = client.GetNumHandledInThisQueue(      dwSwitchID, iQueueID_Phone_FRE, szServerName);
             stru_Phone_FRE.CurrentInQueued          = client.GetCurQueued(                  dwSwitchID, iQueueID_Phone_FRE, szServerName);
             stru_Phone_FRE.CounselorAvailable       = client.GetNumAgentsReady(             dwSwitchID, iQueueID_Phone_FRE, szServerName);
-
+            stru_Phone_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Phone_FRE, szServerName);
+            HiddenPhone_Fre_In.Value = stru_Phone_FRE.CounselorLogin;
+            HiddenPhone_Fre_Availabe.Value = stru_Phone_FRE.CounselorAvailable;
 
             //G2T_ENG
             stru_G2T_ENG.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_G2T_ENG, szServerName);
@@ -167,6 +174,9 @@ namespace ReaderBoard
             stru_G2T_ENG.HandledToday             = client.GetNumHandledInThisQueue(      dwSwitchID, iQueueID_G2T_ENG, szServerName);
             stru_G2T_ENG.CurrentInQueued          = client.GetCurQueued(                  dwSwitchID, iQueueID_G2T_ENG, szServerName);
             stru_G2T_ENG.CounselorAvailable       = client.GetNumAgentsReady(             dwSwitchID, iQueueID_G2T_ENG, szServerName);
+            stru_G2T_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_G2T_ENG, szServerName);
+            HiddenG2T_Eng_In.Value = stru_G2T_ENG.CounselorLogin;
+            HiddenG2T_Eng_Availabe.Value = stru_G2T_ENG.CounselorAvailable;
 
             //G2T_FRE
             stru_G2T_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_G2T_FRE, szServerName);
@@ -176,6 +186,9 @@ namespace ReaderBoard
             stru_G2T_FRE.HandledToday             = client.GetNumHandledInThisQueue(      dwSwitchID, iQueueID_G2T_FRE, szServerName);
             stru_G2T_FRE.CurrentInQueued          = client.GetCurQueued(                  dwSwitchID, iQueueID_G2T_FRE, szServerName);
             stru_G2T_FRE.CounselorAvailable       = client.GetNumAgentsReady(             dwSwitchID, iQueueID_G2T_FRE, szServerName);
+            stru_G2T_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_G2T_FRE, szServerName);
+            HiddenG2T_Fre_In.Value = stru_G2T_FRE.CounselorLogin;
+            HiddenG2T_Fre_Availabe.Value = stru_G2T_FRE.CounselorAvailable;
 
             //Chat_ENG
             stru_Chat_ENG.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Chat_ENG, szServerName);
@@ -185,6 +198,9 @@ namespace ReaderBoard
             stru_Chat_ENG.HandledToday             = client.GetNumHandledInThisQueue(      dwSwitchID, iQueueID_Chat_ENG, szServerName);
             stru_Chat_ENG.CurrentInQueued          = client.GetCurQueued(                  dwSwitchID, iQueueID_Chat_ENG, szServerName);
             stru_Chat_ENG.CounselorAvailable       = client.GetNumAgentsReady(             dwSwitchID, iQueueID_Chat_ENG, szServerName);
+            stru_Chat_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+            HiddenWebChat_Eng_In.Value = stru_Chat_ENG.CounselorLogin;
+            HiddenWebChat_Eng_Avaiable.Value = stru_Chat_ENG.CounselorAvailable;
 
             //Chat_FRE
             stru_Chat_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Chat_FRE, szServerName);
@@ -194,6 +210,9 @@ namespace ReaderBoard
             stru_Chat_FRE.HandledToday             = client.GetNumHandledInThisQueue(      dwSwitchID, iQueueID_Chat_FRE, szServerName);
             stru_Chat_FRE.CurrentInQueued          = client.GetCurQueued(                  dwSwitchID, iQueueID_Chat_FRE, szServerName);
             stru_Chat_FRE.CounselorAvailable       = client.GetNumAgentsReady(             dwSwitchID, iQueueID_Chat_FRE, szServerName);
+            stru_Chat_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Chat_FRE, szServerName);
+            HiddenWebChat_Fre_In.Value = stru_Chat_FRE.CounselorLogin;
+            HiddenWebChat_Fre_Avaiable.Value = stru_Chat_FRE.CounselorAvailable;
 
             //ChatApp_ENG
             stru_ChatApp_ENG.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
@@ -203,6 +222,9 @@ namespace ReaderBoard
             stru_ChatApp_ENG.HandledToday             = client.GetNumHandledInThisQueue(      dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
             stru_ChatApp_ENG.CurrentInQueued          = client.GetCurQueued(                  dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
             stru_ChatApp_ENG.CounselorAvailable       = client.GetNumAgentsReady(             dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+            stru_ChatApp_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+            HiddenChatApp_Eng_In.Value = stru_ChatApp_ENG.CounselorLogin;
+            HiddenChatApp_Eng_Avaiable.Value = stru_ChatApp_ENG.CounselorAvailable;
 
             //ChatApp_FRE
             stru_ChatApp_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
@@ -212,7 +234,9 @@ namespace ReaderBoard
             stru_ChatApp_FRE.HandledToday             = client.GetNumHandledInThisQueue(      dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
             stru_ChatApp_FRE.CurrentInQueued          = client.GetCurQueued(                  dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
             stru_ChatApp_FRE.CounselorAvailable       = client.GetNumAgentsReady(             dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-
+            stru_ChatApp_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+            HiddenChatApp_Fre_In.Value = stru_ChatApp_FRE.CounselorLogin;
+            HiddenChatApp_Fre_Avaiable.Value = stru_ChatApp_FRE.CounselorAvailable;
         }
 
     }

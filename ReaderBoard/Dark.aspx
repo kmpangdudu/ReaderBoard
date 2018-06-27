@@ -111,7 +111,7 @@
                         var thevalue = document.getElementById('lblPhonePeopleInQueue').value;
                         var gauge5 = loadLiquidFillGauge("fillgauge_PhoneQueued", thevalue, config4);
                     </script>
-                    <div class=" Top-min-XXpx">In Queued</div>
+                    <h3 class=" Top-min-XXpx">In Queued</h3>
                 </div>
             </div>
 
@@ -124,10 +124,15 @@
                     <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text=""></asp:Label>
                 </h1>
                 <div style="background-color:lightblue; ">
-                    <p>phone_Eng: XXXX</p>
-                    <p>phone_Fre: XXXX</p>
-                    <p>G2T_Eng: #####</p>
-                    <p>G2T_Fre: #####</p>
+                    <asp:HiddenField ID="HiddenPhone_Eng_In" runat="server" />
+                    <asp:HiddenField ID="HiddenPhone_Fre_In" runat="server" />
+                    <asp:HiddenField ID="HiddenG2T_Eng_In" runat="server" />
+                    <asp:HiddenField ID="HiddenG2T_Fre_In" runat="server" />
+                    <asp:HiddenField ID="HiddenPhone_Eng_Availabe" runat="server" />
+                    <asp:HiddenField ID="HiddenPhone_Fre_Availabe" runat="server" />
+                    <asp:HiddenField ID="HiddenG2T_Eng_Availabe" runat="server" />
+                    <asp:HiddenField ID="HiddenG2T_Fre_Availabe" runat="server" />
+                    <div id="PhoneCounslor" ></div>
                 </div>
             </div>
 
@@ -228,21 +233,27 @@
                         var gauge5 = loadLiquidFillGauge("fillgauge_ChatQueued", thevalue, config5);
                     </script>
                 </div>
-                <div class=" Top-min-XXpx">In Queued</div>
+                <h3 class=" Top-min-XXpx">In Queued</h3>
             </div>
 
 
 
             <!-- Chat Counselor Available       -->
             <div class="borderLine ">
-                <div class=" emptyline">Counselor Available</div>
+                <h3 class=" emptyline">Counselor Available</h3>
                 <h1 class="bigfont">
                     <asp:Label ID="lblChatCounselorAvailable" runat="server" Text=""></asp:Label>
                 </h1>
-                <p>WebChat_Eng: XXXX</p>
-                <p>WebChat_Fre: XXXX</p>
-                <p>ChatApp_Eng: #####</p>
-                <p>ChatApp_Fre: #####</p>
+
+                    <asp:HiddenField ID="HiddenWebChat_Eng_In" runat="server" />
+                    <asp:HiddenField ID="HiddenWebChat_Fre_In" runat="server" />
+                    <asp:HiddenField ID="HiddenChatApp_Eng_In" runat="server" />
+                    <asp:HiddenField ID="HiddenChatApp_Fre_In" runat="server" />
+                    <asp:HiddenField ID="HiddenWebChat_Eng_Avaiable" runat="server" />
+                    <asp:HiddenField ID="HiddenWebChat_Fre_Avaiable" runat="server" />
+                    <asp:HiddenField ID="HiddenChatApp_Eng_Avaiable" runat="server" />
+                    <asp:HiddenField ID="HiddenChatApp_Fre_Avaiable" runat="server" />
+                <div id="ChatCounslor" ></div>
 
             </div>
         </div>
