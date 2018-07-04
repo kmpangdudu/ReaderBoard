@@ -39,7 +39,7 @@ function drawPhoneChart() {
     var chart2 = new google.visualization.Gauge(document.getElementById('chart_div2'));
     chart2.draw(data2, options);
     setInterval(function () {
-        data2.setValue(1, 1, v2);
+        data2.setValue(0, 1, v2);
         chart2.draw(data2, options);
     }, 1000);
 }
@@ -73,7 +73,7 @@ function drawChatChart() {
     var chart4 = new google.visualization.Gauge(document.getElementById('chart_div4'));
     chart4.draw(data4, options);
     setInterval(function () {
-        data4.setValue(1, 1, v4);
+        data4.setValue(0, 1, v4);
         chart4.draw(data4, options);
     }, 1000);
 }
