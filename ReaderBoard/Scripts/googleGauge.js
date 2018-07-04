@@ -2,8 +2,8 @@
 google.charts.setOnLoadCallback(drawPhoneChart);
 
 var options = {
-    width: 250,   height:220,  //Gauge height  250*220 id best
-    redColor: "#FF00FF",
+    width: 250, height: 200,  //Gauge height  250*200 id best
+    redColor: "#FF00AA",
     redFrom: 0, redTo: 50,
     yellowColor: "#FFFF00",
     yellowFrom: 50, yellowTo: 75,
@@ -79,9 +79,11 @@ function drawChatChart() {
 }
 
 
-
-
-
+var varHeight = 250;
+var chartAreaHeight = '100%';
+var chartAreaWidth = '50%';
+var bargroupWidth = '75%';
+var lablefontsize = 22;
 google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawPhoneCounslor);
 function drawPhoneCounslor() {
@@ -108,31 +110,42 @@ function drawPhoneCounslor() {
 
     var PhoneData = google.visualization.arrayToDataTable([
         ['Queue', 'Availabe', { role: 'style' }, { role: 'annotation' }, 'SignIn', { role: 'style' }, { role: 'annotation' }],
-        ['Phone En', PhoneEN_Avai, '#00FF00', PhoneEN_Avai, PhoneEN_In - PhoneEN_Avai, '#FF0000', PhoneEN_In ],
-        ['Phone Fr', PhoneFr_Avai, '#00FF00', PhoneFr_Avai, PhoneFr_In - PhoneFr_Avai, '#00FFFF', PhoneFr_In ],
-        ['G2T En', G2Ten_Avai, '#00FF00', G2Ten_Avai, G2Ten_In - G2Ten_Avai, '#0000FF', G2Ten_In],
-        ['G2T Fr', G2Tfr_Avai, '#00FF00', G2Tfr_Avai, G2Tfr_In - G2Tfr_Avai, '#FF0FFF', G2Tfr_In]
+        ['Phone En', PhoneEN_Avai, '0021FF', PhoneEN_Avai, PhoneEN_In - PhoneEN_Avai, 'FF00AA', PhoneEN_In],
+        ['Phone Fr', PhoneFr_Avai, '0021FF', PhoneFr_Avai, PhoneFr_In - PhoneFr_Avai, '00FF6E', PhoneFr_In],
+        ['G2T En', G2Ten_Avai, '0021FF', G2Ten_Avai, G2Ten_In - G2Ten_Avai, 'FFFB33', G2Ten_In],
+        ['G2T Fr', G2Tfr_Avai, '#0021FF', G2Tfr_Avai, G2Tfr_In - G2Tfr_Avai, '00E6FF', G2Tfr_In]
     ]);
 
     var opt_Phone = {
-        //title: "Counslor status",
-        width: 300, height: 300, isStacked: true,
-        bar: { groupWidth: '75%' },
+        height: varHeight,
+        isStacked: true,
+        bar: { groupWidth: bargroupWidth },
+        chartArea: { width: chartAreaWidth, height: chartAreaHeight },
         legend: 'none',
         //vAxis: { title: "Queue" },
         hAxis: {
-            title: "Counslor Availabe / SignIn",
-            //color: '#FF0000',
-            //fontSize: 20,
+            title: "Counselor \n Avail/SignIn",
+            titleTextStyle: { color: '333333', fontSize: 24, bold: true, italic: false },
+            format: '#',
+            TextStyle: { color: '333333', fontSize: 28, bold: true }
+            //colors: ['333333','333333']
         },
+        vAxis: {
+            textStyle: {
+                fontSize: 14,
+                bold: true,
+                color: '#333333'
+            },
+        },
+        colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'],
+
 
         annotations: {
             textStyle: {
-                fontSize: 18,
-
+                fontSize: lablefontsize,
                 bold: true,
                 // The color of the text.
-                color: '#FF0000',
+                color: ['FF0000', '00FF00'],
                 // The color of the text outline.
                 //auraColor: '#d799ae',
                 // The transparency of the text.
@@ -150,51 +163,62 @@ function drawPhoneCounslor() {
 
 google.charts.setOnLoadCallback(drawChatCounslor);
 function drawChatCounslor() {
-    var sPhoneEN_In = document.getElementById('HiddenPhone_Eng_In').value;
-    var PhoneEN_In = parseInt(sPhoneEN_In);
-    var sPhoneEN_Avai = document.getElementById('HiddenPhone_Eng_Availabe').value;
-    var PhoneEN_Avai = parseInt(sPhoneEN_Avai);
+    var sChatEN_In = document.getElementById('HiddenWebChat_Eng_In').value;
+    var ChatEN_In = parseInt(sChatEN_In);
+    var sChatEN_Avai = document.getElementById('HiddenWebChat_Eng_Avaiable').value;
+    var ChatEN_Avai = parseInt(sChatEN_Avai);
 
-    var sPhoneFr_In = document.getElementById('HiddenPhone_Fre_In').value;
-    var PhoneFr_In = parseInt(sPhoneFr_In);
-    var sPhoneFr_Avai = document.getElementById('HiddenPhone_Fre_Availabe').value;
-    var PhoneFr_Avai = parseInt(sPhoneFr_Avai);
+    var sChatFr_In = document.getElementById('HiddenWebChat_Fre_In').value;
+    var ChatFr_In = parseInt(sChatFr_In);
+    var sChatFr_Avai = document.getElementById('HiddenWebChat_Fre_Avaiable').value;
+    var ChatFr_Avai = parseInt(sChatFr_Avai);
 
-    var sG2Ten_In = document.getElementById('HiddenG2T_Eng_In').value;
-    var G2Ten_In = parseInt(sG2Ten_In);
-    var sG2Ten_Avai = document.getElementById('HiddenG2T_Eng_Availabe').value;
-    var G2Ten_Avai = parseInt(sG2Ten_Avai);
+    var sChatAppEN_In = document.getElementById('HiddenChatApp_Eng_In').value;
+    var ChatAppEN_In = parseInt(sChatAppEN_In);
+    var sChatAppEN_Avai = document.getElementById('HiddenChatApp_Eng_Avaiable').value;
+    var ChatAppEN_Avai = parseInt(sChatAppEN_Avai);
 
-    var sG2Tfr_In = document.getElementById('HiddenG2T_Fre_In').value;
-    var G2Tfr_In = parseInt(sG2Tfr_In);
-    var sG2Tfr_Avai = document.getElementById('HiddenG2T_Fre_Availabe').value;
-    var G2Tfr_Avai = parseInt(sG2Tfr_Avai);
+    var sChatAppfr_In = document.getElementById('HiddenChatApp_Fre_In').value;
+    var ChatAppfr_In = parseInt(sChatAppfr_In);
+    var sChatAppfr_Avai = document.getElementById('HiddenChatApp_Fre_Avaiable').value;
+    var ChatAppfr_Avai = parseInt(sChatAppfr_Avai);
 
 
     var ChatData = google.visualization.arrayToDataTable([
         ['Queue', 'Availabe', { role: 'style' }, { role: 'annotation' }, 'SignIn', { role: 'style' }, { role: 'annotation' }],
-        ['Phone En', PhoneEN_Avai, '#00FF00', PhoneEN_Avai, PhoneEN_In - PhoneEN_Avai, '#FF0000', PhoneEN_In],
-        ['Phone Fr', PhoneFr_Avai, '#00FF00', PhoneFr_Avai, PhoneFr_In - PhoneFr_Avai, '#00FFFF', PhoneFr_In],
-        ['G2T En', G2Ten_Avai, '#00FF00', G2Ten_Avai, G2Ten_In - G2Ten_Avai, '#0000FF', G2Ten_In],
-        ['G2T Fr', G2Tfr_Avai, '#00FF00', G2Tfr_Avai, G2Tfr_In - G2Tfr_Avai, '#FF0FFF', G2Tfr_In]
+        ['Live Chat En', ChatEN_Avai, '#0021FF', ChatEN_Avai, ChatEN_In - ChatEN_Avai, '#FF00AA', ChatEN_In],
+        ['Live Chat Fr', ChatFr_Avai, '#0021FF', ChatFr_Avai, ChatFr_In - ChatFr_Avai, '#00FF6E', ChatFr_In],
+        ['ChatApp En', ChatAppEN_Avai, '#0021FF', ChatAppEN_Avai, ChatAppEN_In - ChatAppEN_Avai, '#FFFB33', ChatAppEN_In],
+        ['ChatApp Fr', ChatAppfr_Avai, '#0021FF', ChatAppfr_Avai, ChatAppfr_In - ChatAppfr_Avai, '#00E6FF', ChatAppfr_In]
     ]);
 
     var opt_Chat = {
-        //title: "Counslor status",
-        width: 300, height: 300, isStacked: true,
-        bar: { groupWidth: '75%' },
+        //title: "Counselor \n Avail/SignIn",
+        //width: 300,
+        height: varHeight,
+        isStacked: true,
+        bar: { groupWidth: bargroupWidth },
+        chartArea: { width: chartAreaWidth, height: chartAreaHeight },
         legend: 'none',
-        //vAxis: { title: "Queue" },
+
         hAxis: {
-            title: "Counslor Availabe / SignIn",
-            //color: '#FF0000',
-            //fontSize: 20,
+            title: "Counselor \n Avail/SignIn",
+            titleTextStyle: { color: '333333', fontSize: 24, bold: true, italic: false },
+            format: '#',
+            TextStyle: { color: '333333', fontSize: 28, bold: true }
+            //colors: ['333333','333333']
+        },
+        vAxis: {
+            textStyle: {
+                fontSize: 14,
+                bold: true,
+                color: '#333333'
+            },
         },
 
         annotations: {
             textStyle: {
-                fontSize: 18,
-
+                fontSize: lablefontsize,
                 bold: true,
                 // The color of the text.
                 color: '#FF0000',

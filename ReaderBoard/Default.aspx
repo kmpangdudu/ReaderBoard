@@ -88,7 +88,7 @@
                     <asp:HiddenField ID="lblPhonePeopleInQueue" runat="server"></asp:HiddenField>
                 </div>
                 <div>
-                    <svg id="fillgauge_PhoneQueued" width="280" height="500" onclick="gauge5.update(NewValue());"></svg>
+                    <svg id="fillgauge_PhoneQueued" width="280" height="400" onclick="gauge5.update(NewValue());"></svg>
                     <script>
                         var config4 = liquidFillGaugeDefaultSettings();
                         config4.circleThickness = 0.10; //0.15
@@ -116,22 +116,27 @@
 
 
             <!-- Phone Counselor Availabele  -->
-            <div class=" borderLine">
-                <h3 class="">Counselor Available</h3>
+            <div class="borderLine">
+                <h3 class="ChatDivDown">Counselor Avail/SignIn</h3>
                 <h1 class="bigfont">
                     <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text=""></asp:Label>
+                    /
+                    <asp:Label ID="lblPhoneCounselorLogin" runat="server" Text=""></asp:Label>
                 </h1>
-                <div style="background-color:lightblue; ">
 
-                    <asp:HiddenField ID="HiddenPhone_Eng_In" runat="server" />
-                    <asp:HiddenField ID="HiddenPhone_Fre_In" runat="server" />
-                    <asp:HiddenField ID="HiddenG2T_Eng_In" runat="server" />
-                    <asp:HiddenField ID="HiddenG2T_Fre_In" runat="server" />
-                    <asp:HiddenField ID="HiddenPhone_Eng_Availabe" runat="server" />
-                    <asp:HiddenField ID="HiddenPhone_Fre_Availabe" runat="server" />
-                    <asp:HiddenField ID="HiddenG2T_Eng_Availabe" runat="server" />
-                    <asp:HiddenField ID="HiddenG2T_Fre_Availabe" runat="server" />
-                    <div id="PhoneCounslor" ></div>
+
+                <asp:HiddenField ID="HiddenPhone_Eng_In" runat="server" />
+                <asp:HiddenField ID="HiddenPhone_Fre_In" runat="server" />
+                <asp:HiddenField ID="HiddenG2T_Eng_In" runat="server" />
+                <asp:HiddenField ID="HiddenG2T_Fre_In" runat="server" />
+                <asp:HiddenField ID="HiddenPhone_Eng_Availabe" runat="server" />
+                <asp:HiddenField ID="HiddenPhone_Fre_Availabe" runat="server" />
+                <asp:HiddenField ID="HiddenG2T_Eng_Availabe" runat="server" />
+                <asp:HiddenField ID="HiddenG2T_Fre_Availabe" runat="server" />
+
+
+                <div id="PhoneCounslor1"  >
+                    <div id="PhoneCounslor"></div>
                 </div>
             </div>
         </div>
@@ -139,6 +144,10 @@
 
         <p style="height:7px;">&nbsp;</p>
 
+        
+    
+    
+    
 
         <div id="chat" class="flex-container effect5 borderLineThick">  
             <div class="midfont_title  borderLine" style="flex-basis: 15%" >
@@ -206,7 +215,7 @@
                     <asp:HiddenField ID="lblChatPeopleInQueue" runat="server"></asp:HiddenField>
                 </div>
                 <div>
-                    <svg id="fillgauge_ChatQueued" width="280" height="500" onclick="gauge5.update(NewValue());"></svg>
+                    <svg id="fillgauge_ChatQueued" width="280" height="400" onclick="gauge5.update(NewValue());"></svg>
                     <%--width 280 X height="500"  down  best --%>
                     <script>
                         var config5 = liquidFillGaugeDefaultSettings();
@@ -236,9 +245,16 @@
 
             <!-- Chat Counselor Available       -->
             <div class="borderLine ">
-                <h3 class=" emptyline">Counselor Available</h3>
+ 
+                    <h3 class="ChatDivDown">Counselor Avail/SignIn</h3>
+               
+                     
+             
+
                 <h1 class="bigfont">
                     <asp:Label ID="lblChatCounselorAvailable" runat="server" Text=""></asp:Label>
+                    /
+                    <asp:Label ID="lblChatCounselorLogin" runat="server" Text=""></asp:Label>
                 </h1>
 
                     <asp:HiddenField ID="HiddenWebChat_Eng_In" runat="server" />
@@ -249,7 +265,9 @@
                     <asp:HiddenField ID="HiddenWebChat_Fre_Avaiable" runat="server" />
                     <asp:HiddenField ID="HiddenChatApp_Eng_Avaiable" runat="server" />
                     <asp:HiddenField ID="HiddenChatApp_Fre_Avaiable" runat="server" />
-                <div id="ChatCounslor" ></div>
+                <div id="ChatCounslor1">
+                    <div id="ChatCounslor"></div>
+                </div>
             </div>
         </div>
         <div style="display: none">

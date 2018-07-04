@@ -130,6 +130,15 @@ namespace ReaderBoard {
         protected global::System.Web.UI.WebControls.Label lblPhoneCounselorAvailable;
         
         /// <summary>
+        /// lblPhoneCounselorLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPhoneCounselorLogin;
+        
+        /// <summary>
         /// HiddenPhone_Eng_In control.
         /// </summary>
         /// <remarks>
@@ -263,6 +272,15 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblChatCounselorAvailable;
+        
+        /// <summary>
+        /// lblChatCounselorLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChatCounselorLogin;
         
         /// <summary>
         /// HiddenWebChat_Eng_In control.

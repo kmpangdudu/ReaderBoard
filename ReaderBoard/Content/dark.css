@@ -10,6 +10,7 @@ body::-webkit-scrollbar-thumb {
     background-color: black;
     outline: 1px solid slategrey;
 }
+
 body {
     background-color: #000;
     color: #FFFFFF;
@@ -29,6 +30,7 @@ h2 {
     text-shadow: -5px -5px 5px #888;
     margin: 5px;
 }
+
 h3 {
     font-size: 28px;
     text-shadow: -4px -4px 4px #888;
@@ -42,13 +44,13 @@ h3 {
 }
 
 p {
-    padding: 0px,0px,0px,10px;
+    padding: 0px 0px 0px 10px;
     margin: 0px;
 }
+
 div {
     border-radius: 8px;
     /*background-color: #333;*/
-
 }
 
 .liquidFillGaugeText {
@@ -60,7 +62,7 @@ div {
     display: flex;
     align-items: stretch;
     border-radius: 8px;
-    padding-top:10px;
+    padding-top: 10px;
 }
 
     .flex-container > div {
@@ -90,13 +92,12 @@ div {
     border-width: 1px
 }
 
-.emptyline{
-    margin:3px 0px 3px 0px;
+.emptyline {
+    margin: 3px 0px 3px 0px;
 }
 
-.Top-min-XXpx
-{
-    margin-top:-55px;
+.Top-min-XXpx {
+    margin-top: -55px;
 }
 
 
@@ -105,17 +106,19 @@ div {
     text-align: center;
     align-content: center;
     align-self: center;
-    margin-top:13px;
+    margin-top: 13px;
 }
 
 .logodiv {
     padding: 15px 2px 0px 8px;
 }
+
 .logostyle {
     padding: 5px;
     width: 95%;
-    margin-bottom:0px;
+    margin-bottom: 0px;
 }
+
 .ChatDivDown {
     padding: 20px 0;
 }
@@ -132,7 +135,6 @@ div {
 .center_child {
     display: inline-block;
     border: 0px solid #fff;
-     
 }
 
 .center_child {
@@ -157,17 +159,17 @@ div {
     /*height: 160px;*/
     background-color: #333333;
     border-radius: 5px 5px 5px 5px;
-
 }
- 
+
 .borderLine {
     border: 3px double #777;
     /*margin:20px;*/
- 
 }
+
 .borderLineThick {
     border: 5px double #FF0000;
 }
+
 .borderLineThick {
     border: 1px double #aaa;
 }
@@ -181,6 +183,7 @@ div {
     background: #FFF;
     margin: 40px auto;
 }
+
 .effect55 {
     position: relative;
 }
@@ -223,4 +226,8 @@ div {
     background-image: url("KHP_Sq.png");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#PhoneCounslor, #ChatCounslor {
+    border: 1px solid #333333;
 }
