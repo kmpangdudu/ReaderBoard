@@ -84,14 +84,7 @@ namespace ReaderBoard
 
         }
 
-        protected void Timer1_Tick(object sender, EventArgs e)
-        {
-            lblDate.Text = DateTime.Now.ToShortDateString();
-
-            lblTime.Text = DateTime.Now.ToLongTimeString();
-        }
-
-        //phone = phone_eng + phone_fre + G2T_eng + G2T_fre
+ 
         protected void Phone()
         {
 

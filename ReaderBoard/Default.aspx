@@ -14,7 +14,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+ 
 
         <div id="phone" class="flex-container effect5  borderLineThick">
             <div class="midfont_title  borderLine"  style="flex-basis: 15%" >
@@ -24,18 +24,14 @@
                 <div class="ChatDivDown">
                     <h2>Phone</h2>
                 </div>
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <ContentTemplate>
-                        <div>
-                            <asp:Label ID="lblDate" runat="server" Text="Refreshing" CssClass="clock"></asp:Label>
-                        </div>
-                        <div>
-                            <asp:Label ID="lblTime" runat="server" Text="Refreshing" CssClass="clock"></asp:Label>
-                        </div>
-                        <asp:Timer ID="Timer1" runat="server" Interval="5000" OnTick="Timer1_Tick">
-                        </asp:Timer>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+ 
+                <div id="clockdate">
+                    <div class="clockdate-wrapper">
+                        <div id="clock"></div>
+                        <div id="date"></div>
+                    </div>
+                </div>
+
             </div>
 
  

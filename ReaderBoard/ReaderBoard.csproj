@@ -199,6 +199,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\liquidFillGauge.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\processDark.js" />
+    <Content Include="Scripts\progress.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
