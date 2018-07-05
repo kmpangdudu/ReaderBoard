@@ -8,7 +8,7 @@
     <script src="http://d3js.org/d3.v3.min.js" lang="JavaScript"></script>
     <script src="Scripts/liquidFillGauge.js" lang="JavaScript"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="Scripts/googleGauge.js"></script>
+    <script src="Scripts/googleGaugeDark.js"></script>
     <link href="Content/dark.css" rel="stylesheet" />
  
 </head>
@@ -30,7 +30,7 @@
 
 
                 <div id="clockdate">
-                    <div class="clockdate-wrapper">
+                    <div class="clock">
                         <div id="clock"></div>
                         <div id="date"></div>
                     </div>
@@ -96,10 +96,10 @@
                     <script>
                         var config4 = liquidFillGaugeDefaultSettings();
                         config4.circleThickness = 0.10; //0.15
-                        config4.circleColor = "#0095C8";  //KHP Blue
+                        config4.circleColor = "#1a1aff";  //KHP Blue
                         config4.textColor = "#FCFCFC";
-                        config4.waveTextColor = "#FFFFAA";
-                        config4.waveColor = "#00FFFF";
+                        config4.waveTextColor = "#1a1aff";
+                        config4.waveColor = "1a1aff";
                         config4.textVertPosition = 0.55; //0.8
                         config4.waveAnimateTime = 1000;
                         config4.waveHeight = 0.1;
@@ -127,7 +127,7 @@
                      /
                     <asp:Label ID="lblPhoneCounselorLogin" runat="server" Text=""></asp:Label>
                 </h1>
-                <div style="background-color:lightblue; ">
+              
                     <asp:HiddenField ID="HiddenPhone_Eng_In" runat="server" />
                     <asp:HiddenField ID="HiddenPhone_Fre_In" runat="server" />
                     <asp:HiddenField ID="HiddenG2T_Eng_In" runat="server" />
@@ -136,7 +136,8 @@
                     <asp:HiddenField ID="HiddenPhone_Fre_Availabe" runat="server" />
                     <asp:HiddenField ID="HiddenG2T_Eng_Availabe" runat="server" />
                     <asp:HiddenField ID="HiddenG2T_Fre_Availabe" runat="server" />
-                    <div id="PhoneCounslor" ></div>
+                <div id="PhoneCounslor1">
+                    <div id="PhoneCounslor"></div>
                 </div>
             </div>
 
@@ -219,10 +220,10 @@
                     <script>
                         var config5 = liquidFillGaugeDefaultSettings();
                         config5.circleThickness = 0.10; //0.15
-                        config5.circleColor = "#0095C8";//808015  0095c8 KHP Blue
+                        config5.circleColor = "1a1aff";//808015  0095c8 KHP Blue
                         config5.textColor = "#FCFCFC";
-                        config5.waveTextColor = "#FFFFAA";//FFFFAA
-                        config5.waveColor = "#00FFFF";   //AAAA39
+                        config5.waveTextColor = "1a1aff";//FFFFAA
+                        config5.waveColor = "1a1aff";   //AAAA39
                         config5.textVertPosition = 0.55; //0.8
                         config5.waveAnimateTime = 1000;
                         config5.waveHeight = 0.3;

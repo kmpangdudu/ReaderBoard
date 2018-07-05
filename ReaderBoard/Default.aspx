@@ -26,7 +26,7 @@
                 </div>
  
                 <div id="clockdate">
-                    <div class="clockdate-wrapper">
+                    <div class="clock">
                         <div id="clock"></div>
                         <div id="date"></div>
                     </div>
@@ -88,10 +88,10 @@
                     <script>
                         var config4 = liquidFillGaugeDefaultSettings();
                         config4.circleThickness = 0.10; //0.15
-                        config4.circleColor = "#0095C8"    //KHP Blue";
+                        config4.circleColor = "#1a1aff"    //KHP Blue";
                         config4.textColor = "#333333";
-                        config4.waveTextColor = "#FFFFAA";
-                        config4.waveColor = "#AAAA39";
+                        config4.waveTextColor = "#1a1aff";
+                        config4.waveColor = "#1a1aff";
                         config4.textVertPosition = 0.55; //0.8
                         config4.waveAnimateTime = 1000;
                         config4.waveHeight = 0.3;
@@ -175,7 +175,7 @@
                     <div class="bigfont">
                         <asp:HiddenField ID="lblChatGradeService24" runat="server"></asp:HiddenField>
                     </div>
-                    <div id="chart_div4" class="center_child"></div>
+                    <div id="chart_div4" class="center_child"  ></div>
                 </div>
             </div>
 
@@ -210,16 +210,16 @@
                 <div class="bigfont">
                     <asp:HiddenField ID="lblChatPeopleInQueue" runat="server"></asp:HiddenField>
                 </div>
-                <div>
+                <div >
                     <svg id="fillgauge_ChatQueued" width="280" height="400" onclick="gauge5.update(NewValue());"></svg>
                     <%--width 280 X height="500"  down  best --%>
                     <script>
                         var config5 = liquidFillGaugeDefaultSettings();
                         config5.circleThickness = 0.10; //0.15
-                        config5.circleColor = "#0095C8";//808015  //0095C8 KHP Blue
+                        config5.circleColor = "#1a1aff";//808015  //0095C8 KHP Blue
                         config5.textColor = "#333333";
-                        config5.waveTextColor = "#FFFFAA";//FFFFAA
-                        config5.waveColor = "#AAAA39";   //AAAA39
+                        config5.waveTextColor = "#1a1aff";//FFFFAA
+                        config5.waveColor = "#1a1aff";   //AAAA39
                         config5.textVertPosition = 0.55; //0.8
                         config5.waveAnimateTime = 1000;
                         config5.waveHeight = 0.2;

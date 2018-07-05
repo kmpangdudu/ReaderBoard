@@ -16,7 +16,8 @@ var options = {
     greenColor: colorGreen,
     greenFrom: 75, greenTo: 100,
     minorTicks: 5,
-    backgroundColor: { fill: "000000", stroke: "red" },
+
+
 };
 
 function drawPhoneChart() {
@@ -91,7 +92,7 @@ var chartAreaHeight = "100%";
 var chartAreaWidth = "48%";
 var bargroupWidth = "75%";
 var lablefontsize = 22;
- 
+
 var opt_Phone = {
     height: varHeight,
     isStacked: true,
@@ -99,18 +100,18 @@ var opt_Phone = {
     chartArea: { width: chartAreaWidth, height: chartAreaHeight },
     backgroundColor: { fill: "transparent" },
     legend: "none",
-
+    gridlines: { color: "FF0000"  },
     hAxis: {
         title: "Counselor \n Avail/SignIn",
         titleTextStyle: { color: "333333", fontSize: 24, bold: true, italic: false },
         format: "#",
         TextStyle: { color: "333333", fontSize: 28, bold: true },
         colors: ["333333", "333333"],
-        gridlines: { color: "FFFFFF" },
+        gridlines: { color: "333333" },
     },
     vAxis: {
-        textStyle: { fontSize: 20, bold: true, color: "333333" },
-        gridlines: { color: "FFFFFF" },
+        textStyle: {fontSize: 20,bold: true,color: "FFFFFF"},
+        gridlines: { color: "333333" },
     },
     //colors: ["#e0440e", "#e6693e", "#ec8f6e", "#f3b49f", "#f6c7b6"],
 
@@ -126,7 +127,7 @@ var opt_Phone = {
             // The transparency of the text.
             // opacity: 1
         }
-    },
+    }
 };
 
 
@@ -164,9 +165,13 @@ function drawPhoneCounslor() {
         ["G2T Fr", G2Tfr_Avai, colorGreen, G2Tfr_Avai, G2Tfr_In - G2Tfr_Avai, color4, G2Tfr_In]
     ]);
 
+ 
     var Phonechart = new google.visualization.BarChart(document.getElementById("PhoneCounslor"));
     Phonechart.draw(PhoneData, opt_Phone);
 }
+
+
+
 
 
 google.charts.setOnLoadCallback(drawChatCounslor);

@@ -38,9 +38,10 @@ h3 {
 }
 
 .clock {
-    font-size: 36px !important;
+    font-size: 24px !important;
     color: #0095C8 !important;
-    text-shadow: -4px -4px 4px #99d6ff;
+    font-weight: bold;
+    text-shadow: -2px -2px 2px #99d6ff;
 }
 
 p {
