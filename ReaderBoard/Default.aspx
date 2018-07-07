@@ -16,7 +16,7 @@
     <form id="form1" runat="server">
  
 
-        <div id="phone" class="flex-container effect5  borderLineThick">
+        <div id="phone" class="flex-container effect55  borderLineThick">
             <div class="midfont_title  borderLine"  style="flex-basis: 15%" >
                 <div class="logodiv ChatDivDown">
                     <img src="Content/KHP_EN_RGB.svg" alt="Home" class="logostyle" />
@@ -113,7 +113,7 @@
 
             <!-- Phone Counselor Availabele  -->
             <div class="borderLine">
-                <h3 class="ChatDivDown">Counselor Avail/SignIn</h3>
+                <h3 class="ChatDivDown">Counselor<br/>Avail / Busy</h3>
                 <h1 class="bigfont">
                     <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text=""></asp:Label>
                     /
@@ -138,14 +138,14 @@
         </div>
 
 
-        <p style="height:7px;">&nbsp;</p>
+        <p style="height:3px;">&nbsp;</p>
 
         
     
     
     
 
-        <div id="chat" class="flex-container effect5 borderLineThick">  
+        <div id="chat" class="flex-container effect55 borderLineThick">  
             <div class="midfont_title  borderLine" style="flex-basis: 15%" >
                 <div class="logodiv ChatDivDown">
                     <%--<img src="Content/KHP_EN_RGB.svg" alt="Home" class="logostyle">--%>
@@ -242,7 +242,7 @@
             <!-- Chat Counselor Available       -->
             <div class="borderLine ">
  
-                    <h3 class="ChatDivDown">Counselor Avail/SignIn</h3>
+                    <h3 class="ChatDivDown">Counselor<br/>Avail / Busy</h3>
                
                      
              

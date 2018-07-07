@@ -15,11 +15,11 @@ body {
     background-color: #ccc;
     color: #333333;
     font-family: Arial, Helvetica, sans-serif;
-    margin: 10px 10px 10px 10px;
+    margin: 0 5px;
 }
 
 h1 {
-    font-size: 96px;
+    font-size: 98px;
     font-weight: bold;
     text-shadow: -7px -7px 7px #999;
     margin: 0px;
@@ -69,7 +69,7 @@ div {
     .flex-container > div {
         width: 22.5%;
         text-align: center;
-        margin: 0px 2px;
+        margin: 3px;
         background-color: #FCFCFC;
         border-radius: 7px;
         padding: 5px 0 5px 0;
@@ -79,9 +79,9 @@ div {
     background-color: #ddd;
     padding: 2px;
     margin: 2px 2px 0px 2px;
-    border: double;
-    border: 20px double #999;
-    border-width: 1px;
+    /*border: double;
+    border: 10px double #999;
+    border-width: 1px;*/
 }
 
 #FRE, #PhoneF, #G2TF, #ChatF, #ChatAppF {
@@ -129,7 +129,7 @@ div {
 }
 
 .container_parent {
-    width: 98%;
+    width: 96%;
     margin: 3px;
     padding: 3px;
     text-align: center;
@@ -155,9 +155,9 @@ div {
 
 .borderShadow {
     box-shadow: 3px 3px 5px #777;
-    border: 2px double #aaa;
-    margin: 5px 1px 1px 6px;
-    /*padding-bottom: 12px;*/
+    border: 1px double #aaa;
+    margin: 3px 1px 9px 8px;
+    padding-bottom: 12px;
     width: 95%;
     /*height: 160px;*/
     background-color: #FCFCFC;
@@ -165,16 +165,18 @@ div {
 }
 
 .borderLine {
-    border: 1px double #AAA;
+    border: 3px double #777;
+    /*margin:20px;*/
 }
 
 .borderLineThick {
     border: 5px double #FF0000;
 }
 
-.phonebackground {
-    background-color: red;
+.borderLineThick {
+    border: 1px double #aaa;
 }
+
 /*==================================================
  * Effect 5
  * ===============================================*/
@@ -185,11 +187,11 @@ div {
     margin: 40px auto;
 }
 
-.effect5 {
+.effect55 {
     position: relative;
 }
 
-    .effect5:before, .effect5:after {
+    .effect55:before, .effect55:after {
         z-index: -1;
         position: absolute;
         content: "";
@@ -209,7 +211,7 @@ div {
         transform: rotate(-8deg);
     }
 
-    .effect5:after {
+    .effect55:after {
         -webkit-transform: rotate(8deg);
         -moz-transform: rotate(8deg);
         -o-transform: rotate(8deg);
@@ -228,6 +230,10 @@ div {
     background-image: url("KHP_Sq.png");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#PhoneCounslor, #ChatCounslor {
+    border: 1px solid #333333;
 }
 
 #PhoneCounslor1, #ChatCounslor1 {

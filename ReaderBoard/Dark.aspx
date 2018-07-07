@@ -121,13 +121,12 @@
 
             <!-- Phone Counselor Availabele  -->
             <div class=" borderLine">
-                <h3 class="ChatDivDown">Counselor Avail/SignIn</h3>
+                <h3 class="ChatDivDown">Counselor<br />Avail / Busy</h3>
                 <h1 class="bigfont">
                     <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text=""></asp:Label>
                      /
                     <asp:Label ID="lblPhoneCounselorLogin" runat="server" Text=""></asp:Label>
                 </h1>
-              
                     <asp:HiddenField ID="HiddenPhone_Eng_In" runat="server" />
                     <asp:HiddenField ID="HiddenPhone_Fre_In" runat="server" />
                     <asp:HiddenField ID="HiddenG2T_Eng_In" runat="server" />
@@ -245,13 +244,12 @@
 
             <!-- Chat Counselor Available       -->
             <div class="borderLine ">
-                <h3 class="ChatDivDown">Counselor Avail/SignIn</h3>
+                <h3 class="ChatDivDown">Counselor<br/>Avail / Busy</h3>
                 <h1 class="bigfont">
                     <asp:Label ID="lblChatCounselorAvailable" runat="server" Text=""></asp:Label>
                       /
                     <asp:Label ID="lblChatCounselorLogin" runat="server" Text=""></asp:Label>
                 </h1>
-
                     <asp:HiddenField ID="HiddenWebChat_Eng_In" runat="server" />
                     <asp:HiddenField ID="HiddenWebChat_Fre_In" runat="server" />
                     <asp:HiddenField ID="HiddenChatApp_Eng_In" runat="server" />

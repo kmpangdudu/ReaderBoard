@@ -139,29 +139,33 @@ function drawPhoneCounslor() {
     var PhoneEN_In = parseInt(sPhoneEN_In);
     var sPhoneEN_Avai = document.getElementById("HiddenPhone_Eng_Availabe").value;
     var PhoneEN_Avai = parseInt(sPhoneEN_Avai);
+    var busyPhoneEn = PhoneEN_In - PhoneEN_Avai;
 
     var sPhoneFr_In = document.getElementById("HiddenPhone_Fre_In").value;
     var PhoneFr_In = parseInt(sPhoneFr_In);
     var sPhoneFr_Avai = document.getElementById("HiddenPhone_Fre_Availabe").value;
     var PhoneFr_Avai = parseInt(sPhoneFr_Avai);
+    var busyPhoneFr = PhoneFr_In - PhoneFr_Avai;
 
     var sG2Ten_In = document.getElementById("HiddenG2T_Eng_In").value;
     var G2Ten_In = parseInt(sG2Ten_In);
     var sG2Ten_Avai = document.getElementById("HiddenG2T_Eng_Availabe").value;
     var G2Ten_Avai = parseInt(sG2Ten_Avai);
+    var busyG2TEn = G2Ten_In - G2Ten_Avai;
 
     var sG2Tfr_In = document.getElementById("HiddenG2T_Fre_In").value;
     var G2Tfr_In = parseInt(sG2Tfr_In);
     var sG2Tfr_Avai = document.getElementById("HiddenG2T_Fre_Availabe").value;
     var G2Tfr_Avai = parseInt(sG2Tfr_Avai);
+    var busyG2TFr = G2Tfr_In - G2Tfr_Avai;
 
 
     var PhoneData = google.visualization.arrayToDataTable([
         ["Queue", "Availabe", { role: "style" }, { role: "annotation" }, "SignIn", { role: "style" }, { role: "annotation" }],
-        ["Phone En", PhoneEN_Avai, colorGreen, PhoneEN_Avai, PhoneEN_In - PhoneEN_Avai, color1, PhoneEN_In],
-        ["Phone Fr", PhoneFr_Avai, colorGreen, PhoneFr_Avai, PhoneFr_In - PhoneFr_Avai, color2, PhoneFr_In],
-        ["G2T En", G2Ten_Avai, colorGreen, G2Ten_Avai, G2Ten_In - G2Ten_Avai, color3, G2Ten_In],
-        ["G2T Fr", G2Tfr_Avai, colorGreen, G2Tfr_Avai, G2Tfr_In - G2Tfr_Avai, color4, G2Tfr_In]
+        ["English", PhoneEN_Avai, colorGreen, PhoneEN_Avai, busyPhoneEn, color1, busyPhoneEn],
+        ["French", PhoneFr_Avai, colorGreen, PhoneFr_Avai, busyPhoneFr, color2, busyPhoneFr],
+        ["G2T En", G2Ten_Avai, colorGreen, G2Ten_Avai, busyG2TEn, color3, busyG2TEn],
+        ["G2T Fr", G2Tfr_Avai, colorGreen, G2Tfr_Avai, busyG2TFr, color4, busyG2TFr]
     ]);
 
     var Phonechart = new google.visualization.BarChart(document.getElementById("PhoneCounslor"));
@@ -175,30 +179,35 @@ function drawChatCounslor() {
     var ChatEN_In = parseInt(sChatEN_In);
     var sChatEN_Avai = document.getElementById("HiddenWebChat_Eng_Avaiable").value;
     var ChatEN_Avai = parseInt(sChatEN_Avai);
+    var busyChatEn = ChatEN_In - ChatEN_Avai;
 
     var sChatFr_In = document.getElementById("HiddenWebChat_Fre_In").value;
     var ChatFr_In = parseInt(sChatFr_In);
     var sChatFr_Avai = document.getElementById("HiddenWebChat_Fre_Avaiable").value;
     var ChatFr_Avai = parseInt(sChatFr_Avai);
+    var busyChatFr = ChatFr_In - ChatFr_Avai;
 
     var sChatAppEN_In = document.getElementById("HiddenChatApp_Eng_In").value;
     var ChatAppEN_In = parseInt(sChatAppEN_In);
     var sChatAppEN_Avai = document.getElementById("HiddenChatApp_Eng_Avaiable").value;
     var ChatAppEN_Avai = parseInt(sChatAppEN_Avai);
+    var busyChatAppEn = ChatAppEN_In - ChatAppEN_Avai;
 
     var sChatAppfr_In = document.getElementById("HiddenChatApp_Fre_In").value;
     var ChatAppfr_In = parseInt(sChatAppfr_In);
     var sChatAppfr_Avai = document.getElementById("HiddenChatApp_Fre_Avaiable").value;
     var ChatAppfr_Avai = parseInt(sChatAppfr_Avai);
+    var busyChatAppFr = ChatAppfr_In - ChatAppfr_Avai;
 
 
     var ChatData = google.visualization.arrayToDataTable([
         ["Queue", "Availabe", { role: "style" }, { role: "annotation" }, "SignIn", { role: "style" }, { role: "annotation" }],
-        ["Web En", ChatEN_Avai, colorGreen, ChatEN_Avai, ChatEN_In - ChatEN_Avai, color1, ChatEN_In],
-        ["Web Fr", ChatFr_Avai, colorGreen, ChatFr_Avai, ChatFr_In - ChatFr_Avai, color2, ChatFr_In],
-        ["App En", ChatAppEN_Avai, colorGreen, ChatAppEN_Avai, ChatAppEN_In - ChatAppEN_Avai, color3, ChatAppEN_In],
-        ["App Fr", ChatAppfr_Avai, colorGreen, ChatAppfr_Avai, ChatAppfr_In - ChatAppfr_Avai, color4, ChatAppfr_In]
+        ["Web En", ChatEN_Avai, colorGreen, ChatEN_Avai, busyChatEn, color1, busyChatEn],
+        ["Web Fr", ChatFr_Avai, colorGreen, ChatFr_Avai, busyChatFr, color2, busyChatFr],
+        ["App En", ChatAppEN_Avai, colorGreen, ChatAppEN_Avai, busyChatAppEn, color3, busyChatAppEn],
+        ["App Fr", ChatAppfr_Avai, colorGreen, ChatAppfr_Avai, busyChatAppFr, color4, busyChatAppFr]
     ]);
+
 
  
     var Phonechart = new google.visualization.BarChart(document.getElementById("ChatCounslor"));
