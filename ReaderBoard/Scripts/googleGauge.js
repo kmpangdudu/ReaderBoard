@@ -4,7 +4,7 @@ google.charts.setOnLoadCallback(drawPhoneChart);
 var color1 = "e6005c";
 var color2 = "1a1aff";
 var color3 = "FFFB33";
-var color4 = "00ffff";
+var color4 = "9933ff";
 var colorGreen = "00FF00";
 
 var options = {
