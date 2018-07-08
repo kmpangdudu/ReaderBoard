@@ -28,73 +28,14 @@ namespace ReaderBoard.DataModel
         }
     
     
-        public virtual ObjectResult<Proc_Insert_Grade_Result> Proc_Insert_Grade(Nullable<decimal> phoneEn_NumhundledLessThanTarget, Nullable<decimal> phoneFr_NumhundledLessThanTarget, Nullable<decimal> g2TEn_NumhundledLessThanTarget, Nullable<decimal> g2TFr_NumhundledLessThanTarget, Nullable<decimal> chatEn_NumhundledLessThanTarget, Nullable<decimal> chatFr_NumhundledLessThanTarget, Nullable<decimal> chatAppEn_NumhundledLessThanTarget, Nullable<decimal> chatAppFr_NumhundledLessThanTarget, Nullable<decimal> phoneEn_NumOffered, Nullable<decimal> phoneFr_NumOffered, Nullable<decimal> g2TEn_NumOffered, Nullable<decimal> g2TFr_NumOffered, Nullable<decimal> chatEn_NumOffered, Nullable<decimal> chatFr_NumOffered, Nullable<decimal> chatAppEn_NumOffered, Nullable<decimal> chatAppFr_NumOffered)
+        public virtual ObjectResult<Proc_GetQueue_Result> Proc_GetQueue()
         {
-            var phoneEn_NumhundledLessThanTargetParameter = phoneEn_NumhundledLessThanTarget.HasValue ?
-                new ObjectParameter("PhoneEn_NumhundledLessThanTarget", phoneEn_NumhundledLessThanTarget) :
-                new ObjectParameter("PhoneEn_NumhundledLessThanTarget", typeof(decimal));
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_GetQueue_Result>("Proc_GetQueue");
+        }
     
-            var phoneFr_NumhundledLessThanTargetParameter = phoneFr_NumhundledLessThanTarget.HasValue ?
-                new ObjectParameter("PhoneFr_NumhundledLessThanTarget", phoneFr_NumhundledLessThanTarget) :
-                new ObjectParameter("PhoneFr_NumhundledLessThanTarget", typeof(decimal));
-    
-            var g2TEn_NumhundledLessThanTargetParameter = g2TEn_NumhundledLessThanTarget.HasValue ?
-                new ObjectParameter("G2TEn_NumhundledLessThanTarget", g2TEn_NumhundledLessThanTarget) :
-                new ObjectParameter("G2TEn_NumhundledLessThanTarget", typeof(decimal));
-    
-            var g2TFr_NumhundledLessThanTargetParameter = g2TFr_NumhundledLessThanTarget.HasValue ?
-                new ObjectParameter("G2TFr_NumhundledLessThanTarget", g2TFr_NumhundledLessThanTarget) :
-                new ObjectParameter("G2TFr_NumhundledLessThanTarget", typeof(decimal));
-    
-            var chatEn_NumhundledLessThanTargetParameter = chatEn_NumhundledLessThanTarget.HasValue ?
-                new ObjectParameter("ChatEn_NumhundledLessThanTarget", chatEn_NumhundledLessThanTarget) :
-                new ObjectParameter("ChatEn_NumhundledLessThanTarget", typeof(decimal));
-    
-            var chatFr_NumhundledLessThanTargetParameter = chatFr_NumhundledLessThanTarget.HasValue ?
-                new ObjectParameter("ChatFr_NumhundledLessThanTarget", chatFr_NumhundledLessThanTarget) :
-                new ObjectParameter("ChatFr_NumhundledLessThanTarget", typeof(decimal));
-    
-            var chatAppEn_NumhundledLessThanTargetParameter = chatAppEn_NumhundledLessThanTarget.HasValue ?
-                new ObjectParameter("ChatAppEn_NumhundledLessThanTarget", chatAppEn_NumhundledLessThanTarget) :
-                new ObjectParameter("ChatAppEn_NumhundledLessThanTarget", typeof(decimal));
-    
-            var chatAppFr_NumhundledLessThanTargetParameter = chatAppFr_NumhundledLessThanTarget.HasValue ?
-                new ObjectParameter("ChatAppFr_NumhundledLessThanTarget", chatAppFr_NumhundledLessThanTarget) :
-                new ObjectParameter("ChatAppFr_NumhundledLessThanTarget", typeof(decimal));
-    
-            var phoneEn_NumOfferedParameter = phoneEn_NumOffered.HasValue ?
-                new ObjectParameter("PhoneEn_NumOffered", phoneEn_NumOffered) :
-                new ObjectParameter("PhoneEn_NumOffered", typeof(decimal));
-    
-            var phoneFr_NumOfferedParameter = phoneFr_NumOffered.HasValue ?
-                new ObjectParameter("PhoneFr_NumOffered", phoneFr_NumOffered) :
-                new ObjectParameter("PhoneFr_NumOffered", typeof(decimal));
-    
-            var g2TEn_NumOfferedParameter = g2TEn_NumOffered.HasValue ?
-                new ObjectParameter("G2TEn_NumOffered", g2TEn_NumOffered) :
-                new ObjectParameter("G2TEn_NumOffered", typeof(decimal));
-    
-            var g2TFr_NumOfferedParameter = g2TFr_NumOffered.HasValue ?
-                new ObjectParameter("G2TFr_NumOffered", g2TFr_NumOffered) :
-                new ObjectParameter("G2TFr_NumOffered", typeof(decimal));
-    
-            var chatEn_NumOfferedParameter = chatEn_NumOffered.HasValue ?
-                new ObjectParameter("ChatEn_NumOffered", chatEn_NumOffered) :
-                new ObjectParameter("ChatEn_NumOffered", typeof(decimal));
-    
-            var chatFr_NumOfferedParameter = chatFr_NumOffered.HasValue ?
-                new ObjectParameter("ChatFr_NumOffered", chatFr_NumOffered) :
-                new ObjectParameter("ChatFr_NumOffered", typeof(decimal));
-    
-            var chatAppEn_NumOfferedParameter = chatAppEn_NumOffered.HasValue ?
-                new ObjectParameter("ChatAppEn_NumOffered", chatAppEn_NumOffered) :
-                new ObjectParameter("ChatAppEn_NumOffered", typeof(decimal));
-    
-            var chatAppFr_NumOfferedParameter = chatAppFr_NumOffered.HasValue ?
-                new ObjectParameter("ChatAppFr_NumOffered", chatAppFr_NumOffered) :
-                new ObjectParameter("ChatAppFr_NumOffered", typeof(decimal));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_Insert_Grade_Result>("Proc_Insert_Grade", phoneEn_NumhundledLessThanTargetParameter, phoneFr_NumhundledLessThanTargetParameter, g2TEn_NumhundledLessThanTargetParameter, g2TFr_NumhundledLessThanTargetParameter, chatEn_NumhundledLessThanTargetParameter, chatFr_NumhundledLessThanTargetParameter, chatAppEn_NumhundledLessThanTargetParameter, chatAppFr_NumhundledLessThanTargetParameter, phoneEn_NumOfferedParameter, phoneFr_NumOfferedParameter, g2TEn_NumOfferedParameter, g2TFr_NumOfferedParameter, chatEn_NumOfferedParameter, chatFr_NumOfferedParameter, chatAppEn_NumOfferedParameter, chatAppFr_NumOfferedParameter);
+        public virtual ObjectResult<Proc_Last24Grade_Result> Proc_Last24Grade()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_Last24Grade_Result>("Proc_Last24Grade");
         }
     }
 }

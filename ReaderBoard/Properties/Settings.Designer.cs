@@ -121,5 +121,14 @@ namespace ReaderBoard.Properties {
                 return ((string)(this["Refreshing"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("300")]
+        public string DashboardRefreshing {
+            get {
+                return ((string)(this["DashboardRefreshing"]));
+            }
+        }
     }
 }

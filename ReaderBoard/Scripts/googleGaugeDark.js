@@ -15,7 +15,7 @@ var options = {
     yellowFrom: 50, yellowTo: 75,
     greenColor: colorGreen,
     greenFrom: 75, greenTo: 100,
-    minorTicks: 5,
+    minorTicks: 5
 
 
 };
@@ -28,7 +28,7 @@ function drawPhoneChart() {
     v2 = parseFloat(v2);
     var data1 = google.visualization.arrayToDataTable([
         ["Label", "Value"],
-        ["Rolling", v1],
+        ["Rolling", v1]
     ]);
     var data2 = google.visualization.arrayToDataTable([
         ["Label", "Value"],
@@ -62,7 +62,7 @@ function drawChatChart() {
     v4 = parseFloat(v4);
     var data3 = google.visualization.arrayToDataTable([
         ["Label", "Value"],
-        ["Rolling", v3],
+        ["Rolling", v3]
     ]);
     var data4 = google.visualization.arrayToDataTable([
         ["Label", "Value"],
@@ -107,11 +107,11 @@ var opt_Phone = {
         format: "#",
         TextStyle: { color: "333333", fontSize: 28, bold: true },
         colors: ["333333", "333333"],
-        gridlines: { color: "333333" },
+        gridlines: { color: "333333" }
     },
     vAxis: {
         textStyle: {fontSize: 20,bold: true,color: "FFFFFF"},
-        gridlines: { color: "333333" },
+        gridlines: { color: "333333" }
     },
     //colors: ["#e0440e", "#e6693e", "#ec8f6e", "#f3b49f", "#f6c7b6"],
 
@@ -121,7 +121,7 @@ var opt_Phone = {
             fontSize: lablefontsize,
             bold: true,
             // The color of the text.
-            color: ["FF0000", "00FF00"],
+            color: ["FF0000", "00FF00"]
             // The color of the text outline.
             //auraColor: "#d799ae",
             // The transparency of the text.
@@ -169,7 +169,7 @@ function drawPhoneCounslor() {
         ["G2T Fr", G2Tfr_Avai, colorGreen, G2Tfr_Avai, busyG2TFr, color4, busyG2TFr]
     ]);
 
- 
+    document.getElementById("lblPhoneCounselorLogin").innerText = busyPhoneEn + busyPhoneFr + busyG2TEn + busyG2TFr;
     var Phonechart = new google.visualization.BarChart(document.getElementById("PhoneCounslor"));
     Phonechart.draw(PhoneData, opt_Phone);
 }
@@ -213,7 +213,7 @@ function drawChatCounslor() {
         ["App Fr", ChatAppfr_Avai, colorGreen, ChatAppfr_Avai, busyChatAppFr, color4, busyChatAppFr]
     ]);
 
- 
+    document.getElementById("lblChatCounselorLogin").innerText = busyChatEn + busyChatFr + busyChatAppEn + busyChatAppFr;
     var Phonechart = new google.visualization.BarChart(document.getElementById("ChatCounslor"));
     Phonechart.draw(ChatData, opt_Phone);
 }

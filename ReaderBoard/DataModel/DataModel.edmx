@@ -5,56 +5,29 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="RAMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <Function Name="Proc_Insert_Grade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="survey">
-          <Parameter Name="PhoneEn_NumhundledLessThanTarget" Type="decimal" Mode="In" />
-          <Parameter Name="PhoneFr_NumhundledLessThanTarget" Type="decimal" Mode="In" />
-          <Parameter Name="G2TEn_NumhundledLessThanTarget" Type="decimal" Mode="In" />
-          <Parameter Name="G2TFr_NumhundledLessThanTarget" Type="decimal" Mode="In" />
-          <Parameter Name="ChatEn_NumhundledLessThanTarget" Type="decimal" Mode="In" />
-          <Parameter Name="ChatFr_NumhundledLessThanTarget" Type="decimal" Mode="In" />
-          <Parameter Name="ChatAppEn_NumhundledLessThanTarget" Type="decimal" Mode="In" />
-          <Parameter Name="ChatAppFr_NumhundledLessThanTarget" Type="decimal" Mode="In" />
-          <Parameter Name="PhoneEn_NumOffered" Type="decimal" Mode="In" />
-          <Parameter Name="PhoneFr_NumOffered" Type="decimal" Mode="In" />
-          <Parameter Name="G2TEn_NumOffered" Type="decimal" Mode="In" />
-          <Parameter Name="G2TFr_NumOffered" Type="decimal" Mode="In" />
-          <Parameter Name="ChatEn_NumOffered" Type="decimal" Mode="In" />
-          <Parameter Name="ChatFr_NumOffered" Type="decimal" Mode="In" />
-          <Parameter Name="ChatAppEn_NumOffered" Type="decimal" Mode="In" />
-          <Parameter Name="ChatAppFr_NumOffered" Type="decimal" Mode="In" />
-        </Function>
+        <Function Name="Proc_GetQueue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="iceCTI" />
+        <Function Name="Proc_Last24Grade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="iceCTI" />
         <EntityContainer Name="RAMModelStoreContainer" />
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RAMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="RAMEntities" annotation:LazyLoadingEnabled="true" >
-          <FunctionImport Name="Proc_Insert_Grade" ReturnType="Collection(RAMModel.Proc_Insert_Grade_Result)">
-            <Parameter Name="PhoneEn_NumhundledLessThanTarget" Mode="In" Type="Decimal" />
-            <Parameter Name="PhoneFr_NumhundledLessThanTarget" Mode="In" Type="Decimal" />
-            <Parameter Name="G2TEn_NumhundledLessThanTarget" Mode="In" Type="Decimal" />
-            <Parameter Name="G2TFr_NumhundledLessThanTarget" Mode="In" Type="Decimal" />
-            <Parameter Name="ChatEn_NumhundledLessThanTarget" Mode="In" Type="Decimal" />
-            <Parameter Name="ChatFr_NumhundledLessThanTarget" Mode="In" Type="Decimal" />
-            <Parameter Name="ChatAppEn_NumhundledLessThanTarget" Mode="In" Type="Decimal" />
-            <Parameter Name="ChatAppFr_NumhundledLessThanTarget" Mode="In" Type="Decimal" />
-            <Parameter Name="PhoneEn_NumOffered" Mode="In" Type="Decimal" />
-            <Parameter Name="PhoneFr_NumOffered" Mode="In" Type="Decimal" />
-            <Parameter Name="G2TEn_NumOffered" Mode="In" Type="Decimal" />
-            <Parameter Name="G2TFr_NumOffered" Mode="In" Type="Decimal" />
-            <Parameter Name="ChatEn_NumOffered" Mode="In" Type="Decimal" />
-            <Parameter Name="ChatFr_NumOffered" Mode="In" Type="Decimal" />
-            <Parameter Name="ChatAppEn_NumOffered" Mode="In" Type="Decimal" />
-            <Parameter Name="ChatAppFr_NumOffered" Mode="In" Type="Decimal" />
-          </FunctionImport>
+          <FunctionImport Name="Proc_GetQueue" ReturnType="Collection(RAMModel.Proc_GetQueue_Result)" />
+          <FunctionImport Name="Proc_Last24Grade" ReturnType="Collection(RAMModel.Proc_Last24Grade_Result)" />
         </EntityContainer>
-        <ComplexType Name="Proc_Insert_Grade_Result">
-          <Property Type="Decimal" Name="PhoneAllGrade" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="PhoneGrade" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="G2TGrade" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="ChatAllGrade" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="ChatGrade" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="ChatAppGrade" Nullable="true" Precision="18" Scale="0" />
+        <ComplexType Name="Proc_GetQueue_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="Queue" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="QueueValue" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Proc_Last24Grade_Result">
+          <Property Type="Decimal" Name="PhoneAllGrade" Nullable="true" Precision="6" Scale="2" />
+          <Property Type="Decimal" Name="PhoneGrade" Nullable="true" Precision="6" Scale="2" />
+          <Property Type="Decimal" Name="G2TGrade" Nullable="true" Precision="6" Scale="2" />
+          <Property Type="Decimal" Name="ChatAllGrade" Nullable="true" Precision="6" Scale="2" />
+          <Property Type="Decimal" Name="ChatGrade" Nullable="true" Precision="6" Scale="2" />
+          <Property Type="Decimal" Name="ChatAppGrade" Nullable="true" Precision="6" Scale="2" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -62,9 +35,18 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="RAMModelStoreContainer" CdmEntityContainer="RAMEntities" >
-          <FunctionImportMapping FunctionImportName="Proc_Insert_Grade" FunctionName="RAMModel.Store.Proc_Insert_Grade" >
+        <FunctionImportMapping FunctionImportName="Proc_GetQueue" FunctionName="RAMModel.Store.Proc_GetQueue">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="RAMModel.Proc_Insert_Grade_Result">
+              <ComplexTypeMapping TypeName="RAMModel.Proc_GetQueue_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Queue" ColumnName="Queue" />
+                <ScalarProperty Name="QueueValue" ColumnName="QueueValue" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_Last24Grade" FunctionName="RAMModel.Store.Proc_Last24Grade">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RAMModel.Proc_Last24Grade_Result">
                 <ScalarProperty Name="PhoneAllGrade" ColumnName="PhoneAllGrade" />
                 <ScalarProperty Name="PhoneGrade" ColumnName="PhoneGrade" />
                 <ScalarProperty Name="G2TGrade" ColumnName="G2TGrade" />

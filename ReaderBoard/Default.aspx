@@ -131,9 +131,9 @@
                 <asp:HiddenField ID="HiddenG2T_Fre_Availabe" runat="server" />
 
 
-                <div id="PhoneCounslor1"  >
+                
                     <div id="PhoneCounslor"></div>
-                </div>
+               
             </div>
         </div>
 
@@ -261,9 +261,9 @@
                     <asp:HiddenField ID="HiddenWebChat_Fre_Avaiable" runat="server" />
                     <asp:HiddenField ID="HiddenChatApp_Eng_Avaiable" runat="server" />
                     <asp:HiddenField ID="HiddenChatApp_Fre_Avaiable" runat="server" />
-                <div id="ChatCounslor1">
+                 
                     <div id="ChatCounslor"></div>
-                </div>
+                 
             </div>
         </div>
         <div style="display: none">

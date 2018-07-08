@@ -1,0 +1,1811 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="https://computer-talk.com" elementFormDefault="qualified" targetNamespace="https://computer-talk.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="RestartCTI">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestartCTIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RestartCTIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgentEventWaitExit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iAgentID" type="xs:unsignedInt" />
+        <xs:element minOccurs="0" name="iHandle" type="xs:unsignedInt" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgentEventWaitExitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AgentEventWaitExitResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgentEventWaitSimple">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iAgentID" type="xs:unsignedInt" />
+        <xs:element minOccurs="0" name="iAddressID" type="xs:unsignedInt" />
+        <xs:element minOccurs="0" name="iTimeout" type="xs:int" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bEnd" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dwHandle" type="xs:unsignedInt" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgentEventWaitSimpleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AgentEventWaitSimpleResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgentEventWait">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iAgentID" type="xs:unsignedInt" />
+        <xs:element minOccurs="0" name="iAddressID" type="xs:unsignedInt" />
+        <xs:element minOccurs="0" name="iTimeout" type="xs:int" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bEnd" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dwHandle" type="xs:unsignedInt" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgentEventWaitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AgentEventWaitResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwHandle" type="xs:unsignedInt" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestStationInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" type="xs:unsignedInt" />
+        <xs:element minOccurs="0" name="iAgentID" type="xs:unsignedInt" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iAddressID" type="xs:unsignedInt" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestStationInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RequestStationInfoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="source" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateSessionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnString">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReturnStringResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetCTIUserData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szUserData" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetCTIUserDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetCTIUserDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCTIUserData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCTIUserDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCTIUserDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetReady">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetReadyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetReadyResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetNotReady">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iReason" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetNotReadyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetNotReadyResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ToggleHold">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ToggleHoldResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ToggleHoldResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogonAgent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iQueue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogonAgentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogonAgentResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoffAgent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iQueue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bDisconnect" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoffAgentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogoffAgentResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AnswerCall">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AnswerCallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AnswerCallResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PlaceCall">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szDN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PlaceCallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PlaceCallResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReleaseCall">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReleaseCallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReleaseCallResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Conference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szDN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConferenceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConferenceResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BlindTransferCTI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szDN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BlindTransferCTIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BlindTransferCTIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BlindTransfer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szDN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BlindTransferResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BlindTransferResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultTransfer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szDN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultTransferResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConsultTransferResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultTransferCTI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szDN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultTransferCTIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConsultTransferCTIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndConsult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndConsultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EndConsultResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndConsultCTI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndConsultCTIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EndConsultCTIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PickRingingCall">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwRingingID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PickRingingCallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PickRingingCallResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PickHeldCall">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwHeldID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PickHeldCallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PickHeldCallResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PickAcdCall">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwContactID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PickAcdCallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PickAcdCallResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectLOB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iLOBCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectLOBResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SelectLOBResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmergencyKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmergencyKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmergencyKeyResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ToggleMonitor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwMonitoredID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ToggleMonitorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ToggleMonitorResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PickPAQCall">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwPickedID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwPickedPos" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PickPAQCallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PickPAQCallResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParkCall">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwPosition" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParkCallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ParkCallResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQueueStatsString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cdelimiter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQueueStatsStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetQueueStatsStringResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSession1">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="source" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pszDNIS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pszANIName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pszANINum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pszUserData" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSession1Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateSession1Result" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szReason" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EndSessionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetANI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pszANINumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pszANIName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetANIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetANIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDNIS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pszDNIS" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDNISResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetDNISResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetIceID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iIceID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetIceIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetIceIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetSkill">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iSkillID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iLevel" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iPriority" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetSkillResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetSkillResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIceUserData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIceUserDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetIceUserDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetANI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetANIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetANIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDNIS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDNISResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDNISResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoutingDN">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szDNGroup" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoutingDNResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetRoutingDNResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSkillCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSkillCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSkillCountResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSkill">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iSkillNum" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSkillResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSkillResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetIceUserData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pszUserData" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetIceUserDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetIceUserDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessionIDDN">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="szDN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessionIDDNResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSessionIDDNResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessionIDDN1">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="szDN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bEndSession" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessionIDDN1Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSessionIDDN1Result" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgentState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iPort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szIVRName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgentStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAgentStateResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessionIDPort">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iPort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szIVRName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessionIDPortResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSessionIDPortResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessionIDPort1">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iPort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szIVRName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessionIDPort1Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSessionIDPort1Result" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveSkill">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iSkillID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveSkillResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveSkillResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MaintainSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bMaintain" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MaintainSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MaintainSessionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyCTI">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyCTIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerifyCTIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetReadyCTI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="szIVRName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iIVRPortNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetReadyCTIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetReadyCTIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetNotReadyCTI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="szIVRName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iIVRPortNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iReason" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetNotReadyCTIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetNotReadyCTIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ToggleHoldCTI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ToggleHoldCTIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ToggleHoldCTIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessionIDIceID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iIceID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessionIDIceIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSessionIDIceIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogError">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="szError" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szSource" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogErrorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogErrorResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConferenceCTI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szDN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConferenceCTIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConferenceCTIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReleaseCallCTI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReleaseCallCTIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReleaseCallCTIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectLOBCTI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iLOBCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectLOBCTIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SelectLOBCTIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ToggleMonitorCTI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iPortNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szIVRName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iAgentID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ToggleMonitorCTIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ToggleMonitorCTIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetStatusResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurQueued">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurQueuedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCurQueuedResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurLongestQueuedTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurLongestQueuedTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCurLongestQueuedTimeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumAgentsLoggedOn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumAgentsLoggedOnResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetNumAgentsLoggedOnResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumAgentsOnContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumAgentsOnContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetNumAgentsOnContactResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumAgentsReady">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumAgentsReadyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetNumAgentsReadyResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumOffered">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumOfferedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetNumOfferedResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumHandledInThisQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumHandledInThisQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetNumHandledInThisQueueResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumHandledInOtherQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumHandledInOtherQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetNumHandledInOtherQueueResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumAbandoned">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumAbandonedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetNumAbandonedResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOfferedQueuedTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOfferedQueuedTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetOfferedQueuedTimeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHandledQueuedTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHandledQueuedTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetHandledQueuedTimeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHandledOtherQueuedTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHandledOtherQueuedTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetHandledOtherQueuedTimeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAbandonedQueuedTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAbandonedQueuedTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAbandonedQueuedTimeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTargetASA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTargetASAResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTargetASAResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumHandledLessThanTargetASA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumHandledLessThanTargetASAResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetNumHandledLessThanTargetASAResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEstimatedWaitTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwQueueID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEstimatedWaitTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetEstimatedWaitTimeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogonAgentCTIQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iIVRPortNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iQueue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szIVRName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogonAgentCTIQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogonAgentCTIQueueResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogonAgentCTI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iIVRPortNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szIVRName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogonAgentCTIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogonAgentCTIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogonAgents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iQueue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iNumAgents" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogonAgentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogonAgentsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogonAgentsCTIQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iIVRPortNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iQueue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szIVRName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iNumAgents" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogonAgentsCTIQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogonAgentsCTIQueueResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogonAgentsCTI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iIVRPortNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szIVRName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iNumAgents" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogonAgentsCTIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogonAgentsCTIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoffAgentCTIQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iIVRPortNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iQueue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szIVRName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bDisconnect" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoffAgentCTIQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogoffAgentCTIQueueResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoffAgentCTI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iIVRPortNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szIVRName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bDisconnect" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoffAgentCTIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogoffAgentCTIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoffAgents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iQueue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bDisconnect" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iNumAgents" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoffAgentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogoffAgentsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoffAgentsCTIQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iIVRPortNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iQueue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szIVRName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bDisconnect" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iNumAgents" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoffAgentsCTIQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogoffAgentsCTIQueueResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoffAgentsCTI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iIVRPortNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szIVRName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bDisconnect" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iNumAgents" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoffAgentsCTIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogoffAgentsCTIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SwapPAQCall">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwPosition" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SwapPAQCallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SwapPAQCallResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultPAQCall">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwPosition" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultPAQCallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConsultPAQCallResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RedirectPAQCall">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szDN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwPosition" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RedirectPAQCallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RedirectPAQCallResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReleasePAQCall">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwPosition" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReleasePAQCallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReleasePAQCallResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetIceServerName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetIceServerNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetIceServerNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetIVRName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iSessionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetIVRNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetIVRNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumPermittedAddresses">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumPermittedAddressesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetNumPermittedAddressesResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPermittedAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iIndex" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPermittedAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPermittedAddressResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIceAgentState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIceAgentStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetIceAgentStateResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIceAgentPendingState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIceAgentPendingStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetIceAgentPendingStateResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecordCall">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecordCallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RecordCallResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCallForwardData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCallForwardDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCallForwardDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetCallForwardData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="flags" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szDN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwDuration" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetCallForwardDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetCallForwardDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RedirectAlertingCall">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szDN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RedirectAlertingCallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RedirectAlertingCallResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TelephoneEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szData" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TelephoneEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TelephoneEventResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPAQStatusString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPAQStatusStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPAQStatusStringResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCallInfoString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCallInfoStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCallInfoStringResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIceAgentUserData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIceAgentUserDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetIceAgentUserDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetIceAgentUserData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dwSwitchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAgentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dwAddressID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userData" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="szServerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetIceAgentUserDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetIceAgentUserDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

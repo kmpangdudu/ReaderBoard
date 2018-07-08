@@ -135,9 +135,9 @@
                     <asp:HiddenField ID="HiddenPhone_Fre_Availabe" runat="server" />
                     <asp:HiddenField ID="HiddenG2T_Eng_Availabe" runat="server" />
                     <asp:HiddenField ID="HiddenG2T_Fre_Availabe" runat="server" />
-                <div id="PhoneCounslor1">
+               
                     <div id="PhoneCounslor"></div>
-                </div>
+                
             </div>
 
    

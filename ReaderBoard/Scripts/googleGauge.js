@@ -168,6 +168,7 @@ function drawPhoneCounslor() {
         ["G2T Fr", G2Tfr_Avai, colorGreen, G2Tfr_Avai, busyG2TFr, color4, busyG2TFr]
     ]);
 
+    document.getElementById("lblPhoneCounselorLogin").innerText = busyPhoneEn + busyPhoneFr + busyG2TEn + busyG2TFr;
     var Phonechart = new google.visualization.BarChart(document.getElementById("PhoneCounslor"));
     Phonechart.draw(PhoneData, opt_Phone);
 }
@@ -208,8 +209,7 @@ function drawChatCounslor() {
         ["App Fr", ChatAppfr_Avai, colorGreen, ChatAppfr_Avai, busyChatAppFr, color4, busyChatAppFr]
     ]);
 
-
- 
+    document.getElementById("lblChatCounselorLogin").innerText = busyChatEn + busyChatFr + busyChatAppEn + busyChatAppFr;
     var Phonechart = new google.visualization.BarChart(document.getElementById("ChatCounslor"));
     Phonechart.draw(ChatData, opt_Phone);
 }

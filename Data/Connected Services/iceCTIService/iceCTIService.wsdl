@@ -1,0 +1,2116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="https://computer-talk.com" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="iceCTIService" targetNamespace="https://computer-talk.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_CTIService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="https://computer-talk.com/Imports">
+      <xsd:import schemaLocation="https://websvr02.icescape.com:7090/iceCTIServiceKHPWeb?xsd=xsd0" namespace="https://computer-talk.com" />
+      <xsd:import schemaLocation="https://websvr02.icescape.com:7090/iceCTIServiceKHPWeb?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CTIService_RestartCTI_InputMessage">
+    <wsdl:part name="parameters" element="tns:RestartCTI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_RestartCTI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RestartCTIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_AgentEventWaitExit_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgentEventWaitExit" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_AgentEventWaitExit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgentEventWaitExitResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_AgentEventWaitSimple_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgentEventWaitSimple" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_AgentEventWaitSimple_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgentEventWaitSimpleResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_AgentEventWait_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgentEventWait" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_AgentEventWait_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgentEventWaitResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_RequestStationInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:RequestStationInfo" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_RequestStationInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RequestStationInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_CreateSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSession" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_CreateSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ReturnString_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnString" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ReturnString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetCTIUserData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetCTIUserData" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetCTIUserData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetCTIUserDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetCTIUserData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCTIUserData" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetCTIUserData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCTIUserDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetReady_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetReady" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetReady_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetReadyResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetNotReady_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetNotReady" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetNotReady_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetNotReadyResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ToggleHold_InputMessage">
+    <wsdl:part name="parameters" element="tns:ToggleHold" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ToggleHold_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ToggleHoldResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogonAgent_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogonAgent" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogonAgent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogonAgentResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogoffAgent_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogoffAgent" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogoffAgent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoffAgentResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_AnswerCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:AnswerCall" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_AnswerCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AnswerCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_PlaceCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:PlaceCall" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_PlaceCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PlaceCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ReleaseCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReleaseCall" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ReleaseCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReleaseCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_Conference_InputMessage">
+    <wsdl:part name="parameters" element="tns:Conference" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_Conference_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_BlindTransferCTI_InputMessage">
+    <wsdl:part name="parameters" element="tns:BlindTransferCTI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_BlindTransferCTI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BlindTransferCTIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_BlindTransfer_InputMessage">
+    <wsdl:part name="parameters" element="tns:BlindTransfer" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_BlindTransfer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BlindTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ConsultTransfer_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultTransfer" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ConsultTransfer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ConsultTransferCTI_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultTransferCTI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ConsultTransferCTI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultTransferCTIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_EndConsult_InputMessage">
+    <wsdl:part name="parameters" element="tns:EndConsult" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_EndConsult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EndConsultResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_EndConsultCTI_InputMessage">
+    <wsdl:part name="parameters" element="tns:EndConsultCTI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_EndConsultCTI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EndConsultCTIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_PickRingingCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:PickRingingCall" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_PickRingingCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PickRingingCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_PickHeldCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:PickHeldCall" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_PickHeldCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PickHeldCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_PickAcdCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:PickAcdCall" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_PickAcdCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PickAcdCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SelectLOB_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectLOB" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SelectLOB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectLOBResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_EmergencyKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmergencyKey" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_EmergencyKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmergencyKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ToggleMonitor_InputMessage">
+    <wsdl:part name="parameters" element="tns:ToggleMonitor" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ToggleMonitor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ToggleMonitorResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_PickPAQCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:PickPAQCall" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_PickPAQCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PickPAQCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ParkCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParkCall" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ParkCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParkCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetQueueStatsString_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQueueStatsString" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetQueueStatsString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQueueStatsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_CreateSession1_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSession1" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_CreateSession1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSession1Response" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_EndSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:EndSession" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_EndSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EndSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetANI_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetANI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetANI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetANIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetDNIS_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetDNIS" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetDNIS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetDNISResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetIceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetIceID" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetIceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetIceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetSkill_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetSkill" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetSkill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetSkillResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetIceUserData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIceUserData" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetIceUserData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIceUserDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetANI_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetANI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetANI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetANIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetDNIS_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDNIS" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetDNIS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDNISResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetRoutingDN_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoutingDN" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetRoutingDN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoutingDNResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetSkillCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSkillCount" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetSkillCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSkillCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetSkill_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSkill" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetSkill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSkillResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetIceUserData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetIceUserData" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetIceUserData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetIceUserDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetSessionIDDN_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionIDDN" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetSessionIDDN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionIDDNResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetSessionIDDN1_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionIDDN1" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetSessionIDDN1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionIDDN1Response" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetAgentState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAgentState" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetAgentState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAgentStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetSessionIDPort_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionIDPort" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetSessionIDPort_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionIDPortResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetSessionIDPort1_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionIDPort1" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetSessionIDPort1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionIDPort1Response" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_RemoveSkill_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSkill" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_RemoveSkill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSkillResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_MaintainSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:MaintainSession" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_MaintainSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MaintainSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_VerifyCTI_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyCTI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_VerifyCTI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyCTIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetReadyCTI_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetReadyCTI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetReadyCTI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetReadyCTIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetNotReadyCTI_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetNotReadyCTI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetNotReadyCTI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetNotReadyCTIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ToggleHoldCTI_InputMessage">
+    <wsdl:part name="parameters" element="tns:ToggleHoldCTI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ToggleHoldCTI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ToggleHoldCTIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetSessionIDIceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionIDIceID" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetSessionIDIceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionIDIceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogError_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogError" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogError_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ConferenceCTI_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConferenceCTI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ConferenceCTI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConferenceCTIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ReleaseCallCTI_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReleaseCallCTI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ReleaseCallCTI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReleaseCallCTIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SelectLOBCTI_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectLOBCTI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SelectLOBCTI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectLOBCTIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ToggleMonitorCTI_InputMessage">
+    <wsdl:part name="parameters" element="tns:ToggleMonitorCTI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ToggleMonitorCTI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ToggleMonitorCTIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetCurQueued_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurQueued" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetCurQueued_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurQueuedResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetCurLongestQueuedTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurLongestQueuedTime" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetCurLongestQueuedTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurLongestQueuedTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumAgentsLoggedOn_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumAgentsLoggedOn" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumAgentsLoggedOn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumAgentsLoggedOnResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumAgentsOnContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumAgentsOnContact" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumAgentsOnContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumAgentsOnContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumAgentsReady_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumAgentsReady" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumAgentsReady_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumAgentsReadyResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumOffered_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumOffered" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumOffered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumOfferedResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumHandledInThisQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumHandledInThisQueue" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumHandledInThisQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumHandledInThisQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumHandledInOtherQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumHandledInOtherQueue" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumHandledInOtherQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumHandledInOtherQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumAbandoned_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumAbandoned" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumAbandoned_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumAbandonedResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetOfferedQueuedTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOfferedQueuedTime" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetOfferedQueuedTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOfferedQueuedTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetHandledQueuedTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHandledQueuedTime" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetHandledQueuedTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHandledQueuedTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetHandledOtherQueuedTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHandledOtherQueuedTime" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetHandledOtherQueuedTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHandledOtherQueuedTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetAbandonedQueuedTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAbandonedQueuedTime" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetAbandonedQueuedTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAbandonedQueuedTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetTargetASA_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTargetASA" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetTargetASA_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTargetASAResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumHandledLessThanTargetASA_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumHandledLessThanTargetASA" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumHandledLessThanTargetASA_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumHandledLessThanTargetASAResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetEstimatedWaitTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEstimatedWaitTime" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetEstimatedWaitTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEstimatedWaitTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogonAgentCTIQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogonAgentCTIQueue" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogonAgentCTIQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogonAgentCTIQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogonAgentCTI_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogonAgentCTI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogonAgentCTI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogonAgentCTIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogonAgents_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogonAgents" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogonAgents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogonAgentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogonAgentsCTIQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogonAgentsCTIQueue" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogonAgentsCTIQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogonAgentsCTIQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogonAgentsCTI_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogonAgentsCTI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogonAgentsCTI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogonAgentsCTIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogoffAgentCTIQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogoffAgentCTIQueue" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogoffAgentCTIQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoffAgentCTIQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogoffAgentCTI_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogoffAgentCTI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogoffAgentCTI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoffAgentCTIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogoffAgents_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogoffAgents" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogoffAgents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoffAgentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogoffAgentsCTIQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogoffAgentsCTIQueue" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogoffAgentsCTIQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoffAgentsCTIQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogoffAgentsCTI_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogoffAgentsCTI" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_LogoffAgentsCTI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoffAgentsCTIResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SwapPAQCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:SwapPAQCall" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SwapPAQCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SwapPAQCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ConsultPAQCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultPAQCall" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ConsultPAQCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultPAQCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_RedirectPAQCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:RedirectPAQCall" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_RedirectPAQCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RedirectPAQCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ReleasePAQCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReleasePAQCall" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_ReleasePAQCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReleasePAQCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetIceServerName_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetIceServerName" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetIceServerName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetIceServerNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetIVRName_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetIVRName" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetIVRName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetIVRNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumPermittedAddresses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumPermittedAddresses" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetNumPermittedAddresses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumPermittedAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetPermittedAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPermittedAddress" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetPermittedAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPermittedAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetIceAgentState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIceAgentState" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetIceAgentState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIceAgentStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetIceAgentPendingState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIceAgentPendingState" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetIceAgentPendingState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIceAgentPendingStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_RecordCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecordCall" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_RecordCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecordCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetCallForwardData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCallForwardData" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetCallForwardData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCallForwardDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetCallForwardData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetCallForwardData" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetCallForwardData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetCallForwardDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_RedirectAlertingCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:RedirectAlertingCall" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_RedirectAlertingCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RedirectAlertingCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_TelephoneEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:TelephoneEvent" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_TelephoneEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TelephoneEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetPAQStatusString_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPAQStatusString" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetPAQStatusString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPAQStatusStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetCallInfoString_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCallInfoString" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetCallInfoString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCallInfoStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetIceAgentUserData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIceAgentUserData" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_GetIceAgentUserData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIceAgentUserDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetIceAgentUserData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetIceAgentUserData" />
+  </wsdl:message>
+  <wsdl:message name="CTIService_SetIceAgentUserData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetIceAgentUserDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CTIService">
+    <wsdl:operation name="RestartCTI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/RestartCTI" message="tns:CTIService_RestartCTI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/RestartCTIResponse" message="tns:CTIService_RestartCTI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgentEventWaitExit">
+      <wsdl:input wsaw:Action="https://computer-talk.com/AgentEventWaitExit" message="tns:CTIService_AgentEventWaitExit_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/AgentEventWaitExitResponse" message="tns:CTIService_AgentEventWaitExit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgentEventWaitSimple">
+      <wsdl:input wsaw:Action="https://computer-talk.com/AgentEventWaitSimple" message="tns:CTIService_AgentEventWaitSimple_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/AgentEventWaitSimpleResponse" message="tns:CTIService_AgentEventWaitSimple_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgentEventWait">
+      <wsdl:input wsaw:Action="https://computer-talk.com/AgentEventWait" message="tns:CTIService_AgentEventWait_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/AgentEventWaitResponse" message="tns:CTIService_AgentEventWait_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestStationInfo">
+      <wsdl:input wsaw:Action="https://computer-talk.com/RequestStationInfo" message="tns:CTIService_RequestStationInfo_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/RequestStationInfoResponse" message="tns:CTIService_RequestStationInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSession">
+      <wsdl:input wsaw:Action="https://computer-talk.com/CreateSession" message="tns:CTIService_CreateSession_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/CreateSessionResponse" message="tns:CTIService_CreateSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnString">
+      <wsdl:input wsaw:Action="https://computer-talk.com/ReturnString" message="tns:CTIService_ReturnString_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/ReturnStringResponse" message="tns:CTIService_ReturnString_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCTIUserData">
+      <wsdl:input wsaw:Action="https://computer-talk.com/SetCTIUserData" message="tns:CTIService_SetCTIUserData_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/SetCTIUserDataResponse" message="tns:CTIService_SetCTIUserData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCTIUserData">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetCTIUserData" message="tns:CTIService_GetCTIUserData_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetCTIUserDataResponse" message="tns:CTIService_GetCTIUserData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetReady">
+      <wsdl:input wsaw:Action="https://computer-talk.com/SetReady" message="tns:CTIService_SetReady_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/SetReadyResponse" message="tns:CTIService_SetReady_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNotReady">
+      <wsdl:input wsaw:Action="https://computer-talk.com/SetNotReady" message="tns:CTIService_SetNotReady_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/SetNotReadyResponse" message="tns:CTIService_SetNotReady_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ToggleHold">
+      <wsdl:input wsaw:Action="https://computer-talk.com/ToggleHold" message="tns:CTIService_ToggleHold_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/ToggleHoldResponse" message="tns:CTIService_ToggleHold_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogonAgent">
+      <wsdl:input wsaw:Action="https://computer-talk.com/LogonAgent" message="tns:CTIService_LogonAgent_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/LogonAgentResponse" message="tns:CTIService_LogonAgent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogoffAgent">
+      <wsdl:input wsaw:Action="https://computer-talk.com/LogoffAgent" message="tns:CTIService_LogoffAgent_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/LogoffAgentResponse" message="tns:CTIService_LogoffAgent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AnswerCall">
+      <wsdl:input wsaw:Action="https://computer-talk.com/AnswerCall" message="tns:CTIService_AnswerCall_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/AnswerCallResponse" message="tns:CTIService_AnswerCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PlaceCall">
+      <wsdl:input wsaw:Action="https://computer-talk.com/PlaceCall" message="tns:CTIService_PlaceCall_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/PlaceCallResponse" message="tns:CTIService_PlaceCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseCall">
+      <wsdl:input wsaw:Action="https://computer-talk.com/ReleaseCall" message="tns:CTIService_ReleaseCall_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/ReleaseCallResponse" message="tns:CTIService_ReleaseCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Conference">
+      <wsdl:input wsaw:Action="https://computer-talk.com/Conference" message="tns:CTIService_Conference_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/ConferenceResponse" message="tns:CTIService_Conference_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BlindTransferCTI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/BlindTransferCTI" message="tns:CTIService_BlindTransferCTI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/BlindTransferCTIResponse" message="tns:CTIService_BlindTransferCTI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BlindTransfer">
+      <wsdl:input wsaw:Action="https://computer-talk.com/BlindTransfer" message="tns:CTIService_BlindTransfer_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/BlindTransferResponse" message="tns:CTIService_BlindTransfer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultTransfer">
+      <wsdl:input wsaw:Action="https://computer-talk.com/ConsultTransfer" message="tns:CTIService_ConsultTransfer_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/ConsultTransferResponse" message="tns:CTIService_ConsultTransfer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultTransferCTI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/ConsultTransferCTI" message="tns:CTIService_ConsultTransferCTI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/ConsultTransferCTIResponse" message="tns:CTIService_ConsultTransferCTI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EndConsult">
+      <wsdl:input wsaw:Action="https://computer-talk.com/EndConsult" message="tns:CTIService_EndConsult_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/EndConsultResponse" message="tns:CTIService_EndConsult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EndConsultCTI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/EndConsultCTI" message="tns:CTIService_EndConsultCTI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/EndConsultCTIResponse" message="tns:CTIService_EndConsultCTI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PickRingingCall">
+      <wsdl:input wsaw:Action="https://computer-talk.com/PickRingingCall" message="tns:CTIService_PickRingingCall_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/PickRingingCallResponse" message="tns:CTIService_PickRingingCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PickHeldCall">
+      <wsdl:input wsaw:Action="https://computer-talk.com/PickHeldCall" message="tns:CTIService_PickHeldCall_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/PickHeldCallResponse" message="tns:CTIService_PickHeldCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PickAcdCall">
+      <wsdl:input wsaw:Action="https://computer-talk.com/PickAcdCall" message="tns:CTIService_PickAcdCall_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/PickAcdCallResponse" message="tns:CTIService_PickAcdCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectLOB">
+      <wsdl:input wsaw:Action="https://computer-talk.com/SelectLOB" message="tns:CTIService_SelectLOB_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/SelectLOBResponse" message="tns:CTIService_SelectLOB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmergencyKey">
+      <wsdl:input wsaw:Action="https://computer-talk.com/EmergencyKey" message="tns:CTIService_EmergencyKey_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/EmergencyKeyResponse" message="tns:CTIService_EmergencyKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ToggleMonitor">
+      <wsdl:input wsaw:Action="https://computer-talk.com/ToggleMonitor" message="tns:CTIService_ToggleMonitor_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/ToggleMonitorResponse" message="tns:CTIService_ToggleMonitor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PickPAQCall">
+      <wsdl:input wsaw:Action="https://computer-talk.com/PickPAQCall" message="tns:CTIService_PickPAQCall_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/PickPAQCallResponse" message="tns:CTIService_PickPAQCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParkCall">
+      <wsdl:input wsaw:Action="https://computer-talk.com/ParkCall" message="tns:CTIService_ParkCall_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/ParkCallResponse" message="tns:CTIService_ParkCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQueueStatsString">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetQueueStatsString" message="tns:CTIService_GetQueueStatsString_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetQueueStatsStringResponse" message="tns:CTIService_GetQueueStatsString_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSession1">
+      <wsdl:input wsaw:Action="https://computer-talk.com/CreateSession1" message="tns:CTIService_CreateSession1_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/CreateSession1Response" message="tns:CTIService_CreateSession1_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EndSession">
+      <wsdl:input wsaw:Action="https://computer-talk.com/EndSession" message="tns:CTIService_EndSession_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/EndSessionResponse" message="tns:CTIService_EndSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetANI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/SetANI" message="tns:CTIService_SetANI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/SetANIResponse" message="tns:CTIService_SetANI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDNIS">
+      <wsdl:input wsaw:Action="https://computer-talk.com/SetDNIS" message="tns:CTIService_SetDNIS_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/SetDNISResponse" message="tns:CTIService_SetDNIS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetIceID">
+      <wsdl:input wsaw:Action="https://computer-talk.com/SetIceID" message="tns:CTIService_SetIceID_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/SetIceIDResponse" message="tns:CTIService_SetIceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSkill">
+      <wsdl:input wsaw:Action="https://computer-talk.com/SetSkill" message="tns:CTIService_SetSkill_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/SetSkillResponse" message="tns:CTIService_SetSkill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIceUserData">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetIceUserData" message="tns:CTIService_GetIceUserData_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetIceUserDataResponse" message="tns:CTIService_GetIceUserData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetANI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetANI" message="tns:CTIService_GetANI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetANIResponse" message="tns:CTIService_GetANI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDNIS">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetDNIS" message="tns:CTIService_GetDNIS_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetDNISResponse" message="tns:CTIService_GetDNIS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutingDN">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetRoutingDN" message="tns:CTIService_GetRoutingDN_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetRoutingDNResponse" message="tns:CTIService_GetRoutingDN_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSkillCount">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetSkillCount" message="tns:CTIService_GetSkillCount_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetSkillCountResponse" message="tns:CTIService_GetSkillCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSkill">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetSkill" message="tns:CTIService_GetSkill_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetSkillResponse" message="tns:CTIService_GetSkill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetIceUserData">
+      <wsdl:input wsaw:Action="https://computer-talk.com/SetIceUserData" message="tns:CTIService_SetIceUserData_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/SetIceUserDataResponse" message="tns:CTIService_SetIceUserData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionIDDN">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetSessionIDDN" message="tns:CTIService_GetSessionIDDN_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetSessionIDDNResponse" message="tns:CTIService_GetSessionIDDN_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionIDDN1">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetSessionIDDN1" message="tns:CTIService_GetSessionIDDN1_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetSessionIDDN1Response" message="tns:CTIService_GetSessionIDDN1_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentState">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetAgentState" message="tns:CTIService_GetAgentState_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetAgentStateResponse" message="tns:CTIService_GetAgentState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionIDPort">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetSessionIDPort" message="tns:CTIService_GetSessionIDPort_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetSessionIDPortResponse" message="tns:CTIService_GetSessionIDPort_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionIDPort1">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetSessionIDPort1" message="tns:CTIService_GetSessionIDPort1_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetSessionIDPort1Response" message="tns:CTIService_GetSessionIDPort1_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSkill">
+      <wsdl:input wsaw:Action="https://computer-talk.com/RemoveSkill" message="tns:CTIService_RemoveSkill_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/RemoveSkillResponse" message="tns:CTIService_RemoveSkill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MaintainSession">
+      <wsdl:input wsaw:Action="https://computer-talk.com/MaintainSession" message="tns:CTIService_MaintainSession_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/MaintainSessionResponse" message="tns:CTIService_MaintainSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyCTI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/VerifyCTI" message="tns:CTIService_VerifyCTI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/VerifyCTIResponse" message="tns:CTIService_VerifyCTI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetReadyCTI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/SetReadyCTI" message="tns:CTIService_SetReadyCTI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/SetReadyCTIResponse" message="tns:CTIService_SetReadyCTI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNotReadyCTI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/SetNotReadyCTI" message="tns:CTIService_SetNotReadyCTI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/SetNotReadyCTIResponse" message="tns:CTIService_SetNotReadyCTI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ToggleHoldCTI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/ToggleHoldCTI" message="tns:CTIService_ToggleHoldCTI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/ToggleHoldCTIResponse" message="tns:CTIService_ToggleHoldCTI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionIDIceID">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetSessionIDIceID" message="tns:CTIService_GetSessionIDIceID_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetSessionIDIceIDResponse" message="tns:CTIService_GetSessionIDIceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogError">
+      <wsdl:input wsaw:Action="https://computer-talk.com/LogError" message="tns:CTIService_LogError_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/LogErrorResponse" message="tns:CTIService_LogError_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConferenceCTI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/ConferenceCTI" message="tns:CTIService_ConferenceCTI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/ConferenceCTIResponse" message="tns:CTIService_ConferenceCTI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseCallCTI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/ReleaseCallCTI" message="tns:CTIService_ReleaseCallCTI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/ReleaseCallCTIResponse" message="tns:CTIService_ReleaseCallCTI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectLOBCTI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/SelectLOBCTI" message="tns:CTIService_SelectLOBCTI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/SelectLOBCTIResponse" message="tns:CTIService_SelectLOBCTI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ToggleMonitorCTI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/ToggleMonitorCTI" message="tns:CTIService_ToggleMonitorCTI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/ToggleMonitorCTIResponse" message="tns:CTIService_ToggleMonitorCTI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetStatus" message="tns:CTIService_GetStatus_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetStatusResponse" message="tns:CTIService_GetStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurQueued">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetCurQueued" message="tns:CTIService_GetCurQueued_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetCurQueuedResponse" message="tns:CTIService_GetCurQueued_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurLongestQueuedTime">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetCurLongestQueuedTime" message="tns:CTIService_GetCurLongestQueuedTime_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetCurLongestQueuedTimeResponse" message="tns:CTIService_GetCurLongestQueuedTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumAgentsLoggedOn">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetNumAgentsLoggedOn" message="tns:CTIService_GetNumAgentsLoggedOn_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetNumAgentsLoggedOnResponse" message="tns:CTIService_GetNumAgentsLoggedOn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumAgentsOnContact">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetNumAgentsOnContact" message="tns:CTIService_GetNumAgentsOnContact_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetNumAgentsOnContactResponse" message="tns:CTIService_GetNumAgentsOnContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumAgentsReady">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetNumAgentsReady" message="tns:CTIService_GetNumAgentsReady_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetNumAgentsReadyResponse" message="tns:CTIService_GetNumAgentsReady_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumOffered">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetNumOffered" message="tns:CTIService_GetNumOffered_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetNumOfferedResponse" message="tns:CTIService_GetNumOffered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumHandledInThisQueue">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetNumHandledInThisQueue" message="tns:CTIService_GetNumHandledInThisQueue_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetNumHandledInThisQueueResponse" message="tns:CTIService_GetNumHandledInThisQueue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumHandledInOtherQueue">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetNumHandledInOtherQueue" message="tns:CTIService_GetNumHandledInOtherQueue_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetNumHandledInOtherQueueResponse" message="tns:CTIService_GetNumHandledInOtherQueue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumAbandoned">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetNumAbandoned" message="tns:CTIService_GetNumAbandoned_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetNumAbandonedResponse" message="tns:CTIService_GetNumAbandoned_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOfferedQueuedTime">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetOfferedQueuedTime" message="tns:CTIService_GetOfferedQueuedTime_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetOfferedQueuedTimeResponse" message="tns:CTIService_GetOfferedQueuedTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHandledQueuedTime">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetHandledQueuedTime" message="tns:CTIService_GetHandledQueuedTime_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetHandledQueuedTimeResponse" message="tns:CTIService_GetHandledQueuedTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHandledOtherQueuedTime">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetHandledOtherQueuedTime" message="tns:CTIService_GetHandledOtherQueuedTime_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetHandledOtherQueuedTimeResponse" message="tns:CTIService_GetHandledOtherQueuedTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAbandonedQueuedTime">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetAbandonedQueuedTime" message="tns:CTIService_GetAbandonedQueuedTime_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetAbandonedQueuedTimeResponse" message="tns:CTIService_GetAbandonedQueuedTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTargetASA">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetTargetASA" message="tns:CTIService_GetTargetASA_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetTargetASAResponse" message="tns:CTIService_GetTargetASA_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumHandledLessThanTargetASA">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetNumHandledLessThanTargetASA" message="tns:CTIService_GetNumHandledLessThanTargetASA_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetNumHandledLessThanTargetASAResponse" message="tns:CTIService_GetNumHandledLessThanTargetASA_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEstimatedWaitTime">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetEstimatedWaitTime" message="tns:CTIService_GetEstimatedWaitTime_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetEstimatedWaitTimeResponse" message="tns:CTIService_GetEstimatedWaitTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogonAgentCTIQueue">
+      <wsdl:input wsaw:Action="https://computer-talk.com/LogonAgentCTIQueue" message="tns:CTIService_LogonAgentCTIQueue_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/LogonAgentCTIQueueResponse" message="tns:CTIService_LogonAgentCTIQueue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogonAgentCTI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/LogonAgentCTI" message="tns:CTIService_LogonAgentCTI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/LogonAgentCTIResponse" message="tns:CTIService_LogonAgentCTI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogonAgents">
+      <wsdl:input wsaw:Action="https://computer-talk.com/LogonAgents" message="tns:CTIService_LogonAgents_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/LogonAgentsResponse" message="tns:CTIService_LogonAgents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogonAgentsCTIQueue">
+      <wsdl:input wsaw:Action="https://computer-talk.com/LogonAgentsCTIQueue" message="tns:CTIService_LogonAgentsCTIQueue_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/LogonAgentsCTIQueueResponse" message="tns:CTIService_LogonAgentsCTIQueue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogonAgentsCTI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/LogonAgentsCTI" message="tns:CTIService_LogonAgentsCTI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/LogonAgentsCTIResponse" message="tns:CTIService_LogonAgentsCTI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogoffAgentCTIQueue">
+      <wsdl:input wsaw:Action="https://computer-talk.com/LogoffAgentCTIQueue" message="tns:CTIService_LogoffAgentCTIQueue_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/LogoffAgentCTIQueueResponse" message="tns:CTIService_LogoffAgentCTIQueue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogoffAgentCTI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/LogoffAgentCTI" message="tns:CTIService_LogoffAgentCTI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/LogoffAgentCTIResponse" message="tns:CTIService_LogoffAgentCTI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogoffAgents">
+      <wsdl:input wsaw:Action="https://computer-talk.com/LogoffAgents" message="tns:CTIService_LogoffAgents_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/LogoffAgentsResponse" message="tns:CTIService_LogoffAgents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogoffAgentsCTIQueue">
+      <wsdl:input wsaw:Action="https://computer-talk.com/LogoffAgentsCTIQueue" message="tns:CTIService_LogoffAgentsCTIQueue_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/LogoffAgentsCTIQueueResponse" message="tns:CTIService_LogoffAgentsCTIQueue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogoffAgentsCTI">
+      <wsdl:input wsaw:Action="https://computer-talk.com/LogoffAgentsCTI" message="tns:CTIService_LogoffAgentsCTI_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/LogoffAgentsCTIResponse" message="tns:CTIService_LogoffAgentsCTI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SwapPAQCall">
+      <wsdl:input wsaw:Action="https://computer-talk.com/SwapPAQCall" message="tns:CTIService_SwapPAQCall_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/SwapPAQCallResponse" message="tns:CTIService_SwapPAQCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultPAQCall">
+      <wsdl:input wsaw:Action="https://computer-talk.com/ConsultPAQCall" message="tns:CTIService_ConsultPAQCall_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/ConsultPAQCallResponse" message="tns:CTIService_ConsultPAQCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RedirectPAQCall">
+      <wsdl:input wsaw:Action="https://computer-talk.com/RedirectPAQCall" message="tns:CTIService_RedirectPAQCall_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/RedirectPAQCallResponse" message="tns:CTIService_RedirectPAQCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleasePAQCall">
+      <wsdl:input wsaw:Action="https://computer-talk.com/ReleasePAQCall" message="tns:CTIService_ReleasePAQCall_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/ReleasePAQCallResponse" message="tns:CTIService_ReleasePAQCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetIceServerName">
+      <wsdl:input wsaw:Action="https://computer-talk.com/SetIceServerName" message="tns:CTIService_SetIceServerName_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/SetIceServerNameResponse" message="tns:CTIService_SetIceServerName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetIVRName">
+      <wsdl:input wsaw:Action="https://computer-talk.com/SetIVRName" message="tns:CTIService_SetIVRName_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/SetIVRNameResponse" message="tns:CTIService_SetIVRName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumPermittedAddresses">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetNumPermittedAddresses" message="tns:CTIService_GetNumPermittedAddresses_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetNumPermittedAddressesResponse" message="tns:CTIService_GetNumPermittedAddresses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPermittedAddress">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetPermittedAddress" message="tns:CTIService_GetPermittedAddress_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetPermittedAddressResponse" message="tns:CTIService_GetPermittedAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIceAgentState">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetIceAgentState" message="tns:CTIService_GetIceAgentState_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetIceAgentStateResponse" message="tns:CTIService_GetIceAgentState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIceAgentPendingState">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetIceAgentPendingState" message="tns:CTIService_GetIceAgentPendingState_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetIceAgentPendingStateResponse" message="tns:CTIService_GetIceAgentPendingState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecordCall">
+      <wsdl:input wsaw:Action="https://computer-talk.com/RecordCall" message="tns:CTIService_RecordCall_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/RecordCallResponse" message="tns:CTIService_RecordCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCallForwardData">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetCallForwardData" message="tns:CTIService_GetCallForwardData_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetCallForwardDataResponse" message="tns:CTIService_GetCallForwardData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCallForwardData">
+      <wsdl:input wsaw:Action="https://computer-talk.com/SetCallForwardData" message="tns:CTIService_SetCallForwardData_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/SetCallForwardDataResponse" message="tns:CTIService_SetCallForwardData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RedirectAlertingCall">
+      <wsdl:input wsaw:Action="https://computer-talk.com/RedirectAlertingCall" message="tns:CTIService_RedirectAlertingCall_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/RedirectAlertingCallResponse" message="tns:CTIService_RedirectAlertingCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TelephoneEvent">
+      <wsdl:input wsaw:Action="https://computer-talk.com/TelephoneEvent" message="tns:CTIService_TelephoneEvent_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/TelephoneEventResponse" message="tns:CTIService_TelephoneEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPAQStatusString">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetPAQStatusString" message="tns:CTIService_GetPAQStatusString_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetPAQStatusStringResponse" message="tns:CTIService_GetPAQStatusString_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCallInfoString">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetCallInfoString" message="tns:CTIService_GetCallInfoString_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetCallInfoStringResponse" message="tns:CTIService_GetCallInfoString_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIceAgentUserData">
+      <wsdl:input wsaw:Action="https://computer-talk.com/GetIceAgentUserData" message="tns:CTIService_GetIceAgentUserData_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/GetIceAgentUserDataResponse" message="tns:CTIService_GetIceAgentUserData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetIceAgentUserData">
+      <wsdl:input wsaw:Action="https://computer-talk.com/SetIceAgentUserData" message="tns:CTIService_SetIceAgentUserData_InputMessage" />
+      <wsdl:output wsaw:Action="https://computer-talk.com/CTIService/SetIceAgentUserDataResponse" message="tns:CTIService_SetIceAgentUserData_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_CTIService" type="tns:CTIService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_CTIService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RestartCTI">
+      <soap:operation soapAction="https://computer-talk.com/RestartCTI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgentEventWaitExit">
+      <soap:operation soapAction="https://computer-talk.com/AgentEventWaitExit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgentEventWaitSimple">
+      <soap:operation soapAction="https://computer-talk.com/AgentEventWaitSimple" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgentEventWait">
+      <soap:operation soapAction="https://computer-talk.com/AgentEventWait" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestStationInfo">
+      <soap:operation soapAction="https://computer-talk.com/RequestStationInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSession">
+      <soap:operation soapAction="https://computer-talk.com/CreateSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnString">
+      <soap:operation soapAction="https://computer-talk.com/ReturnString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCTIUserData">
+      <soap:operation soapAction="https://computer-talk.com/SetCTIUserData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCTIUserData">
+      <soap:operation soapAction="https://computer-talk.com/GetCTIUserData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetReady">
+      <soap:operation soapAction="https://computer-talk.com/SetReady" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNotReady">
+      <soap:operation soapAction="https://computer-talk.com/SetNotReady" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ToggleHold">
+      <soap:operation soapAction="https://computer-talk.com/ToggleHold" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogonAgent">
+      <soap:operation soapAction="https://computer-talk.com/LogonAgent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogoffAgent">
+      <soap:operation soapAction="https://computer-talk.com/LogoffAgent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnswerCall">
+      <soap:operation soapAction="https://computer-talk.com/AnswerCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlaceCall">
+      <soap:operation soapAction="https://computer-talk.com/PlaceCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseCall">
+      <soap:operation soapAction="https://computer-talk.com/ReleaseCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Conference">
+      <soap:operation soapAction="https://computer-talk.com/Conference" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BlindTransferCTI">
+      <soap:operation soapAction="https://computer-talk.com/BlindTransferCTI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BlindTransfer">
+      <soap:operation soapAction="https://computer-talk.com/BlindTransfer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultTransfer">
+      <soap:operation soapAction="https://computer-talk.com/ConsultTransfer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultTransferCTI">
+      <soap:operation soapAction="https://computer-talk.com/ConsultTransferCTI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndConsult">
+      <soap:operation soapAction="https://computer-talk.com/EndConsult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndConsultCTI">
+      <soap:operation soapAction="https://computer-talk.com/EndConsultCTI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickRingingCall">
+      <soap:operation soapAction="https://computer-talk.com/PickRingingCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickHeldCall">
+      <soap:operation soapAction="https://computer-talk.com/PickHeldCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickAcdCall">
+      <soap:operation soapAction="https://computer-talk.com/PickAcdCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLOB">
+      <soap:operation soapAction="https://computer-talk.com/SelectLOB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmergencyKey">
+      <soap:operation soapAction="https://computer-talk.com/EmergencyKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ToggleMonitor">
+      <soap:operation soapAction="https://computer-talk.com/ToggleMonitor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickPAQCall">
+      <soap:operation soapAction="https://computer-talk.com/PickPAQCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParkCall">
+      <soap:operation soapAction="https://computer-talk.com/ParkCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueueStatsString">
+      <soap:operation soapAction="https://computer-talk.com/GetQueueStatsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSession1">
+      <soap:operation soapAction="https://computer-talk.com/CreateSession1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndSession">
+      <soap:operation soapAction="https://computer-talk.com/EndSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetANI">
+      <soap:operation soapAction="https://computer-talk.com/SetANI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDNIS">
+      <soap:operation soapAction="https://computer-talk.com/SetDNIS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetIceID">
+      <soap:operation soapAction="https://computer-talk.com/SetIceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSkill">
+      <soap:operation soapAction="https://computer-talk.com/SetSkill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIceUserData">
+      <soap:operation soapAction="https://computer-talk.com/GetIceUserData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetANI">
+      <soap:operation soapAction="https://computer-talk.com/GetANI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDNIS">
+      <soap:operation soapAction="https://computer-talk.com/GetDNIS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutingDN">
+      <soap:operation soapAction="https://computer-talk.com/GetRoutingDN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSkillCount">
+      <soap:operation soapAction="https://computer-talk.com/GetSkillCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSkill">
+      <soap:operation soapAction="https://computer-talk.com/GetSkill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetIceUserData">
+      <soap:operation soapAction="https://computer-talk.com/SetIceUserData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionIDDN">
+      <soap:operation soapAction="https://computer-talk.com/GetSessionIDDN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionIDDN1">
+      <soap:operation soapAction="https://computer-talk.com/GetSessionIDDN1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentState">
+      <soap:operation soapAction="https://computer-talk.com/GetAgentState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionIDPort">
+      <soap:operation soapAction="https://computer-talk.com/GetSessionIDPort" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionIDPort1">
+      <soap:operation soapAction="https://computer-talk.com/GetSessionIDPort1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSkill">
+      <soap:operation soapAction="https://computer-talk.com/RemoveSkill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaintainSession">
+      <soap:operation soapAction="https://computer-talk.com/MaintainSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyCTI">
+      <soap:operation soapAction="https://computer-talk.com/VerifyCTI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetReadyCTI">
+      <soap:operation soapAction="https://computer-talk.com/SetReadyCTI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNotReadyCTI">
+      <soap:operation soapAction="https://computer-talk.com/SetNotReadyCTI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ToggleHoldCTI">
+      <soap:operation soapAction="https://computer-talk.com/ToggleHoldCTI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionIDIceID">
+      <soap:operation soapAction="https://computer-talk.com/GetSessionIDIceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogError">
+      <soap:operation soapAction="https://computer-talk.com/LogError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConferenceCTI">
+      <soap:operation soapAction="https://computer-talk.com/ConferenceCTI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseCallCTI">
+      <soap:operation soapAction="https://computer-talk.com/ReleaseCallCTI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLOBCTI">
+      <soap:operation soapAction="https://computer-talk.com/SelectLOBCTI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ToggleMonitorCTI">
+      <soap:operation soapAction="https://computer-talk.com/ToggleMonitorCTI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap:operation soapAction="https://computer-talk.com/GetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurQueued">
+      <soap:operation soapAction="https://computer-talk.com/GetCurQueued" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurLongestQueuedTime">
+      <soap:operation soapAction="https://computer-talk.com/GetCurLongestQueuedTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumAgentsLoggedOn">
+      <soap:operation soapAction="https://computer-talk.com/GetNumAgentsLoggedOn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumAgentsOnContact">
+      <soap:operation soapAction="https://computer-talk.com/GetNumAgentsOnContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumAgentsReady">
+      <soap:operation soapAction="https://computer-talk.com/GetNumAgentsReady" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumOffered">
+      <soap:operation soapAction="https://computer-talk.com/GetNumOffered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumHandledInThisQueue">
+      <soap:operation soapAction="https://computer-talk.com/GetNumHandledInThisQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumHandledInOtherQueue">
+      <soap:operation soapAction="https://computer-talk.com/GetNumHandledInOtherQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumAbandoned">
+      <soap:operation soapAction="https://computer-talk.com/GetNumAbandoned" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOfferedQueuedTime">
+      <soap:operation soapAction="https://computer-talk.com/GetOfferedQueuedTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHandledQueuedTime">
+      <soap:operation soapAction="https://computer-talk.com/GetHandledQueuedTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHandledOtherQueuedTime">
+      <soap:operation soapAction="https://computer-talk.com/GetHandledOtherQueuedTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAbandonedQueuedTime">
+      <soap:operation soapAction="https://computer-talk.com/GetAbandonedQueuedTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTargetASA">
+      <soap:operation soapAction="https://computer-talk.com/GetTargetASA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumHandledLessThanTargetASA">
+      <soap:operation soapAction="https://computer-talk.com/GetNumHandledLessThanTargetASA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEstimatedWaitTime">
+      <soap:operation soapAction="https://computer-talk.com/GetEstimatedWaitTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogonAgentCTIQueue">
+      <soap:operation soapAction="https://computer-talk.com/LogonAgentCTIQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogonAgentCTI">
+      <soap:operation soapAction="https://computer-talk.com/LogonAgentCTI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogonAgents">
+      <soap:operation soapAction="https://computer-talk.com/LogonAgents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogonAgentsCTIQueue">
+      <soap:operation soapAction="https://computer-talk.com/LogonAgentsCTIQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogonAgentsCTI">
+      <soap:operation soapAction="https://computer-talk.com/LogonAgentsCTI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogoffAgentCTIQueue">
+      <soap:operation soapAction="https://computer-talk.com/LogoffAgentCTIQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogoffAgentCTI">
+      <soap:operation soapAction="https://computer-talk.com/LogoffAgentCTI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogoffAgents">
+      <soap:operation soapAction="https://computer-talk.com/LogoffAgents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogoffAgentsCTIQueue">
+      <soap:operation soapAction="https://computer-talk.com/LogoffAgentsCTIQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogoffAgentsCTI">
+      <soap:operation soapAction="https://computer-talk.com/LogoffAgentsCTI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SwapPAQCall">
+      <soap:operation soapAction="https://computer-talk.com/SwapPAQCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultPAQCall">
+      <soap:operation soapAction="https://computer-talk.com/ConsultPAQCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RedirectPAQCall">
+      <soap:operation soapAction="https://computer-talk.com/RedirectPAQCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleasePAQCall">
+      <soap:operation soapAction="https://computer-talk.com/ReleasePAQCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetIceServerName">
+      <soap:operation soapAction="https://computer-talk.com/SetIceServerName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetIVRName">
+      <soap:operation soapAction="https://computer-talk.com/SetIVRName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumPermittedAddresses">
+      <soap:operation soapAction="https://computer-talk.com/GetNumPermittedAddresses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPermittedAddress">
+      <soap:operation soapAction="https://computer-talk.com/GetPermittedAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIceAgentState">
+      <soap:operation soapAction="https://computer-talk.com/GetIceAgentState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIceAgentPendingState">
+      <soap:operation soapAction="https://computer-talk.com/GetIceAgentPendingState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecordCall">
+      <soap:operation soapAction="https://computer-talk.com/RecordCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallForwardData">
+      <soap:operation soapAction="https://computer-talk.com/GetCallForwardData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCallForwardData">
+      <soap:operation soapAction="https://computer-talk.com/SetCallForwardData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RedirectAlertingCall">
+      <soap:operation soapAction="https://computer-talk.com/RedirectAlertingCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TelephoneEvent">
+      <soap:operation soapAction="https://computer-talk.com/TelephoneEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPAQStatusString">
+      <soap:operation soapAction="https://computer-talk.com/GetPAQStatusString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallInfoString">
+      <soap:operation soapAction="https://computer-talk.com/GetCallInfoString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIceAgentUserData">
+      <soap:operation soapAction="https://computer-talk.com/GetIceAgentUserData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetIceAgentUserData">
+      <soap:operation soapAction="https://computer-talk.com/SetIceAgentUserData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="iceCTIService">
+    <wsdl:port name="BasicHttpBinding_CTIService" binding="tns:BasicHttpBinding_CTIService">
+      <soap:address location="https://websvr02.icescape.com:7090/iceCTIServiceKHPWeb" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
