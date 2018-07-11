@@ -85,6 +85,24 @@ namespace ReaderBoard {
         protected global::System.Web.UI.WebControls.Label lblPhoneCounselorAvailable;
         
         /// <summary>
+        /// lblPhoneCounselorOnContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPhoneCounselorOnContact;
+        
+        /// <summary>
+        /// lblPhoneCounselorNotReady control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPhoneCounselorNotReady;
+        
+        /// <summary>
         /// lblPhoneCounselorLogin control.
         /// </summary>
         /// <remarks>
@@ -166,6 +184,42 @@ namespace ReaderBoard {
         protected global::System.Web.UI.WebControls.HiddenField HiddenG2T_Fre_Availabe;
         
         /// <summary>
+        /// HiddenPhone_Eng_AgentOnContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenPhone_Eng_AgentOnContact;
+        
+        /// <summary>
+        /// HiddenPhone_Fre_AgentOnContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenPhone_Fre_AgentOnContact;
+        
+        /// <summary>
+        /// HiddenG2T_Eng_AgentOnContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenG2T_Eng_AgentOnContact;
+        
+        /// <summary>
+        /// HiddenG2T_Fre_AgentOnContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenG2T_Fre_AgentOnContact;
+        
+        /// <summary>
         /// lblChatGradeService control.
         /// </summary>
         /// <remarks>
@@ -227,6 +281,24 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblChatCounselorAvailable;
+        
+        /// <summary>
+        /// lblChatCounselorOnContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChatCounselorOnContact;
+        
+        /// <summary>
+        /// lblChatCounselorNotReady control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChatCounselorNotReady;
         
         /// <summary>
         /// lblChatCounselorLogin control.
@@ -308,6 +380,42 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenChatApp_Fre_Avaiable;
+        
+        /// <summary>
+        /// HiddenWebChat_Eng_AgentOnContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenWebChat_Eng_AgentOnContact;
+        
+        /// <summary>
+        /// HiddenWebChat_Fre_AgentOnContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenWebChat_Fre_AgentOnContact;
+        
+        /// <summary>
+        /// HiddenChatApp_Eng_AgentOnContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenChatApp_Eng_AgentOnContact;
+        
+        /// <summary>
+        /// HiddenChatApp_Fre_AgentOnContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenChatApp_Fre_AgentOnContact;
         
         /// <summary>
         /// lblerror control.

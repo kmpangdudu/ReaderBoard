@@ -63,6 +63,7 @@ namespace ReaderBoard
                 lblHandled.Text = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Phone_ENG, szServerName);
                 lblWaitTime.Text = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_Phone_ENG, szServerName);
                 lblLongestwaitTime.Text = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Phone_ENG, szServerName);
+                lblNumAgentsOnContact.Text = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Phone_ENG, szServerName);
             }
             catch (Exception erd)
             {
@@ -80,6 +81,7 @@ namespace ReaderBoard
                 lblHandled_F.Text = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Phone_FRE, szServerName);
                 lblWaitTime_F.Text = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_Phone_FRE, szServerName);
                 lblLongestwaitTime_F.Text = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Phone_FRE, szServerName);
+                lblNumAgentsOnContact_F.Text = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Phone_FRE, szServerName);
             }
             catch (Exception erd)
             {
@@ -98,6 +100,7 @@ namespace ReaderBoard
                 lblHandled_g2t.Text = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_G2T_ENG, szServerName);
                 lblWaitTime_g2t.Text = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_G2T_ENG, szServerName);
                 lblLongestwaittime_g2t.Text = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_G2T_ENG, szServerName);
+                lblNumAgentsOnContact_g2t.Text = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_G2T_ENG, szServerName);
             }
             catch (Exception erd)
             {
@@ -117,6 +120,8 @@ namespace ReaderBoard
                 lblHandled_g2t_f.Text = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_G2T_FRE, szServerName);
                 lblLongestwaitTime_g2t_f.Text = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_G2T_FRE, szServerName);
                 lblWaitTime_g2t_f.Text = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_G2T_FRE, szServerName);
+                lblNumAgentsOnContact_g2t_f.Text = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_G2T_FRE, szServerName);
+
             }
             catch (Exception erd)
             {
@@ -135,6 +140,7 @@ namespace ReaderBoard
                 lblHandle_ChatEd.Text = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Chat_ENG, szServerName);
                 lblWaitTime_ChatE.Text = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_Chat_ENG, szServerName);
                 lblLongestwaittime_ChatE.Text = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+                lblNumAgentsOnContact_ChatE.Text = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Chat_ENG, szServerName);
             }
             catch (Exception erd)
             {
@@ -153,6 +159,7 @@ namespace ReaderBoard
                 lblHandled_ChatF.Text = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Chat_FRE, szServerName);
                 lblLongestwaitTime_ChatF.Text = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Chat_FRE, szServerName);
                 lblWaitTime_ChatF.Text = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_Chat_FRE, szServerName);
+                lblNumAgentsOnContact_ChatF.Text = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Chat_FRE, szServerName);
             }
             catch (Exception erd)
             {
@@ -172,6 +179,7 @@ namespace ReaderBoard
                 lblHandled_ChatAppE.Text = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
                 lblWaitTime_ChatAppE.Text = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
                 lblLongestwaittime_ChatAppE.Text = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                lblNumAgentsOnContact_ChatAppE.Text = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
             }
             catch (Exception erd)
             {
@@ -190,6 +198,7 @@ namespace ReaderBoard
                 lblHandled_ChatAppF.Text = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
                 lblWaitTime_ChatAppF.Text = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
                 lblLongestwaittime_ChatAppF.Text = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                lblNumAgentsOnContact_ChatAppF.Text = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
             }
             catch (Exception erd)
             {

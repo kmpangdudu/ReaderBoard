@@ -4,17 +4,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <title>Readerboard</title>
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <script src="http://d3js.org/d3.v3.min.js" lang="JavaScript"></script>
-    <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript" ></script>
-    <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
-    
-    <link href="Content/dark.css" rel="stylesheet" />
-    <script src="Scripts/googleGaugeDark.js"></script>
-    <script src="Scripts/processDark.js"></script>
     <script src="Scripts/liquidFillGauge.js" lang="JavaScript"></script>
-
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
+    <script src="Scripts/googleGauge.js"></script>
+    <link href="Content/readerboard.css" rel="stylesheet" />
+    <script src="Scripts/progress.js"></script>
+    <script src="Scripts/DefaultD3.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -91,21 +90,21 @@
                     <svg id="fillgauge_PhoneQueued" width="280" height="400" onclick="gauge5.update(NewValue());"></svg>
                     <script>
                         var config4 = liquidFillGaugeDefaultSettings();
-                        //config4.circleThickness = 0.10; //0.15
-                        //config4.circleColor = "#1a1aff"; //KHP Blue;
-                        //config4.textColor = "#FCFCFC";
-                        //config4.waveTextColor = "#1a1aff";
-                        //config4.waveColor = "1a1aff";
-                        //config4.textVertPosition = 0.55; //0.8
-                        //config4.waveAnimateTime = 1000;
-                        //config4.waveHeight = 0.3;
-                        //config4.waveAnimate = true;
-                        //config4.waveRise = false; //false
-                        //config4.waveHeightScaling = true;
-                        //config4.waveOffset = 0.35; //0.25
-                        //config4.textSize = 2.2;//0.75
-                        //config4.waveCount = 3;//3
-                        //config4.displayPercent = false; //true
+                        config4.circleThickness = 0.10; //0.15
+                        config4.circleColor = "#1a1aff"; //KHP Blue;
+                        config4.textColor = "#333333";
+                        config4.waveTextColor = "#1a1aff";
+                        config4.waveColor = "1a1aff";
+                        config4.textVertPosition = 0.55; //0.8
+                        config4.waveAnimateTime = 1000;
+                        config4.waveHeight = 0.3;
+                        config4.waveAnimate = true;
+                        config4.waveRise = false; //false
+                        config4.waveHeightScaling = true;
+                        config4.waveOffset = 0.35; //0.25
+                        config4.textSize = 2.2;//0.75
+                        config4.waveCount = 3;//3
+                        config4.displayPercent = false; //true
                         var thevalue = document.getElementById('lblPhonePeopleInQueue').value;
                         var gauge5 = loadLiquidFillGauge("fillgauge_PhoneQueued", thevalue, config4);
                     </script>
@@ -145,7 +144,7 @@
         <p style="height:3px;">&nbsp;</p>
 
 
-        <div id="chat" class="flex-container effect5 borderLineThick">  
+        <div id="chat" class="flex-container effect55 borderLineThick">  
             <div class="midfont_title  borderLine" style="flex-basis: 15%" >
                 <div class="logodiv ChatDivDown">
                     <%--<img src="Content/KHP_EN_RGB.svg" alt="Home" class="logostyle">--%>
@@ -153,7 +152,6 @@
                 <div>
                     <h2>Live Chat</h2>
                 </div>
-
 
                <div class="container_parent">
                     <div id="progress"  class="center_child"></div>
@@ -212,12 +210,11 @@
                 </div>
                 <div >
                     <svg id="fillgauge_ChatQueued" width="280" height="400" onclick="gauge5.update(NewValue());"></svg>
-                    <%--width 280 X height="500"  down  best --%>
                     <script>
                         var config5 = liquidFillGaugeDefaultSettings();
                         config5.circleThickness = 0.10; //0.15
                         config5.circleColor = "1a1aff";//808015  
-                        config5.textColor = "FCFCFC";
+                        config5.textColor = "333333";
                         config5.waveTextColor = "1a1aff";//FFFFAA
                         config5.waveColor = "1a1aff";   //AAAA39
                         config5.textVertPosition = 0.55; //0.8
@@ -234,7 +231,7 @@
                         var gauge5 = loadLiquidFillGauge("fillgauge_ChatQueued", thevalue, config5);
                     </script>
                 </div>
-                <h3 class=" Top-min-XXpx">In Queued</h3>
+                <h3 class="Top-min-XXpx">In Queued</h3>
             </div>
 
 
@@ -247,6 +244,7 @@
                     /
                     <asp:Label ID="lblChatCounselorLogin" runat="server" Text=""></asp:Label>
                 </h1>
+
                     <asp:HiddenField ID="HiddenWebChat_Eng_In" runat="server" />
                     <asp:HiddenField ID="HiddenWebChat_Fre_In" runat="server" />
                     <asp:HiddenField ID="HiddenChatApp_Eng_In" runat="server" />

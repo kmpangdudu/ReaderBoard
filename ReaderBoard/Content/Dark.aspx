@@ -7,14 +7,13 @@
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <title>Readerboard</title>
     <script src="http://d3js.org/d3.v3.min.js" lang="JavaScript"></script>
-    <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript" ></script>
-    <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
-    
-    <link href="Content/dark.css" rel="stylesheet" />
-    <script src="Scripts/googleGaugeDark.js"></script>
-    <script src="Scripts/processDark.js"></script>
     <script src="Scripts/liquidFillGauge.js" lang="JavaScript"></script>
-
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
+    <script src="Scripts/googleGaugeDark.js"></script>
+    <link href="Content/dark.css" rel="stylesheet" />
+    <script src="Scripts/processDark.js"></script>
+    <script src="Scripts/DarkD3.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -91,21 +90,21 @@
                     <svg id="fillgauge_PhoneQueued" width="280" height="400" onclick="gauge5.update(NewValue());"></svg>
                     <script>
                         var config4 = liquidFillGaugeDefaultSettings();
-                        //config4.circleThickness = 0.10; //0.15
-                        //config4.circleColor = "#1a1aff"; //KHP Blue;
-                        //config4.textColor = "#FCFCFC";
-                        //config4.waveTextColor = "#1a1aff";
-                        //config4.waveColor = "1a1aff";
-                        //config4.textVertPosition = 0.55; //0.8
-                        //config4.waveAnimateTime = 1000;
-                        //config4.waveHeight = 0.3;
-                        //config4.waveAnimate = true;
-                        //config4.waveRise = false; //false
-                        //config4.waveHeightScaling = true;
-                        //config4.waveOffset = 0.35; //0.25
-                        //config4.textSize = 2.2;//0.75
-                        //config4.waveCount = 3;//3
-                        //config4.displayPercent = false; //true
+                        config4.circleThickness = 0.10; //0.15
+                        config4.circleColor = "#1a1aff"; //KHP Blue;
+                        config4.textColor = "#FCFCFC";
+                        config4.waveTextColor = "#1a1aff";
+                        config4.waveColor = "1a1aff";
+                        config4.textVertPosition = 0.55; //0.8
+                        config4.waveAnimateTime = 1000;
+                        config4.waveHeight = 0.3;
+                        config4.waveAnimate = true;
+                        config4.waveRise = false; //false
+                        config4.waveHeightScaling = true;
+                        config4.waveOffset = 0.35; //0.25
+                        config4.textSize = 2.2;//0.75
+                        config4.waveCount = 3;//3
+                        config4.displayPercent = false; //true
                         var thevalue = document.getElementById('lblPhonePeopleInQueue').value;
                         var gauge5 = loadLiquidFillGauge("fillgauge_PhoneQueued", thevalue, config4);
                     </script>

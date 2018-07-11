@@ -3,8 +3,7 @@ using ReaderBoard.iceCTI;
 using System;
 using System.Net;
 using System.Web.UI;
-
-
+using System.Web.UI.HtmlControls;
 
 namespace ReaderBoard
 {
@@ -18,6 +17,7 @@ namespace ReaderBoard
         public string CurrentInQueued;
         public string CounselorAvailable;
         public string CounselorLogin;
+        public string CounselorOnContact;
     }
 
     struct Last24hrGrade
@@ -51,6 +51,8 @@ namespace ReaderBoard
         //string iQueueID_ChatApp_ENG = Properties.Settings.Default.ChatApp_ENG;//"6020";
         //string iQueueID_ChatApp_FRE = Properties.Settings.Default.ChatApp_FRE;//"6021";
 
+        int dayTimeStart = Properties.Settings.Default.dayTimeStart;
+        int dayTimeEnd = Properties.Settings.Default.dayTimeEnd;
         string refreshing =  Properties.Settings.Default.DashboardRefreshing;//Default 3- second;
         string szServerName    ; //"ice1"
         string dwSwitchID ; //"11006";
@@ -98,10 +100,14 @@ namespace ReaderBoard
                         case "ChatApp_FRE"  : iQueueID_ChatApp_FRE = x.QueueValue; break;
                     }
                 }
+
             };
 
             try
             {
+                // applying theme
+                ApplyTheme();
+
                 // get SOAP DATA
                 getSOAP(); 
 
@@ -122,6 +128,87 @@ namespace ReaderBoard
 
         }
 
+        protected void ApplyTheme()
+        {
+            HtmlGenericControl myJs1 = new HtmlGenericControl();
+            HtmlGenericControl myJs2 = new HtmlGenericControl();
+            HtmlGenericControl myJs3 = new HtmlGenericControl();
+            myJs1.TagName = "script";
+            myJs1.Attributes.Add("type", "text/javascript");
+            myJs1.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("http://d3js.org/d3.v3.min.js")));
+            this.Page.Header.Controls.AddAt(2, myJs1);
+            myJs2.TagName = "script";
+            myJs2.Attributes.Add("type", "text/javascript");
+            myJs2.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("https://www.gstatic.com/charts/loader.js")));
+            this.Page.Header.Controls.AddAt(3, myJs2);
+            myJs3.TagName = "script";
+            myJs3.Attributes.Add("type", "text/javascript");
+            myJs3.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js")));
+            this.Page.Header.Controls.AddAt(4, myJs3);
+
+
+
+            DateTime dt = DateTime.Now;
+            int hour = dt.Hour;
+
+            if ((dayTimeStart <= hour) & (hour < dayTimeEnd))  // Day light theme
+            {
+
+                HtmlGenericControl myCss = new HtmlGenericControl();
+                myCss.TagName = "link";
+                myCss.Attributes.Add("type", "text/css");
+                myCss.Attributes.Add("rel", "stylesheet");
+                myCss.Attributes.Add("href", ResolveUrl(Page.ResolveClientUrl("Content/readerboard.css")));
+                this.Page.Header.Controls.AddAt(1, myCss);
+
+
+                HtmlGenericControl myJs11 = new HtmlGenericControl();
+                HtmlGenericControl myJs12 = new HtmlGenericControl();
+                HtmlGenericControl myJs13 = new HtmlGenericControl();
+                myJs11.TagName = "script";
+                myJs11.Attributes.Add("type", "text/javascript");
+                myJs11.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/googleGauge.js")));
+                this.Page.Header.Controls.AddAt(5,myJs11);
+
+                myJs12.TagName = "script";
+                myJs12.Attributes.Add("type", "text/javascript");
+                myJs12.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/progress.js")));
+                this.Page.Header.Controls.AddAt(6, myJs12);
+
+                myJs13.TagName = "script";
+                myJs13.Attributes.Add("type", "text/javascript");
+                myJs13.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/liquidFillGauge.js")));
+                this.Page.Header.Controls.AddAt(7, myJs13);
+            }
+            else  // Night Dark Theme
+            {
+                HtmlGenericControl myCss = new HtmlGenericControl();
+                myCss.TagName = "link";
+                myCss.Attributes.Add("type", "text/css");
+                myCss.Attributes.Add("rel", "stylesheet");
+                myCss.Attributes.Add("href", ResolveUrl(Page.ResolveClientUrl("Content/Dark.css")));
+                this.Page.Header.Controls.AddAt(1, myCss);
+
+                HtmlGenericControl myJs11 = new HtmlGenericControl();
+                HtmlGenericControl myJs12 = new HtmlGenericControl();
+                HtmlGenericControl myJs13 = new HtmlGenericControl();
+
+                myJs11.TagName = "script";
+                myJs11.Attributes.Add("type", "text/javascript");
+                myJs11.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/googleGaugeDark.js")));
+                this.Page.Header.Controls.AddAt(5, myJs11);
+
+                myJs12.TagName = "script";
+                myJs12.Attributes.Add("type", "text/javascript");
+                myJs12.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/progressDark.js")));
+                this.Page.Header.Controls.AddAt(6, myJs12);
+
+                myJs13.TagName = "script";
+                myJs13.Attributes.Add("type", "text/javascript");
+                myJs13.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/liquidFillGaugeDark.js")));
+                this.Page.Header.Controls.AddAt(7, myJs13);
+            }
+        }
  
         protected void Phone()
         {
@@ -187,6 +274,13 @@ namespace ReaderBoard
                     + Convert.ToInt32(stru_G2T_FRE.CounselorLogin);
                 CounselorLogin = CounselorLogin < 0 ? 0 : CounselorLogin;
 
+                int CounselorOnContact =
+                    Convert.ToInt32(stru_Phone_ENG.CounselorOnContact)
+                    + Convert.ToInt32(stru_Phone_FRE.CounselorOnContact)
+                    + Convert.ToInt32(stru_G2T_ENG.CounselorOnContact)
+                    + Convert.ToInt32(stru_G2T_FRE.CounselorOnContact);
+                CounselorOnContact = CounselorOnContact < 0 ? 0 : CounselorOnContact;
+
                 Double ASA = 0.0;
                 if (iNumOffered !=0)
                 {
@@ -214,6 +308,9 @@ namespace ReaderBoard
                 lblPhonePeopleInQueue.Value = PeopleInQueue.ToString();
                 lblPhoneCounselorAvailable.Text = CounselorAvailable.ToString();
                 lblPhoneCounselorLogin.Text = CounselorLogin.ToString();
+                lblPhoneCounselorOnContact.Text = CounselorOnContact.ToString();
+                lblPhoneCounselorNotReady.Text = (CounselorLogin - CounselorAvailable - CounselorOnContact).ToString();
+
                 HiddenPhone_Eng_In.Value = stru_Phone_ENG.CounselorLogin;
                 HiddenPhone_Eng_Availabe.Value = stru_Phone_ENG.CounselorAvailable;
                 HiddenPhone_Fre_In.Value = stru_Phone_FRE.CounselorLogin;
@@ -222,6 +319,10 @@ namespace ReaderBoard
                 HiddenG2T_Eng_Availabe.Value = stru_G2T_ENG.CounselorAvailable;
                 HiddenG2T_Fre_In.Value = stru_G2T_FRE.CounselorLogin;
                 HiddenG2T_Fre_Availabe.Value = stru_G2T_FRE.CounselorAvailable;
+                HiddenPhone_Eng_AgentOnContact.Value = stru_Phone_ENG.CounselorOnContact;
+                HiddenPhone_Fre_AgentOnContact.Value = stru_Phone_FRE.CounselorOnContact;
+                HiddenG2T_Eng_AgentOnContact.Value = stru_G2T_ENG.CounselorOnContact;
+                HiddenG2T_Fre_AgentOnContact.Value = stru_G2T_FRE.CounselorOnContact;
             }
             catch (Exception erd)
             {
@@ -292,6 +393,13 @@ namespace ReaderBoard
                     + Convert.ToInt32(stru_ChatApp_FRE.CounselorLogin);
                 CounselorLogin = CounselorLogin < 0 ? 0 : CounselorLogin;
 
+                int CounselorOnContact =
+                    Convert.ToInt32(stru_Chat_ENG.CounselorOnContact)
+                    + Convert.ToInt32(stru_Chat_FRE.CounselorOnContact)
+                    + Convert.ToInt32(stru_ChatApp_ENG.CounselorOnContact)
+                    + Convert.ToInt32(stru_ChatApp_FRE.CounselorOnContact);
+                CounselorOnContact = CounselorOnContact < 0 ? 0 : CounselorOnContact;
+
 
                 double asa1 = 0.00;
 
@@ -319,6 +427,8 @@ namespace ReaderBoard
                 lblChatPeopleInQueue.Value = PeopleInQueue.ToString();
                 lblChatCounselorAvailable.Text = CounselorAvailable.ToString();
                 lblChatCounselorLogin.Text = CounselorLogin.ToString();
+                lblChatCounselorOnContact.Text = CounselorOnContact.ToString();
+                lblChatCounselorNotReady.Text = (CounselorLogin - CounselorAvailable - CounselorOnContact).ToString();
 
                 HiddenWebChat_Eng_In.Value = stru_Chat_ENG.CounselorLogin;
                 HiddenWebChat_Eng_Avaiable.Value = stru_Chat_ENG.CounselorAvailable;
@@ -328,6 +438,10 @@ namespace ReaderBoard
                 HiddenChatApp_Eng_Avaiable.Value = stru_ChatApp_ENG.CounselorAvailable;
                 HiddenChatApp_Fre_In.Value = stru_ChatApp_FRE.CounselorLogin;
                 HiddenChatApp_Fre_Avaiable.Value = stru_ChatApp_FRE.CounselorAvailable;
+                HiddenWebChat_Eng_AgentOnContact.Value = stru_Chat_ENG.CounselorOnContact;
+                HiddenWebChat_Fre_AgentOnContact.Value = stru_Chat_FRE.CounselorOnContact;
+                HiddenChatApp_Eng_AgentOnContact.Value = stru_ChatApp_ENG.CounselorOnContact;
+                HiddenChatApp_Fre_AgentOnContact.Value = stru_ChatApp_FRE.CounselorOnContact;
             }
 
             catch (Exception erd)
@@ -347,6 +461,7 @@ namespace ReaderBoard
             stru_Phone_ENG.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_Phone_ENG, szServerName);
             stru_Phone_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Phone_ENG, szServerName);
             stru_Phone_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Phone_ENG, szServerName);
+            stru_Phone_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Phone_ENG, szServerName);
             HiddenPhone_Eng_In.Value = stru_Phone_ENG.CounselorLogin;
             HiddenPhone_Eng_Availabe.Value = stru_Phone_ENG.CounselorAvailable;
 
@@ -359,6 +474,7 @@ namespace ReaderBoard
             stru_Phone_FRE.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_Phone_FRE, szServerName);
             stru_Phone_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Phone_FRE, szServerName);
             stru_Phone_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Phone_FRE, szServerName);
+            stru_Phone_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Phone_FRE, szServerName);
             HiddenPhone_Fre_In.Value = stru_Phone_FRE.CounselorLogin;
             HiddenPhone_Fre_Availabe.Value = stru_Phone_FRE.CounselorAvailable;
 
@@ -371,6 +487,7 @@ namespace ReaderBoard
             stru_G2T_ENG.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_G2T_ENG, szServerName);
             stru_G2T_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_G2T_ENG, szServerName);
             stru_G2T_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_G2T_ENG, szServerName);
+            stru_G2T_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_G2T_ENG, szServerName);
             HiddenG2T_Eng_In.Value = stru_G2T_ENG.CounselorLogin;
             HiddenG2T_Eng_Availabe.Value = stru_G2T_ENG.CounselorAvailable;
 
@@ -383,6 +500,7 @@ namespace ReaderBoard
             stru_G2T_FRE.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_G2T_FRE, szServerName);
             stru_G2T_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_G2T_FRE, szServerName);
             stru_G2T_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_G2T_FRE, szServerName);
+            stru_G2T_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_G2T_FRE, szServerName);
             HiddenG2T_Fre_In.Value = stru_G2T_FRE.CounselorLogin;
             HiddenG2T_Fre_Availabe.Value = stru_G2T_FRE.CounselorAvailable;
 
@@ -395,6 +513,7 @@ namespace ReaderBoard
             stru_Chat_ENG.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_Chat_ENG, szServerName);
             stru_Chat_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Chat_ENG, szServerName);
             stru_Chat_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+            stru_Chat_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Chat_ENG, szServerName);
             HiddenWebChat_Eng_In.Value = stru_Chat_ENG.CounselorLogin;
             HiddenWebChat_Eng_Avaiable.Value = stru_Chat_ENG.CounselorAvailable;
 
@@ -407,6 +526,7 @@ namespace ReaderBoard
             stru_Chat_FRE.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_Chat_FRE, szServerName);
             stru_Chat_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Chat_FRE, szServerName);
             stru_Chat_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Chat_FRE, szServerName);
+            stru_Chat_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Chat_FRE, szServerName);
             HiddenWebChat_Fre_In.Value = stru_Chat_FRE.CounselorLogin;
             HiddenWebChat_Fre_Avaiable.Value = stru_Chat_FRE.CounselorAvailable;
 
@@ -419,6 +539,7 @@ namespace ReaderBoard
             stru_ChatApp_ENG.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
             stru_ChatApp_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
             stru_ChatApp_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+            stru_ChatApp_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
             HiddenChatApp_Eng_In.Value = stru_ChatApp_ENG.CounselorLogin;
             HiddenChatApp_Eng_Avaiable.Value = stru_ChatApp_ENG.CounselorAvailable;
 
@@ -431,6 +552,7 @@ namespace ReaderBoard
             stru_ChatApp_FRE.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
             stru_ChatApp_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
             stru_ChatApp_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+            stru_ChatApp_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
             HiddenChatApp_Fre_In.Value = stru_ChatApp_FRE.CounselorLogin;
             HiddenChatApp_Fre_Avaiable.Value = stru_ChatApp_FRE.CounselorAvailable;
 
@@ -446,7 +568,6 @@ namespace ReaderBoard
 
             foreach (Proc_Last24Grade_Result x in last24HrGrade)
             {
-
             stru_last24HrGrade.PhoneAllGrade = (decimal)x.PhoneAllGrade;
             stru_last24HrGrade.PhoneGrade = (decimal)x.PhoneGrade;
             stru_last24HrGrade.G2TGrade = (decimal)x.G2TGrade;
@@ -454,7 +575,7 @@ namespace ReaderBoard
             stru_last24HrGrade.ChatAllGrade = (decimal)x.ChatAllGrade;
             stru_last24HrGrade.ChatAppGrade = (decimal)x.ChatAppGrade;
             stru_last24HrGrade.ChatGrade = (decimal)x.ChatGrade;
-      }
+            }
         }
 
     }

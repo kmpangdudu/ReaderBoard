@@ -112,6 +112,15 @@ namespace ReaderBoard {
         protected global::System.Web.UI.WebControls.Label lblHandled;
         
         /// <summary>
+        /// lblNumAgentsOnContact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumAgentsOnContact;
+        
+        /// <summary>
         /// lblLongestwaitTime control.
         /// </summary>
         /// <remarks>
@@ -173,6 +182,15 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblHandled_g2t;
+        
+        /// <summary>
+        /// lblNumAgentsOnContact_g2t control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumAgentsOnContact_g2t;
         
         /// <summary>
         /// lblLongestwaittime_g2t control.
@@ -238,6 +256,15 @@ namespace ReaderBoard {
         protected global::System.Web.UI.WebControls.Label lblHandle_ChatEd;
         
         /// <summary>
+        /// lblNumAgentsOnContact_ChatE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumAgentsOnContact_ChatE;
+        
+        /// <summary>
         /// lblLongestwaittime_ChatE control.
         /// </summary>
         /// <remarks>
@@ -299,6 +326,15 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblHandled_ChatAppE;
+        
+        /// <summary>
+        /// lblNumAgentsOnContact_ChatAppE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumAgentsOnContact_ChatAppE;
         
         /// <summary>
         /// lblLongestwaittime_ChatAppE control.
@@ -364,6 +400,15 @@ namespace ReaderBoard {
         protected global::System.Web.UI.WebControls.Label lblHandled_F;
         
         /// <summary>
+        /// lblNumAgentsOnContact_F control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumAgentsOnContact_F;
+        
+        /// <summary>
         /// lblLongestwaitTime_F control.
         /// </summary>
         /// <remarks>
@@ -425,6 +470,15 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblHandled_g2t_f;
+        
+        /// <summary>
+        /// lblNumAgentsOnContact_g2t_f control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumAgentsOnContact_g2t_f;
         
         /// <summary>
         /// lblLongestwaitTime_g2t_f control.
@@ -490,6 +544,15 @@ namespace ReaderBoard {
         protected global::System.Web.UI.WebControls.Label lblHandled_ChatF;
         
         /// <summary>
+        /// lblNumAgentsOnContact_ChatF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumAgentsOnContact_ChatF;
+        
+        /// <summary>
         /// lblLongestwaitTime_ChatF control.
         /// </summary>
         /// <remarks>
@@ -551,6 +614,15 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblHandled_ChatAppF;
+        
+        /// <summary>
+        /// lblNumAgentsOnContact_ChatAppF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumAgentsOnContact_ChatAppF;
         
         /// <summary>
         /// lblLongestwaittime_ChatAppF control.
