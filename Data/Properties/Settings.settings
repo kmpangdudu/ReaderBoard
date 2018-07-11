@@ -2,9 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Data.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="cacheInterval" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">15000</Value>
-    </Setting>
     <Setting Name="szServerName" Type="System.String" Scope="User">
       <Value Profile="(Default)">ice1</Value>
     </Setting>
@@ -34,6 +31,9 @@
     </Setting>
     <Setting Name="ChatApp_FRE" Type="System.String" Scope="User">
       <Value Profile="(Default)">6021</Value>
+    </Setting>
+    <Setting Name="cacheInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5000</Value>
     </Setting>
   </Settings>
 </SettingsFile>

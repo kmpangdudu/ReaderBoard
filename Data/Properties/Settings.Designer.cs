@@ -25,18 +25,6 @@ namespace Data.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("15000")]
-        public int cacheInterval {
-            get {
-                return ((int)(this["cacheInterval"]));
-            }
-            set {
-                this["cacheInterval"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("ice1")]
         public string szServerName {
             get {
@@ -152,6 +140,18 @@ namespace Data.Properties {
             }
             set {
                 this["ChatApp_FRE"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5000")]
+        public int cacheInterval {
+            get {
+                return ((int)(this["cacheInterval"]));
+            }
+            set {
+                this["cacheInterval"] = value;
             }
         }
     }

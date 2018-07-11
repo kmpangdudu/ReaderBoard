@@ -108,20 +108,17 @@ namespace ReaderBoard
                 //get cached grade value from SQL SERVER
                 getLast24HrGrade(); 
 
-
-                //Grap();
-                //grade();
-
                 Phone();
+
                 Chat();
-            }
+        }
             catch (Exception erd)
             {
                 lblerror.Text = erd.ToString();
-            }
+        }
 
-            // refreshing is the number of seconds , default value is 300 = 5 mintues in setting section
-            Response.AppendHeader("Refresh", refreshing);  
+        // refreshing is the number of seconds , default value is 300 = 5 mintues in setting section
+        Response.AppendHeader("Refresh", refreshing);  
 
         }
 
@@ -136,12 +133,14 @@ namespace ReaderBoard
                     + Convert.ToInt32(stru_Phone_FRE.NumOffered) 
                     + Convert.ToInt32(stru_G2T_ENG.NumOffered) 
                     + Convert.ToInt32(stru_G2T_FRE.NumOffered);
+                iNumOffered = iNumOffered < 0 ? 0 : iNumOffered;
 
                 int iNumhundledLessThanTarget = 
                     Convert.ToInt32(stru_Phone_ENG.NumHandledLessThanTarget) 
                     + Convert.ToInt32(stru_Phone_FRE.NumHandledLessThanTarget) 
                     + Convert.ToInt32(stru_G2T_ENG.NumHandledLessThanTarget) 
                     + Convert.ToInt32(stru_G2T_FRE.NumHandledLessThanTarget);
+                iNumhundledLessThanTarget = iNumhundledLessThanTarget < 0 ? 0 : iNumhundledLessThanTarget;
 
                 int LongestWaitTime = 
                     Convert.ToInt32(stru_Phone_ENG.LongestWaitTime) 
@@ -149,6 +148,7 @@ namespace ReaderBoard
                     + Convert.ToInt32(stru_G2T_ENG.LongestWaitTime) 
                     + Convert.ToInt32(stru_G2T_FRE.LongestWaitTime);
                 LongestWaitTime = (LongestWaitTime / 4) / 60; // Average , Convert to mintue
+                LongestWaitTime = LongestWaitTime < 0 ? 0 : LongestWaitTime;
 
                 int AverageWaitTime = 
                     Convert.ToInt32(stru_Phone_ENG.AverageWaitTime) 
@@ -156,30 +156,36 @@ namespace ReaderBoard
                     + Convert.ToInt32(stru_G2T_ENG.AverageWaitTime) 
                     + Convert.ToInt32(stru_G2T_FRE.AverageWaitTime);
                 AverageWaitTime = (AverageWaitTime / 4) / 60; // Average , Convert to mintue
+                AverageWaitTime = AverageWaitTime < 0 ? 0 : AverageWaitTime;
+
 
                 int CallToday = 
                     Convert.ToInt32(stru_Phone_ENG.HandledToday) 
                     + Convert.ToInt32(stru_Phone_FRE.HandledToday) 
                     + Convert.ToInt32(stru_G2T_ENG.HandledToday) 
                     + Convert.ToInt32(stru_G2T_FRE.HandledToday);
+                CallToday = CallToday < 0 ? 0 : CallToday;
 
                 int PeopleInQueue = 
                     Convert.ToInt32(stru_Phone_ENG.CurrentInQueued) 
                     + Convert.ToInt32(stru_Phone_FRE.CurrentInQueued) 
                     + Convert.ToInt32(stru_G2T_ENG.CurrentInQueued) 
                     + Convert.ToInt32(stru_G2T_FRE.CurrentInQueued);
+                PeopleInQueue = PeopleInQueue < 0 ? 0 : PeopleInQueue;
 
                 int CounselorAvailable = 
                     Convert.ToInt32(stru_Phone_ENG.CounselorAvailable) 
                     + Convert.ToInt32(stru_Phone_FRE.CounselorAvailable) 
                     + Convert.ToInt32(stru_G2T_ENG.CounselorAvailable) 
                     + Convert.ToInt32(stru_G2T_FRE.CounselorAvailable);
+                CounselorAvailable = CounselorAvailable < 0 ? 0 : CounselorAvailable;
 
                 int CounselorLogin = 
                     Convert.ToInt32(stru_Phone_ENG.CounselorLogin) 
                     + Convert.ToInt32(stru_Phone_FRE.CounselorLogin) 
                     + Convert.ToInt32(stru_G2T_ENG.CounselorLogin) 
                     + Convert.ToInt32(stru_G2T_FRE.CounselorLogin);
+                CounselorLogin = CounselorLogin < 0 ? 0 : CounselorLogin;
 
                 Double ASA = 0.0;
                 if (iNumOffered !=0)
@@ -233,12 +239,14 @@ namespace ReaderBoard
                     + Convert.ToInt32(stru_Chat_FRE.NumOffered) 
                     + Convert.ToInt32(stru_ChatApp_ENG.NumOffered) 
                     + Convert.ToInt32(stru_ChatApp_FRE.NumOffered);
+                iNumOffered = iNumOffered < 0 ? 0 : iNumOffered;
 
                 int iNumhundledLessThanTarget = 
                     Convert.ToInt32(stru_Chat_ENG.NumHandledLessThanTarget) 
                     + Convert.ToInt32(stru_Chat_FRE.NumHandledLessThanTarget) 
                     + Convert.ToInt32(stru_ChatApp_ENG.NumHandledLessThanTarget) 
                     + Convert.ToInt32(stru_ChatApp_FRE.NumHandledLessThanTarget);
+                iNumhundledLessThanTarget = iNumhundledLessThanTarget < 0 ? 0 : iNumhundledLessThanTarget;
 
                 int LongestWaitTime =           
                     Convert.ToInt32(stru_Chat_ENG.LongestWaitTime) 
@@ -246,6 +254,7 @@ namespace ReaderBoard
                     + Convert.ToInt32(stru_ChatApp_ENG.LongestWaitTime) 
                     + Convert.ToInt32(stru_ChatApp_FRE.LongestWaitTime);
                 LongestWaitTime = (LongestWaitTime / 4) / 60; //average, changing to minute
+                LongestWaitTime = LongestWaitTime < 0 ? 0 : LongestWaitTime;
 
                 int AverageWaitTime =           
                     Convert.ToInt32(stru_Chat_ENG.AverageWaitTime) 
@@ -253,30 +262,36 @@ namespace ReaderBoard
                     + Convert.ToInt32(stru_ChatApp_ENG.AverageWaitTime) 
                     + Convert.ToInt32(stru_ChatApp_FRE.AverageWaitTime);
                 AverageWaitTime = (AverageWaitTime / 4) / 60 ; //sverage, changing to minute
+                AverageWaitTime = AverageWaitTime < 0 ? 0 : AverageWaitTime;
 
                 int CallToday =                 
                     Convert.ToInt32(stru_Chat_ENG.HandledToday) 
                     + Convert.ToInt32(stru_Chat_FRE.HandledToday) 
                     + Convert.ToInt32(stru_ChatApp_ENG.HandledToday) 
                     + Convert.ToInt32(stru_ChatApp_FRE.HandledToday);
+                CallToday = CallToday < 0 ? 0 : CallToday;
 
                 int PeopleInQueue =             
                     Convert.ToInt32(stru_Chat_ENG.CurrentInQueued) 
                     + Convert.ToInt32(stru_Chat_FRE.CurrentInQueued) 
                     + Convert.ToInt32(stru_ChatApp_ENG.CurrentInQueued) 
                     + Convert.ToInt32(stru_ChatApp_FRE.CurrentInQueued);
+                PeopleInQueue = PeopleInQueue < 0 ? 0 : PeopleInQueue;
 
                 int CounselorAvailable =        
                     Convert.ToInt32(stru_Chat_ENG.CounselorAvailable) 
                     + Convert.ToInt32(stru_Chat_FRE.CounselorAvailable) 
                     + Convert.ToInt32(stru_ChatApp_ENG.CounselorAvailable) 
                     + Convert.ToInt32(stru_ChatApp_FRE.CounselorAvailable);
+                CounselorAvailable = CounselorAvailable < 0 ? 0 : CounselorAvailable;
 
                 int CounselorLogin =            
                     Convert.ToInt32(stru_Chat_ENG.CounselorLogin) 
                     + Convert.ToInt32(stru_Chat_FRE.CounselorLogin) 
                     + Convert.ToInt32(stru_ChatApp_ENG.CounselorLogin) 
                     + Convert.ToInt32(stru_ChatApp_FRE.CounselorLogin);
+                CounselorLogin = CounselorLogin < 0 ? 0 : CounselorLogin;
+
 
                 double asa1 = 0.00;
 
@@ -298,7 +313,7 @@ namespace ReaderBoard
 
 
 
-               lblChatLongestWaitTime.Text = LongestWaitTime.ToString();
+                lblChatLongestWaitTime.Text = LongestWaitTime.ToString();
                 lblChatAverageWaitTime.Text = AverageWaitTime.ToString();
                 lblChatCallToday.Text = CallToday.ToString();
                 lblChatPeopleInQueue.Value = PeopleInQueue.ToString();
