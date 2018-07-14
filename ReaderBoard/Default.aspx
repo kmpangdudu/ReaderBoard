@@ -101,7 +101,7 @@
                         var thevalue = document.getElementById('lblPhonePeopleInQueue').value;
                         var gauge5 = loadLiquidFillGauge("fillgauge_PhoneQueued", thevalue, config4);
                     </script>
-                    <h3 class=" Top-min-XXpx">In Queued</h3>
+                    <h3 class=" Top-min-XXpx">Queued</h3>
                 </div>
             </div>
 
@@ -110,7 +110,7 @@
             <!-- Phone Counselor Availabele  -->
             <div class="borderLine">
                 <h3 class="ChatDivDown">Counselor<br/>Avail/OnContact/Not Ready</h3>
-                <h1 class="bigfont">
+                <h2>
                     <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text=""></asp:Label>
                     /
                      <asp:Label ID="lblPhoneCounselorOnContact" runat="server" Text=""></asp:Label>
@@ -118,7 +118,7 @@
                     <asp:Label ID="lblPhoneCounselorNotReady" runat="server" Text=""></asp:Label>
                    
                      <asp:Label ID="lblPhoneCounselorLogin" runat="server" Text="" Visible="False"></asp:Label>
-                </h1>
+                </h2>
 
 
                     <asp:HiddenField ID="HiddenPhone_Eng_In" runat="server" />
@@ -231,7 +231,7 @@
                         var gauge5 = loadLiquidFillGauge("fillgauge_ChatQueued", thevalue, config5);
                     </script>
                 </div>
-                <h3 class="Top-min-XXpx">In Queued</h3>
+                <h3 class="Top-min-XXpx">Queued</h3>
             </div>
 
 
@@ -239,7 +239,7 @@
             <!-- Chat Counselor Available       -->
             <div class="borderLine ">
                 <h3 class="ChatDivDown">Counselor<br/>Avail/OnContact/NotReady </h3>
-                <h1 class="bigfont">
+                <h2>
                     <asp:Label ID="lblChatCounselorAvailable" runat="server" Text=""></asp:Label>
                     /
                     <asp:Label ID="lblChatCounselorOnContact" runat="server" Text=""></asp:Label>
@@ -247,7 +247,7 @@
                     <asp:Label ID="lblChatCounselorNotReady" runat="server" Text=""></asp:Label>
                     
                     <asp:Label ID="lblChatCounselorLogin" runat="server" Text="" Visible="False"></asp:Label>
-                </h1>
+                </h2>
 
                     <asp:HiddenField ID="HiddenWebChat_Eng_In" runat="server" />
                     <asp:HiddenField ID="HiddenWebChat_Fre_In" runat="server" />
@@ -261,8 +261,27 @@
                     <asp:HiddenField ID="HiddenWebChat_Fre_AgentOnContact" runat="server" />
                     <asp:HiddenField ID="HiddenChatApp_Eng_AgentOnContact" runat="server" />
                     <asp:HiddenField ID="HiddenChatApp_Fre_AgentOnContact" runat="server" />
-                <div id="ChatCounslor"></div>
-                 
+                <%--<div id="ChatCounslor"></div>--%>
+                <div>
+                    <asp:Chart ID="ChatChart" runat="server" BackColor="Transparent"  Height="310px" IsSoftShadows="False" Width="380px">
+                        <Series>
+                            <asp:Series Name="Avail" IsValueShownAsLabel="true" ChartType="StackedBar" Color="#00FF00" LabelForeColor="#333333" Legend="Avail"></asp:Series>
+                            <asp:Series Name="OnContact" IsValueShownAsLabel="true" ChartType="StackedBar" Color="#FF0000" LabelForeColor="#333333" Legend="OnContact"></asp:Series>
+                            <asp:Series Name="NotReady" IsValueShownAsLabel="true" ChartType="StackedBar" Color="#FFFF00" LabelForeColor="#333333" Legend="NotReady"></asp:Series>
+                        </Series>
+                        <ChartAreas>
+                            <asp:ChartArea Name="ChatChartArea" BackColor="Transparent"></asp:ChartArea>
+                        </ChartAreas>
+<%--                        <Legends>
+                            <asp:Legend Name="Avail" IsEquallySpacedItems="True" LegendItemOrder="ReversedSeriesOrder" LegendStyle="Column" >
+                            </asp:Legend>
+                            <asp:Legend Name="OnContact" IsEquallySpacedItems="True" LegendItemOrder="ReversedSeriesOrder" LegendStyle="Column">
+                            </asp:Legend>
+                            <asp:Legend Name="NotReady" IsEquallySpacedItems="True" LegendItemOrder="ReversedSeriesOrder" LegendStyle="Column">
+                            </asp:Legend>
+                        </Legends>--%>
+                    </asp:Chart>
+                </div>
             </div>
         </div>
         <div style="display: none">

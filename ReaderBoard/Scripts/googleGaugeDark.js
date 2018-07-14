@@ -103,15 +103,15 @@ var opt_Phone = {
     gridlines: { color: "FF0000"  },
     hAxis: {
         title: "Counselor \n Avail/SignIn",
-        titleTextStyle: { color: "333333", fontSize: 24, bold: true, italic: false },
+        titleTextStyle: { color: "FCFCFC", fontSize: 24, bold: true, italic: false },
         format: "#",
-        TextStyle: { color: "333333", fontSize: 28, bold: true },
-        colors: ["333333", "333333"],
+        TextStyle: { color: "FCFCFC", fontSize: 28, bold: true },
+        colors: ["FCFCFC", "FCFCFC"],
         gridlines: { color: "333333" }
     },
     vAxis: {
-        textStyle: {fontSize: 20,bold: true,color: "FFFFFF"},
-        gridlines: { color: "333333" }
+        textStyle: {fontSize: 20, bold: true, color: "#FCFCFC"},
+        gridlines: { color: "#333333" }
     },
     //colors: ["#e0440e", "#e6693e", "#ec8f6e", "#f3b49f", "#f6c7b6"],
 
@@ -136,40 +136,95 @@ var opt_Phone = {
 google.charts.load("current", { "packages": ["corechart"] });
 google.charts.setOnLoadCallback(drawPhoneCounslor);
 function drawPhoneCounslor() {
+
+    //English start
     var sPhoneEN_In = document.getElementById("HiddenPhone_Eng_In").value;
     var PhoneEN_In = parseInt(sPhoneEN_In);
+    PhoneEN_In = PhoneEN_In < 1 ? null : PhoneEN_In;
+
     var sPhoneEN_Avai = document.getElementById("HiddenPhone_Eng_Availabe").value;
     var PhoneEN_Avai = parseInt(sPhoneEN_Avai);
-    var busyPhoneEn = PhoneEN_In - PhoneEN_Avai;
+    PhoneEN_Avai = PhoneEN_Avai < 1 ? null : PhoneEN_Avai;
 
+    var sPhoneEN_onContact = document.getElementById("HiddenPhone_Eng_AgentOnContact").value;
+    var PhoneEN_onContact = parseInt(sPhoneEN_onContact);
+    PhoneEN_onContact = PhoneEN_onContact < 1 ? null : PhoneEN_onContact;
+
+    var phoneEN_NotReady = PhoneEN_In - PhoneEN_Avai - PhoneEN_onContact;
+    phoneEN_NotReady = phoneEN_NotReady < 1 ? null : phoneEN_NotReady;
+
+    var busyPhoneEn = PhoneEN_In - PhoneEN_Avai;
+    busyPhoneEn = busyPhoneEn < 1 ? null : busyPhoneEn;
+
+    // French Start
     var sPhoneFr_In = document.getElementById("HiddenPhone_Fre_In").value;
     var PhoneFr_In = parseInt(sPhoneFr_In);
+    PhoneFr_In = PhoneFr_In < 1 ? null : PhoneFr_In;
+
     var sPhoneFr_Avai = document.getElementById("HiddenPhone_Fre_Availabe").value;
     var PhoneFr_Avai = parseInt(sPhoneFr_Avai);
-    var busyPhoneFr = PhoneFr_In - PhoneFr_Avai;
+    PhoneFr_Avai = PhoneFr_Avai < 1 ? null : PhoneFr_Avai;
 
+    var sPhoneFR_onContact = document.getElementById("HiddenPhone_Fre_AgentOnContact").value;
+    var PhoneFR_onContact = parseInt(sPhoneFR_onContact);
+    PhoneFR_onContact = PhoneFR_onContact < 1 ? null : PhoneFR_onContact;
+
+    var busyPhoneFr = PhoneFr_In - PhoneFr_Avai;
+    busyPhoneFr = busyPhoneFr < 1 ? null : busyPhoneFr;
+
+    var phoneFR_NotReady = PhoneFr_In - PhoneFr_Avai - PhoneFR_onContact;
+    phoneFR_NotReady = phoneFR_NotReady < 1 ? null : phoneFR_NotReady;
+
+    //G2T EN start
     var sG2Ten_In = document.getElementById("HiddenG2T_Eng_In").value;
     var G2Ten_In = parseInt(sG2Ten_In);
+    G2Ten_In = G2Ten_In < 1 ? null : G2Ten_In;
+
     var sG2Ten_Avai = document.getElementById("HiddenG2T_Eng_Availabe").value;
     var G2Ten_Avai = parseInt(sG2Ten_Avai);
-    var busyG2TEn = G2Ten_In - G2Ten_Avai;
+    G2Ten_Avai = G2Ten_Avai < 1 ? null : G2Ten_Avai;
 
+    var sG2Ten_onContact = document.getElementById("HiddenG2T_Eng_AgentOnContact").value;
+    var G2Ten_onContact = parseInt(sG2Ten_onContact);
+    G2Ten_onContact = G2Ten_onContact < 1 ? null : G2Ten_onContact;
+
+    var busyG2TEn = G2Ten_In - G2Ten_Avai;
+    busyG2TEn = busyG2TEn < 1 ? null : busyG2TEn;
+
+    var G2TEN_NotReady = G2Ten_In - G2Ten_Avai - G2Ten_onContact;
+    G2TEN_NotReady = G2TEN_NotReady < 1 ? null : G2TEN_NotReady;
+
+
+    ////G2T FR start
     var sG2Tfr_In = document.getElementById("HiddenG2T_Fre_In").value;
     var G2Tfr_In = parseInt(sG2Tfr_In);
+    G2Tfr_In = G2Tfr_In < 1 ? null : G2Tfr_In;
+
+    var sG2Tfr_OnContact = document.getElementById("HiddenG2T_Fre_AgentOnContact").value;
+    var G2Tfr_OnContact = parseInt(sG2Tfr_OnContact);
+    G2Tfr_OnContact = G2Tfr_OnContact < 1 ? null : G2Tfr_OnContact;
+
     var sG2Tfr_Avai = document.getElementById("HiddenG2T_Fre_Availabe").value;
     var G2Tfr_Avai = parseInt(sG2Tfr_Avai);
-    var busyG2TFr = G2Tfr_In - G2Tfr_Avai;
+    G2Tfr_Avai = G2Tfr_Avai < 1 ? null : G2Tfr_Avai;
 
+    var busyG2TFr = G2Tfr_In - G2Tfr_Avai;
+    busyG2TFr = busyG2TFr < 1 ? null : busyG2TFr;
+
+    var G2Tfr_NotReady = G2Tfr_In - G2Tfr_Avai - G2Tfr_OnContact;
+    G2Tfr_NotReady = G2Tfr_NotReady < 1 ? null : G2Tfr_NotReady;
 
     var PhoneData = google.visualization.arrayToDataTable([
-        ["Queue", "Availabe", { role: "style" }, { role: "annotation" }, "SignIn", { role: "style" }, { role: "annotation" }],
-        ["English", PhoneEN_Avai, colorGreen, PhoneEN_Avai, busyPhoneEn, color1, busyPhoneEn],
-        ["French", PhoneFr_Avai, colorGreen, PhoneFr_Avai, busyPhoneFr, color2, busyPhoneFr],
-        ["G2T En", G2Ten_Avai, colorGreen, G2Ten_Avai, busyG2TEn, color3, busyG2TEn],
-        ["G2T Fr", G2Tfr_Avai, colorGreen, G2Tfr_Avai, busyG2TFr, color4, busyG2TFr]
+        ["Queue", "Availabe", { role: "style" }, { role: "annotation" }, "OnContact", { role: "style" }, { role: "annotation" }, "NotReady", { role: "style" }, { role: "annotation" }],
+        ["English", PhoneEN_Avai, colorGreen, PhoneEN_Avai, PhoneEN_onContact, color1, PhoneEN_onContact, busyPhoneEn, color2, busyPhoneEn],
+        ["French", PhoneFr_Avai, colorGreen, PhoneFr_Avai, PhoneFR_onContact, color1, PhoneFR_onContact, phoneFR_NotReady, color2, phoneFR_NotReady],
+        ["G2T En", G2Ten_Avai, colorGreen, G2Ten_Avai, G2Ten_onContact, color1, G2Ten_onContact, G2TEN_NotReady, color2, G2TEN_NotReady],
+        ["G2T Fr", G2Tfr_Avai, colorGreen, G2Tfr_Avai, G2Tfr_OnContact, color1, G2Tfr_OnContact, G2Tfr_NotReady, color2, G2Tfr_NotReady]
     ]);
 
-    document.getElementById("lblPhoneCounselorLogin").innerText = busyPhoneEn + busyPhoneFr + busyG2TEn + busyG2TFr;
+
+
+    //document.getElementById("lblPhoneCounselorLogin").innerText = busyPhoneEn + busyPhoneFr + busyG2TEn + busyG2TFr;
     var Phonechart = new google.visualization.BarChart(document.getElementById("PhoneCounslor"));
     Phonechart.draw(PhoneData, opt_Phone);
 }

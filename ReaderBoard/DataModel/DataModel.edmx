@@ -16,11 +16,6 @@
           <FunctionImport Name="Proc_GetQueue" ReturnType="Collection(RAMModel.Proc_GetQueue_Result)" />
           <FunctionImport Name="Proc_Last24Grade" ReturnType="Collection(RAMModel.Proc_Last24Grade_Result)" />
         </EntityContainer>
-        <ComplexType Name="Proc_GetQueue_Result">
-          <Property Type="Int32" Name="id" Nullable="false" />
-          <Property Type="String" Name="Queue" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="QueueValue" Nullable="true" MaxLength="50" />
-        </ComplexType>
         <ComplexType Name="Proc_Last24Grade_Result">
           <Property Type="Decimal" Name="PhoneAllGrade" Nullable="true" Precision="6" Scale="2" />
           <Property Type="Decimal" Name="PhoneGrade" Nullable="true" Precision="6" Scale="2" />
@@ -28,6 +23,11 @@
           <Property Type="Decimal" Name="ChatAllGrade" Nullable="true" Precision="6" Scale="2" />
           <Property Type="Decimal" Name="ChatGrade" Nullable="true" Precision="6" Scale="2" />
           <Property Type="Decimal" Name="ChatAppGrade" Nullable="true" Precision="6" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="Proc_GetQueue_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="Queue" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="QueueValue" Nullable="true" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>

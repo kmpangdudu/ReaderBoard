@@ -91,25 +91,25 @@
                     <svg id="fillgauge_PhoneQueued" width="280" height="400" onclick="gauge5.update(NewValue());"></svg>
                     <script>
                         var config4 = liquidFillGaugeDefaultSettings();
-                        //config4.circleThickness = 0.10; //0.15
-                        //config4.circleColor = "#1a1aff"; //KHP Blue;
-                        //config4.textColor = "#FCFCFC";
-                        //config4.waveTextColor = "#1a1aff";
-                        //config4.waveColor = "1a1aff";
-                        //config4.textVertPosition = 0.55; //0.8
-                        //config4.waveAnimateTime = 1000;
-                        //config4.waveHeight = 0.3;
-                        //config4.waveAnimate = true;
-                        //config4.waveRise = false; //false
-                        //config4.waveHeightScaling = true;
-                        //config4.waveOffset = 0.35; //0.25
-                        //config4.textSize = 2.2;//0.75
-                        //config4.waveCount = 3;//3
-                        //config4.displayPercent = false; //true
+                        config4.circleThickness = 0.10; //0.15
+                        config4.circleColor = "#1a1aff"; //KHP Blue;
+                        config4.textColor = "#FCFCFC";
+                        config4.waveTextColor = "#1a1aff";
+                        config4.waveColor = "1a1aff";
+                        config4.textVertPosition = 0.55; //0.8
+                        config4.waveAnimateTime = 1000;
+                        config4.waveHeight = 0.3;
+                        config4.waveAnimate = true;
+                        config4.waveRise = false; //false
+                        config4.waveHeightScaling = true;
+                        config4.waveOffset = 0.35; //0.25
+                        config4.textSize = 2.2;//0.75
+                        config4.waveCount = 3;//3
+                        config4.displayPercent = false; //true
                         var thevalue = document.getElementById('lblPhonePeopleInQueue').value;
                         var gauge5 = loadLiquidFillGauge("fillgauge_PhoneQueued", thevalue, config4);
                     </script>
-                    <h3 class=" Top-min-XXpx">In Queued</h3>
+                    <h3 class=" Top-min-XXpx">Queued</h3>
                 </div>
             </div>
 
@@ -117,12 +117,16 @@
 
             <!-- Phone Counselor Availabele  -->
             <div class="borderLine">
-                <h3 class="ChatDivDown">Counselor<br/>Avail / Busy</h3>
-                <h1 class="bigfont">
+                <h3 class="ChatDivDown">Counselor<br/>Avail/OnContact/NotReady</h3>
+                <h2>
                     <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text=""></asp:Label>
                     /
-                    <asp:Label ID="lblPhoneCounselorLogin" runat="server" Text=""></asp:Label>
-                </h1>
+                     <asp:Label ID="lblPhoneCounselorOnContact" runat="server" Text=""></asp:Label>
+                    /
+                    <asp:Label ID="lblPhoneCounselorNotReady" runat="server" Text=""></asp:Label>
+                   
+                     <asp:Label ID="lblPhoneCounselorLogin" runat="server" Text="" Visible="False"></asp:Label>
+                </h2>
 
 
                     <asp:HiddenField ID="HiddenPhone_Eng_In" runat="server" />
@@ -133,7 +137,10 @@
                     <asp:HiddenField ID="HiddenPhone_Fre_Availabe" runat="server" />
                     <asp:HiddenField ID="HiddenG2T_Eng_Availabe" runat="server" />
                     <asp:HiddenField ID="HiddenG2T_Fre_Availabe" runat="server" />
-
+                    <asp:HiddenField ID="HiddenPhone_Eng_AgentOnContact" runat="server" />
+                    <asp:HiddenField ID="HiddenPhone_Fre_AgentOnContact" runat="server" />
+                    <asp:HiddenField ID="HiddenG2T_Eng_AgentOnContact" runat="server" />
+                    <asp:HiddenField ID="HiddenG2T_Fre_AgentOnContact" runat="server" />
 
                 
                     <div id="PhoneCounslor"></div>
@@ -234,7 +241,7 @@
                         var gauge5 = loadLiquidFillGauge("fillgauge_ChatQueued", thevalue, config5);
                     </script>
                 </div>
-                <h3 class=" Top-min-XXpx">In Queued</h3>
+                <h3 class=" Top-min-XXpx">Queued</h3>
             </div>
 
 
@@ -242,11 +249,15 @@
             <!-- Chat Counselor Available       -->
             <div class="borderLine ">
                 <h3 class="ChatDivDown">Counselor<br/>Avail / Busy</h3>
-                <h1 class="bigfont">
+                <h2>
                     <asp:Label ID="lblChatCounselorAvailable" runat="server" Text=""></asp:Label>
                     /
-                    <asp:Label ID="lblChatCounselorLogin" runat="server" Text=""></asp:Label>
-                </h1>
+                    <asp:Label ID="lblChatCounselorOnContact" runat="server" Text=""></asp:Label>
+                    /
+                    <asp:Label ID="lblChatCounselorNotReady" runat="server" Text=""></asp:Label>
+                    
+                    <asp:Label ID="lblChatCounselorLogin" runat="server" Text="" Visible="False"></asp:Label>
+                </h2>
                     <asp:HiddenField ID="HiddenWebChat_Eng_In" runat="server" />
                     <asp:HiddenField ID="HiddenWebChat_Fre_In" runat="server" />
                     <asp:HiddenField ID="HiddenChatApp_Eng_In" runat="server" />
@@ -255,6 +266,10 @@
                     <asp:HiddenField ID="HiddenWebChat_Fre_Avaiable" runat="server" />
                     <asp:HiddenField ID="HiddenChatApp_Eng_Avaiable" runat="server" />
                     <asp:HiddenField ID="HiddenChatApp_Fre_Avaiable" runat="server" />
+                    <asp:HiddenField ID="HiddenWebChat_Eng_AgentOnContact" runat="server" />
+                    <asp:HiddenField ID="HiddenWebChat_Fre_AgentOnContact" runat="server" />
+                    <asp:HiddenField ID="HiddenChatApp_Eng_AgentOnContact" runat="server" />
+                    <asp:HiddenField ID="HiddenChatApp_Fre_AgentOnContact" runat="server" />
                  
                 <div id="ChatCounslor"></div>
                  

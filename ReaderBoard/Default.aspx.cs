@@ -1,8 +1,10 @@
 ﻿using ReaderBoard.DataModel;
 using ReaderBoard.iceCTI;
 using System;
+using System.Drawing;
 using System.Net;
 using System.Web.UI;
+using System.Web.UI.DataVisualization.Charting;
 using System.Web.UI.HtmlControls;
 
 namespace ReaderBoard
@@ -117,6 +119,8 @@ namespace ReaderBoard
                 Phone();
 
                 Chat();
+                DrawChat();
+              
         }
             catch (Exception erd)
             {
@@ -306,10 +310,15 @@ namespace ReaderBoard
                 lblPhoneAverageWaitTime.Text = AverageWaitTime.ToString();
                 lblPhoneCallToday.Text = CallToday.ToString();
                 lblPhonePeopleInQueue.Value = PeopleInQueue.ToString();
-                lblPhoneCounselorAvailable.Text = CounselorAvailable.ToString();
+                //lblPhoneCounselorAvailable.Text = CounselorAvailable.ToString();  // <-- sum
+                lblPhoneCounselorAvailable.Text = (stru_Phone_ENG.CounselorAvailable).ToString();
                 lblPhoneCounselorLogin.Text = CounselorLogin.ToString();
-                lblPhoneCounselorOnContact.Text = CounselorOnContact.ToString();
-                lblPhoneCounselorNotReady.Text = (CounselorLogin - CounselorAvailable - CounselorOnContact).ToString();
+                //lblPhoneCounselorOnContact.Text = CounselorOnContact.ToString(); // <-- sum
+                lblPhoneCounselorOnContact.Text = (stru_Phone_ENG.CounselorOnContact).ToString();
+                //lblPhoneCounselorNotReady.Text = (CounselorLogin - CounselorAvailable - CounselorOnContact).ToString();  // <-- sum
+                lblPhoneCounselorNotReady.Text = (Convert.ToInt32 (stru_Phone_ENG.CounselorLogin)
+                                                    - Convert.ToInt32(stru_Phone_ENG.CounselorAvailable )
+                                                    - Convert.ToInt32(stru_Phone_ENG.CounselorOnContact)).ToString();
 
                 HiddenPhone_Eng_In.Value = stru_Phone_ENG.CounselorLogin;
                 HiddenPhone_Eng_Availabe.Value = stru_Phone_ENG.CounselorAvailable;
@@ -425,10 +434,15 @@ namespace ReaderBoard
                 lblChatAverageWaitTime.Text = AverageWaitTime.ToString();
                 lblChatCallToday.Text = CallToday.ToString();
                 lblChatPeopleInQueue.Value = PeopleInQueue.ToString();
-                lblChatCounselorAvailable.Text = CounselorAvailable.ToString();
-                lblChatCounselorLogin.Text = CounselorLogin.ToString();
-                lblChatCounselorOnContact.Text = CounselorOnContact.ToString();
-                lblChatCounselorNotReady.Text = (CounselorLogin - CounselorAvailable - CounselorOnContact).ToString();
+                //lblChatCounselorAvailable.Text = CounselorAvailable.ToString(); // <-- sum
+                lblChatCounselorAvailable.Text = stru_Chat_ENG.CounselorAvailable;
+                lblChatCounselorLogin.Text = stru_Chat_ENG.CounselorLogin;
+                //lblChatCounselorOnContact.Text = CounselorOnContact.ToString();  // <-- sum
+                lblChatCounselorOnContact.Text = stru_Chat_ENG.CounselorOnContact;
+                //lblChatCounselorNotReady.Text = (CounselorLogin - CounselorAvailable - CounselorOnContact).ToString(); //<-- sum
+                lblChatCounselorNotReady.Text = (Convert.ToInt32(stru_Chat_ENG.CounselorLogin)
+                    - Convert.ToInt32(stru_Chat_ENG.CounselorAvailable )
+                    - Convert.ToInt32(stru_Chat_ENG.CounselorOnContact)).ToString();
 
                 HiddenWebChat_Eng_In.Value = stru_Chat_ENG.CounselorLogin;
                 HiddenWebChat_Eng_Avaiable.Value = stru_Chat_ENG.CounselorAvailable;
@@ -578,5 +592,84 @@ namespace ReaderBoard
             }
         }
 
+
+        protected void DrawChat()
+        {
+            string LabelFamily = "Arial";
+            Color LabelForeColor = System.Drawing.ColorTranslator.FromHtml("#333333");
+            Color labelForeColor1 = System.Drawing.ColorTranslator.FromHtml("#FCFCFC");
+            float LabelForSize = 28f;
+ 
+            //ChatChart ChatChartArea
+            ChatChart.ChartAreas["ChatChartArea"].AxisX.MajorGrid.LineWidth = 0;
+            ChatChart.ChartAreas["ChatChartArea"].AxisY.MajorGrid.LineWidth = 0;
+            ChatChart.BackColor = Color.Transparent;
+
+            ChatChart.ChartAreas["ChatChartArea"].AxisY.LabelStyle.Enabled = true;
+
+            ChatChart.ChartAreas["ChatChartArea"].AxisY.MajorTickMark.Enabled = true;
+            ChatChart.ChartAreas["ChatChartArea"].AxisX.MajorTickMark.Enabled = false;
+
+            ChatChart.ChartAreas["ChatChartArea"].AxisX.IsMarginVisible = true; //不会出现最顶和地的bar窄
+
+            // Assign value 
+            //Web EN
+            ChatChart.Series["Avail"].Points.Add(new DataPoint(3, 10));
+            ChatChart.Series["OnContact"].Points.Add(new DataPoint(3, 3));
+            ChatChart.Series["NotReady"].Points.Add(new DataPoint(3, 3));
+
+            //Web FR
+            ChatChart.Series["Avail"].Points.Add(new DataPoint(2, 8));
+            ChatChart.Series["OnContact"].Points.Add(new DataPoint(2, 5));
+            ChatChart.Series["NotReady"].Points.Add(new DataPoint(2, 0));
+
+            //App EN
+            ChatChart.Series["Avail"].Points.Add(new DataPoint(1, 5));
+            ChatChart.Series["OnContact"].Points.Add(new DataPoint(1, 7));
+            ChatChart.Series["NotReady"].Points.Add(new DataPoint(1, 5));
+ 
+            //App FR
+            ChatChart.Series["Avail"].Points.Add(new DataPoint(0, 2));
+            ChatChart.Series["OnContact"].Points.Add(new DataPoint(0, 12));
+            ChatChart.Series["NotReady"].Points.Add(new DataPoint(0, 12));
+
+
+            //Label fore Font size
+            ChatChart.Series["Avail"].Points[3].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+            ChatChart.Series["Avail"].Points[2].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+            ChatChart.Series["Avail"].Points[1].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+            ChatChart.Series["Avail"].Points[0].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+
+            ChatChart.Series["OnContact"].Points[3].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+            ChatChart.Series["OnContact"].Points[2].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+            ChatChart.Series["OnContact"].Points[1].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+            ChatChart.Series["OnContact"].Points[0].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+
+            ChatChart.Series["NotReady"].Points[3].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+            ChatChart.Series["NotReady"].Points[2].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+            ChatChart.Series["NotReady"].Points[1].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+            ChatChart.Series["NotReady"].Points[0].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+
+            //change Label Fore color 
+            ChatChart.Series["Avail"].LabelForeColor = LabelForeColor;
+            ChatChart.Series["Avail"].LabelForeColor = LabelForeColor;
+            ChatChart.Series["Avail"].LabelForeColor = LabelForeColor;
+            ChatChart.Series["OnContact"].LabelForeColor = LabelForeColor;
+            ChatChart.Series["OnContact"].LabelForeColor = LabelForeColor;
+            ChatChart.Series["OnContact"].LabelForeColor = LabelForeColor;
+            ChatChart.Series["NotReady"].LabelForeColor  = LabelForeColor;
+            ChatChart.Series["NotReady"].LabelForeColor  = LabelForeColor;
+            ChatChart.Series["NotReady"].LabelForeColor  = LabelForeColor;
+
+            //VAxis label
+            ChatChart.Series["Avail"].Points[3].AxisLabel = "English";
+            ChatChart.Series["Avail"].Points[2].AxisLabel = "French";
+            ChatChart.Series["Avail"].Points[1].AxisLabel = "G2T En";
+            ChatChart.Series["Avail"].Points[0].AxisLabel = "G2T Fr";
+
+            //changing Axis font color
+            ChatChart.ChartAreas["ChatChartArea"].AxisX.LabelStyle.ForeColor = LabelForeColor;
+            ChatChart.ChartAreas["ChatChartArea"].AxisY.LabelStyle.ForeColor = LabelForeColor;
+        }
     }
 }
