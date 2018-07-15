@@ -598,7 +598,7 @@ namespace ReaderBoard
             string LabelFamily = "Arial";
             Color LabelForeColor = System.Drawing.ColorTranslator.FromHtml("#333333");
             Color labelForeColor1 = System.Drawing.ColorTranslator.FromHtml("#FCFCFC");
-            float LabelForSize = 28f;
+            float LabelForSize = 20f;
  
             //ChatChart ChatChartArea
             ChatChart.ChartAreas["ChatChartArea"].AxisX.MajorGrid.LineWidth = 0;
@@ -635,7 +635,7 @@ namespace ReaderBoard
 
 
             //Label fore Font size
-            ChatChart.Series["Avail"].Points[3].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+            ChatChart.Series["Avail"].Points[3].Font = new System.Drawing.Font(LabelFamily, LabelForSize, FontStyle.Bold);
             ChatChart.Series["Avail"].Points[2].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
             ChatChart.Series["Avail"].Points[1].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
             ChatChart.Series["Avail"].Points[0].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
@@ -648,7 +648,8 @@ namespace ReaderBoard
             ChatChart.Series["NotReady"].Points[3].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
             ChatChart.Series["NotReady"].Points[2].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
             ChatChart.Series["NotReady"].Points[1].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-            ChatChart.Series["NotReady"].Points[0].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+            ChatChart.Series["NotReady"].Points[0].Font = new System.Drawing.Font(LabelFamily, LabelForSize,FontStyle.Bold);
+ 
 
             //change Label Fore color 
             ChatChart.Series["Avail"].LabelForeColor = LabelForeColor;

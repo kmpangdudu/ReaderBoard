@@ -261,13 +261,16 @@
                     <asp:HiddenField ID="HiddenWebChat_Fre_AgentOnContact" runat="server" />
                     <asp:HiddenField ID="HiddenChatApp_Eng_AgentOnContact" runat="server" />
                     <asp:HiddenField ID="HiddenChatApp_Fre_AgentOnContact" runat="server" />
-                <%--<div id="ChatCounslor"></div>--%>
-                <div>
+                <div id="ChatCounslor"></div>
+                <div style="display:none">
                     <asp:Chart ID="ChatChart" runat="server" BackColor="Transparent"  Height="310px" IsSoftShadows="False" Width="380px">
                         <Series>
-                            <asp:Series Name="Avail" IsValueShownAsLabel="true" ChartType="StackedBar" Color="#00FF00" LabelForeColor="#333333" Legend="Avail"></asp:Series>
-                            <asp:Series Name="OnContact" IsValueShownAsLabel="true" ChartType="StackedBar" Color="#FF0000" LabelForeColor="#333333" Legend="OnContact"></asp:Series>
-                            <asp:Series Name="NotReady" IsValueShownAsLabel="true" ChartType="StackedBar" Color="#FFFF00" LabelForeColor="#333333" Legend="NotReady"></asp:Series>
+                            <asp:Series Name="Avail" 
+                                IsValueShownAsLabel="true" 
+                                ChartType="StackedBar" Color="#00FF00" 
+                                ></asp:Series>
+                            <asp:Series Name="OnContact" IsValueShownAsLabel="true" ChartType="StackedBar" Color="#FF0000" ></asp:Series>
+                            <asp:Series Name="NotReady" IsValueShownAsLabel="true" ChartType="StackedBar" Color="#FFFF00"></asp:Series>
                         </Series>
                         <ChartAreas>
                             <asp:ChartArea Name="ChatChartArea" BackColor="Transparent"></asp:ChartArea>
