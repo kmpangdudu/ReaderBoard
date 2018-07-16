@@ -95,25 +95,25 @@ var lablefontsize = 22;
 
 var opt_Phone = {
     height: varHeight,
-    isStacked: true,
+    isStacked: 'percent',
+    legend: { position: 'none' },
     bar: { groupWidth: bargroupWidth },
-    chartArea: { width: chartAreaWidth, height: chartAreaHeight },
+    chartArea: { left: 110, top: 15, width: chartAreaWidth, height: chartAreaHeight },
     backgroundColor: { fill: "transparent" },
-    legend: "none",
-    gridlines: { color: "FF0000"  },
+    colors: [colorGreen, color1, color2],
+
     hAxis: {
-        title: "Counselor \n Avail/SignIn",
-        titleTextStyle: { color: "FCFCFC", fontSize: 24, bold: true, italic: false },
-        format: "#",
-        TextStyle: { color: "FCFCFC", fontSize: 28, bold: true },
-        colors: ["FCFCFC", "FCFCFC"],
-        gridlines: { color: "333333" }
+        TextStyle: { color: "FCFCFC", fontSize: 20, bold: true, italic: false },
+        textPosition: 'none',
+        gridlines: { color: 'transparent' },
+        baselineColor: "none" 
     },
     vAxis: {
-        textStyle: {fontSize: 20, bold: true, color: "#FCFCFC"},
-        gridlines: { color: "#333333" }
+        textStyle: { fontSize: 20, bold: true, color: "#FCFCFC", , italic: false },
+        gridlines: { color: 'transparent' },
+        baselineColor: "none"
     },
-    //colors: ["#e0440e", "#e6693e", "#ec8f6e", "#f3b49f", "#f6c7b6"],
+ 
 
 
     annotations: {
@@ -216,10 +216,10 @@ function drawPhoneCounslor() {
 
     var PhoneData = google.visualization.arrayToDataTable([
         ["Queue", "Availabe", { role: "style" }, { role: "annotation" }, "OnContact", { role: "style" }, { role: "annotation" }, "NotReady", { role: "style" }, { role: "annotation" }],
-        ["English", PhoneEN_Avai, colorGreen, PhoneEN_Avai, PhoneEN_onContact, color1, PhoneEN_onContact, busyPhoneEn, color2, busyPhoneEn],
-        ["French", PhoneFr_Avai, colorGreen, PhoneFr_Avai, PhoneFR_onContact, color1, PhoneFR_onContact, phoneFR_NotReady, color2, phoneFR_NotReady],
-        ["G2T En", G2Ten_Avai, colorGreen, G2Ten_Avai, G2Ten_onContact, color1, G2Ten_onContact, G2TEN_NotReady, color2, G2TEN_NotReady],
-        ["G2T Fr", G2Tfr_Avai, colorGreen, G2Tfr_Avai, G2Tfr_OnContact, color1, G2Tfr_OnContact, G2Tfr_NotReady, color2, G2Tfr_NotReady]
+        ["English", PhoneEN_Avai, colorGreen, lPhoneEN_Avai, PhoneEN_onContact, color1, lPhoneEN_onContact, phoneEN_NotReady, color2, lphoneEN_NotReady],
+        ["French", PhoneFr_Avai, colorGreen, lPhoneFr_Avai, PhoneFR_onContact, color1, lPhoneFR_onContact, phoneFR_NotReady, color2, lphoneFR_NotReady],
+        ["G2T En", G2Ten_Avai, colorGreen, lG2Ten_Avai, G2Ten_onContact, color1, lG2Ten_onContact, G2TEN_NotReady, color2, lG2TEN_NotReady],
+        ["G2T Fr", G2Tfr_Avai, colorGreen, lG2Tfr_Avai, G2Tfr_OnContact, color1, lG2Tfr_OnContact, G2Tfr_NotReady, color2, lG2Tfr_NotReady]
     ]);
 
 
@@ -237,35 +237,83 @@ google.charts.setOnLoadCallback(drawChatCounslor);
 function drawChatCounslor() {
     var sChatEN_In = document.getElementById("HiddenWebChat_Eng_In").value;
     var ChatEN_In = parseInt(sChatEN_In);
+    var lChatEN_In = ChatEN_In === 0 ? null : ChatEN_In;
+
     var sChatEN_Avai = document.getElementById("HiddenWebChat_Eng_Avaiable").value;
     var ChatEN_Avai = parseInt(sChatEN_Avai);
+    var lChatEN_Avai = ChatEN_Avai === 0 ? null : ChatEN_Avai;
+
+    var sChatEn_OnContact = document.getElementById("HiddenWebChat_Eng_AgentOnContact").value;
+    var ChatEn_OnContact = parseInt(sChatEn_OnContact);
+    var lChatEn_OnContact = ChatEn_OnContact === 0 ? null : ChatEn_OnContact;
+
+    var ChatEn_NoteRady = ChatEN_In - ChatEN_Avai - ChatEn_OnContact;
+    var lChatEn_NoteRady = ChatEn_NoteRady === 0 ? null : ChatEn_NoteRady;
+
     var busyChatEn = ChatEN_In - ChatEN_Avai;
+    var lbusyChatEn = busyChatEn === 0 ? null : busyChatEn;
 
     var sChatFr_In = document.getElementById("HiddenWebChat_Fre_In").value;
     var ChatFr_In = parseInt(sChatFr_In);
+    var lChatFr_In = ChatFr_In === 0 ? null : ChatFr_In;
+
     var sChatFr_Avai = document.getElementById("HiddenWebChat_Fre_Avaiable").value;
     var ChatFr_Avai = parseInt(sChatFr_Avai);
+    var lChatFr_Avai = ChatFr_Avai === 0 ? null : ChatFr_Avai;
+
+    var sChatFr_OnContact = document.getElementById("HiddenWebChat_Fre_AgentOnContact").value;
+    var ChatFr_OnContact = parseInt(sChatFr_OnContact);
+    var lChatFr_OnContact = ChatFr_OnContact === 0 ? null : ChatFr_OnContact;
+
+    var ChatFr_NotReady = ChatFr_In - ChatFr_Avai - ChatFr_OnContact;
+    var lChatFr_NotReady = ChatFr_NotReady === 0 ? null : ChatFr_NotReady;
+
     var busyChatFr = ChatFr_In - ChatFr_Avai;
+    var lbusyChatFr = busyChatFr === 0 ? null : busyChatFr;
 
     var sChatAppEN_In = document.getElementById("HiddenChatApp_Eng_In").value;
     var ChatAppEN_In = parseInt(sChatAppEN_In);
+    var lChatAppEN_In = ChatAppEN_In === 0 ? null : ChatAppEN_In;
+
     var sChatAppEN_Avai = document.getElementById("HiddenChatApp_Eng_Avaiable").value;
     var ChatAppEN_Avai = parseInt(sChatAppEN_Avai);
+    var lChatAppEN_Avai = ChatAppEN_Avai === 0 ? null : ChatAppEN_Avai;
+
+    var sChatAppEn_OnContact = document.getElementById("HiddenChatApp_Eng_AgentOnContact").value;
+    var ChatAppEn_OnContact = parseInt(sChatAppEn_OnContact);
+    var lChatAppEn_OnContact = ChatAppEn_OnContact === 0 ? null : ChatAppEn_OnContact;
+
+    var ChatAppEn_NotReady = ChatAppEN_In - ChatAppEN_Avai - ChatAppEn_OnContact;
+    var lChatAppEn_NotReady = ChatAppEn_NotReady === 0 ? null : ChatAppEn_NotReady;
+
     var busyChatAppEn = ChatAppEN_In - ChatAppEN_Avai;
+    var lbusyChatAppEn = busyChatAppEn === 0 ? null : busyChatAppEn;
 
     var sChatAppfr_In = document.getElementById("HiddenChatApp_Fre_In").value;
     var ChatAppfr_In = parseInt(sChatAppfr_In);
+    var lChatAppfr_In = ChatAppfr_In === 0 ? null : ChatAppfr_In;
+
     var sChatAppfr_Avai = document.getElementById("HiddenChatApp_Fre_Avaiable").value;
     var ChatAppfr_Avai = parseInt(sChatAppfr_Avai);
+    var lChatAppfr_Avai = ChatAppfr_Avai === 0 ? null : ChatAppfr_Avai;
+
+    var sChatAppFr_OnContact = document.getElementById("HiddenChatApp_Fre_AgentOnContact").value;
+    var ChatAppFr_OnContact = parseInt(sChatAppFr_OnContact);
+    var lChatAppFr_OnContact = ChatAppFr_OnContact === 0 ? null : ChatAppFr_OnContact;
+
+    var ChatAppFr_NotReady = ChatAppfr_In - ChatAppfr_Avai - ChatAppFr_OnContact;
+    var lChatAppFr_NotReady = ChatAppFr_NotReady === 0 ? null : ChatAppFr_NotReady;
+
     var busyChatAppFr = ChatAppfr_In - ChatAppfr_Avai;
+    var lbusyChatAppFr = busyChatAppFr === 0 ? null : busyChatAppFr;
 
 
     var ChatData = google.visualization.arrayToDataTable([
-        ["Queue", "Availabe", { role: "style" }, { role: "annotation" }, "SignIn", { role: "style" }, { role: "annotation" }],
-        ["Web En", ChatEN_Avai, colorGreen, ChatEN_Avai, busyChatEn, color1, busyChatEn],
-        ["Web Fr", ChatFr_Avai, colorGreen, ChatFr_Avai, busyChatFr, color2, busyChatFr],
-        ["App En", ChatAppEN_Avai, colorGreen, ChatAppEN_Avai, busyChatAppEn, color3, busyChatAppEn],
-        ["App Fr", ChatAppfr_Avai, colorGreen, ChatAppfr_Avai, busyChatAppFr, color4, busyChatAppFr]
+        ["Queue", "Availabe", { role: "style" }, { role: "annotation" }, "OnContact", { role: "style" }, { role: "annotation" }, "NotReady", { role: "style" }, { role: "annotation" }],
+        ["Web En", ChatEN_Avai, colorGreen, lChatEN_Avai, ChatEn_OnContact, color1, lChatEn_OnContact, ChatEn_NoteRady, color2, lChatEn_NoteRady],
+        ["Web Fr", ChatFr_Avai, colorGreen, lChatFr_Avai, ChatFr_OnContact, color1, lChatFr_OnContact, ChatFr_NotReady, color2, lChatFr_NotReady],
+        ["App En", ChatAppEN_Avai, colorGreen, lChatAppEN_Avai, ChatAppEn_OnContact, color1, lChatAppEn_OnContact, ChatAppEn_NotReady, color2, lChatAppEn_NotReady],
+        ["App Fr", ChatAppfr_Avai, colorGreen, lChatAppfr_Avai, ChatAppFr_OnContact, color1, lChatAppFr_OnContact, ChatAppFr_NotReady, color2, lChatAppFr_NotReady]
     ]);
 
     document.getElementById("lblChatCounselorLogin").innerText = busyChatEn + busyChatFr + busyChatAppEn + busyChatAppFr;

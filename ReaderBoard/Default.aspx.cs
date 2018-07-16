@@ -41,6 +41,9 @@ namespace ReaderBoard
 
         CTIServiceClient client = new CTIServiceClient();
 
+ 
+        int hour = DateTime.Now.Hour;
+
         //string refreshing =  Properties.Settings.Default.DashboardRefreshing;//Default 3- second;
         //string szServerName = Properties.Settings.Default.szServerName; //"ice1"
         //string dwSwitchID = Properties.Settings.Default.dwSwitchID; //"11006";
@@ -56,6 +59,16 @@ namespace ReaderBoard
         int dayTimeStart = Properties.Settings.Default.dayTimeStart;
         int dayTimeEnd = Properties.Settings.Default.dayTimeEnd;
         string refreshing =  Properties.Settings.Default.DashboardRefreshing;//Default 3- second;
+        int ChatEnDayStart = Properties.Settings.Default.ChatEnDayStart;
+        int ChatEnDayEnd = Properties.Settings.Default.ChatEnDayEnd;
+        int ChatEnTimeStart = Properties.Settings.Default.ChatEnTimeStart;
+        int ChatEnTimeEnd = Properties.Settings.Default.ChatEnTimeEnd;
+        int ChatFrDayStart = Properties.Settings.Default.ChatFrDayStart;
+        int ChatFrDayEnd = Properties.Settings.Default.ChatFrDayEnd;
+        int ChatFrTimeStart = Properties.Settings.Default.ChatFrTimeStart;
+        int ChatFrTimeEnd = Properties.Settings.Default.ChatFrTimeEnd;
+        int ChatClosed = Properties.Settings.Default.ChatClosed;
+
         string szServerName    ; //"ice1"
         string dwSwitchID ; //"11006";
         string iQueueID_Phone_ENG;//"6001";
@@ -77,7 +90,9 @@ namespace ReaderBoard
          RealTimeData  stru_ChatApp_FRE;
 
          Last24hrGrade stru_last24HrGrade ;
-    
+
+       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -103,6 +118,24 @@ namespace ReaderBoard
                     }
                 }
 
+                HiddendayTimeStart.Value =     dayTimeStart.ToString();
+                HiddendayTimeEnd.Value =       dayTimeEnd.ToString();
+
+                HiddenChatEnDayStart.Value =   ChatEnDayStart.ToString();
+                HiddenChatEnDayEnd.Value =     ChatEnDayEnd.ToString();
+
+                HiddenChatEnTimeStart.Value =  ChatEnTimeStart.ToString();
+                HiddenChatEnTimeEnd.Value =    ChatEnTimeEnd.ToString();
+                HiddenChatFrDayStart.Value =   ChatFrDayStart.ToString();
+                HiddenChatFrDayEnd.Value =     ChatFrDayEnd.ToString();
+                HiddenChatFrTimeStart.Value =  ChatFrTimeStart.ToString();
+                HiddenChatFrTimeEnd.Value =    ChatFrTimeEnd.ToString();
+                HiddenChatClosed.Value =       ChatClosed.ToString();
+
+
+
+
+
             };
 
             try
@@ -119,7 +152,7 @@ namespace ReaderBoard
                 Phone();
 
                 Chat();
-                DrawChat();
+                //DrawChat();   //<-- visual studio chart control
               
         }
             catch (Exception erd)
@@ -152,8 +185,8 @@ namespace ReaderBoard
 
 
 
-            DateTime dt = DateTime.Now;
-            int hour = dt.Hour;
+ 
+             
 
             if ((dayTimeStart <= hour) & (hour < dayTimeEnd))  // Day light theme
             {
@@ -221,79 +254,79 @@ namespace ReaderBoard
             {
                 int iNumOffered = 
                     Convert.ToInt32(stru_Phone_ENG.NumOffered) 
-                    + Convert.ToInt32(stru_Phone_FRE.NumOffered) 
-                    + Convert.ToInt32(stru_G2T_ENG.NumOffered) 
-                    + Convert.ToInt32(stru_G2T_FRE.NumOffered);
+                    +Convert.ToInt32(stru_Phone_FRE.NumOffered) 
+                    +Convert.ToInt32(stru_G2T_ENG.NumOffered) 
+                    +Convert.ToInt32(stru_G2T_FRE.NumOffered);
                 iNumOffered = iNumOffered < 0 ? 0 : iNumOffered;
 
                 int iNumhundledLessThanTarget = 
-                    Convert.ToInt32(stru_Phone_ENG.NumHandledLessThanTarget) 
-                    + Convert.ToInt32(stru_Phone_FRE.NumHandledLessThanTarget) 
-                    + Convert.ToInt32(stru_G2T_ENG.NumHandledLessThanTarget) 
-                    + Convert.ToInt32(stru_G2T_FRE.NumHandledLessThanTarget);
+                   Convert.ToInt32(stru_Phone_ENG.NumHandledLessThanTarget) 
+                    +Convert.ToInt32(stru_Phone_FRE.NumHandledLessThanTarget) 
+                    +Convert.ToInt32(stru_G2T_ENG.NumHandledLessThanTarget) 
+                    +Convert.ToInt32(stru_G2T_FRE.NumHandledLessThanTarget);
                 iNumhundledLessThanTarget = iNumhundledLessThanTarget < 0 ? 0 : iNumhundledLessThanTarget;
 
-                int LongestWaitTime = 
-                    Convert.ToInt32(stru_Phone_ENG.LongestWaitTime) 
-                    + Convert.ToInt32(stru_Phone_FRE.LongestWaitTime) 
-                    + Convert.ToInt32(stru_G2T_ENG.LongestWaitTime) 
-                    + Convert.ToInt32(stru_G2T_FRE.LongestWaitTime);
+                Double LongestWaitTime = 
+                   Convert.ToDouble (stru_Phone_ENG.LongestWaitTime) 
+                    +Convert.ToDouble(stru_Phone_FRE.LongestWaitTime) 
+                    +Convert.ToDouble(stru_G2T_ENG.LongestWaitTime) 
+                    +Convert.ToDouble(stru_G2T_FRE.LongestWaitTime);
                 LongestWaitTime = (LongestWaitTime / 4) / 60; // Average , Convert to mintue
                 LongestWaitTime = LongestWaitTime < 0 ? 0 : LongestWaitTime;
 
-                int AverageWaitTime = 
-                    Convert.ToInt32(stru_Phone_ENG.AverageWaitTime) 
-                    + Convert.ToInt32(stru_Phone_FRE.AverageWaitTime) 
-                    + Convert.ToInt32(stru_G2T_ENG.AverageWaitTime) 
-                    + Convert.ToInt32(stru_G2T_FRE.AverageWaitTime);
+                Double AverageWaitTime = 
+                   Convert.ToDouble(stru_Phone_ENG.AverageWaitTime) 
+                    +Convert.ToDouble(stru_Phone_FRE.AverageWaitTime) 
+                    +Convert.ToDouble(stru_G2T_ENG.AverageWaitTime) 
+                    +Convert.ToDouble(stru_G2T_FRE.AverageWaitTime);
                 AverageWaitTime = (AverageWaitTime / 4) / 60; // Average , Convert to mintue
                 AverageWaitTime = AverageWaitTime < 0 ? 0 : AverageWaitTime;
 
 
                 int CallToday = 
-                    Convert.ToInt32(stru_Phone_ENG.HandledToday) 
-                    + Convert.ToInt32(stru_Phone_FRE.HandledToday) 
-                    + Convert.ToInt32(stru_G2T_ENG.HandledToday) 
-                    + Convert.ToInt32(stru_G2T_FRE.HandledToday);
+                   Convert.ToInt32(stru_Phone_ENG.HandledToday) 
+                    +Convert.ToInt32(stru_Phone_FRE.HandledToday) 
+                    +Convert.ToInt32(stru_G2T_ENG.HandledToday) 
+                    +Convert.ToInt32(stru_G2T_FRE.HandledToday);
                 CallToday = CallToday < 0 ? 0 : CallToday;
 
                 int PeopleInQueue = 
-                    Convert.ToInt32(stru_Phone_ENG.CurrentInQueued) 
-                    + Convert.ToInt32(stru_Phone_FRE.CurrentInQueued) 
-                    + Convert.ToInt32(stru_G2T_ENG.CurrentInQueued) 
-                    + Convert.ToInt32(stru_G2T_FRE.CurrentInQueued);
+                   Convert.ToInt32(stru_Phone_ENG.CurrentInQueued) 
+                    +Convert.ToInt32(stru_Phone_FRE.CurrentInQueued) 
+                    +Convert.ToInt32(stru_G2T_ENG.CurrentInQueued) 
+                    +Convert.ToInt32(stru_G2T_FRE.CurrentInQueued);
                 PeopleInQueue = PeopleInQueue < 0 ? 0 : PeopleInQueue;
 
                 int CounselorAvailable = 
-                    Convert.ToInt32(stru_Phone_ENG.CounselorAvailable) 
-                    + Convert.ToInt32(stru_Phone_FRE.CounselorAvailable) 
-                    + Convert.ToInt32(stru_G2T_ENG.CounselorAvailable) 
-                    + Convert.ToInt32(stru_G2T_FRE.CounselorAvailable);
-                CounselorAvailable = CounselorAvailable < 0 ? 0 : CounselorAvailable;
+                   Convert.ToInt32(stru_Phone_ENG.CounselorAvailable) 
+                    +Convert.ToInt32(stru_Phone_FRE.CounselorAvailable) 
+                    +Convert.ToInt32(stru_G2T_ENG.CounselorAvailable) 
+                    +Convert.ToInt32(stru_G2T_FRE.CounselorAvailable);
+                CounselorAvailable = CounselorAvailable < 1 ? 0 : CounselorAvailable;
 
                 int CounselorLogin = 
-                    Convert.ToInt32(stru_Phone_ENG.CounselorLogin) 
-                    + Convert.ToInt32(stru_Phone_FRE.CounselorLogin) 
-                    + Convert.ToInt32(stru_G2T_ENG.CounselorLogin) 
-                    + Convert.ToInt32(stru_G2T_FRE.CounselorLogin);
-                CounselorLogin = CounselorLogin < 0 ? 0 : CounselorLogin;
+                   Convert.ToInt32(stru_Phone_ENG.CounselorLogin) 
+                    +Convert.ToInt32(stru_Phone_FRE.CounselorLogin) 
+                    +Convert.ToInt32(stru_G2T_ENG.CounselorLogin) 
+                    +Convert.ToInt32(stru_G2T_FRE.CounselorLogin);
+                CounselorLogin = CounselorLogin < 1 ? 0 : CounselorLogin;
 
                 int CounselorOnContact =
-                    Convert.ToInt32(stru_Phone_ENG.CounselorOnContact)
-                    + Convert.ToInt32(stru_Phone_FRE.CounselorOnContact)
-                    + Convert.ToInt32(stru_G2T_ENG.CounselorOnContact)
-                    + Convert.ToInt32(stru_G2T_FRE.CounselorOnContact);
-                CounselorOnContact = CounselorOnContact < 0 ? 0 : CounselorOnContact;
+                   Convert.ToInt32(stru_Phone_ENG.CounselorOnContact)
+                    +Convert.ToInt32(stru_Phone_FRE.CounselorOnContact)
+                    +Convert.ToInt32(stru_G2T_ENG.CounselorOnContact)
+                    +Convert.ToInt32(stru_G2T_FRE.CounselorOnContact);
+                CounselorOnContact = CounselorOnContact < 1 ? 0 : CounselorOnContact;
 
-                Double ASA = 0.0;
+                decimal ASA = 0.0m;
                 if (iNumOffered !=0)
                 {
-                    ASA = 100.0 * iNumhundledLessThanTarget / iNumOffered;
+                    ASA = 100.0m * iNumhundledLessThanTarget / iNumOffered;
                     lblPhoneGradeService.Value = ASA.ToString("N2");
                 }
                 else
                 {
-                    ASA = 0.0;
+                    ASA = 0.0m;
                     lblPhoneGradeService.Value = "0.00";
                 }
 
@@ -304,34 +337,36 @@ namespace ReaderBoard
                 p24 = (p24 != (decimal)0.0 ? p24 : (decimal)0.00);
                 lblPhoneGradeService24.Value = ((decimal)1.00 * p24).ToString("N2");
 
+                var timeSpan = TimeSpan.FromMinutes(LongestWaitTime);
+                lblPhoneLongestWaitTime.Text = timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
 
+                timeSpan = TimeSpan.FromMinutes(AverageWaitTime);
+                lblPhoneAverageWaitTime.Text = timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
 
-                lblPhoneLongestWaitTime.Text = LongestWaitTime.ToString();
-                lblPhoneAverageWaitTime.Text = AverageWaitTime.ToString();
                 lblPhoneCallToday.Text = CallToday.ToString();
                 lblPhonePeopleInQueue.Value = PeopleInQueue.ToString();
                 //lblPhoneCounselorAvailable.Text = CounselorAvailable.ToString();  // <-- sum
-                lblPhoneCounselorAvailable.Text = (stru_Phone_ENG.CounselorAvailable).ToString();
+                lblPhoneCounselorAvailable.Text = stru_Phone_ENG.CounselorAvailable==null? "0" : stru_Phone_ENG.CounselorAvailable;
                 lblPhoneCounselorLogin.Text = CounselorLogin.ToString();
                 //lblPhoneCounselorOnContact.Text = CounselorOnContact.ToString(); // <-- sum
-                lblPhoneCounselorOnContact.Text = (stru_Phone_ENG.CounselorOnContact).ToString();
+                lblPhoneCounselorOnContact.Text = stru_Phone_ENG.CounselorOnContact==null?"0": stru_Phone_ENG.CounselorOnContact;
                 //lblPhoneCounselorNotReady.Text = (CounselorLogin - CounselorAvailable - CounselorOnContact).ToString();  // <-- sum
                 lblPhoneCounselorNotReady.Text = (Convert.ToInt32 (stru_Phone_ENG.CounselorLogin)
-                                                    - Convert.ToInt32(stru_Phone_ENG.CounselorAvailable )
-                                                    - Convert.ToInt32(stru_Phone_ENG.CounselorOnContact)).ToString();
+                                                    -Convert.ToInt32(stru_Phone_ENG.CounselorAvailable )
+                                                    -Convert.ToInt32(stru_Phone_ENG.CounselorOnContact)).ToString();
 
-                HiddenPhone_Eng_In.Value = stru_Phone_ENG.CounselorLogin;
-                HiddenPhone_Eng_Availabe.Value = stru_Phone_ENG.CounselorAvailable;
-                HiddenPhone_Fre_In.Value = stru_Phone_FRE.CounselorLogin;
-                HiddenPhone_Fre_Availabe.Value = stru_Phone_FRE.CounselorAvailable;
-                HiddenG2T_Eng_In.Value = stru_G2T_ENG.CounselorLogin;
-                HiddenG2T_Eng_Availabe.Value = stru_G2T_ENG.CounselorAvailable;
-                HiddenG2T_Fre_In.Value = stru_G2T_FRE.CounselorLogin;
-                HiddenG2T_Fre_Availabe.Value = stru_G2T_FRE.CounselorAvailable;
-                HiddenPhone_Eng_AgentOnContact.Value = stru_Phone_ENG.CounselorOnContact;
-                HiddenPhone_Fre_AgentOnContact.Value = stru_Phone_FRE.CounselorOnContact;
-                HiddenG2T_Eng_AgentOnContact.Value = stru_G2T_ENG.CounselorOnContact;
-                HiddenG2T_Fre_AgentOnContact.Value = stru_G2T_FRE.CounselorOnContact;
+                HiddenPhone_Eng_In.Value = stru_Phone_ENG.CounselorLogin == null? "0" : stru_Phone_ENG.CounselorLogin;
+                HiddenPhone_Eng_Availabe.Value = stru_Phone_ENG.CounselorAvailable == null ?  "0" : stru_Phone_ENG.CounselorAvailable;
+                HiddenPhone_Fre_In.Value = stru_Phone_FRE.CounselorLogin == null ?  "0" : stru_Phone_FRE.CounselorLogin;
+                HiddenPhone_Fre_Availabe.Value = stru_Phone_FRE.CounselorAvailable == null ?  "0" : stru_Phone_FRE.CounselorAvailable;
+                HiddenG2T_Eng_In.Value = stru_G2T_ENG.CounselorLogin == null ?  "0" : stru_G2T_ENG.CounselorLogin;
+                HiddenG2T_Eng_Availabe.Value = stru_G2T_ENG.CounselorAvailable == null ?  "0" : stru_G2T_ENG.CounselorAvailable;
+                HiddenG2T_Fre_In.Value = stru_G2T_FRE.CounselorLogin == null ?  "0" : stru_G2T_FRE.CounselorLogin;
+                HiddenG2T_Fre_Availabe.Value = stru_G2T_FRE.CounselorAvailable == null ?  "0" : stru_G2T_FRE.CounselorAvailable;
+                HiddenPhone_Eng_AgentOnContact.Value = stru_Phone_ENG.CounselorOnContact == null ?  "0" : stru_Phone_ENG.CounselorOnContact;
+                HiddenPhone_Fre_AgentOnContact.Value = stru_Phone_FRE.CounselorOnContact == null ?  "0" : stru_Phone_FRE.CounselorOnContact;
+                HiddenG2T_Eng_AgentOnContact.Value = stru_G2T_ENG.CounselorOnContact == null ?  "0" : stru_G2T_ENG.CounselorOnContact;
+                HiddenG2T_Fre_AgentOnContact.Value = stru_G2T_FRE.CounselorOnContact == null ?  "0" : stru_G2T_FRE.CounselorOnContact;
             }
             catch (Exception erd)
             {
@@ -339,87 +374,87 @@ namespace ReaderBoard
             }
         }
 
-        //Chat = Chat_eng + Chat_fre + CHatApp_eng + ChatApp_fre
+
         protected void Chat()
         {
             try
             {
                 int iNumOffered = 
-                    Convert.ToInt32(stru_Chat_ENG.NumOffered) 
-                    + Convert.ToInt32(stru_Chat_FRE.NumOffered) 
-                    + Convert.ToInt32(stru_ChatApp_ENG.NumOffered) 
-                    + Convert.ToInt32(stru_ChatApp_FRE.NumOffered);
+                   Convert.ToInt32 (stru_Chat_ENG.NumOffered) 
+                    +Convert.ToInt32(stru_Chat_FRE.NumOffered) 
+                    +Convert.ToInt32(stru_ChatApp_ENG.NumOffered) 
+                    +Convert.ToInt32(stru_ChatApp_FRE.NumOffered);
                 iNumOffered = iNumOffered < 0 ? 0 : iNumOffered;
 
                 int iNumhundledLessThanTarget = 
-                    Convert.ToInt32(stru_Chat_ENG.NumHandledLessThanTarget) 
-                    + Convert.ToInt32(stru_Chat_FRE.NumHandledLessThanTarget) 
-                    + Convert.ToInt32(stru_ChatApp_ENG.NumHandledLessThanTarget) 
-                    + Convert.ToInt32(stru_ChatApp_FRE.NumHandledLessThanTarget);
+                   Convert.ToInt32(stru_Chat_ENG.NumHandledLessThanTarget) 
+                    +Convert.ToInt32(stru_Chat_FRE.NumHandledLessThanTarget) 
+                    +Convert.ToInt32(stru_ChatApp_ENG.NumHandledLessThanTarget) 
+                    +Convert.ToInt32(stru_ChatApp_FRE.NumHandledLessThanTarget);
                 iNumhundledLessThanTarget = iNumhundledLessThanTarget < 0 ? 0 : iNumhundledLessThanTarget;
 
-                int LongestWaitTime =           
-                    Convert.ToInt32(stru_Chat_ENG.LongestWaitTime) 
-                    + Convert.ToInt32(stru_Chat_FRE.LongestWaitTime) 
-                    + Convert.ToInt32(stru_ChatApp_ENG.LongestWaitTime) 
-                    + Convert.ToInt32(stru_ChatApp_FRE.LongestWaitTime);
+                double LongestWaitTime =           
+                   Convert.ToDouble (stru_Chat_ENG.LongestWaitTime) 
+                    +Convert.ToDouble(stru_Chat_FRE.LongestWaitTime) 
+                    +Convert.ToDouble(stru_ChatApp_ENG.LongestWaitTime) 
+                    +Convert.ToDouble(stru_ChatApp_FRE.LongestWaitTime);
                 LongestWaitTime = (LongestWaitTime / 4) / 60; //average, changing to minute
                 LongestWaitTime = LongestWaitTime < 0 ? 0 : LongestWaitTime;
 
-                int AverageWaitTime =           
-                    Convert.ToInt32(stru_Chat_ENG.AverageWaitTime) 
-                    + Convert.ToInt32(stru_Chat_FRE.AverageWaitTime) 
-                    + Convert.ToInt32(stru_ChatApp_ENG.AverageWaitTime) 
-                    + Convert.ToInt32(stru_ChatApp_FRE.AverageWaitTime);
+                double AverageWaitTime =           
+                   Convert.ToDouble(stru_Chat_ENG.AverageWaitTime) 
+                    +Convert.ToDouble(stru_Chat_FRE.AverageWaitTime) 
+                    +Convert.ToDouble(stru_ChatApp_ENG.AverageWaitTime) 
+                    +Convert.ToDouble(stru_ChatApp_FRE.AverageWaitTime);
                 AverageWaitTime = (AverageWaitTime / 4) / 60 ; //sverage, changing to minute
                 AverageWaitTime = AverageWaitTime < 0 ? 0 : AverageWaitTime;
 
                 int CallToday =                 
-                    Convert.ToInt32(stru_Chat_ENG.HandledToday) 
-                    + Convert.ToInt32(stru_Chat_FRE.HandledToday) 
-                    + Convert.ToInt32(stru_ChatApp_ENG.HandledToday) 
-                    + Convert.ToInt32(stru_ChatApp_FRE.HandledToday);
+                   Convert.ToInt32(stru_Chat_ENG.HandledToday) 
+                    +Convert.ToInt32(stru_Chat_FRE.HandledToday) 
+                    +Convert.ToInt32(stru_ChatApp_ENG.HandledToday) 
+                    +Convert.ToInt32(stru_ChatApp_FRE.HandledToday);
                 CallToday = CallToday < 0 ? 0 : CallToday;
 
                 int PeopleInQueue =             
-                    Convert.ToInt32(stru_Chat_ENG.CurrentInQueued) 
-                    + Convert.ToInt32(stru_Chat_FRE.CurrentInQueued) 
-                    + Convert.ToInt32(stru_ChatApp_ENG.CurrentInQueued) 
-                    + Convert.ToInt32(stru_ChatApp_FRE.CurrentInQueued);
+                   Convert.ToInt32(stru_Chat_ENG.CurrentInQueued) 
+                    +Convert.ToInt32(stru_Chat_FRE.CurrentInQueued) 
+                    +Convert.ToInt32(stru_ChatApp_ENG.CurrentInQueued) 
+                    +Convert.ToInt32(stru_ChatApp_FRE.CurrentInQueued);
                 PeopleInQueue = PeopleInQueue < 0 ? 0 : PeopleInQueue;
 
                 int CounselorAvailable =        
-                    Convert.ToInt32(stru_Chat_ENG.CounselorAvailable) 
-                    + Convert.ToInt32(stru_Chat_FRE.CounselorAvailable) 
-                    + Convert.ToInt32(stru_ChatApp_ENG.CounselorAvailable) 
-                    + Convert.ToInt32(stru_ChatApp_FRE.CounselorAvailable);
-                CounselorAvailable = CounselorAvailable < 0 ? 0 : CounselorAvailable;
+                   Convert.ToInt32(stru_Chat_ENG.CounselorAvailable) 
+                    +Convert.ToInt32(stru_Chat_FRE.CounselorAvailable) 
+                    +Convert.ToInt32(stru_ChatApp_ENG.CounselorAvailable) 
+                    +Convert.ToInt32(stru_ChatApp_FRE.CounselorAvailable);
+                CounselorAvailable = CounselorAvailable < 1 ? 0 : CounselorAvailable;
 
                 int CounselorLogin =            
-                    Convert.ToInt32(stru_Chat_ENG.CounselorLogin) 
-                    + Convert.ToInt32(stru_Chat_FRE.CounselorLogin) 
-                    + Convert.ToInt32(stru_ChatApp_ENG.CounselorLogin) 
-                    + Convert.ToInt32(stru_ChatApp_FRE.CounselorLogin);
-                CounselorLogin = CounselorLogin < 0 ? 0 : CounselorLogin;
+                   Convert.ToInt32(stru_Chat_ENG.CounselorLogin) 
+                    +Convert.ToInt32(stru_Chat_FRE.CounselorLogin) 
+                    +Convert.ToInt32(stru_ChatApp_ENG.CounselorLogin) 
+                    +Convert.ToInt32(stru_ChatApp_FRE.CounselorLogin);
+                CounselorLogin = CounselorLogin < 1 ? 0 : CounselorLogin;
 
                 int CounselorOnContact =
-                    Convert.ToInt32(stru_Chat_ENG.CounselorOnContact)
-                    + Convert.ToInt32(stru_Chat_FRE.CounselorOnContact)
-                    + Convert.ToInt32(stru_ChatApp_ENG.CounselorOnContact)
-                    + Convert.ToInt32(stru_ChatApp_FRE.CounselorOnContact);
-                CounselorOnContact = CounselorOnContact < 0 ? 0 : CounselorOnContact;
+                   Convert.ToInt32(stru_Chat_ENG.CounselorOnContact)
+                    +Convert.ToInt32(stru_Chat_FRE.CounselorOnContact)
+                    +Convert.ToInt32(stru_ChatApp_ENG.CounselorOnContact)
+                    +Convert.ToInt32(stru_ChatApp_FRE.CounselorOnContact);
+                CounselorOnContact = CounselorOnContact < 1 ? 0 : CounselorOnContact;
 
 
-                double asa1 = 0.00;
+                decimal asa1 = 0.00m;
 
                 if (iNumOffered !=0)
                 {
-                    asa1 = 100.00 * iNumhundledLessThanTarget / iNumOffered;
+                    asa1 = 100.00m * iNumhundledLessThanTarget / iNumOffered;
                     lblChatGradeService.Value = asa1.ToString("N2");
                 }
                 else
                 {
-                    asa1 = 0.00;
+                    asa1 = 0.00m;
                     lblChatGradeService.Value = "0.00";
                 }
 
@@ -428,34 +463,36 @@ namespace ReaderBoard
                 c24 = (c24 != (decimal)0.0 ? c24 : (decimal)0.00);
                 lblChatGradeService24.Value = ((decimal)1.00 * c24).ToString("N2");
 
+                var timeSpan = TimeSpan.FromMinutes(LongestWaitTime);
+                lblChatLongestWaitTime.Text = timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
 
+                timeSpan = TimeSpan.FromMinutes(AverageWaitTime);
+                lblChatAverageWaitTime.Text = timeSpan.Minutes.ToString("00") + ":"+timeSpan.Seconds.ToString("00");
 
-                lblChatLongestWaitTime.Text = LongestWaitTime.ToString();
-                lblChatAverageWaitTime.Text = AverageWaitTime.ToString();
                 lblChatCallToday.Text = CallToday.ToString();
                 lblChatPeopleInQueue.Value = PeopleInQueue.ToString();
                 //lblChatCounselorAvailable.Text = CounselorAvailable.ToString(); // <-- sum
-                lblChatCounselorAvailable.Text = stru_Chat_ENG.CounselorAvailable;
+                lblChatCounselorAvailable.Text = stru_Chat_ENG.CounselorAvailable == null? "0": stru_Chat_ENG.CounselorAvailable;
                 lblChatCounselorLogin.Text = stru_Chat_ENG.CounselorLogin;
                 //lblChatCounselorOnContact.Text = CounselorOnContact.ToString();  // <-- sum
-                lblChatCounselorOnContact.Text = stru_Chat_ENG.CounselorOnContact;
+                lblChatCounselorOnContact.Text = stru_Chat_ENG.CounselorOnContact == null? "0": stru_Chat_ENG.CounselorOnContact;
                 //lblChatCounselorNotReady.Text = (CounselorLogin - CounselorAvailable - CounselorOnContact).ToString(); //<-- sum
                 lblChatCounselorNotReady.Text = (Convert.ToInt32(stru_Chat_ENG.CounselorLogin)
-                    - Convert.ToInt32(stru_Chat_ENG.CounselorAvailable )
-                    - Convert.ToInt32(stru_Chat_ENG.CounselorOnContact)).ToString();
+                    -Convert.ToDecimal (stru_Chat_ENG.CounselorAvailable )
+                    -Convert.ToDecimal (stru_Chat_ENG.CounselorOnContact)).ToString();
 
-                HiddenWebChat_Eng_In.Value = stru_Chat_ENG.CounselorLogin;
-                HiddenWebChat_Eng_Avaiable.Value = stru_Chat_ENG.CounselorAvailable;
-                HiddenWebChat_Fre_In.Value = stru_Chat_FRE.CounselorLogin;
-                HiddenWebChat_Fre_Avaiable.Value = stru_Chat_FRE.CounselorAvailable;
-                HiddenChatApp_Eng_In.Value = stru_ChatApp_ENG.CounselorLogin;
-                HiddenChatApp_Eng_Avaiable.Value = stru_ChatApp_ENG.CounselorAvailable;
-                HiddenChatApp_Fre_In.Value = stru_ChatApp_FRE.CounselorLogin;
-                HiddenChatApp_Fre_Avaiable.Value = stru_ChatApp_FRE.CounselorAvailable;
-                HiddenWebChat_Eng_AgentOnContact.Value = stru_Chat_ENG.CounselorOnContact;
-                HiddenWebChat_Fre_AgentOnContact.Value = stru_Chat_FRE.CounselorOnContact;
-                HiddenChatApp_Eng_AgentOnContact.Value = stru_ChatApp_ENG.CounselorOnContact;
-                HiddenChatApp_Fre_AgentOnContact.Value = stru_ChatApp_FRE.CounselorOnContact;
+                HiddenWebChat_Eng_In.Value = stru_Chat_ENG.CounselorLogin == null? "0" : stru_Chat_ENG.CounselorLogin;
+                HiddenWebChat_Eng_Avaiable.Value = stru_Chat_ENG.CounselorAvailable == null ? "0" : stru_Chat_ENG.CounselorAvailable;
+                HiddenWebChat_Fre_In.Value = stru_Chat_FRE.CounselorLogin == null ? "0" : stru_Chat_FRE.CounselorLogin;
+                HiddenWebChat_Fre_Avaiable.Value = stru_Chat_FRE.CounselorAvailable == null ? "0" : stru_Chat_FRE.CounselorAvailable;
+                HiddenChatApp_Eng_In.Value = stru_ChatApp_ENG.CounselorLogin == null ? "0" : stru_ChatApp_ENG.CounselorLogin;
+                HiddenChatApp_Eng_Avaiable.Value = stru_ChatApp_ENG.CounselorAvailable == null ? "0" : stru_ChatApp_ENG.CounselorAvailable;
+                HiddenChatApp_Fre_In.Value = stru_ChatApp_FRE.CounselorLogin == null ? "0" : stru_ChatApp_FRE.CounselorLogin;
+                HiddenChatApp_Fre_Avaiable.Value = stru_ChatApp_FRE.CounselorAvailable == null ? "0" : stru_ChatApp_FRE.CounselorAvailable;
+                HiddenWebChat_Eng_AgentOnContact.Value = stru_Chat_ENG.CounselorOnContact == null ? "0" : stru_Chat_ENG.CounselorOnContact;
+                HiddenWebChat_Fre_AgentOnContact.Value = stru_Chat_FRE.CounselorOnContact == null ? "0" : stru_Chat_FRE.CounselorOnContact;
+                HiddenChatApp_Eng_AgentOnContact.Value = stru_ChatApp_ENG.CounselorOnContact == null ? "0" : stru_ChatApp_ENG.CounselorOnContact;
+                HiddenChatApp_Fre_AgentOnContact.Value = stru_ChatApp_FRE.CounselorOnContact == null ? "0" : stru_ChatApp_FRE.CounselorOnContact;
             }
 
             catch (Exception erd)
@@ -476,8 +513,8 @@ namespace ReaderBoard
             stru_Phone_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Phone_ENG, szServerName);
             stru_Phone_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Phone_ENG, szServerName);
             stru_Phone_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Phone_ENG, szServerName);
-            HiddenPhone_Eng_In.Value = stru_Phone_ENG.CounselorLogin;
-            HiddenPhone_Eng_Availabe.Value = stru_Phone_ENG.CounselorAvailable;
+            //HiddenPhone_Eng_In.Value = stru_Phone_ENG.CounselorLogin;
+            //HiddenPhone_Eng_Availabe.Value = stru_Phone_ENG.CounselorAvailable;
 
             //phone_fre
             stru_Phone_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Phone_FRE, szServerName);
@@ -489,8 +526,8 @@ namespace ReaderBoard
             stru_Phone_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Phone_FRE, szServerName);
             stru_Phone_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Phone_FRE, szServerName);
             stru_Phone_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Phone_FRE, szServerName);
-            HiddenPhone_Fre_In.Value = stru_Phone_FRE.CounselorLogin;
-            HiddenPhone_Fre_Availabe.Value = stru_Phone_FRE.CounselorAvailable;
+            //HiddenPhone_Fre_In.Value = stru_Phone_FRE.CounselorLogin;
+            //HiddenPhone_Fre_Availabe.Value = stru_Phone_FRE.CounselorAvailable;
 
             //G2T_ENG
             stru_G2T_ENG.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_G2T_ENG, szServerName);
@@ -502,8 +539,8 @@ namespace ReaderBoard
             stru_G2T_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_G2T_ENG, szServerName);
             stru_G2T_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_G2T_ENG, szServerName);
             stru_G2T_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_G2T_ENG, szServerName);
-            HiddenG2T_Eng_In.Value = stru_G2T_ENG.CounselorLogin;
-            HiddenG2T_Eng_Availabe.Value = stru_G2T_ENG.CounselorAvailable;
+            //HiddenG2T_Eng_In.Value = stru_G2T_ENG.CounselorLogin;
+            //HiddenG2T_Eng_Availabe.Value = stru_G2T_ENG.CounselorAvailable;
 
             //G2T_FRE
             stru_G2T_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_G2T_FRE, szServerName);
@@ -515,61 +552,66 @@ namespace ReaderBoard
             stru_G2T_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_G2T_FRE, szServerName);
             stru_G2T_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_G2T_FRE, szServerName);
             stru_G2T_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_G2T_FRE, szServerName);
-            HiddenG2T_Fre_In.Value = stru_G2T_FRE.CounselorLogin;
-            HiddenG2T_Fre_Availabe.Value = stru_G2T_FRE.CounselorAvailable;
+            //HiddenG2T_Fre_In.Value = stru_G2T_FRE.CounselorLogin;
+            //HiddenG2T_Fre_Availabe.Value = stru_G2T_FRE.CounselorAvailable;
 
-            //Chat_ENG
-            stru_Chat_ENG.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Chat_ENG, szServerName);
-            stru_Chat_ENG.NumOffered = client.GetNumOffered(dwSwitchID, iQueueID_Chat_ENG, szServerName);
-            stru_Chat_ENG.LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Chat_ENG, szServerName);
-            stru_Chat_ENG.AverageWaitTime = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_Chat_ENG, szServerName);
-            stru_Chat_ENG.HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Chat_ENG, szServerName);
-            stru_Chat_ENG.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_Chat_ENG, szServerName);
-            stru_Chat_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Chat_ENG, szServerName);
-            stru_Chat_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Chat_ENG, szServerName);
-            stru_Chat_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Chat_ENG, szServerName);
-            HiddenWebChat_Eng_In.Value = stru_Chat_ENG.CounselorLogin;
-            HiddenWebChat_Eng_Avaiable.Value = stru_Chat_ENG.CounselorAvailable;
 
-            //Chat_FRE
-            stru_Chat_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Chat_FRE, szServerName);
-            stru_Chat_FRE.NumOffered = client.GetNumOffered(dwSwitchID, iQueueID_Chat_FRE, szServerName);
-            stru_Chat_FRE.LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Chat_FRE, szServerName);
-            stru_Chat_FRE.AverageWaitTime = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_Chat_FRE, szServerName);
-            stru_Chat_FRE.HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Chat_FRE, szServerName);
-            stru_Chat_FRE.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_Chat_FRE, szServerName);
-            stru_Chat_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Chat_FRE, szServerName);
-            stru_Chat_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Chat_FRE, szServerName);
-            stru_Chat_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Chat_FRE, szServerName);
-            HiddenWebChat_Fre_In.Value = stru_Chat_FRE.CounselorLogin;
-            HiddenWebChat_Fre_Avaiable.Value = stru_Chat_FRE.CounselorAvailable;
+            int ChatTimeEnd = 18;
+            int    ChatTimeStart = 8;
+            if ( !((ChatTimeEnd  <= hour) && (hour < ChatTimeStart)) ) // Day light theme 在6:00Pm 到 凌晨 2：00am 就 不做下面的
+            {
+                //Chat_ENG
+                stru_Chat_ENG.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+                stru_Chat_ENG.NumOffered = client.GetNumOffered(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+                stru_Chat_ENG.LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+                stru_Chat_ENG.AverageWaitTime = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+                stru_Chat_ENG.HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+                stru_Chat_ENG.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+                stru_Chat_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+                stru_Chat_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+                stru_Chat_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+                //HiddenWebChat_Eng_In.Value = stru_Chat_ENG.CounselorLogin;
+                //HiddenWebChat_Eng_Avaiable.Value = stru_Chat_ENG.CounselorAvailable;
 
-            //ChatApp_ENG
-            stru_ChatApp_ENG.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-            stru_ChatApp_ENG.NumOffered = client.GetNumOffered(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-            stru_ChatApp_ENG.LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-            stru_ChatApp_ENG.AverageWaitTime = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-            stru_ChatApp_ENG.HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-            stru_ChatApp_ENG.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-            stru_ChatApp_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-            stru_ChatApp_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-            stru_ChatApp_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-            HiddenChatApp_Eng_In.Value = stru_ChatApp_ENG.CounselorLogin;
-            HiddenChatApp_Eng_Avaiable.Value = stru_ChatApp_ENG.CounselorAvailable;
+                //Chat_FRE
+                stru_Chat_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Chat_FRE, szServerName);
+                stru_Chat_FRE.NumOffered = client.GetNumOffered(dwSwitchID, iQueueID_Chat_FRE, szServerName);
+                stru_Chat_FRE.LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Chat_FRE, szServerName);
+                stru_Chat_FRE.AverageWaitTime = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_Chat_FRE, szServerName);
+                stru_Chat_FRE.HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Chat_FRE, szServerName);
+                stru_Chat_FRE.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_Chat_FRE, szServerName);
+                stru_Chat_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Chat_FRE, szServerName);
+                stru_Chat_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Chat_FRE, szServerName);
+                stru_Chat_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Chat_FRE, szServerName);
+                //HiddenWebChat_Fre_In.Value = stru_Chat_FRE.CounselorLogin;
+                //HiddenWebChat_Fre_Avaiable.Value = stru_Chat_FRE.CounselorAvailable;
 
-            //ChatApp_FRE
-            stru_ChatApp_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-            stru_ChatApp_FRE.NumOffered = client.GetNumOffered(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-            stru_ChatApp_FRE.LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-            stru_ChatApp_FRE.AverageWaitTime = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-            stru_ChatApp_FRE.HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-            stru_ChatApp_FRE.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-            stru_ChatApp_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-            stru_ChatApp_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-            stru_ChatApp_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-            HiddenChatApp_Fre_In.Value = stru_ChatApp_FRE.CounselorLogin;
-            HiddenChatApp_Fre_Avaiable.Value = stru_ChatApp_FRE.CounselorAvailable;
+                //ChatApp_ENG
+                stru_ChatApp_ENG.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                stru_ChatApp_ENG.NumOffered = client.GetNumOffered(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                stru_ChatApp_ENG.LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                stru_ChatApp_ENG.AverageWaitTime = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                stru_ChatApp_ENG.HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                stru_ChatApp_ENG.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                stru_ChatApp_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                stru_ChatApp_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                stru_ChatApp_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                //HiddenChatApp_Eng_In.Value = stru_ChatApp_ENG.CounselorLogin;
+                //HiddenChatApp_Eng_Avaiable.Value = stru_ChatApp_ENG.CounselorAvailable;
 
+                //ChatApp_FRE
+                stru_ChatApp_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                stru_ChatApp_FRE.NumOffered = client.GetNumOffered(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                stru_ChatApp_FRE.LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                stru_ChatApp_FRE.AverageWaitTime = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                stru_ChatApp_FRE.HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                stru_ChatApp_FRE.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                stru_ChatApp_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                stru_ChatApp_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                stru_ChatApp_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                //HiddenChatApp_Fre_In.Value = stru_ChatApp_FRE.CounselorLogin;
+                //HiddenChatApp_Fre_Avaiable.Value = stru_ChatApp_FRE.CounselorAvailable;
+            }
 
 
         }
@@ -593,84 +635,84 @@ namespace ReaderBoard
         }
 
 
-        protected void DrawChat()
-        {
-            string LabelFamily = "Arial";
-            Color LabelForeColor = System.Drawing.ColorTranslator.FromHtml("#333333");
-            Color labelForeColor1 = System.Drawing.ColorTranslator.FromHtml("#FCFCFC");
-            float LabelForSize = 20f;
+        //protected void DrawChat()
+        //{
+        //    string LabelFamily = "Arial";
+        //    Color LabelForeColor = System.Drawing.ColorTranslator.FromHtml("#333333");
+        //    Color labelForeColor1 = System.Drawing.ColorTranslator.FromHtml("#FCFCFC");
+        //    float LabelForSize = 20f;
  
-            //ChatChart ChatChartArea
-            ChatChart.ChartAreas["ChatChartArea"].AxisX.MajorGrid.LineWidth = 0;
-            ChatChart.ChartAreas["ChatChartArea"].AxisY.MajorGrid.LineWidth = 0;
-            ChatChart.BackColor = Color.Transparent;
+        //    //ChatChart ChatChartArea
+        //    ChatChart.ChartAreas["ChatChartArea"].AxisX.MajorGrid.LineWidth = 0;
+        //    ChatChart.ChartAreas["ChatChartArea"].AxisY.MajorGrid.LineWidth = 0;
+        //    ChatChart.BackColor = Color.Transparent;
 
-            ChatChart.ChartAreas["ChatChartArea"].AxisY.LabelStyle.Enabled = true;
+        //    ChatChart.ChartAreas["ChatChartArea"].AxisY.LabelStyle.Enabled = true;
 
-            ChatChart.ChartAreas["ChatChartArea"].AxisY.MajorTickMark.Enabled = true;
-            ChatChart.ChartAreas["ChatChartArea"].AxisX.MajorTickMark.Enabled = false;
+        //    ChatChart.ChartAreas["ChatChartArea"].AxisY.MajorTickMark.Enabled = true;
+        //    ChatChart.ChartAreas["ChatChartArea"].AxisX.MajorTickMark.Enabled = false;
 
-            ChatChart.ChartAreas["ChatChartArea"].AxisX.IsMarginVisible = true; //不会出现最顶和地的bar窄
+        //    ChatChart.ChartAreas["ChatChartArea"].AxisX.IsMarginVisible = true; //不会出现最顶和地的bar窄
 
-            // Assign value 
-            //Web EN
-            ChatChart.Series["Avail"].Points.Add(new DataPoint(3, 10));
-            ChatChart.Series["OnContact"].Points.Add(new DataPoint(3, 3));
-            ChatChart.Series["NotReady"].Points.Add(new DataPoint(3, 3));
+        //    // Assign value 
+        //    //Web EN
+        //    ChatChart.Series["Avail"].Points.Add(new DataPoint(3, 10));
+        //    ChatChart.Series["OnContact"].Points.Add(new DataPoint(3, 3));
+        //    ChatChart.Series["NotReady"].Points.Add(new DataPoint(3, 3));
 
-            //Web FR
-            ChatChart.Series["Avail"].Points.Add(new DataPoint(2, 8));
-            ChatChart.Series["OnContact"].Points.Add(new DataPoint(2, 5));
-            ChatChart.Series["NotReady"].Points.Add(new DataPoint(2, 0));
+        //    //Web FR
+        //    ChatChart.Series["Avail"].Points.Add(new DataPoint(2, 8));
+        //    ChatChart.Series["OnContact"].Points.Add(new DataPoint(2, 5));
+        //    ChatChart.Series["NotReady"].Points.Add(new DataPoint(2, 0));
 
-            //App EN
-            ChatChart.Series["Avail"].Points.Add(new DataPoint(1, 5));
-            ChatChart.Series["OnContact"].Points.Add(new DataPoint(1, 7));
-            ChatChart.Series["NotReady"].Points.Add(new DataPoint(1, 5));
+        //    //App EN
+        //    ChatChart.Series["Avail"].Points.Add(new DataPoint(1, 5));
+        //    ChatChart.Series["OnContact"].Points.Add(new DataPoint(1, 7));
+        //    ChatChart.Series["NotReady"].Points.Add(new DataPoint(1, 5));
  
-            //App FR
-            ChatChart.Series["Avail"].Points.Add(new DataPoint(0, 2));
-            ChatChart.Series["OnContact"].Points.Add(new DataPoint(0, 12));
-            ChatChart.Series["NotReady"].Points.Add(new DataPoint(0, 12));
+        //    //App FR
+        //    ChatChart.Series["Avail"].Points.Add(new DataPoint(0, 2));
+        //    ChatChart.Series["OnContact"].Points.Add(new DataPoint(0, 12));
+        //    ChatChart.Series["NotReady"].Points.Add(new DataPoint(0, 12));
 
 
-            //Label fore Font size
-            ChatChart.Series["Avail"].Points[3].Font = new System.Drawing.Font(LabelFamily, LabelForSize, FontStyle.Bold);
-            ChatChart.Series["Avail"].Points[2].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-            ChatChart.Series["Avail"].Points[1].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-            ChatChart.Series["Avail"].Points[0].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+        //    //Label fore Font size
+        //    ChatChart.Series["Avail"].Points[3].Font = new System.Drawing.Font(LabelFamily, LabelForSize, FontStyle.Bold);
+        //    ChatChart.Series["Avail"].Points[2].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+        //    ChatChart.Series["Avail"].Points[1].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+        //    ChatChart.Series["Avail"].Points[0].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
 
-            ChatChart.Series["OnContact"].Points[3].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-            ChatChart.Series["OnContact"].Points[2].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-            ChatChart.Series["OnContact"].Points[1].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-            ChatChart.Series["OnContact"].Points[0].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+        //    ChatChart.Series["OnContact"].Points[3].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+        //    ChatChart.Series["OnContact"].Points[2].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+        //    ChatChart.Series["OnContact"].Points[1].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+        //    ChatChart.Series["OnContact"].Points[0].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
 
-            ChatChart.Series["NotReady"].Points[3].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-            ChatChart.Series["NotReady"].Points[2].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-            ChatChart.Series["NotReady"].Points[1].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-            ChatChart.Series["NotReady"].Points[0].Font = new System.Drawing.Font(LabelFamily, LabelForSize,FontStyle.Bold);
+        //    ChatChart.Series["NotReady"].Points[3].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+        //    ChatChart.Series["NotReady"].Points[2].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+        //    ChatChart.Series["NotReady"].Points[1].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
+        //    ChatChart.Series["NotReady"].Points[0].Font = new System.Drawing.Font(LabelFamily, LabelForSize,FontStyle.Bold);
  
 
-            //change Label Fore color 
-            ChatChart.Series["Avail"].LabelForeColor = LabelForeColor;
-            ChatChart.Series["Avail"].LabelForeColor = LabelForeColor;
-            ChatChart.Series["Avail"].LabelForeColor = LabelForeColor;
-            ChatChart.Series["OnContact"].LabelForeColor = LabelForeColor;
-            ChatChart.Series["OnContact"].LabelForeColor = LabelForeColor;
-            ChatChart.Series["OnContact"].LabelForeColor = LabelForeColor;
-            ChatChart.Series["NotReady"].LabelForeColor  = LabelForeColor;
-            ChatChart.Series["NotReady"].LabelForeColor  = LabelForeColor;
-            ChatChart.Series["NotReady"].LabelForeColor  = LabelForeColor;
+        //    //change Label Fore color 
+        //    ChatChart.Series["Avail"].LabelForeColor = LabelForeColor;
+        //    ChatChart.Series["Avail"].LabelForeColor = LabelForeColor;
+        //    ChatChart.Series["Avail"].LabelForeColor = LabelForeColor;
+        //    ChatChart.Series["OnContact"].LabelForeColor = LabelForeColor;
+        //    ChatChart.Series["OnContact"].LabelForeColor = LabelForeColor;
+        //    ChatChart.Series["OnContact"].LabelForeColor = LabelForeColor;
+        //    ChatChart.Series["NotReady"].LabelForeColor  = LabelForeColor;
+        //    ChatChart.Series["NotReady"].LabelForeColor  = LabelForeColor;
+        //    ChatChart.Series["NotReady"].LabelForeColor  = LabelForeColor;
 
-            //VAxis label
-            ChatChart.Series["Avail"].Points[3].AxisLabel = "English";
-            ChatChart.Series["Avail"].Points[2].AxisLabel = "French";
-            ChatChart.Series["Avail"].Points[1].AxisLabel = "G2T En";
-            ChatChart.Series["Avail"].Points[0].AxisLabel = "G2T Fr";
+        //    //VAxis label
+        //    ChatChart.Series["Avail"].Points[3].AxisLabel = "English";
+        //    ChatChart.Series["Avail"].Points[2].AxisLabel = "French";
+        //    ChatChart.Series["Avail"].Points[1].AxisLabel = "G2T En";
+        //    ChatChart.Series["Avail"].Points[0].AxisLabel = "G2T Fr";
 
-            //changing Axis font color
-            ChatChart.ChartAreas["ChatChartArea"].AxisX.LabelStyle.ForeColor = LabelForeColor;
-            ChatChart.ChartAreas["ChatChartArea"].AxisY.LabelStyle.ForeColor = LabelForeColor;
-        }
+        //    //changing Axis font color
+        //    ChatChart.ChartAreas["ChatChartArea"].AxisX.LabelStyle.ForeColor = LabelForeColor;
+        //    ChatChart.ChartAreas["ChatChartArea"].AxisY.LabelStyle.ForeColor = LabelForeColor;
+        //}
     }
 }

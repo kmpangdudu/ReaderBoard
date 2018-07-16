@@ -1,10 +1,10 @@
 ﻿google.charts.load("current", { "packages": ["gauge"] });
 google.charts.setOnLoadCallback(drawPhoneChart);
 
-var color1 = "e6005c";
-var color2 = "1a1aff";
-var color3 = "FFFB33";
-var color4 = "9933ff";
+var color1 = "e6005c";  //pink
+var color2 = "1a1aff";  //blue
+var color3 = "FFFB33";  //yellow
+var color4 = "9933ff"; //puler
 var colorGreen = "00FF00";
 
 var options = {
@@ -87,17 +87,18 @@ function drawChatChart() {
 
 
 var varHeight = 280;
-var chartAreaHeight = "75%";
-var chartAreaWidth = "60%";
+var chartAreaHeight = "95%";
+var chartAreaWidth = "68%";
 var bargroupWidth = "75%";
 var lablefontsize = 22;
  
 var opt_Phone = {
     height: varHeight,
     isStacked: 'percent',
-    legend: { position: 'top', maxLines: 3, textStyle: { color: '333333', fontSize: 14, bold: true } },
+    //legend: { position: 'top', maxLines: 3, textStyle: { color: '333333', fontSize: 14, bold: true } },
+    legend: { position: 'none' },
     bar: { groupWidth: bargroupWidth },
-    chartArea: { width: chartAreaWidth, height: chartAreaHeight},
+    chartArea: { left: 95, top:15, width: chartAreaWidth, height: chartAreaHeight},
     backgroundColor: { fill: "transparent" },
     colors: [colorGreen, color1, color2],
 
@@ -216,7 +217,7 @@ function drawPhoneCounslor() {
 
     var PhoneData = google.visualization.arrayToDataTable([
         ["Queue", "Availabe", { role: "style" }, { role: "annotation" }, "On Contact", { role: "style" }, { role: "annotation" }, "Not Ready", { role: "style" }, { role: "annotation" }],
-        ["English", PhoneEN_Avai, colorGreen, lPhoneEN_Avai, PhoneEN_onContact, color1, lPhoneEN_onContact, busyPhoneEn, color2, lbusyPhoneEn],
+        ["English", PhoneEN_Avai, colorGreen, lPhoneEN_Avai, PhoneEN_onContact, color1, lPhoneEN_onContact, phoneEN_NotReady, color2, lphoneEN_NotReady],
         ["French", PhoneFr_Avai, colorGreen, lPhoneFr_Avai, PhoneFR_onContact, color1, lPhoneFR_onContact, phoneFR_NotReady, color2, lphoneFR_NotReady],
         ["G2T En", G2Ten_Avai, colorGreen, lG2Ten_Avai, G2Ten_onContact, color1, lG2Ten_onContact, G2TEN_NotReady, color2, lG2TEN_NotReady],
         ["G2T Fr", G2Tfr_Avai, colorGreen, lG2Tfr_Avai, G2Tfr_OnContact, color1, lG2Tfr_OnContact, G2Tfr_NotReady, color2, lG2Tfr_NotReady]

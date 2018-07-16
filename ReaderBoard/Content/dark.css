@@ -21,19 +21,31 @@ body {
 h1 {
     font-size: 98px;
     font-weight: bold;
-    text-shadow: -7px -7px 7px #999;
+    /*text-shadow: -7px -7px 7px #999;*/
     margin: 0px;
 }
 
 h2 {
     font-size: 72px;
-    text-shadow: -5px -5px 5px #888;
+    /*text-shadow: -5px -5px 5px #888;*/
     margin: 5px;
 }
 
 h3 {
     font-size: 28px;
-    text-shadow: -4px -4px 4px #888;
+    /*text-shadow: -4px -4px 4px #888;*/
+    margin: 0px;
+}
+
+h4 {
+    font-size: 48px;
+    /*text-shadow: -4px -4px 4px #999;*/
+    margin: 0px;
+}
+
+h5 {
+    font-size: 16px;
+    /*text-shadow: -4px -4px 4px #999;*/
     margin: 0px;
 }
 
@@ -41,7 +53,7 @@ h3 {
     font-size: 24px !important;
     /*color: #02E2FF !important;*/
     font-weight: bold;
-    text-shadow: -2px -2px 2px #888;
+    /*text-shadow: -2px -2px 2px #888;*/
 }
 
 p {
@@ -237,5 +249,8 @@ div {
     z-index: 0;
 }
 
-
+.dimmed {
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
  

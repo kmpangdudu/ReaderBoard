@@ -64,13 +64,13 @@
                     <h1 class="bigfont">
                         <asp:Label ID="lblPhoneLongestWaitTime" runat="server" Text=""></asp:Label>
                     </h1>
-                    <h3 class="">Current wait time (min.)</h3>
+                    <h3 class="">Current wait time</h3>
                 </div>
                 <div class="borderShadow">
                     <h1 class="bigfont">
                         <asp:Label ID="lblPhoneAverageWaitTime" runat="server" Text=""></asp:Label>
                     </h1>
-                    <h3 class="">Average wait time (min.)</h3>
+                    <h3 class="">Average wait time</h3>
                 </div>
                 <div class="borderShadow">
                     <h1 class="bigfont">
@@ -117,32 +117,21 @@
 
             <!-- Phone Counselor Availabele  -->
             <div class="borderLine">
-                <h3 class="ChatDivDown">Counselor<br/>Avail/OnContact/NotReady</h3>
+                 <h4 class="ChatDivDown">Counselor</h4>
                 <h2>
-                    <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text="" ForeColor="Lime"></asp:Label>
                     /
-                     <asp:Label ID="lblPhoneCounselorOnContact" runat="server" Text=""></asp:Label>
+                     <asp:Label ID="lblPhoneCounselorOnContact" runat="server" Text="" ForeColor="#E6005C"></asp:Label>
                     /
-                    <asp:Label ID="lblPhoneCounselorNotReady" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="lblPhoneCounselorNotReady" runat="server" Text="" ForeColor="#1A1AFF"></asp:Label>
                    
                      <asp:Label ID="lblPhoneCounselorLogin" runat="server" Text="" Visible="False"></asp:Label>
                 </h2>
-
-
-                    <asp:HiddenField ID="HiddenPhone_Eng_In" runat="server" />
-                    <asp:HiddenField ID="HiddenPhone_Fre_In" runat="server" />
-                    <asp:HiddenField ID="HiddenG2T_Eng_In" runat="server" />
-                    <asp:HiddenField ID="HiddenG2T_Fre_In" runat="server" />
-                    <asp:HiddenField ID="HiddenPhone_Eng_Availabe" runat="server" />
-                    <asp:HiddenField ID="HiddenPhone_Fre_Availabe" runat="server" />
-                    <asp:HiddenField ID="HiddenG2T_Eng_Availabe" runat="server" />
-                    <asp:HiddenField ID="HiddenG2T_Fre_Availabe" runat="server" />
-                    <asp:HiddenField ID="HiddenPhone_Eng_AgentOnContact" runat="server" />
-                    <asp:HiddenField ID="HiddenPhone_Fre_AgentOnContact" runat="server" />
-                    <asp:HiddenField ID="HiddenG2T_Eng_AgentOnContact" runat="server" />
-                    <asp:HiddenField ID="HiddenG2T_Fre_AgentOnContact" runat="server" />
-
-                
+                <h5>
+                    <img alt="Avail" src="Content/green30x15.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;
+                    <img alt="OnContact" src="Content/red.png" />&nbsp;OnContact&nbsp;&nbsp;&nbsp;
+                    <img alt="Not Ready" src="Content/blue.png" />&nbsp; Not Ready
+                </h5>
                     <div id="PhoneCounslor"></div>
                
             </div>
@@ -194,13 +183,13 @@
                     <h1 class="bigfont">
                         <asp:Label ID="lblChatLongestWaitTime" runat="server" Text=""></asp:Label>
                     </h1>
-                    <h3 class="">Current wait time (min.)</h3>
+                    <h3 class="">Current wait time</h3>
                 </div>
                 <div class="borderShadow">
                     <h1 class="bigfont">
                         <asp:Label ID="lblChatAverageWaitTime" runat="server" Text=""></asp:Label>
                     </h1>
-                    <h3 class="">Average wait time (min.)</h3>
+                    <h3 class="">Average wait time</h3>
                 </div>
                 <div class="borderShadow">
                     <h1 class="bigfont">
@@ -248,28 +237,22 @@
 
             <!-- Chat Counselor Available       -->
             <div class="borderLine ">
-                <h3 class="ChatDivDown">Counselor<br/>Avail / Busy</h3>
+                 <h4 class="ChatDivDown">Counselor</h4>
+
                 <h2>
-                    <asp:Label ID="lblChatCounselorAvailable" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="lblChatCounselorAvailable" runat="server" Text="" ForeColor="Lime"></asp:Label>
                     /
-                    <asp:Label ID="lblChatCounselorOnContact" runat="server" Text=""></asp:Label>
+                     <asp:Label ID="lblChatCounselorOnContact" runat="server" Text="" ForeColor="#E6005C"></asp:Label>
                     /
-                    <asp:Label ID="lblChatCounselorNotReady" runat="server" Text=""></asp:Label>
-                    
-                    <asp:Label ID="lblChatCounselorLogin" runat="server" Text="" Visible="False"></asp:Label>
+                    <asp:Label ID="lblChatCounselorNotReady" runat="server" Text="" ForeColor="#1A1AFF"></asp:Label>
+                   
+                     <asp:Label ID="lblChatCounselorLogin" runat="server" Text="" Visible="False"></asp:Label>
                 </h2>
-                    <asp:HiddenField ID="HiddenWebChat_Eng_In" runat="server" />
-                    <asp:HiddenField ID="HiddenWebChat_Fre_In" runat="server" />
-                    <asp:HiddenField ID="HiddenChatApp_Eng_In" runat="server" />
-                    <asp:HiddenField ID="HiddenChatApp_Fre_In" runat="server" />
-                    <asp:HiddenField ID="HiddenWebChat_Eng_Avaiable" runat="server" />
-                    <asp:HiddenField ID="HiddenWebChat_Fre_Avaiable" runat="server" />
-                    <asp:HiddenField ID="HiddenChatApp_Eng_Avaiable" runat="server" />
-                    <asp:HiddenField ID="HiddenChatApp_Fre_Avaiable" runat="server" />
-                    <asp:HiddenField ID="HiddenWebChat_Eng_AgentOnContact" runat="server" />
-                    <asp:HiddenField ID="HiddenWebChat_Fre_AgentOnContact" runat="server" />
-                    <asp:HiddenField ID="HiddenChatApp_Eng_AgentOnContact" runat="server" />
-                    <asp:HiddenField ID="HiddenChatApp_Fre_AgentOnContact" runat="server" />
+                 <h5>
+                    <img alt="Avail" src="Content/green30x15.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;
+                    <img alt="OnContact" src="Content/red.png" />&nbsp;OnContact&nbsp;&nbsp;&nbsp;
+                    <img alt="Not Ready" src="Content/blue.png" />&nbsp; Not Ready
+                </h5>
                  
                 <div id="ChatCounslor"></div>
                  
@@ -280,6 +263,40 @@
                 <asp:Label ID="lblerror" runat="server" Text=""></asp:Label>
             </div>
         </div>
+        <asp:HiddenField ID="HiddenPhone_Eng_In" runat="server" />
+        <asp:HiddenField ID="HiddenPhone_Fre_In" runat="server" />
+        <asp:HiddenField ID="HiddenG2T_Eng_In" runat="server" />
+        <asp:HiddenField ID="HiddenG2T_Fre_In" runat="server" />
+        <asp:HiddenField ID="HiddenPhone_Eng_Availabe" runat="server" />
+        <asp:HiddenField ID="HiddenPhone_Fre_Availabe" runat="server" />
+        <asp:HiddenField ID="HiddenG2T_Eng_Availabe" runat="server" />
+        <asp:HiddenField ID="HiddenG2T_Fre_Availabe" runat="server" />
+        <asp:HiddenField ID="HiddenPhone_Eng_AgentOnContact" runat="server" />
+        <asp:HiddenField ID="HiddenPhone_Fre_AgentOnContact" runat="server" />
+        <asp:HiddenField ID="HiddenG2T_Eng_AgentOnContact" runat="server" />
+        <asp:HiddenField ID="HiddenG2T_Fre_AgentOnContact" runat="server" />
+        <asp:HiddenField ID="HiddenWebChat_Eng_In" runat="server" />
+        <asp:HiddenField ID="HiddenWebChat_Fre_In" runat="server" />
+        <asp:HiddenField ID="HiddenChatApp_Eng_In" runat="server" />
+        <asp:HiddenField ID="HiddenChatApp_Fre_In" runat="server" />
+        <asp:HiddenField ID="HiddenWebChat_Eng_Avaiable" runat="server" />
+        <asp:HiddenField ID="HiddenWebChat_Fre_Avaiable" runat="server" />
+        <asp:HiddenField ID="HiddenChatApp_Eng_Avaiable" runat="server" />
+        <asp:HiddenField ID="HiddenChatApp_Fre_Avaiable" runat="server" />
+        <asp:HiddenField ID="HiddenWebChat_Eng_AgentOnContact" runat="server" />
+        <asp:HiddenField ID="HiddenWebChat_Fre_AgentOnContact" runat="server" />
+        <asp:HiddenField ID="HiddenChatApp_Eng_AgentOnContact" runat="server" />
+        <asp:HiddenField ID="HiddenChatApp_Fre_AgentOnContact" runat="server" />
+        <asp:HiddenField ID="HiddendayTimeStart" runat="server" />
+        <asp:HiddenField ID="HiddendayTimeEnd" runat="server" />
+        <asp:HiddenField ID="HiddenChatEnDayStart" runat="server" />
+        <asp:HiddenField ID="HiddenChatEnDayEnd" runat="server" />
+        <asp:HiddenField ID="HiddenChatEnTimeStart" runat="server" />
+        <asp:HiddenField ID="HiddenChatEnTimeEnd" runat="server" />
+        <asp:HiddenField ID="HiddenChatFrDayStart" runat="server" />
+        <asp:HiddenField ID="HiddenChatFrDayEnd" runat="server" />
+        <asp:HiddenField ID="HiddenChatFrTimeStart" runat="server" />
+        <asp:HiddenField ID="HiddenChatFrTimeEnd" runat="server" />
 
     </form>
 </body>

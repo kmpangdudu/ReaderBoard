@@ -147,10 +147,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Content\blue.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\dark.css" />
+    <Content Include="Content\green30x15.png" />
     <Content Include="Content\readerboard.css" />
+    <Content Include="Content\red.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Dark.aspx" />
     <Content Include="DataModel\DataModel.Context.tt">
