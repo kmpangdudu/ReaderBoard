@@ -151,7 +151,7 @@ namespace ReaderBoard.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("18")]
+        [global::System.Configuration.DefaultSettingValueAttribute("13")]
         public int ChatEnTimeStart {
             get {
                 return ((int)(this["ChatEnTimeStart"]));
@@ -218,6 +218,15 @@ namespace ReaderBoard.Properties {
         public int ChatFrDayEnd {
             get {
                 return ((int)(this["ChatFrDayEnd"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.3")]
+        public string dimOpacity {
+            get {
+                return ((string)(this["dimOpacity"]));
             }
         }
     }

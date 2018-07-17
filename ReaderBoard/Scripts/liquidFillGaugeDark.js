@@ -5,8 +5,20 @@
  *
  * Liquid Fill Gauge v1.1
  */
-function liquidFillGaugeDefaultSettings() {
-    return {
+function liquidFillGaugeDefaultSettings(value) {
+    const obj_CircGrey = {
+        circleColor: "#cccccc"
+    }
+    const obj_CircBlue = {
+        circleColor: "#1a1aff"
+    }
+    const obj_CircYellow = {
+        circleColor: "#FFFF00"
+    }
+    const obj_CircOrange = {
+        circleColor: "#FF5500"
+    }
+    var def = {
         minValue: 0, // The gauge minimum value. default 0
         maxValue: 100, // The gauge maximum value.
         circleThickness: 0.1, // The outer circle thickness as a percentage of it's radius.
@@ -28,10 +40,24 @@ function liquidFillGaugeDefaultSettings() {
         textColor: "#FCFCFC", // The color of the value text when the wave does not overlap it.
         waveTextColor: "#1a1aff" // The color of the value text when the wave overlaps it.
     };
+
+
+    switch (value) {
+    case (value >= 5): return Object.assign(def, obj_CircOrange);
+        break;
+    case (value == 3 || value == 4): return Object.assign(def, obj_CircYellow);
+        break;
+    case (value == 1 || value == 2): return Object.assign(def, obj_CircBlue);
+        break;
+    default: return Object.assign(def, obj_CircGrey);
+        break;
+    }  
 }
 
 function loadLiquidFillGauge(elementId, value, config) {
-    if (config == null) config = liquidFillGaugeDefaultSettings();
+
+
+    if (config == null) config = liquidFillGaugeDefaultSettings(value);
 
     var gauge = d3.select("#" + elementId);
     var radius = Math.min(parseInt(gauge.style("width")), parseInt(gauge.style("height"))) / 2;

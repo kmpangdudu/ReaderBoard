@@ -41,23 +41,17 @@
     <Setting Name="dayTimeEnd" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">24</Value>
     </Setting>
-    <Setting Name="ChatEnDayStart" Type="System.String" Scope="Application">
+    <Setting Name="ChatEnDayStart" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">3</Value>
     </Setting>
-    <Setting Name="ChatEnDayEnd" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="ChatEnTimeStart" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">13</Value>
     </Setting>
-    <Setting Name="ChatEnTimeStart" Type="System.TimeSpan" Scope="Application">
-      <Value Profile="(Default)">18.00:00:00</Value>
-    </Setting>
-    <Setting Name="ChatEnTimeEnd" Type="System.String" Scope="Application">
+    <Setting Name="ChatEnTimeEnd" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">2</Value>
     </Setting>
-    <Setting Name="ChatFrDayStart" Type="System.String" Scope="Application">
+    <Setting Name="ChatFrDayStart" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">4</Value>
-    </Setting>
-    <Setting Name="ChatFrDayEnd" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="ChatFrTimeStart" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">18</Value>
@@ -67,6 +61,15 @@
     </Setting>
     <Setting Name="ChatClosed" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="ChatEnDayEnd" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="ChatFrDayEnd" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="dimOpacity" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">0.3</Value>
     </Setting>
   </Settings>
 </SettingsFile>

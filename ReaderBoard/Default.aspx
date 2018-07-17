@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Readerboard</title>
+    <meta http-equiv="refresh" content="60" />
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <script src="Scripts/googleGauge.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -132,7 +132,7 @@
 
         <p style="height:3px;">&nbsp;</p>
 
-        <div id="dimmed" class="dimmed">
+        <div id="dimmed" runat="server" >
 
         
         <div id="chat" class="flex-container effect55 borderLineThick">  
@@ -246,29 +246,7 @@
                 </h5>
 
                 <div id="ChatCounslor"></div>
-<%--                <div style="display:none">
-                    <asp:Chart ID="ChatChart" runat="server" BackColor="Transparent"  Height="310px" IsSoftShadows="False" Width="380px">
-                        <Series>
-                            <asp:Series Name="Avail" 
-                                IsValueShownAsLabel="true" 
-                                ChartType="StackedBar" Color="#00FF00" 
-                                ></asp:Series>
-                            <asp:Series Name="OnContact" IsValueShownAsLabel="true" ChartType="StackedBar" Color="#FF0000" ></asp:Series>
-                            <asp:Series Name="NotReady" IsValueShownAsLabel="true" ChartType="StackedBar" Color="#FFFF00"></asp:Series>
-                        </Series>
-                        <ChartAreas>
-                            <asp:ChartArea Name="ChatChartArea" BackColor="Transparent"></asp:ChartArea>
-                        </ChartAreas>
-                         <Legends>
-                            <asp:Legend Name="Avail" IsEquallySpacedItems="True" LegendItemOrder="ReversedSeriesOrder" LegendStyle="Column" >
-                            </asp:Legend>
-                            <asp:Legend Name="OnContact" IsEquallySpacedItems="True" LegendItemOrder="ReversedSeriesOrder" LegendStyle="Column">
-                            </asp:Legend>
-                            <asp:Legend Name="NotReady" IsEquallySpacedItems="True" LegendItemOrder="ReversedSeriesOrder" LegendStyle="Column">
-                            </asp:Legend>
-                        </Legends>
-                    <%--</asp:Chart>
-                </div>--%>
+
             </div>
         </div>
 

@@ -4,8 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <title>Readerboard</title>
+    <meta http-equiv="refresh" content="60" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <script src="http://d3js.org/d3.v3.min.js" lang="JavaScript"></script>
     <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript" ></script>
     <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
@@ -140,7 +141,7 @@
 
         <p style="height:3px;">&nbsp;</p>
 
-
+        <div id="dimmed" runat="server" >
         <div id="chat" class="flex-container effect5 borderLineThick">  
             <div class="midfont_title  borderLine" style="flex-basis: 15%" >
                 <div class="logodiv ChatDivDown">
@@ -258,6 +259,7 @@
                  
             </div>
         </div>
+            </div>
         <div style="display: none">
             <div>
                 <asp:Label ID="lblerror" runat="server" Text=""></asp:Label>
@@ -287,16 +289,20 @@
         <asp:HiddenField ID="HiddenWebChat_Fre_AgentOnContact" runat="server" />
         <asp:HiddenField ID="HiddenChatApp_Eng_AgentOnContact" runat="server" />
         <asp:HiddenField ID="HiddenChatApp_Fre_AgentOnContact" runat="server" />
+
         <asp:HiddenField ID="HiddendayTimeStart" runat="server" />
         <asp:HiddenField ID="HiddendayTimeEnd" runat="server" />
+
         <asp:HiddenField ID="HiddenChatEnDayStart" runat="server" />
         <asp:HiddenField ID="HiddenChatEnDayEnd" runat="server" />
+
         <asp:HiddenField ID="HiddenChatEnTimeStart" runat="server" />
         <asp:HiddenField ID="HiddenChatEnTimeEnd" runat="server" />
         <asp:HiddenField ID="HiddenChatFrDayStart" runat="server" />
         <asp:HiddenField ID="HiddenChatFrDayEnd" runat="server" />
         <asp:HiddenField ID="HiddenChatFrTimeStart" runat="server" />
         <asp:HiddenField ID="HiddenChatFrTimeEnd" runat="server" />
+        <asp:HiddenField ID="HiddenChatClosed" runat="server" />
 
     </form>
 </body>

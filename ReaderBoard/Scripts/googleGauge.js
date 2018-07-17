@@ -16,6 +16,8 @@ var options = {
     greenColor: colorGreen,
     greenFrom: 75, greenTo: 100,
     minorTicks: 5,
+    majorTicks: ["", ""],
+    minorTicks: 0, 
     backgroundColor: { fill: "000000", stroke: "red" },
 };
 

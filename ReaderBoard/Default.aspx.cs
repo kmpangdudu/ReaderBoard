@@ -1,6 +1,7 @@
 ﻿using ReaderBoard.DataModel;
 using ReaderBoard.iceCTI;
 using System;
+using System.Data.Entity.Core.Objects;
 using System.Drawing;
 using System.Net;
 using System.Web.UI;
@@ -41,44 +42,49 @@ namespace ReaderBoard
 
         CTIServiceClient client = new CTIServiceClient();
 
- 
-        int hour = DateTime.Now.Hour;
+        DateTime today = DateTime.Now;
+        string refreshing = Properties.Settings.Default.DashboardRefreshing;//Default 3- second;
+        string szServerName = Properties.Settings.Default.szServerName; //"ice1"
+        string dwSwitchID = Properties.Settings.Default.dwSwitchID; //"11006";
+        string iQueueID_Phone_ENG = Properties.Settings.Default.Phone_ENG;//"6001";
+        string iQueueID_Phone_FRE = Properties.Settings.Default.Phone_FRE;//"6002";
+        string iQueueID_G2T_ENG = Properties.Settings.Default.G2T_ENG;//"6013";
+        string iQueueID_G2T_FRE = Properties.Settings.Default.G2T_FRE;//"6014";
+        string iQueueID_Chat_ENG = Properties.Settings.Default.Chat_ENG;//"6007";
+        string iQueueID_Chat_FRE = Properties.Settings.Default.Chat_FRE;//"6008";
+        string iQueueID_ChatApp_ENG = Properties.Settings.Default.ChatApp_ENG;//"6020";
+        string iQueueID_ChatApp_FRE = Properties.Settings.Default.ChatApp_FRE;//"6021";
 
-        //string refreshing =  Properties.Settings.Default.DashboardRefreshing;//Default 3- second;
-        //string szServerName = Properties.Settings.Default.szServerName; //"ice1"
-        //string dwSwitchID = Properties.Settings.Default.dwSwitchID; //"11006";
-        //string iQueueID_Phone_ENG = Properties.Settings.Default.Phone_ENG;//"6001";
-        //string iQueueID_Phone_FRE = Properties.Settings.Default.Phone_FRE;//"6002";
-        //string iQueueID_G2T_ENG = Properties.Settings.Default.G2T_ENG;//"6013";
-        //string iQueueID_G2T_FRE = Properties.Settings.Default.G2T_FRE;//"6014";
-        //string iQueueID_Chat_ENG = Properties.Settings.Default.Chat_ENG;//"6007";
-        //string iQueueID_Chat_FRE = Properties.Settings.Default.Chat_FRE;//"6008";
-        //string iQueueID_ChatApp_ENG = Properties.Settings.Default.ChatApp_ENG;//"6020";
-        //string iQueueID_ChatApp_FRE = Properties.Settings.Default.ChatApp_FRE;//"6021";
+ 
 
         int dayTimeStart = Properties.Settings.Default.dayTimeStart;
         int dayTimeEnd = Properties.Settings.Default.dayTimeEnd;
-        string refreshing =  Properties.Settings.Default.DashboardRefreshing;//Default 3- second;
+
         int ChatEnDayStart = Properties.Settings.Default.ChatEnDayStart;
         int ChatEnDayEnd = Properties.Settings.Default.ChatEnDayEnd;
         int ChatEnTimeStart = Properties.Settings.Default.ChatEnTimeStart;
         int ChatEnTimeEnd = Properties.Settings.Default.ChatEnTimeEnd;
+
         int ChatFrDayStart = Properties.Settings.Default.ChatFrDayStart;
         int ChatFrDayEnd = Properties.Settings.Default.ChatFrDayEnd;
         int ChatFrTimeStart = Properties.Settings.Default.ChatFrTimeStart;
         int ChatFrTimeEnd = Properties.Settings.Default.ChatFrTimeEnd;
+
         int ChatClosed = Properties.Settings.Default.ChatClosed;
 
-        string szServerName    ; //"ice1"
-        string dwSwitchID ; //"11006";
-        string iQueueID_Phone_ENG;//"6001";
-        string iQueueID_Phone_FRE;//"6002";
-        string iQueueID_G2T_ENG;//"6013";
-        string iQueueID_G2T_FRE;//"6014";
-        string iQueueID_Chat_ENG;//"6007";
-        string iQueueID_Chat_FRE;//"6008";
-        string iQueueID_ChatApp_ENG;//"6020";
-        string iQueueID_ChatApp_FRE  ;//"6021";
+
+
+
+        //string szServerName    ; //"ice1"
+        //string dwSwitchID ; //"11006";
+        //string iQueueID_Phone_ENG;//"6001";
+        //string iQueueID_Phone_FRE;//"6002";
+        //string iQueueID_G2T_ENG;//"6013";
+        //string iQueueID_G2T_FRE;//"6014";
+        //string iQueueID_Chat_ENG;//"6007";
+        //string iQueueID_Chat_FRE;//"6008";
+        //string iQueueID_ChatApp_ENG;//"6020";
+        //string iQueueID_ChatApp_FRE  ;//"6021";
 
          RealTimeData  stru_Phone_ENG;
          RealTimeData  stru_Phone_FRE;
@@ -91,32 +97,50 @@ namespace ReaderBoard
 
          Last24hrGrade stru_last24HrGrade ;
 
-       
+
+        protected bool ChatWorking()
+        {
+            if ((Convert.ToInt32(today.DayOfWeek) == 2) ||
+                    (ChatEnTimeEnd <= today.Hour && today.Hour < ChatEnTimeStart))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // refreshing is the number of seconds , default value is 300 = 5 mintues in setting section
+            //Response.AppendHeader("Refresh", refreshing);
+         
+
             if (!IsPostBack)
             {
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                
 
-
-                var queues = efContext.Proc_GetQueue();
-                foreach (Proc_GetQueue_Result x in queues)
-                {
-                    switch  (x.Queue)
-                    {
-                        case "szServerName" : szServerName = x.QueueValue; break;
-                        case "dwSwitchID"   : dwSwitchID = x.QueueValue; break;
-                        case "Phone_ENG"    : iQueueID_Phone_ENG =x.QueueValue; break;
-                        case "Phone_FRE"    : iQueueID_Phone_FRE =   x.QueueValue; break;
-                        case "G2T_ENG"      : iQueueID_G2T_ENG =     x.QueueValue; break;
-                        case "G2T_FRE"      : iQueueID_G2T_FRE =     x.QueueValue; break;
-                        case "Chat_ENG"     : iQueueID_Chat_ENG =    x.QueueValue; break;
-                        case "Chat_FRE"     : iQueueID_Chat_FRE =    x.QueueValue; break;
-                        case "ChatApp_ENG"  : iQueueID_ChatApp_ENG = x.QueueValue; break;
-                        case "ChatApp_FRE"  : iQueueID_ChatApp_FRE = x.QueueValue; break;
-                    }
-                }
+                
+                // var   queues = efContext.Proc_GetQueue();
+                //foreach (Proc_GetQueue_Result x in queues)
+                //{
+                //    switch  (x.Queue)
+                //    {
+                //        case "szServerName" : szServerName = x.QueueValue; break;
+                //        case "dwSwitchID"   : dwSwitchID = x.QueueValue; break;
+                //        case "Phone_ENG"    : iQueueID_Phone_ENG =x.QueueValue; break;
+                //        case "Phone_FRE"    : iQueueID_Phone_FRE =   x.QueueValue; break;
+                //        case "G2T_ENG"      : iQueueID_G2T_ENG =     x.QueueValue; break;
+                //        case "G2T_FRE"      : iQueueID_G2T_FRE =     x.QueueValue; break;
+                //        case "Chat_ENG"     : iQueueID_Chat_ENG =    x.QueueValue; break;
+                //        case "Chat_FRE"     : iQueueID_Chat_FRE =    x.QueueValue; break;
+                //        case "ChatApp_ENG"  : iQueueID_ChatApp_ENG = x.QueueValue; break;
+                //        case "ChatApp_FRE"  : iQueueID_ChatApp_FRE = x.QueueValue; break;
+                //    }
+                //}
 
                 HiddendayTimeStart.Value =     dayTimeStart.ToString();
                 HiddendayTimeEnd.Value =       dayTimeEnd.ToString();
@@ -131,10 +155,6 @@ namespace ReaderBoard
                 HiddenChatFrTimeStart.Value =  ChatFrTimeStart.ToString();
                 HiddenChatFrTimeEnd.Value =    ChatFrTimeEnd.ToString();
                 HiddenChatClosed.Value =       ChatClosed.ToString();
-
-
-
-
 
             };
 
@@ -151,25 +171,45 @@ namespace ReaderBoard
 
                 Phone();
 
-                Chat();
+                //if today is not Tuesday or now is not between 2am and 6pm (18:00)
+                // need process Chat section and add a shadow on it
+                if (ChatWorking())
+                {
+                    //processing 
+                    Chat();
+
+                }
+                else
+                {
+                    //chat div add a shadow
+                    dimmed.Attributes.CssStyle.Add("opacity", Properties.Settings.Default.dimOpacity);
+                }
+               
                 //DrawChat();   //<-- visual studio chart control
               
-        }
+            }
             catch (Exception erd)
             {
                 lblerror.Text = erd.ToString();
-        }
-
-        // refreshing is the number of seconds , default value is 300 = 5 mintues in setting section
-        Response.AppendHeader("Refresh", refreshing);  
+            }
 
         }
 
         protected void ApplyTheme()
         {
+            HtmlGenericControl myMeta = new HtmlGenericControl();
             HtmlGenericControl myJs1 = new HtmlGenericControl();
             HtmlGenericControl myJs2 = new HtmlGenericControl();
             HtmlGenericControl myJs3 = new HtmlGenericControl();
+
+            // refreshing is the number of seconds , default value is 300 = 5 mintues in setting section
+            HtmlMeta meta = new HtmlMeta();
+            //meta.Name = "Refresh";
+            //meta.Content = refreshing;
+            //this.Header.Controls.Add(meta);
+            myMeta.TagName = "Refresh";
+            this.Page.Header.Controls.AddAt(1, myJs1);
+
             myJs1.TagName = "script";
             myJs1.Attributes.Add("type", "text/javascript");
             myJs1.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("http://d3js.org/d3.v3.min.js")));
@@ -188,7 +228,7 @@ namespace ReaderBoard
  
              
 
-            if ((dayTimeStart <= hour) & (hour < dayTimeEnd))  // Day light theme
+            if ((dayTimeStart <= today.Hour) & (today.Hour < dayTimeEnd))  // Day light theme
             {
 
                 HtmlGenericControl myCss = new HtmlGenericControl();
@@ -196,7 +236,7 @@ namespace ReaderBoard
                 myCss.Attributes.Add("type", "text/css");
                 myCss.Attributes.Add("rel", "stylesheet");
                 myCss.Attributes.Add("href", ResolveUrl(Page.ResolveClientUrl("Content/readerboard.css")));
-                this.Page.Header.Controls.AddAt(1, myCss);
+                this.Page.Header.Controls.AddAt(5, myCss);
 
 
                 HtmlGenericControl myJs11 = new HtmlGenericControl();
@@ -205,17 +245,17 @@ namespace ReaderBoard
                 myJs11.TagName = "script";
                 myJs11.Attributes.Add("type", "text/javascript");
                 myJs11.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/googleGauge.js")));
-                this.Page.Header.Controls.AddAt(5,myJs11);
+                this.Page.Header.Controls.AddAt(6,myJs11);
 
                 myJs12.TagName = "script";
                 myJs12.Attributes.Add("type", "text/javascript");
                 myJs12.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/progress.js")));
-                this.Page.Header.Controls.AddAt(6, myJs12);
+                this.Page.Header.Controls.AddAt(7, myJs12);
 
                 myJs13.TagName = "script";
                 myJs13.Attributes.Add("type", "text/javascript");
                 myJs13.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/liquidFillGauge.js")));
-                this.Page.Header.Controls.AddAt(7, myJs13);
+                this.Page.Header.Controls.AddAt(8, myJs13);
             }
             else  // Night Dark Theme
             {
@@ -224,7 +264,7 @@ namespace ReaderBoard
                 myCss.Attributes.Add("type", "text/css");
                 myCss.Attributes.Add("rel", "stylesheet");
                 myCss.Attributes.Add("href", ResolveUrl(Page.ResolveClientUrl("Content/Dark.css")));
-                this.Page.Header.Controls.AddAt(1, myCss);
+                this.Page.Header.Controls.AddAt(5, myCss);
 
                 HtmlGenericControl myJs11 = new HtmlGenericControl();
                 HtmlGenericControl myJs12 = new HtmlGenericControl();
@@ -233,17 +273,17 @@ namespace ReaderBoard
                 myJs11.TagName = "script";
                 myJs11.Attributes.Add("type", "text/javascript");
                 myJs11.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/googleGaugeDark.js")));
-                this.Page.Header.Controls.AddAt(5, myJs11);
+                this.Page.Header.Controls.AddAt(6, myJs11);
 
                 myJs12.TagName = "script";
                 myJs12.Attributes.Add("type", "text/javascript");
                 myJs12.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/progressDark.js")));
-                this.Page.Header.Controls.AddAt(6, myJs12);
+                this.Page.Header.Controls.AddAt(7, myJs12);
 
                 myJs13.TagName = "script";
                 myJs13.Attributes.Add("type", "text/javascript");
                 myJs13.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/liquidFillGaugeDark.js")));
-                this.Page.Header.Controls.AddAt(7, myJs13);
+                this.Page.Header.Controls.AddAt(8, myJs13);
             }
         }
  
@@ -377,6 +417,7 @@ namespace ReaderBoard
 
         protected void Chat()
         {
+            
             try
             {
                 int iNumOffered = 
@@ -513,8 +554,7 @@ namespace ReaderBoard
             stru_Phone_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Phone_ENG, szServerName);
             stru_Phone_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Phone_ENG, szServerName);
             stru_Phone_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Phone_ENG, szServerName);
-            //HiddenPhone_Eng_In.Value = stru_Phone_ENG.CounselorLogin;
-            //HiddenPhone_Eng_Availabe.Value = stru_Phone_ENG.CounselorAvailable;
+
 
             //phone_fre
             stru_Phone_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Phone_FRE, szServerName);
@@ -526,8 +566,7 @@ namespace ReaderBoard
             stru_Phone_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Phone_FRE, szServerName);
             stru_Phone_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Phone_FRE, szServerName);
             stru_Phone_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Phone_FRE, szServerName);
-            //HiddenPhone_Fre_In.Value = stru_Phone_FRE.CounselorLogin;
-            //HiddenPhone_Fre_Availabe.Value = stru_Phone_FRE.CounselorAvailable;
+;
 
             //G2T_ENG
             stru_G2T_ENG.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_G2T_ENG, szServerName);
@@ -539,8 +578,7 @@ namespace ReaderBoard
             stru_G2T_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_G2T_ENG, szServerName);
             stru_G2T_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_G2T_ENG, szServerName);
             stru_G2T_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_G2T_ENG, szServerName);
-            //HiddenG2T_Eng_In.Value = stru_G2T_ENG.CounselorLogin;
-            //HiddenG2T_Eng_Availabe.Value = stru_G2T_ENG.CounselorAvailable;
+
 
             //G2T_FRE
             stru_G2T_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_G2T_FRE, szServerName);
@@ -552,13 +590,11 @@ namespace ReaderBoard
             stru_G2T_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_G2T_FRE, szServerName);
             stru_G2T_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_G2T_FRE, szServerName);
             stru_G2T_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_G2T_FRE, szServerName);
-            //HiddenG2T_Fre_In.Value = stru_G2T_FRE.CounselorLogin;
-            //HiddenG2T_Fre_Availabe.Value = stru_G2T_FRE.CounselorAvailable;
 
 
-            int ChatTimeEnd = 18;
-            int    ChatTimeStart = 8;
-            if ( !((ChatTimeEnd  <= hour) && (hour < ChatTimeStart)) ) // Day light theme 在6:00Pm 到 凌晨 2：00am 就 不做下面的
+
+    
+            if ( ChatWorking() ) // Day light theme 在6:00Pm 到 凌晨 2：00am 就 不做下面的
             {
                 //Chat_ENG
                 stru_Chat_ENG.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Chat_ENG, szServerName);
@@ -570,8 +606,7 @@ namespace ReaderBoard
                 stru_Chat_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Chat_ENG, szServerName);
                 stru_Chat_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Chat_ENG, szServerName);
                 stru_Chat_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Chat_ENG, szServerName);
-                //HiddenWebChat_Eng_In.Value = stru_Chat_ENG.CounselorLogin;
-                //HiddenWebChat_Eng_Avaiable.Value = stru_Chat_ENG.CounselorAvailable;
+
 
                 //Chat_FRE
                 stru_Chat_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Chat_FRE, szServerName);
@@ -583,8 +618,7 @@ namespace ReaderBoard
                 stru_Chat_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Chat_FRE, szServerName);
                 stru_Chat_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Chat_FRE, szServerName);
                 stru_Chat_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Chat_FRE, szServerName);
-                //HiddenWebChat_Fre_In.Value = stru_Chat_FRE.CounselorLogin;
-                //HiddenWebChat_Fre_Avaiable.Value = stru_Chat_FRE.CounselorAvailable;
+
 
                 //ChatApp_ENG
                 stru_ChatApp_ENG.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
@@ -596,8 +630,7 @@ namespace ReaderBoard
                 stru_ChatApp_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
                 stru_ChatApp_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
                 stru_ChatApp_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-                //HiddenChatApp_Eng_In.Value = stru_ChatApp_ENG.CounselorLogin;
-                //HiddenChatApp_Eng_Avaiable.Value = stru_ChatApp_ENG.CounselorAvailable;
+
 
                 //ChatApp_FRE
                 stru_ChatApp_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
@@ -609,8 +642,7 @@ namespace ReaderBoard
                 stru_ChatApp_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
                 stru_ChatApp_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
                 stru_ChatApp_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-                //HiddenChatApp_Fre_In.Value = stru_ChatApp_FRE.CounselorLogin;
-                //HiddenChatApp_Fre_Avaiable.Value = stru_ChatApp_FRE.CounselorAvailable;
+;
             }
 
 
@@ -627,92 +659,22 @@ namespace ReaderBoard
             stru_last24HrGrade.PhoneAllGrade = (decimal)x.PhoneAllGrade;
             stru_last24HrGrade.PhoneGrade = (decimal)x.PhoneGrade;
             stru_last24HrGrade.G2TGrade = (decimal)x.G2TGrade;
+            
+                if (ChatWorking())
+                {
+                    stru_last24HrGrade.ChatAllGrade = (decimal)x.ChatAllGrade;
+                    stru_last24HrGrade.ChatAppGrade = (decimal)x.ChatAppGrade;
+                    stru_last24HrGrade.ChatGrade = (decimal)x.ChatGrade;
+                }
+                else
+                {
+                    stru_last24HrGrade.ChatAllGrade = 0.0m;
+                    stru_last24HrGrade.ChatAppGrade = 0.0m;
+                    stru_last24HrGrade.ChatGrade = 0.0m;
+                }
 
-            stru_last24HrGrade.ChatAllGrade = (decimal)x.ChatAllGrade;
-            stru_last24HrGrade.ChatAppGrade = (decimal)x.ChatAppGrade;
-            stru_last24HrGrade.ChatGrade = (decimal)x.ChatGrade;
             }
         }
 
-
-        //protected void DrawChat()
-        //{
-        //    string LabelFamily = "Arial";
-        //    Color LabelForeColor = System.Drawing.ColorTranslator.FromHtml("#333333");
-        //    Color labelForeColor1 = System.Drawing.ColorTranslator.FromHtml("#FCFCFC");
-        //    float LabelForSize = 20f;
- 
-        //    //ChatChart ChatChartArea
-        //    ChatChart.ChartAreas["ChatChartArea"].AxisX.MajorGrid.LineWidth = 0;
-        //    ChatChart.ChartAreas["ChatChartArea"].AxisY.MajorGrid.LineWidth = 0;
-        //    ChatChart.BackColor = Color.Transparent;
-
-        //    ChatChart.ChartAreas["ChatChartArea"].AxisY.LabelStyle.Enabled = true;
-
-        //    ChatChart.ChartAreas["ChatChartArea"].AxisY.MajorTickMark.Enabled = true;
-        //    ChatChart.ChartAreas["ChatChartArea"].AxisX.MajorTickMark.Enabled = false;
-
-        //    ChatChart.ChartAreas["ChatChartArea"].AxisX.IsMarginVisible = true; //不会出现最顶和地的bar窄
-
-        //    // Assign value 
-        //    //Web EN
-        //    ChatChart.Series["Avail"].Points.Add(new DataPoint(3, 10));
-        //    ChatChart.Series["OnContact"].Points.Add(new DataPoint(3, 3));
-        //    ChatChart.Series["NotReady"].Points.Add(new DataPoint(3, 3));
-
-        //    //Web FR
-        //    ChatChart.Series["Avail"].Points.Add(new DataPoint(2, 8));
-        //    ChatChart.Series["OnContact"].Points.Add(new DataPoint(2, 5));
-        //    ChatChart.Series["NotReady"].Points.Add(new DataPoint(2, 0));
-
-        //    //App EN
-        //    ChatChart.Series["Avail"].Points.Add(new DataPoint(1, 5));
-        //    ChatChart.Series["OnContact"].Points.Add(new DataPoint(1, 7));
-        //    ChatChart.Series["NotReady"].Points.Add(new DataPoint(1, 5));
- 
-        //    //App FR
-        //    ChatChart.Series["Avail"].Points.Add(new DataPoint(0, 2));
-        //    ChatChart.Series["OnContact"].Points.Add(new DataPoint(0, 12));
-        //    ChatChart.Series["NotReady"].Points.Add(new DataPoint(0, 12));
-
-
-        //    //Label fore Font size
-        //    ChatChart.Series["Avail"].Points[3].Font = new System.Drawing.Font(LabelFamily, LabelForSize, FontStyle.Bold);
-        //    ChatChart.Series["Avail"].Points[2].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-        //    ChatChart.Series["Avail"].Points[1].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-        //    ChatChart.Series["Avail"].Points[0].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-
-        //    ChatChart.Series["OnContact"].Points[3].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-        //    ChatChart.Series["OnContact"].Points[2].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-        //    ChatChart.Series["OnContact"].Points[1].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-        //    ChatChart.Series["OnContact"].Points[0].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-
-        //    ChatChart.Series["NotReady"].Points[3].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-        //    ChatChart.Series["NotReady"].Points[2].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-        //    ChatChart.Series["NotReady"].Points[1].Font = new System.Drawing.Font(LabelFamily, LabelForSize);
-        //    ChatChart.Series["NotReady"].Points[0].Font = new System.Drawing.Font(LabelFamily, LabelForSize,FontStyle.Bold);
- 
-
-        //    //change Label Fore color 
-        //    ChatChart.Series["Avail"].LabelForeColor = LabelForeColor;
-        //    ChatChart.Series["Avail"].LabelForeColor = LabelForeColor;
-        //    ChatChart.Series["Avail"].LabelForeColor = LabelForeColor;
-        //    ChatChart.Series["OnContact"].LabelForeColor = LabelForeColor;
-        //    ChatChart.Series["OnContact"].LabelForeColor = LabelForeColor;
-        //    ChatChart.Series["OnContact"].LabelForeColor = LabelForeColor;
-        //    ChatChart.Series["NotReady"].LabelForeColor  = LabelForeColor;
-        //    ChatChart.Series["NotReady"].LabelForeColor  = LabelForeColor;
-        //    ChatChart.Series["NotReady"].LabelForeColor  = LabelForeColor;
-
-        //    //VAxis label
-        //    ChatChart.Series["Avail"].Points[3].AxisLabel = "English";
-        //    ChatChart.Series["Avail"].Points[2].AxisLabel = "French";
-        //    ChatChart.Series["Avail"].Points[1].AxisLabel = "G2T En";
-        //    ChatChart.Series["Avail"].Points[0].AxisLabel = "G2T Fr";
-
-        //    //changing Axis font color
-        //    ChatChart.ChartAreas["ChatChartArea"].AxisX.LabelStyle.ForeColor = LabelForeColor;
-        //    ChatChart.ChartAreas["ChatChartArea"].AxisY.LabelStyle.ForeColor = LabelForeColor;
-        //}
     }
 }
