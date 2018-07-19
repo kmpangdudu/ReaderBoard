@@ -48,12 +48,14 @@
                     <div>
                         <asp:HiddenField ID="lblPhoneGradeService" runat="server"></asp:HiddenField>
                     </div>
-                    <div id="chart_div1" class="center_child"></div>
+                    <%--<div id="chart_div1" class="center_child"></div>--%>
+                    <div id="GradePhone" class="center_child"></div>
                 </div>
                 <h3 class="downXXpix">Grade of Service (%)</h3>
                 <div class="container">
                     <asp:HiddenField ID="lblPhoneGradeService24" runat="server"></asp:HiddenField>
-                    <div id="chart_div2" class="center_child"></div>
+                    <%--<div id="chart_div2" class="center_child"></div>--%>
+                    <div id="GradePhone24" class="center_child"></div>
                 </div>
             </div>
 
@@ -120,18 +122,18 @@
             <div class="borderLine">
                  <h4 class="ChatDivDown">Counselor</h4>
                 <h2>
-                    <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text="" ForeColor="Lime"></asp:Label>
+                    <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text="" ForeColor="#00e600"></asp:Label>
                     /
-                     <asp:Label ID="lblPhoneCounselorOnContact" runat="server" Text="" ForeColor="#E6005C"></asp:Label>
+                     <asp:Label ID="lblPhoneCounselorOnContact" runat="server" Text="" ForeColor="#1A1AFF"></asp:Label>
                     /
-                    <asp:Label ID="lblPhoneCounselorNotReady" runat="server" Text="" ForeColor="#1A1AFF"></asp:Label>
+                    <asp:Label ID="lblPhoneCounselorNotReady" runat="server" Text="" ForeColor="#E6005C"></asp:Label>
                    
                      <asp:Label ID="lblPhoneCounselorLogin" runat="server" Text="" Visible="False"></asp:Label>
                 </h2>
                 <h5>
                     <img alt="Avail" src="Content/green30x15.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;
-                    <img alt="OnContact" src="Content/red.png" />&nbsp;OnContact&nbsp;&nbsp;&nbsp;
-                    <img alt="Not Ready" src="Content/blue.png" />&nbsp; Not Ready
+                    <img alt="OnContact" src="Content/blue.png" />&nbsp;On Contact&nbsp;&nbsp;&nbsp;
+                    <img alt="Not Ready" src="Content/red.png" />&nbsp; Not Ready
                 </h5>
                     <div id="PhoneCounslor"></div>
                
@@ -165,14 +167,16 @@
                     <div>
                         <asp:HiddenField ID="lblChatGradeService" runat="server" />
                     </div>
-                    <div id="chart_div3" class="center_child"></div>
+                    <%--<div id="chart_div3" class="center_child"></div>--%>
+                    <div id="GradeChat" class="center_child"></div>
                 </div>
                 <h3 class="downXXpix">Grade of Service (%)</h3>
                 <div>
                     <div class="bigfont">
                         <asp:HiddenField ID="lblChatGradeService24" runat="server"></asp:HiddenField>
                     </div>
-                    <div id="chart_div4" class="center_child"  ></div>
+                    <%--<div id="chart_div4" class="center_child"  ></div>--%>
+                    <div id="GradeChat24" class="center_child"  ></div>
                 </div>
             </div>
 
@@ -241,18 +245,18 @@
                  <h4 class="ChatDivDown">Counselor</h4>
 
                 <h2>
-                    <asp:Label ID="lblChatCounselorAvailable" runat="server" Text="" ForeColor="Lime"></asp:Label>
+                    <asp:Label ID="lblChatCounselorAvailable" runat="server" Text="" ForeColor="#00e600"></asp:Label>
                     /
-                     <asp:Label ID="lblChatCounselorOnContact" runat="server" Text="" ForeColor="#E6005C"></asp:Label>
+                     <asp:Label ID="lblChatCounselorOnContact" runat="server" Text="" ForeColor="#1A1AFF"></asp:Label>
                     /
-                    <asp:Label ID="lblChatCounselorNotReady" runat="server" Text="" ForeColor="#1A1AFF"></asp:Label>
+                    <asp:Label ID="lblChatCounselorNotReady" runat="server" Text="" ForeColor="#E6005C"></asp:Label>
                    
                      <asp:Label ID="lblChatCounselorLogin" runat="server" Text="" Visible="False"></asp:Label>
                 </h2>
                  <h5>
                     <img alt="Avail" src="Content/green30x15.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;
-                    <img alt="OnContact" src="Content/red.png" />&nbsp;OnContact&nbsp;&nbsp;&nbsp;
-                    <img alt="Not Ready" src="Content/blue.png" />&nbsp; Not Ready
+                    <img alt="OnContact" src="Content/blue.png" />&nbsp;On Contact&nbsp;&nbsp;&nbsp;
+                    <img alt="Not Ready" src="Content/red.png" />&nbsp; Not Ready
                 </h5>
                  
                 <div id="ChatCounslor"></div>

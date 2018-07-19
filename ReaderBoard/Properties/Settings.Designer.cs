@@ -115,16 +115,7 @@ namespace ReaderBoard.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("60000")]
-        public string DashboardRefreshing {
-            get {
-                return ((string)(this["DashboardRefreshing"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int dayTimeStart {
             get {
                 return ((int)(this["dayTimeStart"]));
@@ -227,6 +218,15 @@ namespace ReaderBoard.Properties {
         public string dimOpacity {
             get {
                 return ((string)(this["dimOpacity"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public string DashboardRefreshing {
+            get {
+                return ((string)(this["DashboardRefreshing"]));
             }
         }
     }

@@ -201,32 +201,37 @@ namespace ReaderBoard
             HtmlGenericControl myJs1 = new HtmlGenericControl();
             HtmlGenericControl myJs2 = new HtmlGenericControl();
             HtmlGenericControl myJs3 = new HtmlGenericControl();
-
+            HtmlGenericControl myJs4 = new HtmlGenericControl();
             // refreshing is the number of seconds , default value is 300 = 5 mintues in setting section
             HtmlMeta meta = new HtmlMeta();
             //meta.Name = "Refresh";
             //meta.Content = refreshing;
             //this.Header.Controls.Add(meta);
-            myMeta.TagName = "Refresh";
-            this.Page.Header.Controls.AddAt(1, myJs1);
+            //myMeta.TagName = "Refresh";
+            //this.Page.Header.Controls.AddAt(1, myJs1);
 
             myJs1.TagName = "script";
             myJs1.Attributes.Add("type", "text/javascript");
             myJs1.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("http://d3js.org/d3.v3.min.js")));
             this.Page.Header.Controls.AddAt(2, myJs1);
+
             myJs2.TagName = "script";
             myJs2.Attributes.Add("type", "text/javascript");
             myJs2.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("https://www.gstatic.com/charts/loader.js")));
             this.Page.Header.Controls.AddAt(3, myJs2);
+
             myJs3.TagName = "script";
             myJs3.Attributes.Add("type", "text/javascript");
             myJs3.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js")));
             this.Page.Header.Controls.AddAt(4, myJs3);
 
+            myJs4.TagName = "script";
+            myJs4.Attributes.Add("type", "text/javascript");
+            myJs4.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")));
+            this.Page.Header.Controls.AddAt(5, myJs4);
 
 
- 
-             
+
 
             if ((dayTimeStart <= today.Hour) & (today.Hour < dayTimeEnd))  // Day light theme
             {
@@ -236,26 +241,31 @@ namespace ReaderBoard
                 myCss.Attributes.Add("type", "text/css");
                 myCss.Attributes.Add("rel", "stylesheet");
                 myCss.Attributes.Add("href", ResolveUrl(Page.ResolveClientUrl("Content/readerboard.css")));
-                this.Page.Header.Controls.AddAt(5, myCss);
+                this.Page.Header.Controls.AddAt(6, myCss);
 
 
                 HtmlGenericControl myJs11 = new HtmlGenericControl();
                 HtmlGenericControl myJs12 = new HtmlGenericControl();
                 HtmlGenericControl myJs13 = new HtmlGenericControl();
+                HtmlGenericControl myJs14 = new HtmlGenericControl();
                 myJs11.TagName = "script";
                 myJs11.Attributes.Add("type", "text/javascript");
                 myJs11.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/googleGauge.js")));
-                this.Page.Header.Controls.AddAt(6,myJs11);
+                this.Page.Header.Controls.AddAt(7,myJs11);
 
                 myJs12.TagName = "script";
                 myJs12.Attributes.Add("type", "text/javascript");
                 myJs12.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/progress.js")));
-                this.Page.Header.Controls.AddAt(7, myJs12);
+                this.Page.Header.Controls.AddAt(8, myJs12);
 
                 myJs13.TagName = "script";
                 myJs13.Attributes.Add("type", "text/javascript");
                 myJs13.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/liquidFillGauge.js")));
-                this.Page.Header.Controls.AddAt(8, myJs13);
+                this.Page.Header.Controls.AddAt(9, myJs13);
+                myJs14.TagName = "script";
+                myJs14.Attributes.Add("type", "text/javascript");
+                myJs14.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/custom2.js")));
+                this.Page.Header.Controls.AddAt(10, myJs14);
             }
             else  // Night Dark Theme
             {
@@ -264,26 +274,30 @@ namespace ReaderBoard
                 myCss.Attributes.Add("type", "text/css");
                 myCss.Attributes.Add("rel", "stylesheet");
                 myCss.Attributes.Add("href", ResolveUrl(Page.ResolveClientUrl("Content/Dark.css")));
-                this.Page.Header.Controls.AddAt(5, myCss);
+                this.Page.Header.Controls.AddAt(10, myCss);
 
                 HtmlGenericControl myJs11 = new HtmlGenericControl();
                 HtmlGenericControl myJs12 = new HtmlGenericControl();
                 HtmlGenericControl myJs13 = new HtmlGenericControl();
-
+                HtmlGenericControl myJs14 = new HtmlGenericControl();
                 myJs11.TagName = "script";
                 myJs11.Attributes.Add("type", "text/javascript");
                 myJs11.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/googleGaugeDark.js")));
-                this.Page.Header.Controls.AddAt(6, myJs11);
+                this.Page.Header.Controls.AddAt(11, myJs11);
 
                 myJs12.TagName = "script";
                 myJs12.Attributes.Add("type", "text/javascript");
                 myJs12.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/progressDark.js")));
-                this.Page.Header.Controls.AddAt(7, myJs12);
+                this.Page.Header.Controls.AddAt(12, myJs12);
 
                 myJs13.TagName = "script";
                 myJs13.Attributes.Add("type", "text/javascript");
                 myJs13.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/liquidFillGaugeDark.js")));
-                this.Page.Header.Controls.AddAt(8, myJs13);
+                this.Page.Header.Controls.AddAt(13, myJs13);
+                myJs14.TagName = "script";
+                myJs14.Attributes.Add("type", "text/javascript");
+                myJs14.Attributes.Add("src", ResolveUrl(Page.ResolveClientUrl("Scripts/custom2.js")));
+                this.Page.Header.Controls.AddAt(14, myJs14);
             }
         }
  

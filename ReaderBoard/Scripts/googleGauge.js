@@ -1,17 +1,17 @@
 ﻿google.charts.load("current", { "packages": ["gauge"] });
 google.charts.setOnLoadCallback(drawPhoneChart);
 
-var color1 = "e6005c";  //pink
-var color2 = "1a1aff";  //blue
-var color3 = "FFFB33";  //yellow
-var color4 = "9933ff"; //puler
+var color_pink = "e6005c";  //pink
+var color_blue = "1a1aff";  //blue
+var color_yellow = "FFFB33";  //yellow
+var color_puler = "9933ff"; //puler
 var colorGreen = "00FF00";
 
 var options = {
     width: 250, height: 200,  //Gauge height  250*200 id best
-    redColor: color1,
+    redColor: color_pink,
     redFrom: 0, redTo: 50,
-    yellowColor: color3,
+    yellowColor: color_yellow,
     yellowFrom: 50, yellowTo: 75,
     greenColor: colorGreen,
     greenFrom: 75, greenTo: 100,
@@ -102,7 +102,7 @@ var opt_Phone = {
     bar: { groupWidth: bargroupWidth },
     chartArea: { left: 95, top:15, width: chartAreaWidth, height: chartAreaHeight},
     backgroundColor: { fill: "transparent" },
-    colors: [colorGreen, color1, color2],
+    colors: [colorGreen, color_blue, color_pink],
 
     hAxis: { // actual H.
         TextStyle: { color: "333333", fontSize: 20, bold: true, italic: false },
@@ -219,10 +219,10 @@ function drawPhoneCounslor() {
 
     var PhoneData = google.visualization.arrayToDataTable([
         ["Queue", "Availabe", { role: "style" }, { role: "annotation" }, "On Contact", { role: "style" }, { role: "annotation" }, "Not Ready", { role: "style" }, { role: "annotation" }],
-        ["English", PhoneEN_Avai, colorGreen, lPhoneEN_Avai, PhoneEN_onContact, color1, lPhoneEN_onContact, phoneEN_NotReady, color2, lphoneEN_NotReady],
-        ["French", PhoneFr_Avai, colorGreen, lPhoneFr_Avai, PhoneFR_onContact, color1, lPhoneFR_onContact, phoneFR_NotReady, color2, lphoneFR_NotReady],
-        ["G2T En", G2Ten_Avai, colorGreen, lG2Ten_Avai, G2Ten_onContact, color1, lG2Ten_onContact, G2TEN_NotReady, color2, lG2TEN_NotReady],
-        ["G2T Fr", G2Tfr_Avai, colorGreen, lG2Tfr_Avai, G2Tfr_OnContact, color1, lG2Tfr_OnContact, G2Tfr_NotReady, color2, lG2Tfr_NotReady]
+        ["English", PhoneEN_Avai, colorGreen, lPhoneEN_Avai, PhoneEN_onContact, color_blue, lPhoneEN_onContact, phoneEN_NotReady, color_pink, lphoneEN_NotReady],
+        ["French", PhoneFr_Avai, colorGreen, lPhoneFr_Avai, PhoneFR_onContact, color_blue, lPhoneFR_onContact, phoneFR_NotReady, color_pink, lphoneFR_NotReady],
+        ["G2T En", G2Ten_Avai, colorGreen, lG2Ten_Avai, G2Ten_onContact, color_blue, lG2Ten_onContact, G2TEN_NotReady, color_pink, lG2TEN_NotReady],
+        ["G2T Fr", G2Tfr_Avai, colorGreen, lG2Tfr_Avai, G2Tfr_OnContact, color_blue, lG2Tfr_OnContact, G2Tfr_NotReady, color_pink, lG2Tfr_NotReady]
     ]);
      
 
@@ -310,10 +310,10 @@ function drawChatCounslor() {
 
     var ChatData = google.visualization.arrayToDataTable([
         ["Queue", "Availabe", { role: "style" }, { role: "annotation" }, "OnContact", { role: "style" }, { role: "annotation" }, "NotReady", { role: "style" }, { role: "annotation" }],
-        ["Web En", ChatEN_Avai, colorGreen, lChatEN_Avai, ChatEn_OnContact, color1, lChatEn_OnContact, ChatEn_NoteRady, color2, lChatEn_NoteRady],
-        ["Web Fr", ChatFr_Avai, colorGreen, lChatFr_Avai, ChatFr_OnContact, color1, lChatFr_OnContact, ChatFr_NotReady, color2, lChatFr_NotReady],
-        ["App En", ChatAppEN_Avai, colorGreen, lChatAppEN_Avai, ChatAppEn_OnContact, color1, lChatAppEn_OnContact, ChatAppEn_NotReady, color2, lChatAppEn_NotReady],
-        ["App Fr", ChatAppfr_Avai, colorGreen, lChatAppfr_Avai, ChatAppFr_OnContact, color1, lChatAppFr_OnContact, ChatAppFr_NotReady, color2, lChatAppFr_NotReady]
+        ["Web En", ChatEN_Avai, colorGreen, lChatEN_Avai, ChatEn_OnContact, color_blue, lChatEn_OnContact, ChatEn_NoteRady, color_pink, lChatEn_NoteRady],
+        ["Web Fr", ChatFr_Avai, colorGreen, lChatFr_Avai, ChatFr_OnContact, color_blue, lChatFr_OnContact, ChatFr_NotReady, color_pink, lChatFr_NotReady],
+        ["App En", ChatAppEN_Avai, colorGreen, lChatAppEN_Avai, ChatAppEn_OnContact, color_blue, lChatAppEn_OnContact, ChatAppEn_NotReady, color_pink, lChatAppEn_NotReady],
+        ["App Fr", ChatAppfr_Avai, colorGreen, lChatAppfr_Avai, ChatAppFr_OnContact, color_blue, lChatAppFr_OnContact, ChatAppFr_NotReady, color_pink, lChatAppFr_NotReady]
     ]);
 
     //document.getElementById("lblChatCounselorLogin").innerText = busyChatEn + busyChatFr + busyChatAppEn + busyChatAppFr;

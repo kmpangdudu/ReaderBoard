@@ -10,13 +10,19 @@ function liquidFillGaugeDefaultSettings(value) {
         circleColor: "#cccccc"
     }
     const obj_CircBlue = {
-        circleColor: "#1a1aff"
+        circleColor: "#1A1AFF"
     }
     const obj_CircYellow = {
         circleColor: "#FFFF00"
     }
+    const obj_CircRed = {
+        circleColor: "#E6005C"
+    }
     const obj_CircOrange = {
-        circleColor: "#FF5500"
+        circleColor: "#FF8C00"
+    }
+    const obj_CircGreen = {
+        circleColor: "#00E600"
     }
     var def = {
         minValue: 0, // The gauge minimum value. default 0

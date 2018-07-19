@@ -39,12 +39,14 @@
                     <div>
                         <asp:HiddenField ID="lblPhoneGradeService" runat="server"></asp:HiddenField>
                     </div>
-                    <div id="chart_div1" class="center_child"></div>
+                    <%--<div id="chart_div1" class="center_child"></div>--%>
+                    <div id="GradePhone" class="center_child"></div>
                 </div>
                 <h3 class="downXXpix">Grade of Service (%)</h3>
                 <div class="container">
                     <asp:HiddenField ID="lblPhoneGradeService24" runat="server"></asp:HiddenField>
-                    <div id="chart_div2" class="center_child"></div>
+                    <%--<div id="chart_div2" class="center_child"></div>--%>
+                    <div id="GradePhone24" class="center_child"></div>
                 </div>
             </div>
 
@@ -82,24 +84,49 @@
                 <div>
                     <svg id="fillgauge_PhoneQueued" width="280" height="400" onclick="gauge5.update(NewValue());"></svg>
                     <script>
-                        var config4 = liquidFillGaugeDefaultSettings();
-                        //config4.circleThickness = 0.10; //0.15
-                        //config4.circleColor = "#1a1aff"; //KHP Blue;
-                        //config4.textColor = "#333333";
-                        //config4.waveTextColor = "#1a1aff";
-                        //config4.waveColor = "1a1aff";
-                        //config4.textVertPosition = 0.55; //0.8
-                        //config4.waveAnimateTime = 1000;
-                        //config4.waveHeight = 0.3;
-                        //config4.waveAnimate = true;
-                        //config4.waveRise = false; //false
-                        //config4.waveHeightScaling = true;
-                        //config4.waveOffset = 0.35; //0.25
-                        //config4.textSize = 2.2;//0.75
-                        //config4.waveCount = 3;//3
-                        //config4.displayPercent = false; //true
                         var thevalue = document.getElementById('lblPhonePeopleInQueue').value;
-                        var gauge5 = loadLiquidFillGauge("fillgauge_PhoneQueued", thevalue, config4);
+                         var Grey =  "#cccccc";
+                         var Blue =  "#1A1AFF";
+                         var Yellow ="#FFFF00";
+                         var Orange ="#FF8C00";
+                         var Red =   "#E6005C";
+                        var Green = "#00E600";
+
+                        var config4 = liquidFillGaugeDefaultSettings();
+                        config4.circleThickness = 0.10; //0.15
+                        config4.circleColor = Grey; //KHP Blue;
+                        config4.textColor = "#333333";
+                        config4.waveTextColor = Grey;
+                        config4.waveColor = "1a1aff";
+                        config4.textVertPosition = 0.55; //0.8
+                        config4.waveAnimateTime = 1000;
+                        config4.waveHeight = 0.3;
+                        config4.waveAnimate = true;
+                        config4.waveRise = false; //false
+                        config4.waveHeightScaling = true;
+                        config4.waveOffset = 0.35; //0.25
+                        config4.textSize = 2.2;//0.75
+                        config4.waveCount = 3;//3
+                        config4.displayPercent = false; //true
+
+
+                        var v = parseInt(thevalue);
+ 
+                        if (v >= 5) {
+                            config4.circleColor = Orange;
+                            config4.waveColor
+                        } else if (v >= 3) {
+                            config4.circleColor = Yellow;
+                            config4.waveColor
+                        } else if (v >= 1) {
+                            config4.circleColor = Blue;
+                            config4.waveColor = Blue;
+                        } else {
+                             config4.circleColor = Grey;
+                             config4.waveColor = Grey;
+                        };
+
+                        var gauge4 = loadLiquidFillGauge("fillgauge_PhoneQueued", thevalue, config4);
                     </script>
                     <h3 class=" Top-min-XXpx">Queued</h3>
                 </div>
@@ -111,18 +138,18 @@
             <div class="borderLine">
                 <h4 class="ChatDivDown">Counselor</h4>
                 <h2>
-                    <asp:Label ID="lblPhoneCounselorAvailable" runat="server" ForeColor="Lime"></asp:Label>
+                    <asp:Label ID="lblPhoneCounselorAvailable" runat="server" ForeColor="#00e600"></asp:Label><%--green--%>
                     /
-                     <asp:Label ID="lblPhoneCounselorOnContact" runat="server" ForeColor="#E6005C"></asp:Label>
+                     <asp:Label ID="lblPhoneCounselorOnContact" runat="server" ForeColor="#1A1AFF"></asp:Label> <%--Blue--%>
                     /
-                    <asp:Label ID="lblPhoneCounselorNotReady" runat="server" ForeColor="#1A1AFF"></asp:Label>
+                    <asp:Label ID="lblPhoneCounselorNotReady" runat="server" ForeColor="#E6005C"></asp:Label> <%--Red--%>
                    
                      <asp:Label ID="lblPhoneCounselorLogin" runat="server" Text="" Visible="False"></asp:Label>
                 </h2>
                 <h5>
                     <img alt="Avail" src="Content/green30x15.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;
-                    <img alt="OnContact" src="Content/red.png" />&nbsp;OnContact&nbsp;&nbsp;&nbsp;
-                    <img alt="Not Ready" src="Content/blue.png" />&nbsp; Not Ready
+                    <img alt="OnContact" src="Content/blue.png" />&nbsp;OnContact&nbsp;&nbsp;&nbsp;
+                    <img alt="Not Ready" src="Content/red.png" />&nbsp; Not Ready
                 </h5>
                     <div id="PhoneCounslor"></div>
                
@@ -157,14 +184,16 @@
                     <div>
                         <asp:HiddenField ID="lblChatGradeService" runat="server" />
                     </div>
-                    <div id="chart_div3" class="center_child"></div>
+                    <%--<div id="chart_div3" class="center_child"></div>--%>
+                    <div id="GradeChat" class="center_child"></div>
                 </div>
                 <h3 class="downXXpix">Grade of Service (%)</h3>
                 <div>
                     <div class="bigfont">
                         <asp:HiddenField ID="lblChatGradeService24" runat="server"></asp:HiddenField>
                     </div>
-                    <div id="chart_div4" class="center_child"  ></div>
+                    <%--<div id="chart_div4" class="center_child"  ></div>--%>
+                    <div id="GradeChat24" class="center_child"  ></div>
                 </div>
             </div>
 
@@ -202,24 +231,49 @@
                 <div >
                     <svg id="fillgauge_ChatQueued" width="280" height="400" onclick="gauge5.update(NewValue());"></svg>
                     <script>
-                        var config5 = liquidFillGaugeDefaultSettings();
-                        //config5.circleThickness = 0.10; //0.15
-                        //config5.circleColor = "1a1aff";//808015  
-                        //config5.textColor = "333333";
-                        //config5.waveTextColor = "1a1aff";//FFFFAA
-                        //config5.waveColor = "1a1aff";   //AAAA39
-                        //config5.textVertPosition = 0.55; //0.8
-                        //config5.waveAnimateTime = 1000;
-                        //config5.waveHeight = 0.3;
-                        //config5.waveAnimate = true;
-                        //config5.waveRise = true; //false
-                        //config5.waveHeightScaling = true;
-                        //config5.waveOffset = 0.35; //0.25
-                        //config5.textSize = 2.1;//0.75
-                        //config5.waveCount = 3;//3
-                        //config5.displayPercent = false; //true
                         var thevalue = document.getElementById('lblChatPeopleInQueue').value;
-                        var gauge5 = loadLiquidFillGauge("fillgauge_ChatQueued", thevalue, config5);
+
+                         var Grey =  "#cccccc";
+                         var Blue =  "#1A1AFF";
+                         var Yellow ="#FFFF00";
+                         var Orange ="#FF8C00";
+                         var Red =   "#E6005C";
+                        var Green = "#00E600";
+
+                        var config5 = liquidFillGaugeDefaultSettings();
+                        config5.circleThickness = 0.10; //0.15
+                        config5.circleColor = Grey;//808015  
+                        config5.textColor = "333333";
+                        config5.waveTextColor = "1a1aff";//FFFFAA
+                        config5.waveColor = Grey;   //AAAA39
+                        config5.textVertPosition = 0.55; //0.8
+                        config5.waveAnimateTime = 1000;
+                        config5.waveHeight = 0.3;
+                        config5.waveAnimate = true;
+                        config5.waveRise = true; //false
+                        config5.waveHeightScaling = true;
+                        config5.waveOffset = 0.35; //0.25
+                        config5.textSize = 2.1;//0.75
+                        config5.waveCount = 3;//3
+                        config5.displayPercent = false; //true
+
+                        var v = parseInt(thevalue);
+                        if (v >= 5) {
+                            config5.circleColor = Orange;
+                             config5.waveColor = Orange;
+                        } else if (v >= 3) {
+                            config5.circleColor = Yellow;
+                             config5.waveColor = Yellow;
+                        } else if (v >= 1) {
+                            config5.circleColor = Blue;
+                            config5.waveColor = Blue;
+                        } else {
+                             config5.circleColor = Grey;
+                              config5.waveColor = Grey  ;
+                        };
+
+
+    var gauge5 = loadLiquidFillGauge("fillgauge_ChatQueued", thevalue, config5);
                     </script>
                 </div>
                 <h3 class="Top-min-XXpx">Queued</h3>
@@ -231,18 +285,18 @@
             <div class="borderLine ">
                 <h4 class="ChatDivDown">Counselor</h4>
                 <h2>
-                    <asp:Label ID="lblChatCounselorAvailable" runat="server" Text="" ForeColor="Lime"></asp:Label>
+                    <asp:Label ID="lblChatCounselorAvailable" runat="server" Text="" ForeColor="#00e600"></asp:Label><%--green--%>
                     /
-                     <asp:Label ID="lblChatCounselorOnContact" runat="server" Text="" ForeColor="#E6005C"></asp:Label>
+                     <asp:Label ID="lblChatCounselorOnContact" runat="server" Text="" ForeColor="#1A1AFF"></asp:Label><%--Blue--%>
                     /
-                    <asp:Label ID="lblChatCounselorNotReady" runat="server" Text="" ForeColor="#1A1AFF"></asp:Label>
+                    <asp:Label ID="lblChatCounselorNotReady" runat="server" Text="" ForeColor="#E6005C"></asp:Label><%--Red--%>
                    
                      <asp:Label ID="lblChatCounselorLogin" runat="server" Text="" Visible="False"></asp:Label>
                 </h2>
                 <h5>
                     <img alt="Avail" src="Content/green30x15.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;
-                    <img alt="OnContact" src="Content/red.png" />&nbsp;OnContact&nbsp;&nbsp;&nbsp;
-                    <img alt="Not Ready" src="Content/blue.png" />&nbsp; Not Ready
+                    <img alt="OnContact" src="Content/blue.png" />&nbsp;On Contact&nbsp;&nbsp;&nbsp;
+                    <img alt="Not Ready" src="Content/red.png" />&nbsp; Not Ready
                 </h5>
 
                 <div id="ChatCounslor"></div>
