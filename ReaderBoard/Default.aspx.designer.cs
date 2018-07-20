@@ -22,6 +22,24 @@ namespace ReaderBoard {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// HiddendayTimeStart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddendayTimeStart;
+        
+        /// <summary>
+        /// HiddendayTimeEnd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddendayTimeEnd;
+        
+        /// <summary>
         /// lblPhoneGradeService control.
         /// </summary>
         /// <remarks>
@@ -434,24 +452,6 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenChatApp_Fre_AgentOnContact;
-        
-        /// <summary>
-        /// HiddendayTimeStart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddendayTimeStart;
-        
-        /// <summary>
-        /// HiddendayTimeEnd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddendayTimeEnd;
         
         /// <summary>
         /// HiddenChatEnDayStart control.

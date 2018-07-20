@@ -14,7 +14,7 @@ body::-webkit-scrollbar-thumb {
 body {
     background-color: #000;
     color: #FFFFFF;
-    font-family: "Arial Rounded MT Bold", Arial,"Helvetica Rounded" Helvetica, sans-serif!important;
+    font-family: "Arial Rounded MT Bold", Arial,"Helvetica Rounded" Helvetica, sans-serif !important;
     margin: 0 5px;
 }
 
@@ -27,13 +27,13 @@ h1 {
 
 h2 {
     font-size: 72px;
-    /*text-shadow: -5px -5px 5px #888;*/
+    /*text-shadow: -5px -5px 5px #999;*/
     margin: 5px;
 }
 
 h3 {
     font-size: 28px;
-    /*text-shadow: -4px -4px 4px #888;*/
+    /*text-shadow: -4px -4px 4px #999;*/
     margin: 0px;
 }
 
@@ -54,6 +54,17 @@ h5 {
     /*color: #02E2FF !important;*/
     font-weight: bold;
     /*text-shadow: -2px -2px 2px #888;*/
+}
+
+#clockdate {
+    margin-top: 50px;
+}
+
+
+
+
+#clock {
+    margin-top: 15px;
 }
 
 p {
@@ -88,11 +99,11 @@ div {
     }
 
 #ENG, #phone, #chat, #phoneE, #G2TE, #ChatE, #ChatAppE {
-    /*background-color: lightgrey;*/
+    background-color: #ddd;
     padding: 2px;
     margin: 2px 2px 0px 2px;
     /*border: double;
-    border: 10px double #777;
+    border: 10px double #999;
     border-width: 1px;*/
 }
 
@@ -136,10 +147,12 @@ div {
     padding: 20px 0 0 0;
 }
 
-
+.ChatLogoDiv {
+    margin: 15px 0 0 -15px;
+}
 
 .container_parent {
-    /*width: 98%;*/
+    width: 96%;
     margin: 3px;
     padding: 3px;
     text-align: center;
@@ -164,8 +177,8 @@ div {
     }
 
 .borderShadow {
-    box-shadow: 3px 3px 5px #AAA;
-    border: 1px double #CCC;
+    box-shadow: 3px 3px 5px #777;
+    border: 1px double #aaa;
     margin: 3px 1px 9px 8px;
     padding-bottom: 6px;
     width: 95%;
@@ -241,7 +254,7 @@ div {
     background-size: cover;
 }
 
- 
+
 
 #PhoneCounslor1, #ChatCounslor1 {
     margin: 5px;
@@ -249,20 +262,17 @@ div {
     z-index: 0;
 }
 
-.dimmed {
-    background: rgba(0, 0, 0, 0.5);
+.Labeling {
     z-index: 1;
+    margin: -60px 0 0 0;
+    font-size: 44px !important;
+    /*background-color: #aaaaaa;*/
+    opacity: 0.8;
 }
 
-
-
-
-
-
-
-
-
-
+.dimmed {
+    opacity: 0.3;
+}
 
 
 
@@ -278,9 +288,9 @@ div {
 }
 
 .header {
-    background-color: #eee;
+    background-color: transparent;
     height: 40px;
-    color: #333;
+    color: #333333;
     text-align: center;
     line-height: 40px;
     border-top-left-radius: 7px;

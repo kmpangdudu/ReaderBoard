@@ -17,7 +17,7 @@ var options = {
     greenFrom: 75, greenTo: 100,
     minorTicks: 5,
     majorTicks: ["", ""],
-    minorTicks: 0, 
+    minorTicks: 0,
     backgroundColor: { fill: "000000", stroke: "red" },
 };
 
@@ -93,14 +93,14 @@ var chartAreaHeight = "95%";
 var chartAreaWidth = "68%";
 var bargroupWidth = "75%";
 var lablefontsize = 22;
- 
+
 var opt_Phone = {
     height: varHeight,
     isStacked: 'percent',
     //legend: { position: 'top', maxLines: 3, textStyle: { color: '333333', fontSize: 14, bold: true } },
     legend: { position: 'none' },
     bar: { groupWidth: bargroupWidth },
-    chartArea: { left: 95, top:15, width: chartAreaWidth, height: chartAreaHeight},
+    chartArea: { left: 95, top: 15, width: chartAreaWidth, height: chartAreaHeight },
     backgroundColor: { fill: "transparent" },
     colors: [colorGreen, color_blue, color_pink],
 
@@ -108,14 +108,14 @@ var opt_Phone = {
         TextStyle: { color: "333333", fontSize: 20, bold: true, italic: false },
         textPosition: 'none',
         gridlines: { color: 'transparent' },
-        baselineColor: "none" 
+        baselineColor: "none"
     },
     vAxis: { //actual V
-        textStyle: { color: "333333",fontSize: 20, bold: true, italic: false  },
+        textStyle: { color: "333333", fontSize: 20, bold: true, italic: false },
         gridlines: { color: 'transparent' },
-        baselineColor:"none"
+        baselineColor: "none"
     },
-  
+
 
 
     annotations: {
@@ -139,7 +139,7 @@ var opt_Phone = {
 google.charts.load("current", { "packages": ["corechart"] });
 google.charts.setOnLoadCallback(drawPhoneCounslor);
 function drawPhoneCounslor() {
-    
+
     //English start
     var sPhoneEN_In = document.getElementById("HiddenPhone_Eng_In").value;
     var PhoneEN_In = parseInt(sPhoneEN_In);
@@ -224,7 +224,7 @@ function drawPhoneCounslor() {
         ["G2T En", G2Ten_Avai, colorGreen, lG2Ten_Avai, G2Ten_onContact, color_blue, lG2Ten_onContact, G2TEN_NotReady, color_pink, lG2TEN_NotReady],
         ["G2T Fr", G2Tfr_Avai, colorGreen, lG2Tfr_Avai, G2Tfr_OnContact, color_blue, lG2Tfr_OnContact, G2Tfr_NotReady, color_pink, lG2Tfr_NotReady]
     ]);
-     
+
 
 
     //document.getElementById("lblPhoneCounselorLogin").innerText = busyPhoneEn + busyPhoneFr + busyG2TEn + busyG2TFr;
@@ -237,75 +237,75 @@ google.charts.setOnLoadCallback(drawChatCounslor);
 function drawChatCounslor() {
     var sChatEN_In = document.getElementById("HiddenWebChat_Eng_In").value;
     var ChatEN_In = parseInt(sChatEN_In);
-    var lChatEN_In = ChatEN_In ===0 ? null : ChatEN_In;
+    var lChatEN_In = ChatEN_In === 0 ? null : ChatEN_In;
 
     var sChatEN_Avai = document.getElementById("HiddenWebChat_Eng_Avaiable").value;
     var ChatEN_Avai = parseInt(sChatEN_Avai);
-    var lChatEN_Avai = ChatEN_Avai ===0 ? null : ChatEN_Avai;
+    var lChatEN_Avai = ChatEN_Avai === 0 ? null : ChatEN_Avai;
 
     var sChatEn_OnContact = document.getElementById("HiddenWebChat_Eng_AgentOnContact").value;
     var ChatEn_OnContact = parseInt(sChatEn_OnContact);
-    var lChatEn_OnContact = ChatEn_OnContact ===0 ? null : ChatEn_OnContact;
+    var lChatEn_OnContact = ChatEn_OnContact === 0 ? null : ChatEn_OnContact;
 
     var ChatEn_NoteRady = ChatEN_In - ChatEN_Avai - ChatEn_OnContact;
-    var lChatEn_NoteRady = ChatEn_NoteRady ===0 ? null : ChatEn_NoteRady;
+    var lChatEn_NoteRady = ChatEn_NoteRady === 0 ? null : ChatEn_NoteRady;
 
     var busyChatEn = ChatEN_In - ChatEN_Avai;
-    var lbusyChatEn = busyChatEn ===0 ? null : busyChatEn;
+    var lbusyChatEn = busyChatEn === 0 ? null : busyChatEn;
 
     var sChatFr_In = document.getElementById("HiddenWebChat_Fre_In").value;
     var ChatFr_In = parseInt(sChatFr_In);
-    var lChatFr_In = ChatFr_In ===0? null: ChatFr_In;
+    var lChatFr_In = ChatFr_In === 0 ? null : ChatFr_In;
 
     var sChatFr_Avai = document.getElementById("HiddenWebChat_Fre_Avaiable").value;
     var ChatFr_Avai = parseInt(sChatFr_Avai);
-    var lChatFr_Avai = ChatFr_Avai ===0 ? null : ChatFr_Avai;
+    var lChatFr_Avai = ChatFr_Avai === 0 ? null : ChatFr_Avai;
 
     var sChatFr_OnContact = document.getElementById("HiddenWebChat_Fre_AgentOnContact").value;
     var ChatFr_OnContact = parseInt(sChatFr_OnContact);
-    var lChatFr_OnContact = ChatFr_OnContact ===0 ? null : ChatFr_OnContact;
+    var lChatFr_OnContact = ChatFr_OnContact === 0 ? null : ChatFr_OnContact;
 
     var ChatFr_NotReady = ChatFr_In - ChatFr_Avai - ChatFr_OnContact;
-    var lChatFr_NotReady = ChatFr_NotReady ===0 ? null : ChatFr_NotReady;
+    var lChatFr_NotReady = ChatFr_NotReady === 0 ? null : ChatFr_NotReady;
 
     var busyChatFr = ChatFr_In - ChatFr_Avai;
-    var lbusyChatFr = busyChatFr ===0 ? null : busyChatFr;
+    var lbusyChatFr = busyChatFr === 0 ? null : busyChatFr;
 
     var sChatAppEN_In = document.getElementById("HiddenChatApp_Eng_In").value;
     var ChatAppEN_In = parseInt(sChatAppEN_In);
-    var lChatAppEN_In = ChatAppEN_In ===0 ? null : ChatAppEN_In;
+    var lChatAppEN_In = ChatAppEN_In === 0 ? null : ChatAppEN_In;
 
     var sChatAppEN_Avai = document.getElementById("HiddenChatApp_Eng_Avaiable").value;
     var ChatAppEN_Avai = parseInt(sChatAppEN_Avai);
-    var lChatAppEN_Avai = ChatAppEN_Avai ===0 ? null : ChatAppEN_Avai;
+    var lChatAppEN_Avai = ChatAppEN_Avai === 0 ? null : ChatAppEN_Avai;
 
     var sChatAppEn_OnContact = document.getElementById("HiddenChatApp_Eng_AgentOnContact").value;
     var ChatAppEn_OnContact = parseInt(sChatAppEn_OnContact);
-    var lChatAppEn_OnContact = ChatAppEn_OnContact ===0 ? null : ChatAppEn_OnContact;
+    var lChatAppEn_OnContact = ChatAppEn_OnContact === 0 ? null : ChatAppEn_OnContact;
 
     var ChatAppEn_NotReady = ChatAppEN_In - ChatAppEN_Avai - ChatAppEn_OnContact;
-    var lChatAppEn_NotReady = ChatAppEn_NotReady ===0 ? null : ChatAppEn_NotReady;
+    var lChatAppEn_NotReady = ChatAppEn_NotReady === 0 ? null : ChatAppEn_NotReady;
 
     var busyChatAppEn = ChatAppEN_In - ChatAppEN_Avai;
-    var lbusyChatAppEn = busyChatAppEn ===0 ? null : busyChatAppEn;
+    var lbusyChatAppEn = busyChatAppEn === 0 ? null : busyChatAppEn;
 
     var sChatAppfr_In = document.getElementById("HiddenChatApp_Fre_In").value;
     var ChatAppfr_In = parseInt(sChatAppfr_In);
-    var lChatAppfr_In = ChatAppfr_In ===0 ? null : ChatAppfr_In;
+    var lChatAppfr_In = ChatAppfr_In === 0 ? null : ChatAppfr_In;
 
     var sChatAppfr_Avai = document.getElementById("HiddenChatApp_Fre_Avaiable").value;
     var ChatAppfr_Avai = parseInt(sChatAppfr_Avai);
-    var lChatAppfr_Avai = ChatAppfr_Avai ===0 ? null : ChatAppfr_Avai;
+    var lChatAppfr_Avai = ChatAppfr_Avai === 0 ? null : ChatAppfr_Avai;
 
     var sChatAppFr_OnContact = document.getElementById("HiddenChatApp_Fre_AgentOnContact").value;
     var ChatAppFr_OnContact = parseInt(sChatAppFr_OnContact);
-    var lChatAppFr_OnContact = ChatAppFr_OnContact ===0 ? null : ChatAppFr_OnContact;
+    var lChatAppFr_OnContact = ChatAppFr_OnContact === 0 ? null : ChatAppFr_OnContact;
 
     var ChatAppFr_NotReady = ChatAppfr_In - ChatAppfr_Avai - ChatAppFr_OnContact;
-    var lChatAppFr_NotReady = ChatAppFr_NotReady ===0 ? null : ChatAppFr_NotReady;
+    var lChatAppFr_NotReady = ChatAppFr_NotReady === 0 ? null : ChatAppFr_NotReady;
 
     var busyChatAppFr = ChatAppfr_In - ChatAppfr_Avai;
-    var lbusyChatAppFr = busyChatAppFr ===0 ? null : busyChatAppFr;
+    var lbusyChatAppFr = busyChatAppFr === 0 ? null : busyChatAppFr;
 
 
     var ChatData = google.visualization.arrayToDataTable([

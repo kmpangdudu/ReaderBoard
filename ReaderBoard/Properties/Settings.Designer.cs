@@ -115,7 +115,7 @@ namespace ReaderBoard.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
         public int dayTimeStart {
             get {
                 return ((int)(this["dayTimeStart"]));
@@ -124,7 +124,7 @@ namespace ReaderBoard.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("24")]
+        [global::System.Configuration.DefaultSettingValueAttribute("18")]
         public int dayTimeEnd {
             get {
                 return ((int)(this["dayTimeEnd"]));
@@ -142,7 +142,7 @@ namespace ReaderBoard.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("13")]
+        [global::System.Configuration.DefaultSettingValueAttribute("18")]
         public int ChatEnTimeStart {
             get {
                 return ((int)(this["ChatEnTimeStart"]));
@@ -227,6 +227,15 @@ namespace ReaderBoard.Properties {
         public string DashboardRefreshing {
             get {
                 return ((string)(this["DashboardRefreshing"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.13")]
+        public string dimOpacityNight {
+            get {
+                return ((string)(this["dimOpacityNight"]));
             }
         }
     }

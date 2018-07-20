@@ -4,9 +4,10 @@
 
 $(document).ready(function () {
     var gradient = function (domId, scale) {
-
+ 
         var grade = scale;
-        id = domId;
+         
+        var id = domId;
         var colorGreen = "#00E600";
         var colorOrange = "#FF8C00";
         var colorRed = "#E6005C";
@@ -311,15 +312,29 @@ $(document).ready(function () {
 
     var v1 = document.getElementById("lblPhoneGradeService").value;//57.88;
     var v2 = document.getElementById("lblPhoneGradeService24").value;//19.01;
-    v1 = parseFloat(v1);
-    v2 = parseFloat(v2);
+    if ((isNaN(v1)) || (v1 < 1)) {
+        v1 = 0;
+    }
+    v1 = parseFloat(v1).toFixed(2);
+    
+    if ((isNaN(v2)) || (v2 < 1)) {
+        v2 = 0;
+    }
+    v2 = parseFloat(v2).toFixed(2);
     gradient("GradePhone", v1);//10.12
     gradient("GradePhone24", v2);//89.12
 
     var v3 = document.getElementById("lblChatGradeService").value;//57.88;
     var v4 = document.getElementById("lblChatGradeService24").value;//19.01;
-    v3 = parseFloat(v3);
-    v4 = parseFloat(v4);
+    if ((isNaN(v3))||(v3<1)) {
+        v3 = 0;
+    }
+    v3 = parseFloat(v3).toFixed(2);
+
+    if ((isNaN(v4)) || (v4 < 1)) {
+        v4 = 0;
+    }
+    v4 = parseFloat(v4).toFixed(2);
     gradient("GradeChat", v3);
     gradient("GradeChat24", v4);
 });

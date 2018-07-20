@@ -55,6 +55,12 @@ h5 {
     /*text-shadow: -2px -2px 2px #99d6ff;*/
 }
 
+#clockdate {
+    margin-top: 50px;
+}
+#clock{
+    margin-top:15px;
+}
 p {
     padding: 0px 0px 0px 10px;
     margin: 0px;
@@ -277,9 +283,9 @@ div {
 }
 
 .header {
-    background-color: #eee;
+    background-color: transparent;
     height: 40px;
-    color: #333;
+    color: #333333;
     text-align: center;
     line-height: 40px;
     border-top-left-radius: 7px;

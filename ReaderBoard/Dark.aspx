@@ -5,16 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Readerboard</title>
-    <meta http-equiv="refresh" content="60" />
+    <meta http-equiv="refresh" content="600" />
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <script src="http://d3js.org/d3.v3.min.js" lang="JavaScript"></script>
+<%--<script src="http://d3js.org/d3.v3.min.js" lang="JavaScript"></script>
     <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript" ></script>
     <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
-    
+    <script src="Scripts/custom2.js"></script>
     <link href="Content/dark.css" rel="stylesheet" />
     <script src="Scripts/googleGaugeDark.js"></script>
     <script src="Scripts/processDark.js"></script>
-    <script src="Scripts/liquidFillGauge.js" lang="JavaScript"></script>
+    <script src="Scripts/liquidFillGauge.js" lang="JavaScript"></script>--%>
 
 </head>
 <body>
@@ -49,6 +49,7 @@
                         <asp:HiddenField ID="lblPhoneGradeService" runat="server"></asp:HiddenField>
                     </div>
                     <%--<div id="chart_div1" class="center_child"></div>--%>
+                    <h3>Rolling</h3>
                     <div id="GradePhone" class="center_child"></div>
                 </div>
                 <h3 class="downXXpix">Grade of Service (%)</h3>
@@ -56,6 +57,7 @@
                     <asp:HiddenField ID="lblPhoneGradeService24" runat="server"></asp:HiddenField>
                     <%--<div id="chart_div2" class="center_child"></div>--%>
                     <div id="GradePhone24" class="center_child"></div>
+                    <h3>last 24 hr.</h3>
                 </div>
             </div>
 
@@ -65,19 +67,19 @@
             <div class="  borderLine">
                 <div class="borderShadow">
                     <h1 class="bigfont">
-                        <asp:Label ID="lblPhoneLongestWaitTime" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="lblPhoneLongestWaitTime" runat="server" Text="00:00"></asp:Label>
                     </h1>
                     <h3 class="">Current wait time</h3>
                 </div>
                 <div class="borderShadow">
                     <h1 class="bigfont">
-                        <asp:Label ID="lblPhoneAverageWaitTime" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="lblPhoneAverageWaitTime" runat="server" Text="00:00"></asp:Label>
                     </h1>
                     <h3 class="">Average wait time</h3>
                 </div>
                 <div class="borderShadow">
                     <h1 class="bigfont">
-                        <asp:Label ID="lblPhoneCallToday" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="lblPhoneCallToday" runat="server" Text="0"></asp:Label>
                     </h1>
                     <h3 class="">Calls today</h3>
                 </div>
@@ -93,11 +95,18 @@
                 <div>
                     <svg id="fillgauge_PhoneQueued" width="280" height="400" onclick="gauge5.update(NewValue());"></svg>
                     <script>
+                         var thevalue = document.getElementById('lblPhonePeopleInQueue').value;
+                         var Grey =  "#cccccc";
+                         var Blue =  "#1A1AFF";
+                         var Yellow ="#FFFF00";
+                         var Orange ="#FF8C00";
+                         var Red =   "#E6005C";
+                         var Green = "#00E600";
                         var config4 = liquidFillGaugeDefaultSettings();
                         config4.circleThickness = 0.10; //0.15
-                        config4.circleColor = "#1a1aff"; //KHP Blue;
+                        config4.circleColor = Grey; //KHP Blue;
                         config4.textColor = "#FCFCFC";
-                        config4.waveTextColor = "#1a1aff";
+                        config4.waveTextColor = Grey;
                         config4.waveColor = "1a1aff";
                         config4.textVertPosition = 0.55; //0.8
                         config4.waveAnimateTime = 1000;
@@ -109,10 +118,27 @@
                         config4.textSize = 2.2;//0.75
                         config4.waveCount = 3;//3
                         config4.displayPercent = false; //true
-                        var thevalue = document.getElementById('lblPhonePeopleInQueue').value;
-                        var gauge5 = loadLiquidFillGauge("fillgauge_PhoneQueued", thevalue, config4);
+                        if (isNaN(thevalue) || (thevalue <1)) {
+                            thevalue = 0;
+                        }
+                        var v = parseInt(thevalue);
+ 
+                        if (v >= 5) {
+                            config4.circleColor = Orange;
+                            config4.waveColor = Orange;
+                        } else if (v >= 3) {
+                            config4.circleColor = Yellow;
+                            config4.waveColor = Yellow;
+                        } else if (v >= 1) {
+                            config4.circleColor = Blue;
+                            config4.waveColor = Blue;
+                        } else {
+                             config4.circleColor = Grey;
+                             config4.waveColor = Grey;
+                        };
+                        var gauge4 = loadLiquidFillGauge("fillgauge_PhoneQueued", thevalue, config4);
                     </script>
-                    <h3 class=" Top-min-XXpx">Queued</h3>
+                    <h3>Queued</h3>
                 </div>
             </div>
 
@@ -122,13 +148,13 @@
             <div class="borderLine">
                  <h4 class="ChatDivDown">Counselor</h4>
                 <h2>
-                    <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text="" ForeColor="#00e600"></asp:Label>
+                    <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text="0"></asp:Label><%--green--%>
                     /
-                     <asp:Label ID="lblPhoneCounselorOnContact" runat="server" Text="" ForeColor="#1A1AFF"></asp:Label>
+                     <asp:Label ID="lblPhoneCounselorOnContact" runat="server" Text="0"></asp:Label> <%--Blue--%>
                     /
-                    <asp:Label ID="lblPhoneCounselorNotReady" runat="server" Text="" ForeColor="#E6005C"></asp:Label>
+                    <asp:Label ID="lblPhoneCounselorNotReady" runat="server" Text="0"></asp:Label> <%--Red--%>
                    
-                     <asp:Label ID="lblPhoneCounselorLogin" runat="server" Text="" Visible="False"></asp:Label>
+                     <asp:Label ID="lblPhoneCounselorLogin" runat="server" Text="0" Visible="False"></asp:Label>
                 </h2>
                 <h5>
                     <img alt="Avail" src="Content/green30x15.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;
@@ -144,7 +170,7 @@
         <p style="height:3px;">&nbsp;</p>
 
         <div id="dimmed" runat="server" >
-        <div id="chat" class="flex-container effect5 borderLineThick">  
+        <div id="chat" class="flex-container effect55 borderLineThick">  
             <div class="midfont_title  borderLine" style="flex-basis: 15%" >
                 <div class="logodiv ChatDivDown">
                     <%--<img src="Content/KHP_EN_RGB.svg" alt="Home" class="logostyle">--%>
@@ -168,6 +194,7 @@
                         <asp:HiddenField ID="lblChatGradeService" runat="server" />
                     </div>
                     <%--<div id="chart_div3" class="center_child"></div>--%>
+                    <h3>Rolling</h3>
                     <div id="GradeChat" class="center_child"></div>
                 </div>
                 <h3 class="downXXpix">Grade of Service (%)</h3>
@@ -177,6 +204,7 @@
                     </div>
                     <%--<div id="chart_div4" class="center_child"  ></div>--%>
                     <div id="GradeChat24" class="center_child"  ></div>
+                    <h3>last 24 hr.</h3>
                 </div>
             </div>
 
@@ -186,19 +214,19 @@
             <div class=" borderLine">
                 <div class="borderShadow">
                     <h1 class="bigfont">
-                        <asp:Label ID="lblChatLongestWaitTime" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="lblChatLongestWaitTime" runat="server" Text="00:00"></asp:Label>
                     </h1>
                     <h3 class="">Current wait time</h3>
                 </div>
                 <div class="borderShadow">
                     <h1 class="bigfont">
-                        <asp:Label ID="lblChatAverageWaitTime" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="lblChatAverageWaitTime" runat="server" Text="00:00"></asp:Label>
                     </h1>
                     <h3 class="">Average wait time</h3>
                 </div>
                 <div class="borderShadow">
                     <h1 class="bigfont">
-                        <asp:Label ID="lblChatCallToday" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="lblChatCallToday" runat="server" Text="0"></asp:Label>
                     </h1>
                     <h3 class="">Chats today</h3>
                 </div>
@@ -213,14 +241,22 @@
                 </div>
                 <div >
                     <svg id="fillgauge_ChatQueued" width="280" height="400" onclick="gauge5.update(NewValue());"></svg>
-                    <%--width 280 X height="500"  down  best --%>
                     <script>
+                        var thevalue = document.getElementById('lblChatPeopleInQueue').value;
+
+                         var Grey =  "#cccccc";
+                         var Blue =  "#1A1AFF";
+                         var Yellow ="#FFFF00";
+                         var Orange ="#FF8C00";
+                         var Red =   "#E6005C";
+                        var Green = "#00E600";
+
                         var config5 = liquidFillGaugeDefaultSettings();
                         config5.circleThickness = 0.10; //0.15
-                        config5.circleColor = "1a1aff";//808015  
+                        config5.circleColor = Grey;//808015  
                         config5.textColor = "FCFCFC";
                         config5.waveTextColor = "1a1aff";//FFFFAA
-                        config5.waveColor = "1a1aff";   //AAAA39
+                        config5.waveColor = "FCFCFC";   //AAAA39
                         config5.textVertPosition = 0.55; //0.8
                         config5.waveAnimateTime = 1000;
                         config5.waveHeight = 0.3;
@@ -231,27 +267,46 @@
                         config5.textSize = 2.1;//0.75
                         config5.waveCount = 3;//3
                         config5.displayPercent = false; //true
-                        var thevalue = document.getElementById('lblChatPeopleInQueue').value;
+
+
+                        if (isNaN(thevalue) || (thevalue <1)) {
+                            thevalue = 0;
+                        }
+                        var v = parseInt(thevalue);
+
+                        if (v >= 5) {
+                            config5.circleColor = Orange;
+                             config5.waveColor = Orange;
+                        } else if (v >= 3) {
+                            config5.circleColor = Yellow;
+                             config5.waveColor = Yellow;
+                        } else if (v >= 1) {
+                            config5.circleColor = Blue;
+                            config5.waveColor = Blue;
+                        } else {
+                             config5.circleColor = Grey;
+                              config5.waveColor = Grey  ;
+                        };
+
                         var gauge5 = loadLiquidFillGauge("fillgauge_ChatQueued", thevalue, config5);
                     </script>
                 </div>
-                <h3 class=" Top-min-XXpx">Queued</h3>
+                <h3>Queued</h3>
             </div>
 
 
 
             <!-- Chat Counselor Available       -->
             <div class="borderLine ">
-                 <h4 class="ChatDivDown">Counselor</h4>
-
+                <h4 class="ChatDivDown">Counselor</h4>
                 <h2>
-                    <asp:Label ID="lblChatCounselorAvailable" runat="server" Text="" ForeColor="#00e600"></asp:Label>
+                    <asp:Label ID="lblChatCounselorAvailable" runat="server" Text="0" ></asp:Label><%--green--%>
                     /
-                     <asp:Label ID="lblChatCounselorOnContact" runat="server" Text="" ForeColor="#1A1AFF"></asp:Label>
+                     <asp:Label ID="lblChatCounselorOnContact" runat="server" Text="0" ></asp:Label><%--Blue--%>
                     /
-                    <asp:Label ID="lblChatCounselorNotReady" runat="server" Text="" ForeColor="#E6005C"></asp:Label>
+                    <asp:Label ID="lblChatCounselorNotReady" runat="server" Text="0" ></asp:Label><%--Red--%>
                    
-                     <asp:Label ID="lblChatCounselorLogin" runat="server" Text="" Visible="False"></asp:Label>
+                     <asp:Label ID="lblChatCounselorLogin" runat="server" Text="0" Visible="False"></asp:Label>
                 </h2>
                  <h5>
                     <img alt="Avail" src="Content/green30x15.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;

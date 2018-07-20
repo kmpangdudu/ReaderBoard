@@ -1,36 +1,7 @@
 ﻿
 
 function liquidFillGaugeDefaultSettings() {
-    
-    //var v = value;
 
-    //const obj_CircGrey = {
-    //    circleColor: "#cccccc"
-    //}
-    //const obj_CircBlue = {
-    //    circleColor: "#1A1AFF"
-    //}
-    //const obj_CircYellow = {
-    //    circleColor: "#FFFF00"
-    //}
-    //const obj_CircOrange = {
-    //    circleColor: "#FF8C00"
-    //}
-    //const obj_CircRed = {
-    //    circleColor: "#E6005C"
-    //}
-    //const obj_CircGreen = {
-    //    circleColor: "#00E600"
-    //}
-
-
- var Grey =  "#cccccc";
- var Blue =  "#1A1AFF";
- var Yellow ="#FFFF00";
- var Orange ="#FF8C00";
- var Red =   "#E6005C";
- var Green = "#00E600";
-   
     var def =
         {
             minValue: 0, // The gauge minimum value. default 0
@@ -55,26 +26,7 @@ function liquidFillGaugeDefaultSettings() {
             waveTextColor: "#1a1aff" // The color of the value text when the wave overlaps it.
         };
 
-    //alert(typeof value); alert(value);
-    //v = parseInt(value);
-    //switch (v) {
-    //    case (v >= 5):
-    //        def.circleColor = Orange; alert("v >= 1   Orange " + def.circleColor);
-    //        return def;
-    //        break;
-    //    case (v >= 3):
-    //        def.circleColor = Yellow; alert("v >= 3   Yellow " + def.circleColor);
-    //        return def ;
-    //        break;
-    //    case (v >= 1):
-    //        def.circleColor = Blue; alert("v >= 1   blue " + def.circleColor);
-    //        return def;
-    //        break;
-    //    default:
-    //        alert("v =0   grey " + def.circleColor);
-    //        return def; 
-    //        break;
-    //}
+
     return def; 
 }
 
@@ -83,7 +35,7 @@ function loadLiquidFillGauge(elementId, value, config) {
  
 
 
-    if (config == null) config = liquidFillGaugeDefaultSettings(value);
+    if (config == null) config = liquidFillGaugeDefaultSettings();
 
 
  

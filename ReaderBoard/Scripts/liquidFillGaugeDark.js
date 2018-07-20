@@ -1,69 +1,39 @@
-﻿/*!
- * @license Open source under BSD 2-clause (http://choosealicense.com/licenses/bsd-2-clause/)
- * Copyright (c) 2015, Curtis Bratton
- * All rights reserved.
- *
- * Liquid Fill Gauge v1.1
- */
-function liquidFillGaugeDefaultSettings(value) {
-    const obj_CircGrey = {
-        circleColor: "#cccccc"
-    }
-    const obj_CircBlue = {
-        circleColor: "#1A1AFF"
-    }
-    const obj_CircYellow = {
-        circleColor: "#FFFF00"
-    }
-    const obj_CircRed = {
-        circleColor: "#E6005C"
-    }
-    const obj_CircOrange = {
-        circleColor: "#FF8C00"
-    }
-    const obj_CircGreen = {
-        circleColor: "#00E600"
-    }
-    var def = {
-        minValue: 0, // The gauge minimum value. default 0
-        maxValue: 100, // The gauge maximum value.
-        circleThickness: 0.1, // The outer circle thickness as a percentage of it's radius.
-        circleFillGap: 0.05, // The size of the gap between the outer circle and wave circle as a percentage of the outer circles radius.
-        circleColor: "#1a1aff", // The color of the outer circle.
-        waveHeight: 0.3, // The wave height as a percentage of the radius of the wave circle.
-        waveCount: 3, // The number of full waves per width of the wave circle.
-        waveRiseTime: 1000, // The amount of time in milliseconds for the wave to rise from 0 to it's final height.
-        waveAnimateTime: 1000, // The amount of time in milliseconds for a full wave to enter the wave circle.
-        waveRise: true, // Control if the wave should rise from 0 to it's full height, or start at it's full height.
-        waveHeightScaling: true, // Controls wave size scaling at low and high fill percentages. When true, wave height reaches it's maximum at 50% fill, and minimum at 0% and 100% fill. This helps to prevent the wave from making the wave circle from appear totally full or empty when near it's minimum or maximum fill.
-        waveAnimate: true, // Controls if the wave scrolls or is static.
-        waveColor: "#1a1aff", // The color of the fill wave.
-        waveOffset: 0.35, // The amount to initially offset the wave. 0 = no offset. 1 = offset of one full wave.
-        textVertPosition: .55, // The height at which to display the percentage text withing the wave circle. 0 = bottom, 1 = top.
-        textSize: 2.2, // The relative height of the text to display in the wave circle. 1 = 50%
-        valueCountUp: true, // If true, the displayed value counts up from 0 to it's final value upon loading. If false, the final value is displayed.
-        displayPercent: false, // If true, a % symbol is displayed after the value.
-        textColor: "#FCFCFC", // The color of the value text when the wave does not overlap it.
-        waveTextColor: "#1a1aff" // The color of the value text when the wave overlaps it.
-    };
+﻿
+
+function liquidFillGaugeDefaultSettings() {
+
+    var def =
+        {
+            minValue: 0, // The gauge minimum value. default 0
+            maxValue: 100, // The gauge maximum value.
+            circleThickness: 0.1, // The outer circle thickness as a percentage of it's radius.
+            circleFillGap: 0.05, // The size of the gap between the outer circle and wave circle as a percentage of the outer circles radius.
+            circleColor: Grey, // The color of the outer circle.
+            waveHeight: 0.3, // The wave height as a percentage of the radius of the wave circle.
+            waveCount: 3, // The number of full waves per width of the wave circle.
+            waveRiseTime: 1000, // The amount of time in milliseconds for the wave to rise from 0 to it's final height.
+            waveAnimateTime: 1000, // The amount of time in milliseconds for a full wave to enter the wave circle.
+            waveRise: true, // Control if the wave should rise from 0 to it's full height, or start at it's full height.
+            waveHeightScaling: true, // Controls wave size scaling at low and high fill percentages. When true, wave height reaches it's maximum at 50% fill, and minimum at 0% and 100% fill. This helps to prevent the wave from making the wave circle from appear totally full or empty when near it's minimum or maximum fill.
+            waveAnimate: true, // Controls if the wave scrolls or is static.
+            waveColor: "#1a1aff", // The color of the fill wave.
+            waveOffset: 0.35, // The amount to initially offset the wave. 0 = no offset. 1 = offset of one full wave.
+            textVertPosition: .55, // The height at which to display the percentage text withing the wave circle. 0 = bottom, 1 = top.
+            textSize: 2.2, // The relative height of the text to display in the wave circle. 1 = 50%
+            valueCountUp: true, // If true, the displayed value counts up from 0 to it's final value upon loading. If false, the final value is displayed.
+            displayPercent: false, // If true, a % symbol is displayed after the value.
+            textColor: "#333333", // The color of the value text when the wave does not overlap it.
+            waveTextColor: "#1a1aff" // The color of the value text when the wave overlaps it.
+        };
 
 
-    switch (value) {
-    case (value >= 5): return Object.assign(def, obj_CircOrange);
-        break;
-    case (value == 3 || value == 4): return Object.assign(def, obj_CircYellow);
-        break;
-    case (value == 1 || value == 2): return Object.assign(def, obj_CircBlue);
-        break;
-    default: return Object.assign(def, obj_CircGrey);
-        break;
-    }  
+    return def;
 }
 
 function loadLiquidFillGauge(elementId, value, config) {
 
 
-    if (config == null) config = liquidFillGaugeDefaultSettings(value);
+    if (config == null) config = liquidFillGaugeDefaultSettings();
 
     var gauge = d3.select("#" + elementId);
     var radius = Math.min(parseInt(gauge.style("width")), parseInt(gauge.style("height"))) / 2;
