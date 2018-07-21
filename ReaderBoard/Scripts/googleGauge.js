@@ -11,7 +11,7 @@ var colorWhite = "FCFCFC";
 
 var dayTimeStart = 8; //= document.getElementById('HiddendayTimeStart').value;
 
-var dayTimeEnd = 18;  //= document.getElementById('HiddendayTimeEnd').value;
+var dayTimeEnd = 17;  //= document.getElementById('HiddendayTimeEnd').value;
  
 var hours = new Date();
  
