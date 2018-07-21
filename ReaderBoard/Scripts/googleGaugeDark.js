@@ -1,11 +1,13 @@
 ﻿google.charts.load("current", { "packages": ["gauge"] });
 google.charts.setOnLoadCallback(drawPhoneChart);
 
-var color_pink = "e6005c";  //pink
+var color_pink = "4062BB";  //pink E6005C
 var color_blue = "1a1aff";  //blue
 var color_yellow = "FFFB33";  //yellow
 var color_puler = "9933ff"; //puler
 var colorGreen = "00FF00";
+var colorBlack = "333333";
+var colorWhite = "FCFCFC";
 
 var options = {
     width: 250, height: 200,  //Gauge height  250*200 id best
@@ -97,7 +99,7 @@ var lablefontsize = 22;
 var opt_Phone = {
     height: varHeight,
     isStacked: 'percent',
-    //legend: { position: 'top', maxLines: 3, textStyle: { color: '333333', fontSize: 14, bold: true } },
+    //legend: { position: 'top', maxLines: 3, textStyle: { color: colorBlack, fontSize: 14, bold: true } },
     legend: { position: 'none' },
     bar: { groupWidth: bargroupWidth },
     chartArea: { left: 95, top:15, width: chartAreaWidth, height: chartAreaHeight},
@@ -105,13 +107,13 @@ var opt_Phone = {
     colors: [colorGreen, color_blue, color_pink],
 
     hAxis: { // actual H.
-        TextStyle: { color: "333333", fontSize: 20, bold: true, italic: false },
+        TextStyle: { color: colorBlack, fontSize: 20, bold: true, italic: false },
         textPosition: 'none',
         gridlines: { color: 'transparent' },
         baselineColor: "none" 
     },
     vAxis: { //actual V
-        textStyle: { color: "333333",fontSize: 20, bold: true, italic: false  },
+        textStyle: { color: colorBlack,fontSize: 20, bold: true, italic: false  },
         gridlines: { color: 'transparent' },
         baselineColor:"none"
     },

@@ -36,7 +36,7 @@
       <Value Profile="(Default)">8</Value>
     </Setting>
     <Setting Name="dayTimeEnd" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">18</Value>
+      <Value Profile="(Default)">17</Value>
     </Setting>
     <Setting Name="ChatEnDayStart" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">3</Value>
@@ -66,13 +66,13 @@
       <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="dimOpacity" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">0.3</Value>
+      <Value Profile="(Default)">0.2</Value>
     </Setting>
     <Setting Name="DashboardRefreshing" Type="System.String" Scope="Application">
       <Value Profile="(Default)">3</Value>
     </Setting>
     <Setting Name="dimOpacityNight" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">0.13</Value>
+      <Value Profile="(Default)">0.1</Value>
     </Setting>
   </Settings>
 </SettingsFile>

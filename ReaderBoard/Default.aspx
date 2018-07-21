@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Readerboard</title>
-    <meta http-equiv="refresh" content="600" />
+    <meta http-equiv="refresh" content="120" />
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <script src="http://d3js.org/d3.v3.min.js" lang="JavaScript"></script>
     <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript" ></script>
@@ -29,7 +29,9 @@
                 <div class="ChatDivDown">
                     <h2>Phone</h2>
                 </div>
- 
+ <div>
+     <img src="Content/phone-icon3.png" class="phone"/>
+ </div>
                 <div id="clockdate">
                     <div class="clock">
                         <div id="clock"></div>
@@ -49,7 +51,7 @@
                         <asp:HiddenField ID="lblPhoneGradeService" runat="server"></asp:HiddenField>
                     </div>
                     <%--<div id="chart_div1" class="center_child"></div>--%>
-                    <h3 >Rolling</h3>
+                    <h3 class="Labeling">Rolling</h3>
                     <div id="GradePhone" class="center_child"></div>
                 </div>
                 <h3 class="downXXpix">Grade of Service (%)</h3>
@@ -57,7 +59,7 @@
                     <asp:HiddenField ID="lblPhoneGradeService24" runat="server"></asp:HiddenField>
                     <%--<div id="chart_div2" class="center_child"></div>--%>
                     <div id="GradePhone24" class="center_child"></div>
-                    <h3>last 24 hr.</h3>
+                    <h3 class="Labeling">Last 24 hr.</h3>
                     
                 </div>
             </div>
@@ -99,22 +101,21 @@
                         var thevalue = document.getElementById('lblPhonePeopleInQueue').value;
                         var dayTimeStart = document.getElementById('HiddendayTimeStart').value;
                         var dayTimeEnd = document.getElementById('HiddendayTimeEnd').value;
-                        
-
+                    
                         var hours = new Date();
                          var Grey =  "#cccccc";
-                         var Blue =  "#1A1AFF";
+                         var Blue =  "#4062BB"; //"#1A1AFF";
                          var Yellow ="#FFFF00";
                          var Orange ="#FF8C00";
-                         var Red =   "#E6005C";
-                        var Green = "#00E600";
-                        var White = "#FCFCFC";
-                        var Black = "#333333";
+                         var Red =   "#F45B69"; //E6005C
+                        var Green = "#4CAF50"; //00e600
+                        var colorWhite = "#FCFCFC";
+                        var colorBlack = "#333333";
 
                         var config4 = liquidFillGaugeDefaultSettings();
                         config4.circleThickness = 0.10; //0.15
                         config4.circleColor = Grey; //KHP Blue;
-                        config4.textColor = White;
+                        config4.textColor = colorWhite;
                         config4.waveTextColor = Grey;
                         config4.waveColor = "1a1aff";
                         config4.textVertPosition = 0.55; //0.8
@@ -148,14 +149,14 @@
                              config4.waveColor = Grey;
                         };
 
-                  
-               
-                        //means in day time
-                        if ((dayTimeStart <= hours.getHours() && hours.getHours() <= dayTimeEnd)) {
-                            config4.textColor = Black;
+
+
+                       //means in day time
+                        if (dayTimeStart <= hours.getHours() && hours.getHours() <= dayTimeEnd-1) {
+                            config4.textColor = colorBlack;
                         }
                         else {
-                             config4.textColor = White;
+                            config4.textColor = colorWhite;
                         };
 
                         var gauge4 = loadLiquidFillGauge("fillgauge_PhoneQueued", thevalue, config4);
@@ -168,7 +169,7 @@
 
             <!-- Phone Counselor Availabele  -->
             <div class="borderLine">
-                <h4 class="ChatDivDown">Counselor</h4>
+                <h4>Counselor</h4>
                 <h2>
                     <asp:Label ID="lblPhoneCounselorAvailable" runat="server" Text="0"></asp:Label><%--green--%>
                     /
@@ -179,9 +180,9 @@
                      <asp:Label ID="lblPhoneCounselorLogin" runat="server" Text="0" Visible="False"></asp:Label>
                 </h2>
                 <h5>
-                    <img alt="Avail" src="Content/green30x15.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;
-                    <img alt="OnContact" src="Content/blue.png" />&nbsp;OnContact&nbsp;&nbsp;&nbsp;
-                    <img alt="Not Ready" src="Content/red.png" />&nbsp; Not Ready
+                    <img alt="Avail" src="Content/green_Rob.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;
+                    <img alt="On Contact" src="Content/blue_Rob.png" />&nbsp;On Contact&nbsp;&nbsp;&nbsp;
+                    <img alt="Not Ready" src="Content/red_Rob.png" />&nbsp; Not Ready
                 </h5>
                     <div id="PhoneCounslor"></div>
                
@@ -200,7 +201,7 @@
                     <%--<img src="Content/KHP_EN_RGB.svg" alt="Home" class="logostyle">--%>
                 </div>
                 <div>
-                    <h2>Live Chat</h2>
+                    <h6>Live Chat</h6>
                 </div>
 
                <div class="container_parent">
@@ -217,7 +218,7 @@
                         <asp:HiddenField ID="lblChatGradeService" runat="server" />
                     </div>
                     <%--<div id="chart_div3" class="center_child"></div>--%>
-                    <h3>Rolling</h3>
+                    <h3 class="Labeling">Rolling</h3>
                     <div id="GradeChat" class="center_child"></div>
                 </div>
                 <h3 class="downXXpix">Grade of Service (%)</h3>
@@ -227,7 +228,7 @@
                     </div>
                     <%--<div id="chart_div4" class="center_child"  ></div>--%>
                     <div id="GradeChat24" class="center_child"  ></div>
-                    <h3>last 24 hr.</h3>
+                    <h3 class="Labeling">Last 24 hr.</h3>
                 </div>
             </div>
 
@@ -266,18 +267,23 @@
                     <svg id="fillgauge_ChatQueued" width="280" height="400" onclick="gauge5.update(NewValue());"></svg>
                     <script>
                         var thevalue = document.getElementById('lblChatPeopleInQueue').value;
-
+                        var dayTimeStart = document.getElementById('HiddendayTimeStart').value;
+                        var dayTimeEnd = document.getElementById('HiddendayTimeEnd').value;
+                    
+                        var hours = new Date();
                          var Grey =  "#cccccc";
-                         var Blue =  "#1A1AFF";
+                         var Blue =  "#4062BB"; //1a1aff
                          var Yellow ="#FFFF00";
                          var Orange ="#FF8C00";
-                         var Red =   "#E6005C";
-                        var Green = "#00E600";
+                         var Red =   "#F45B69"; //E6005C
+                        var Green = "#4CAF50"; //00e600
+                        var colorBlack = "#333333";
+                        var colorWhite = "#FCFCFC";
 
                         var config5 = liquidFillGaugeDefaultSettings();
                         config5.circleThickness = 0.10; //0.15
                         config5.circleColor = Grey;//808015  
-                        config5.textColor = "333333";
+                        config5.textColor = colorBlack;
                         config5.waveTextColor = "1a1aff";//FFFFAA
                         config5.waveColor = Grey;   //AAAA39
                         config5.textVertPosition = 0.55; //0.8
@@ -311,13 +317,15 @@
                               config5.waveColor = Grey  ;
                         };
 
+                     
                          //means in day time
-                        if ((dayTimeStart <= hours.getHours() && hours.getHours() <= dayTimeEnd)) {
-                            config5.textColor = Black;
+                        if (dayTimeStart <= hours.getHours() && hours.getHours() <= dayTimeEnd-1) {
+                            config5.textColor = colorBlack;
                         }
                         else {
-                             config5.textColor = White;
+                            config5.textColor = colorWhite;
                         };
+                     
 
     var gauge5 = loadLiquidFillGauge("fillgauge_ChatQueued", thevalue, config5);
                     </script>
@@ -329,7 +337,7 @@
 
             <!-- Chat Counselor Available       -->
             <div class="borderLine ">
-                <h4 class="ChatDivDown">Counselor</h4>
+                <h4>Counselor</h4>
                 <h2>
                     <asp:Label ID="lblChatCounselorAvailable" runat="server" Text="0" ></asp:Label><%--green--%>
                     /
@@ -340,9 +348,9 @@
                      <asp:Label ID="lblChatCounselorLogin" runat="server" Text="0" Visible="False"></asp:Label>
                 </h2>
                 <h5>
-                    <img alt="Avail" src="Content/green30x15.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;
-                    <img alt="OnContact" src="Content/blue.png" />&nbsp;On Contact&nbsp;&nbsp;&nbsp;
-                    <img alt="Not Ready" src="Content/red.png" />&nbsp; Not Ready
+                    <img alt="Avail" src="Content/green_Rob.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;
+                    <img alt="On Contact" src="Content/blue_Rob.png" />&nbsp;On Contact&nbsp;&nbsp;&nbsp;
+                    <img alt="Not Ready" src="Content/red_Rob.png" />&nbsp; Not Ready
                 </h5>
 
                 <div id="ChatCounslor"></div>

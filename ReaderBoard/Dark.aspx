@@ -100,8 +100,8 @@
                          var Blue =  "#1A1AFF";
                          var Yellow ="#FFFF00";
                          var Orange ="#FF8C00";
-                         var Red =   "#E6005C";
-                         var Green = "#00E600";
+                         var Red =   "#F45B69"; //E6005C
+                         var Green = "#4CAF50"; //00e600
                         var config4 = liquidFillGaugeDefaultSettings();
                         config4.circleThickness = 0.10; //0.15
                         config4.circleColor = Grey; //KHP Blue;
@@ -158,7 +158,7 @@
                 </h2>
                 <h5>
                     <img alt="Avail" src="Content/green30x15.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;
-                    <img alt="OnContact" src="Content/blue.png" />&nbsp;On Contact&nbsp;&nbsp;&nbsp;
+                    <img alt="On Contact" src="Content/blue.png" />&nbsp;On Contact&nbsp;&nbsp;&nbsp;
                     <img alt="Not Ready" src="Content/red.png" />&nbsp; Not Ready
                 </h5>
                     <div id="PhoneCounslor"></div>
@@ -248,8 +248,8 @@
                          var Blue =  "#1A1AFF";
                          var Yellow ="#FFFF00";
                          var Orange ="#FF8C00";
-                         var Red =   "#E6005C";
-                        var Green = "#00E600";
+                         var Red =   "#4062BB"; //E6005C
+                        var Green = "#4CAF50"; //00e600
 
                         var config5 = liquidFillGaugeDefaultSettings();
                         config5.circleThickness = 0.10; //0.15
@@ -310,7 +310,7 @@
                 </h2>
                  <h5>
                     <img alt="Avail" src="Content/green30x15.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;
-                    <img alt="OnContact" src="Content/blue.png" />&nbsp;On Contact&nbsp;&nbsp;&nbsp;
+                    <img alt="On Contact" src="Content/blue.png" />&nbsp;On Contact&nbsp;&nbsp;&nbsp;
                     <img alt="Not Ready" src="Content/red.png" />&nbsp; Not Ready
                 </h5>
                  

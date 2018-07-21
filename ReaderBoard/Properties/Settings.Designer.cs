@@ -124,7 +124,7 @@ namespace ReaderBoard.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("18")]
+        [global::System.Configuration.DefaultSettingValueAttribute("17")]
         public int dayTimeEnd {
             get {
                 return ((int)(this["dayTimeEnd"]));
@@ -214,7 +214,7 @@ namespace ReaderBoard.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.2")]
         public string dimOpacity {
             get {
                 return ((string)(this["dimOpacity"]));
@@ -232,7 +232,7 @@ namespace ReaderBoard.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.13")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.1")]
         public string dimOpacityNight {
             get {
                 return ((string)(this["dimOpacityNight"]));

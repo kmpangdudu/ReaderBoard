@@ -8,10 +8,12 @@ $(document).ready(function () {
         var grade = scale;
          
         var id = domId;
-        var colorGreen = "#00E600";
+        var colorGreen = "#4CAF50"; //00E600
         var colorOrange = "#FF8C00";
-        var colorRed = "#E6005C";
-        var colorBlue = "#1A1AFF";
+        var colorRed = "#F45B69"; //E6005C
+        var colorBlue = "#4062BB"; //1a1aff
+        var lightGrey = "#f4f3f8";
+        var darkGrey = "#4d4d4d"; 
 
         var createShadow = function (svg) {
             var defs = svg.append("svg:defs");
@@ -111,10 +113,10 @@ $(document).ready(function () {
             .value(function (d) { return d })
             .sort(null);
 
-        var w = 220, h = 220;  //default 300*300   //william extenal circle R
+        var w = 195, h = 195;  //default 300*300   //william extenal circle R
 
         var outerRadius = (w / 2) - 10;
-        var innerRadius = 85; //default 110   //william inner circle R
+        var innerRadius = 76; //default 110   //william inner circle R
 
 
         var arcBackground = d3.svg.arc()
@@ -145,7 +147,7 @@ $(document).ready(function () {
                 class: 'shadow'
             }).append('g')
             .attr({
-                transform: 'translate(' + w / 2 + ',' + h / 2 + ')'  //w离左边距离；h 离顶的距离
+                transform: 'translate(' + w / 2 + ',' + h / 2 + ')'  //william w离左边距离；h 离顶的距离
             });
 
 
@@ -153,7 +155,8 @@ $(document).ready(function () {
 
         createShadow(svg);
         // domid
-        createGradient(svg, "gradient" + domId, "#FF0000", "#00FF00");   //william start pen color"#40a6f8";  and end pen color "1a70e7"
+        createGradient(svg, "gradient" + domId, "#FF0000", "#00FF00");
+        //william start pen color"#40a6f8";  and end pen color "1a70e7"
 
 
         //background
@@ -162,10 +165,31 @@ $(document).ready(function () {
                 d: arcBackground
             })
             .style({
-                fill: '#f4f3f8',  //william 背后圆形的颜色 
+                fill: lightGrey,  //william   pathBackground未填充圆形的颜色  f4f3f8
                 stroke: '#e2e7eb',
                 'stroke-width': 1
             });
+
+        //william 
+        var dayTimeStart = document.getElementById('HiddendayTimeStart').value;
+        var dayTimeEnd = document.getElementById('HiddendayTimeEnd').value;
+        var hours = new Date();
+        // william means in day time
+        if ((parseInt(dayTimeStart) <= hours.getHours() && hours.getHours() <= parseInt(dayTimeEnd)-1)) {
+            pathBackground.style.fill = lightGrey;
+        }
+        else {
+            
+            pathBackground = svg.append('path')
+                .attr({
+                    d: arcBackground
+                })
+                .style({
+                    fill: darkGrey,  //william   pathBackground未填充圆形的颜色  f4f3f8
+                    stroke: '#000000', //e2e7eb pathBackground未填充圆形的边线
+                    'stroke-width': 1
+                });
+        };
 
 
         var pathForeground = svg.append('path')
@@ -191,8 +215,8 @@ $(document).ready(function () {
 
         var endCircle = svg.append('circle')
             .attr({
-                r: 5,
-                transform: 'translate(0,' + (-outerRadius + 7) + ')'
+                r: 4,
+                transform: 'translate(0,' + (-outerRadius + 6) + ')'
             })
             .style({
                 stroke: '#0751b7',
@@ -205,8 +229,8 @@ $(document).ready(function () {
 
         var startCircle = svg.append('circle')//circle
             .attr({
-                r: 5, //启点小圆圈的大小
-                transform: 'translate(0,' + (-outerRadius + 7) + ')'   //+的数字是起点小圆圈的上下调整
+                r: 4, //启点小圆圈的大小
+                transform: 'translate(0,' + (-outerRadius + 6) + ')'   //+的数字是起点小圆圈的上下调整
             })
             .style({
                 stroke: '#0751b7',
