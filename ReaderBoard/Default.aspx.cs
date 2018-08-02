@@ -3,6 +3,7 @@ using ReaderBoard.iceCTI;
 using System;
 using System.Data.Entity.Core.Objects;
 using System.Drawing;
+using System.Linq;
 using System.Net;
 using System.Web.UI;
 using System.Web.UI.DataVisualization.Charting;
@@ -249,12 +250,12 @@ namespace ReaderBoard
                     +Convert.ToInt32(stru_G2T_FRE.NumHandledLessThanTarget);
                 iNumhundledLessThanTarget = iNumhundledLessThanTarget < 0 ? 0 : iNumhundledLessThanTarget;
 
-                Double LongestWaitTime = 
-                   Convert.ToDouble (stru_Phone_ENG.LongestWaitTime) 
-                    +Convert.ToDouble(stru_Phone_FRE.LongestWaitTime) 
-                    +Convert.ToDouble(stru_G2T_ENG.LongestWaitTime) 
-                    +Convert.ToDouble(stru_G2T_FRE.LongestWaitTime);
-                LongestWaitTime = (LongestWaitTime / 4) / 60; // Average , Convert to mintue
+                double[] QLongestWaitTime = new double[4];
+                QLongestWaitTime[0] = Convert.ToDouble(stru_Phone_ENG.LongestWaitTime);
+                QLongestWaitTime[1] = Convert.ToDouble(stru_Phone_FRE.LongestWaitTime);
+                QLongestWaitTime[2] = Convert.ToDouble(stru_G2T_ENG.LongestWaitTime);
+                QLongestWaitTime[3] = Convert.ToDouble(stru_G2T_FRE.LongestWaitTime);
+                double LongestWaitTime = QLongestWaitTime.Max() / 60; // Convert to mintue
                 LongestWaitTime = LongestWaitTime < 0 ? 0 : LongestWaitTime;
 
                 Double AverageWaitTime = 
@@ -377,12 +378,12 @@ namespace ReaderBoard
                     +Convert.ToInt32(stru_ChatApp_FRE.NumHandledLessThanTarget);
                 iNumhundledLessThanTarget = iNumhundledLessThanTarget < 0 ? 0 : iNumhundledLessThanTarget;
 
-                double LongestWaitTime =           
-                   Convert.ToDouble (stru_Chat_ENG.LongestWaitTime) 
-                    +Convert.ToDouble(stru_Chat_FRE.LongestWaitTime) 
-                    +Convert.ToDouble(stru_ChatApp_ENG.LongestWaitTime) 
-                    +Convert.ToDouble(stru_ChatApp_FRE.LongestWaitTime);
-                LongestWaitTime = (LongestWaitTime / 4) / 60; //average, changing to minute
+                double[] QLongestWaitTime = new double[4];
+                QLongestWaitTime[0] = Convert.ToDouble(stru_Chat_ENG.LongestWaitTime);
+                QLongestWaitTime[1] = Convert.ToDouble(stru_Chat_FRE.LongestWaitTime);
+                QLongestWaitTime[2] = Convert.ToDouble(stru_ChatApp_ENG.LongestWaitTime);
+                QLongestWaitTime[3] = Convert.ToDouble(stru_ChatApp_FRE.LongestWaitTime);
+                double LongestWaitTime = QLongestWaitTime.Max()  / 60; //changing to minute
                 LongestWaitTime = LongestWaitTime < 0 ? 0 : LongestWaitTime;
 
                 double AverageWaitTime =           

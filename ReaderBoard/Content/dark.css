@@ -14,7 +14,9 @@ body::-webkit-scrollbar-thumb {
 body {
     background-color: #000;
     color: #FFFFFF;
-    font-family: "Arial Rounded MT Bold", Arial,"Helvetica Rounded" Helvetica, sans-serif !important;
+    font-family: ArialRoundedMTBold, "Arial Rounded MT Bold", Arial, Helvetica, sans-serif;
+   
+    /*font-family: "Arial Rounded MT Bold", Arial,"Helvetica Rounded" Helvetica, sans-serif !important;*/
     margin: 0 5px;
 }
 
@@ -160,7 +162,7 @@ div {
 }
 
 .container_parent {
-    width: 96%;
+    width: 96%;   /*96%*/
     margin: 3px;
     padding: 3px;
     text-align: center;

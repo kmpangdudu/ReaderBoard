@@ -22,7 +22,8 @@
         <asp:HiddenField ID="HiddendayTimeEnd" runat="server" />
 
         <div id="phone" class="flex-container effect55 borderLineThick">
-            <div class="borderLine"  style="flex-basis: 15%" >
+            <div class="borderLine"   >
+                <%--<div class="borderLine"  style="flex-basis: 15%" >--%>
                 <div class="logodiv ChatDivDown">
                     <img src="Content/KHP_EN_RGB.svg" alt="Home" class="logostyle" />
                 </div>
@@ -51,7 +52,7 @@
                         <asp:HiddenField ID="lblPhoneGradeService" runat="server"></asp:HiddenField>
                     </div>
                     <%--<div id="chart_div1" class="center_child"></div>--%>
-                    <h3 class="Labeling">Rolling</h3>
+                    <h3 class="Labeling">Last hour</h3>
                     <div id="GradePhone" class="center_child"></div>
                 </div>
                 <h3 class="downXXpix">Grade of Service (%)</h3>
@@ -59,7 +60,7 @@
                     <asp:HiddenField ID="lblPhoneGradeService24" runat="server"></asp:HiddenField>
                     <%--<div id="chart_div2" class="center_child"></div>--%>
                     <div id="GradePhone24" class="center_child"></div>
-                    <h3 class="Labeling">Last 24 hr.</h3>
+                    <h3 class="Labeling">Last 24 hours</h3>
                     
                 </div>
             </div>
@@ -72,19 +73,19 @@
                     <h1 class="bigfont">
                         <asp:Label ID="lblPhoneLongestWaitTime" runat="server" Text="00:00"></asp:Label>
                     </h1>
-                    <h3 class="">Current wait time</h3>
+                    <h3 class="">Longest Wait Time</h3>
                 </div>
                 <div class="borderShadow">
                     <h1 class="bigfont">
                         <asp:Label ID="lblPhoneAverageWaitTime" runat="server" Text="00:00"></asp:Label>
                     </h1>
-                    <h3 class="">Average wait time</h3>
+                    <h3 class="">Average Wait Time</h3>
                 </div>
                 <div class="borderShadow">
                     <h1 class="bigfont">
                         <asp:Label ID="lblPhoneCallToday" runat="server" Text="0"></asp:Label>
                     </h1>
-                    <h3 class="">Calls today</h3>
+                    <h3 class="">Calls Today</h3>
                 </div>
             </div>
 
@@ -180,9 +181,9 @@
                      <asp:Label ID="lblPhoneCounselorLogin" runat="server" Text="0" Visible="False"></asp:Label>
                 </h2>
                 <h5>
-                    <img alt="Avail" src="Content/green_Rob.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;
-                    <img alt="On Contact" src="Content/blue_Rob.png" />&nbsp;On Contact&nbsp;&nbsp;&nbsp;
-                    <img alt="Not Ready" src="Content/red_Rob.png" />&nbsp; Not Ready
+                    <img alt="Avail" src="Content/Avail.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;
+                    <img alt="On Contact" src="Content/OnContact.png" />&nbsp;On Contact&nbsp;&nbsp;&nbsp;
+                    <img alt="Not Ready" src="Content/NotReady_dark.png" />&nbsp; Not Ready
                 </h5>
                     <div id="PhoneCounslor"></div>
                
@@ -196,7 +197,8 @@
 
         
         <div id="chat" class="flex-container effect55 borderLineThick">  
-            <div class="midfont_title  borderLine" style="flex-basis: 15%" >
+            <div class="midfont_title  borderLine" >
+                <%--<div class="midfont_title  borderLine" style="flex-basis: 15%" >--%>
                 <div class="logodiv ChatDivDown">
                     <%--<img src="Content/KHP_EN_RGB.svg" alt="Home" class="logostyle">--%>
                 </div>
@@ -218,7 +220,7 @@
                         <asp:HiddenField ID="lblChatGradeService" runat="server" />
                     </div>
                     <%--<div id="chart_div3" class="center_child"></div>--%>
-                    <h3 class="Labeling">Rolling</h3>
+                    <h3 class="Labeling">Last hour</h3>
                     <div id="GradeChat" class="center_child"></div>
                 </div>
                 <h3 class="downXXpix">Grade of Service (%)</h3>
@@ -228,7 +230,7 @@
                     </div>
                     <%--<div id="chart_div4" class="center_child"  ></div>--%>
                     <div id="GradeChat24" class="center_child"  ></div>
-                    <h3 class="Labeling">Last 24 hr.</h3>
+                    <h3 class="Labeling">Last 24 hours</h3>
                 </div>
             </div>
 
@@ -240,19 +242,19 @@
                     <h1 class="bigfont">
                         <asp:Label ID="lblChatLongestWaitTime" runat="server" Text="00:00"></asp:Label>
                     </h1>
-                    <h3 class="">Current wait time</h3>
+                    <h3 class="">Longest Wait Time</h3>
                 </div>
                 <div class="borderShadow">
                     <h1 class="bigfont">
                         <asp:Label ID="lblChatAverageWaitTime" runat="server" Text="00:00"></asp:Label>
                     </h1>
-                    <h3 class="">Average wait time</h3>
+                    <h3 class="">Average Wait Time</h3>
                 </div>
                 <div class="borderShadow">
                     <h1 class="bigfont">
                         <asp:Label ID="lblChatCallToday" runat="server" Text="0"></asp:Label>
                     </h1>
-                    <h3 class="">Chats today</h3>
+                    <h3 class="">Chats Today</h3>
                 </div>
             </div>
 
@@ -348,9 +350,9 @@
                      <asp:Label ID="lblChatCounselorLogin" runat="server" Text="0" Visible="False"></asp:Label>
                 </h2>
                 <h5>
-                    <img alt="Avail" src="Content/green_Rob.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;
-                    <img alt="On Contact" src="Content/blue_Rob.png" />&nbsp;On Contact&nbsp;&nbsp;&nbsp;
-                    <img alt="Not Ready" src="Content/red_Rob.png" />&nbsp; Not Ready
+                    <img alt="Avail" src="Content/Avail.png" />&nbsp;Avail&nbsp; &nbsp;&nbsp;
+                    <img alt="On Contact" src="Content/OnContact.png" />&nbsp;On Contact&nbsp;&nbsp;&nbsp;
+                    <img alt="Not Ready" src="Content/NotReady_dark.png" />&nbsp; Not Ready
                 </h5>
 
                 <div id="ChatCounslor"></div>

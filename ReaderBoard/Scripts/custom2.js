@@ -78,14 +78,14 @@ $(document).ready(function () {
 
             //william use color2 only 
 
-            if (scale < 50) {
+            if (scale <= 30) {
 
                 red_gradient.append("svg:stop")
                     .attr("offset", "50%")//50
                     .attr("stop-color", colorRed) //red
                     .attr("stop-opacity", 1);
             }
-            else if ((scale >= 50) && (scale < 75)) {
+            else if ((scale > 30) && (scale < 60)) {
 
                 red_gradient.append("svg:stop")
                     .attr("offset", "50%")//50

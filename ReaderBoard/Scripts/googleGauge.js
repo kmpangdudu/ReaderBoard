@@ -8,10 +8,14 @@ var colorPuler = "9933ff"; //puler
 var colorGreen = "4CAF50";
 var colorBlack = "333333";
 var colorWhite = "FCFCFC";
+var colorAvail = "59C3C3";
+var colorOnContact = "4062BB";
+var colorNotReady = "EBEBEB";
+var colorNotReady_dark = "EBEBEB";
 
-var dayTimeStart = 8; //= document.getElementById('HiddendayTimeStart').value;
+var dayTimeStart = 4; //= document.getElementById('HiddendayTimeStart').value;
 
-var dayTimeEnd = 17;  //= document.getElementById('HiddendayTimeEnd').value;
+var dayTimeEnd = 4;  //= document.getElementById('HiddendayTimeEnd').value;
  
 var hours = new Date();
  
@@ -22,7 +26,7 @@ var options = {
     redFrom: 0, redTo: 50,
     yellowColor: colorYellow,
     yellowFrom: 50, yellowTo: 75,
-    greenColor: colorGreen,
+    greenColor: colorAvail,
     greenFrom: 75, greenTo: 100,
     minorTicks: 5,
     majorTicks: ["", ""],
@@ -111,7 +115,7 @@ var opt_Phone = {
     bar: { groupWidth: bargroupWidth },
     chartArea: { left: 95, top:15, width: chartAreaWidth, height: chartAreaHeight},
     backgroundColor: { fill: "transparent" },
-    colors: [colorGreen, colorBlue, colorPink],
+    colors: [colorAvail, colorOnContact, colorNotReady_dark],
 
     hAxis: { // actual H.
         TextStyle: { color: colorBlack, fontSize: 20, bold: true, italic: false },
@@ -144,10 +148,10 @@ var opt_Phone = {
 
 //william means in day time
 if (dayTimeStart <= hours.getHours() && hours.getHours() <= dayTimeEnd - 1) {
-    opt_Phone.vAxis.textStyle.color = colorBlack;
+    opt_Phone.vAxis.textStyle.color = colorBlack; //daytime theme
 }
 else {
-    opt_Phone.vAxis.textStyle.color = colorWhite;
+    opt_Phone.vAxis.textStyle.color = colorWhite;  //Nightday theme
 };
 
 
@@ -235,10 +239,10 @@ function drawPhoneCounslor() {
 
     var PhoneData = google.visualization.arrayToDataTable([
         ["Queue", "Availabe", { role: "style" }, { role: "annotation" }, "On Contact", { role: "style" }, { role: "annotation" }, "Not Ready", { role: "style" }, { role: "annotation" }],
-        ["English", PhoneEN_Avai, colorGreen, lPhoneEN_Avai, PhoneEN_onContact, colorBlue, lPhoneEN_onContact, phoneEN_NotReady, colorPink, lphoneEN_NotReady],
-        ["French", PhoneFr_Avai, colorGreen, lPhoneFr_Avai, PhoneFR_onContact, colorBlue, lPhoneFR_onContact, phoneFR_NotReady, colorPink, lphoneFR_NotReady],
-        ["G2T En", G2Ten_Avai, colorGreen, lG2Ten_Avai, G2Ten_onContact, colorBlue, lG2Ten_onContact, G2TEN_NotReady, colorPink, lG2TEN_NotReady],
-        ["G2T Fr", G2Tfr_Avai, colorGreen, lG2Tfr_Avai, G2Tfr_OnContact, colorBlue, lG2Tfr_OnContact, G2Tfr_NotReady, colorPink, lG2Tfr_NotReady]
+        ["English", PhoneEN_Avai, colorAvail, lPhoneEN_Avai, PhoneEN_onContact, colorOnContact, lPhoneEN_onContact, phoneEN_NotReady, colorNotReady_dark, lphoneEN_NotReady],
+        ["French", PhoneFr_Avai, colorAvail, lPhoneFr_Avai, PhoneFR_onContact, colorOnContact, lPhoneFR_onContact, phoneFR_NotReady, colorNotReady_dark, lphoneFR_NotReady],
+        ["G2T En", G2Ten_Avai, colorAvail, lG2Ten_Avai, G2Ten_onContact, colorOnContact, lG2Ten_onContact, G2TEN_NotReady, colorNotReady_dark, lG2TEN_NotReady],
+        ["G2T Fr", G2Tfr_Avai, colorAvail, lG2Tfr_Avai, G2Tfr_OnContact, colorOnContact, lG2Tfr_OnContact, G2Tfr_NotReady, colorNotReady_dark, lG2Tfr_NotReady]
     ]);
      
 
@@ -326,10 +330,10 @@ function drawChatCounslor() {
 
     var ChatData = google.visualization.arrayToDataTable([
         ["Queue", "Availabe", { role: "style" }, { role: "annotation" }, "OnContact", { role: "style" }, { role: "annotation" }, "NotReady", { role: "style" }, { role: "annotation" }],
-        ["Web En", ChatEN_Avai, colorGreen, lChatEN_Avai, ChatEn_OnContact, colorBlue, lChatEn_OnContact, ChatEn_NoteRady, colorPink, lChatEn_NoteRady],
-        ["Web Fr", ChatFr_Avai, colorGreen, lChatFr_Avai, ChatFr_OnContact, colorBlue, lChatFr_OnContact, ChatFr_NotReady, colorPink, lChatFr_NotReady],
-        ["App En", ChatAppEN_Avai, colorGreen, lChatAppEN_Avai, ChatAppEn_OnContact, colorBlue, lChatAppEn_OnContact, ChatAppEn_NotReady, colorPink, lChatAppEn_NotReady],
-        ["App Fr", ChatAppfr_Avai, colorGreen, lChatAppfr_Avai, ChatAppFr_OnContact, colorBlue, lChatAppFr_OnContact, ChatAppFr_NotReady, colorPink, lChatAppFr_NotReady]
+        ["Web En", ChatEN_Avai, colorAvail, lChatEN_Avai, ChatEn_OnContact, colorOnContact, lChatEn_OnContact, ChatEn_NoteRady, colorNotReady_dark, lChatEn_NoteRady],
+        ["Web Fr", ChatFr_Avai, colorAvail, lChatFr_Avai, ChatFr_OnContact, colorOnContact, lChatFr_OnContact, ChatFr_NotReady, colorNotReady_dark, lChatFr_NotReady],
+        ["App En", ChatAppEN_Avai, colorAvail, lChatAppEN_Avai, ChatAppEn_OnContact, colorOnContact, lChatAppEn_OnContact, ChatAppEn_NotReady, colorNotReady_dark, lChatAppEn_NotReady],
+        ["App Fr", ChatAppfr_Avai, colorAvail, lChatAppfr_Avai, ChatAppFr_OnContact, colorOnContact, lChatAppFr_OnContact, ChatAppFr_NotReady, colorNotReady_dark, lChatAppFr_NotReady]
     ]);
 
     //document.getElementById("lblChatCounselorLogin").innerText = busyChatEn + busyChatFr + busyChatAppEn + busyChatAppFr;

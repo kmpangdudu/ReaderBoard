@@ -14,14 +14,15 @@ body::-webkit-scrollbar-thumb {
 body {
     background-color: #ccc;
     color: #333333;
-    font-family: "Arial Rounded MT Bold" , Arial,"Helvetica Rounded" Helvetica, sans-serif!important;
+    font-family: ArialRoundedMTBold, "Arial Rounded MT Bold", Arial, Helvetica, sans-serif;
+    /*font-family: "Arial Rounded MT Bold", Arial,"Helvetica Rounded" Helvetica, sans-serif !important;*/
     margin: 0 5px;
 }
 
 h1 {
     font-size: 98px;
     font-weight: bold;
-    /*text-shadow: -7px -7px 7px #999;*/
+    /*text-shadow: -7px -7px 7px #999; */
     margin: 0px;
 }
 
@@ -153,7 +154,7 @@ div {
 }
 
 .container_parent {
-    width: 96%;
+    width: 96%;     /*96%;*/
     margin: 3px;
     padding: 3px;
     text-align: center;
