@@ -101,15 +101,16 @@ namespace ReaderBoard
 
         protected bool ChatWorking()
         {
-            if ((Convert.ToInt32(today.DayOfWeek) == 2) ||
-                    (ChatEnTimeEnd <= today.Hour && today.Hour < ChatEnTimeStart))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            //if ((Convert.ToInt32(today.DayOfWeek) == 2) ||
+            //        (ChatEnTimeEnd <= today.Hour && today.Hour < ChatEnTimeStart))
+            //{
+            //    return false;
+            //}
+            //else
+            //{
+            //    return true;
+            //}
+            return true;
 
         }
 
@@ -338,7 +339,7 @@ namespace ReaderBoard
                 lblPhoneCounselorNotReady.Text = (Convert.ToInt32 (stru_Phone_ENG.CounselorLogin)
                                                     -Convert.ToInt32(stru_Phone_ENG.CounselorAvailable )
                                                     -Convert.ToInt32(stru_Phone_ENG.CounselorOnContact)).ToString();
-
+                 
                 HiddenPhone_Eng_In.Value = stru_Phone_ENG.CounselorLogin == null? "0" : stru_Phone_ENG.CounselorLogin;
                 HiddenPhone_Eng_Availabe.Value = stru_Phone_ENG.CounselorAvailable == null ?  "0" : stru_Phone_ENG.CounselorAvailable;
                 HiddenPhone_Fre_In.Value = stru_Phone_FRE.CounselorLogin == null ?  "0" : stru_Phone_FRE.CounselorLogin;
