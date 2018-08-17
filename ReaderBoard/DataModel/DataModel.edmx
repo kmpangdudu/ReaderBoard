@@ -7,6 +7,7 @@
     <Schema Namespace="RAMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <Function Name="Proc_GetQueue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="iceCTI" />
         <Function Name="Proc_Last24Grade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="iceCTI" />
+        <Function Name="Proc_LastHourGrade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="iceCTI" />
         <EntityContainer Name="RAMModelStoreContainer" />
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -15,6 +16,7 @@
         <EntityContainer Name="RAMEntities" annotation:LazyLoadingEnabled="true" >
           <FunctionImport Name="Proc_GetQueue" ReturnType="Collection(RAMModel.Proc_GetQueue_Result)" />
           <FunctionImport Name="Proc_Last24Grade" ReturnType="Collection(RAMModel.Proc_Last24Grade_Result)" />
+          <FunctionImport Name="Proc_LastHourGrade" ReturnType="Collection(RAMModel.Proc_LastHourGrade_Result)" />
         </EntityContainer>
         <ComplexType Name="Proc_Last24Grade_Result">
           <Property Type="Decimal" Name="PhoneAllGrade" Nullable="true" Precision="6" Scale="2" />
@@ -28,6 +30,14 @@
           <Property Type="Int32" Name="id" Nullable="false" />
           <Property Type="String" Name="Queue" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="QueueValue" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Proc_LastHourGrade_Result">
+          <Property Type="Decimal" Name="PhoneAllGrade" Nullable="true" Precision="6" Scale="2" />
+          <Property Type="Decimal" Name="PhoneGrade" Nullable="true" Precision="6" Scale="2" />
+          <Property Type="Decimal" Name="G2TGrade" Nullable="true" Precision="6" Scale="2" />
+          <Property Type="Decimal" Name="ChatAllGrade" Nullable="true" Precision="6" Scale="2" />
+          <Property Type="Decimal" Name="ChatGrade" Nullable="true" Precision="6" Scale="2" />
+          <Property Type="Decimal" Name="ChatAppGrade" Nullable="true" Precision="6" Scale="2" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -47,6 +57,18 @@
           <FunctionImportMapping FunctionImportName="Proc_Last24Grade" FunctionName="RAMModel.Store.Proc_Last24Grade">
             <ResultMapping>
               <ComplexTypeMapping TypeName="RAMModel.Proc_Last24Grade_Result">
+                <ScalarProperty Name="PhoneAllGrade" ColumnName="PhoneAllGrade" />
+                <ScalarProperty Name="PhoneGrade" ColumnName="PhoneGrade" />
+                <ScalarProperty Name="G2TGrade" ColumnName="G2TGrade" />
+                <ScalarProperty Name="ChatAllGrade" ColumnName="ChatAllGrade" />
+                <ScalarProperty Name="ChatGrade" ColumnName="ChatGrade" />
+                <ScalarProperty Name="ChatAppGrade" ColumnName="ChatAppGrade" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_LastHourGrade" FunctionName="RAMModel.Store.Proc_LastHourGrade">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RAMModel.Proc_LastHourGrade_Result">
                 <ScalarProperty Name="PhoneAllGrade" ColumnName="PhoneAllGrade" />
                 <ScalarProperty Name="PhoneGrade" ColumnName="PhoneGrade" />
                 <ScalarProperty Name="G2TGrade" ColumnName="G2TGrade" />

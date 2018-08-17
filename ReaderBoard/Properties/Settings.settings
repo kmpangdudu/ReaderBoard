@@ -33,37 +33,37 @@
       <Value Profile="(Default)">6021</Value>
     </Setting>
     <Setting Name="dayTimeStart" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">8</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="dayTimeEnd" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">17</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="ChatEnDayStart" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">3</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="ChatEnTimeStart" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">18</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="ChatEnTimeEnd" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">2</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="ChatFrDayStart" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="ChatFrTimeStart" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">18</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="ChatFrTimeEnd" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">2</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="ChatClosed" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">2</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="ChatEnDayEnd" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="ChatFrDayEnd" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">2</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="dimOpacity" Type="System.String" Scope="Application">
       <Value Profile="(Default)">0.2</Value>

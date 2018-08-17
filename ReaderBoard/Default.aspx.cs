@@ -36,6 +36,18 @@ namespace ReaderBoard
 
     }
 
+    struct LastHourGrade
+    {
+        public decimal PhoneAllGrade;
+        public decimal PhoneGrade;
+        public decimal G2TGrade;
+
+        public decimal ChatAllGrade;
+        public decimal ChatGrade;
+        public decimal ChatAppGrade;
+
+    }
+
 
     public partial class _Default : Page
     {
@@ -97,6 +109,7 @@ namespace ReaderBoard
          RealTimeData  stru_ChatApp_FRE;
 
          Last24hrGrade stru_last24HrGrade ;
+         LastHourGrade stru_lastHourGrade;
 
 
         protected bool ChatWorking()
@@ -123,9 +136,7 @@ namespace ReaderBoard
             if (!IsPostBack)
             {
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                
-
-                
+                   
                 // var   queues = efContext.Proc_GetQueue();
                 //foreach (Proc_GetQueue_Result x in queues)
                 //{
@@ -166,9 +177,12 @@ namespace ReaderBoard
                 ApplyTheme();
 
                 // get SOAP DATA
-                getSOAP(); 
+                getSOAP();
 
-                //get cached grade value from SQL SERVER
+                //get cached last hour grade value from SQL SERVER
+                getLastHourGrade();
+
+                //get cached last 24 hours grade value from SQL SERVER
                 getLast24HrGrade(); 
 
                 Phone();
@@ -179,15 +193,12 @@ namespace ReaderBoard
                 {
                     //processing 
                     Chat();
-
                 }
                 else
                 {
                     //chat div add a shadow
                     //dimmed is a <div runnat= 'server' /> 
                     dimmed.Attributes.CssStyle.Add("opacity", Properties.Settings.Default.dimOpacity);
-
-
                 }
 
                 // when Tuesday in the night add more gery
@@ -237,19 +248,19 @@ namespace ReaderBoard
 
             try
             {
-                int iNumOffered = 
-                    Convert.ToInt32(stru_Phone_ENG.NumOffered) 
-                    +Convert.ToInt32(stru_Phone_FRE.NumOffered) 
-                    +Convert.ToInt32(stru_G2T_ENG.NumOffered) 
-                    +Convert.ToInt32(stru_G2T_FRE.NumOffered);
-                iNumOffered = iNumOffered < 0 ? 0 : iNumOffered;
+                //int iNumOffered = 
+                //    Convert.ToInt32(stru_Phone_ENG.NumOffered) 
+                //    +Convert.ToInt32(stru_Phone_FRE.NumOffered) 
+                //    +Convert.ToInt32(stru_G2T_ENG.NumOffered) 
+                //    +Convert.ToInt32(stru_G2T_FRE.NumOffered);
+                //iNumOffered = iNumOffered < 0 ? 0 : iNumOffered;
 
-                int iNumhundledLessThanTarget = 
-                   Convert.ToInt32(stru_Phone_ENG.NumHandledLessThanTarget) 
-                    +Convert.ToInt32(stru_Phone_FRE.NumHandledLessThanTarget) 
-                    +Convert.ToInt32(stru_G2T_ENG.NumHandledLessThanTarget) 
-                    +Convert.ToInt32(stru_G2T_FRE.NumHandledLessThanTarget);
-                iNumhundledLessThanTarget = iNumhundledLessThanTarget < 0 ? 0 : iNumhundledLessThanTarget;
+                //int iNumhundledLessThanTarget = 
+                //   Convert.ToInt32(stru_Phone_ENG.NumHandledLessThanTarget) 
+                //    +Convert.ToInt32(stru_Phone_FRE.NumHandledLessThanTarget) 
+                //    +Convert.ToInt32(stru_G2T_ENG.NumHandledLessThanTarget) 
+                //    +Convert.ToInt32(stru_G2T_FRE.NumHandledLessThanTarget);
+                //iNumhundledLessThanTarget = iNumhundledLessThanTarget < 0 ? 0 : iNumhundledLessThanTarget;
 
                 double[] QLongestWaitTime = new double[4];
                 QLongestWaitTime[0] = Convert.ToDouble(stru_Phone_ENG.LongestWaitTime);
@@ -303,19 +314,22 @@ namespace ReaderBoard
                     +Convert.ToInt32(stru_G2T_FRE.CounselorOnContact);
                 CounselorOnContact = CounselorOnContact < 1 ? 0 : CounselorOnContact;
 
-                decimal ASA = 0.0m;
-                if (iNumOffered !=0)
-                {
-                    ASA = 100.0m * iNumhundledLessThanTarget / iNumOffered;
-                    lblPhoneGradeService.Value = ASA.ToString("N2");
-                }
-                else
-                {
-                    ASA = 0.0m;
-                    lblPhoneGradeService.Value = "0.00";
-                }
+                //decimal ASA = 0.0m;
+                //if (iNumOffered !=0)
+                //{
+                //    ASA = 100.0m * iNumhundledLessThanTarget / iNumOffered;
+                //    lblPhoneGradeService.Value = ASA.ToString("N2");
+                //}
+                //else
+                //{
+                //    ASA = 0.0m;
+                //    lblPhoneGradeService.Value = "0.00";
+                //}
 
-
+                //lblPhoneGradeService.Value = (iNumOffered != 0 ? ASA : 0.00 ).ToString("N2"); 
+                decimal p = stru_lastHourGrade.PhoneAllGrade;
+                p = (p != (decimal)0.0 ? p : (decimal)0.00);
+                lblPhoneGradeService.Value = ((decimal)1.00 * p).ToString("N2");
 
                 //lblPhoneGradeService24.Value = (iNumOffered != 0 ? ASA : 0.00 ).ToString("N2"); 
                 decimal p24 = stru_last24HrGrade.PhoneAllGrade;
@@ -365,19 +379,19 @@ namespace ReaderBoard
             
             try
             {
-                int iNumOffered = 
-                   Convert.ToInt32 (stru_Chat_ENG.NumOffered) 
-                    +Convert.ToInt32(stru_Chat_FRE.NumOffered) 
-                    +Convert.ToInt32(stru_ChatApp_ENG.NumOffered) 
-                    +Convert.ToInt32(stru_ChatApp_FRE.NumOffered);
-                iNumOffered = iNumOffered < 0 ? 0 : iNumOffered;
+                //int iNumOffered = 
+                //   Convert.ToInt32 (stru_Chat_ENG.NumOffered) 
+                //    +Convert.ToInt32(stru_Chat_FRE.NumOffered) 
+                //    +Convert.ToInt32(stru_ChatApp_ENG.NumOffered) 
+                //    +Convert.ToInt32(stru_ChatApp_FRE.NumOffered);
+                //iNumOffered = iNumOffered < 0 ? 0 : iNumOffered;
 
-                int iNumhundledLessThanTarget = 
-                   Convert.ToInt32(stru_Chat_ENG.NumHandledLessThanTarget) 
-                    +Convert.ToInt32(stru_Chat_FRE.NumHandledLessThanTarget) 
-                    +Convert.ToInt32(stru_ChatApp_ENG.NumHandledLessThanTarget) 
-                    +Convert.ToInt32(stru_ChatApp_FRE.NumHandledLessThanTarget);
-                iNumhundledLessThanTarget = iNumhundledLessThanTarget < 0 ? 0 : iNumhundledLessThanTarget;
+                //int iNumhundledLessThanTarget = 
+                //   Convert.ToInt32(stru_Chat_ENG.NumHandledLessThanTarget) 
+                //    +Convert.ToInt32(stru_Chat_FRE.NumHandledLessThanTarget) 
+                //    +Convert.ToInt32(stru_ChatApp_ENG.NumHandledLessThanTarget) 
+                //    +Convert.ToInt32(stru_ChatApp_FRE.NumHandledLessThanTarget);
+                //iNumhundledLessThanTarget = iNumhundledLessThanTarget < 0 ? 0 : iNumhundledLessThanTarget;
 
                 double[] QLongestWaitTime = new double[4];
                 QLongestWaitTime[0] = Convert.ToDouble(stru_Chat_ENG.LongestWaitTime);
@@ -431,18 +445,23 @@ namespace ReaderBoard
                 CounselorOnContact = CounselorOnContact < 1 ? 0 : CounselorOnContact;
 
 
-                decimal asa1 = 0.00m;
+                //decimal asa1 = 0.00m;
 
-                if (iNumOffered !=0)
-                {
-                    asa1 = 100.00m * iNumhundledLessThanTarget / iNumOffered;
-                    lblChatGradeService.Value = asa1.ToString("N2");
-                }
-                else
-                {
-                    asa1 = 0.00m;
-                    lblChatGradeService.Value = "0.00";
-                }
+                //if (iNumOffered !=0)
+                //{
+                //    asa1 = 100.00m * iNumhundledLessThanTarget / iNumOffered;
+                //    lblChatGradeService.Value = asa1.ToString("N2");
+                //}
+                //else
+                //{
+                //    asa1 = 0.00m;
+                //    lblChatGradeService.Value = "0.00";
+                //}
+
+                //lblChatGradeService.Value = (iNumOffered != 0 ? asa1 : 0.00).ToString("N2");
+                decimal c = stru_lastHourGrade.ChatAllGrade;
+                c = (c != (decimal)0.0 ? c : (decimal)0.00);
+                lblChatGradeService.Value = ((decimal)1.00 * c).ToString("N2");
 
                 //lblChatGradeService24.Value = (iNumOffered != 0 ? asa1 : 0.00).ToString("N2");
                 decimal c24 = stru_last24HrGrade.ChatAllGrade;
@@ -621,5 +640,32 @@ namespace ReaderBoard
             }
         }
 
+
+        protected void getLastHourGrade()
+        {
+            //Proc_LastHourGrade_Result
+            var lastHourGrade = efContext.Proc_LastHourGrade();
+
+            foreach (Proc_LastHourGrade_Result x in lastHourGrade)
+            {
+                stru_lastHourGrade.PhoneAllGrade = (decimal)x.PhoneAllGrade;
+                stru_lastHourGrade.PhoneGrade = (decimal)x.PhoneGrade;
+                stru_lastHourGrade.G2TGrade = (decimal)x.G2TGrade;
+
+                if (ChatWorking())
+                {
+                    stru_lastHourGrade.ChatAllGrade = (decimal)x.ChatAllGrade;
+                    stru_lastHourGrade.ChatAppGrade = (decimal)x.ChatAppGrade;
+                    stru_lastHourGrade.ChatGrade = (decimal)x.ChatGrade;
+                }
+                else
+                {
+                    stru_lastHourGrade.ChatAllGrade = 0.0m;
+                    stru_lastHourGrade.ChatAppGrade = 0.0m;
+                    stru_lastHourGrade.ChatGrade = 0.0m;
+                }
+
+            }
+        }
     }
 }
