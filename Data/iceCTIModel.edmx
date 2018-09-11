@@ -23,6 +23,22 @@
           <Parameter Name="ChatFr_NumOffered" Type="decimal" Mode="In" />
           <Parameter Name="ChatAppEn_NumOffered" Type="decimal" Mode="In" />
           <Parameter Name="ChatAppFr_NumOffered" Type="decimal" Mode="In" />
+          <Parameter Name="PhoneEn_HandledInQueue" Type="decimal" Mode="In" />
+          <Parameter Name="PhoneFr_HandledInQueue" Type="decimal" Mode="In" />
+          <Parameter Name="G2TEn_HandledInQueue" Type="decimal" Mode="In" />
+          <Parameter Name="G2TFr_HandledInQueue" Type="decimal" Mode="In" />
+          <Parameter Name="ChatEn_HandledInQueue" Type="decimal" Mode="In" />
+          <Parameter Name="ChatFr_HandledInQueue" Type="decimal" Mode="In" />
+          <Parameter Name="ChartAppEn_HandledInQueue" Type="decimal" Mode="In" />
+          <Parameter Name="ChatAppFr_HandledInQueue" Type="decimal" Mode="In" />
+          <Parameter Name="PhoneEn_EstimatedWaitTime" Type="decimal" Mode="In" />
+          <Parameter Name="PhoneFr_EstimatedWaitTime" Type="decimal" Mode="In" />
+          <Parameter Name="G2TEn_EstimatedWaitTime" Type="decimal" Mode="In" />
+          <Parameter Name="G2TFr_EstimatedWaitTime" Type="decimal" Mode="In" />
+          <Parameter Name="ChatEn_EstimatedWaitTime" Type="decimal" Mode="In" />
+          <Parameter Name="ChatFr_EstimatedWaitTime" Type="decimal" Mode="In" />
+          <Parameter Name="ChartAppEn_EstimatedWaitTime" Type="decimal" Mode="In" />
+          <Parameter Name="ChatAppFr_EstimatedWaitTime" Type="decimal" Mode="In" />
         </Function>
         <Function Name="Proc_Last24Grade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="iceCTI" />
         <EntityContainer Name="RAMModelStoreContainer" />
@@ -48,6 +64,22 @@
             <Parameter Name="ChatFr_NumOffered" Mode="In" Type="Decimal" />
             <Parameter Name="ChatAppEn_NumOffered" Mode="In" Type="Decimal" />
             <Parameter Name="ChatAppFr_NumOffered" Mode="In" Type="Decimal" />
+            <Parameter Name="PhoneEn_HandledInQueue" Mode="In" Type="Decimal" />
+            <Parameter Name="PhoneFr_HandledInQueue" Mode="In" Type="Decimal" />
+            <Parameter Name="G2TEn_HandledInQueue" Mode="In" Type="Decimal" />
+            <Parameter Name="G2TFr_HandledInQueue" Mode="In" Type="Decimal" />
+            <Parameter Name="ChatEn_HandledInQueue" Mode="In" Type="Decimal" />
+            <Parameter Name="ChatFr_HandledInQueue" Mode="In" Type="Decimal" />
+            <Parameter Name="ChartAppEn_HandledInQueue" Mode="In" Type="Decimal" />
+            <Parameter Name="ChatAppFr_HandledInQueue" Mode="In" Type="Decimal" />
+            <Parameter Name="PhoneEn_EstimatedWaitTime" Mode="In" Type="Decimal" />
+            <Parameter Name="PhoneFr_EstimatedWaitTime" Mode="In" Type="Decimal" />
+            <Parameter Name="G2TEn_EstimatedWaitTime" Mode="In" Type="Decimal" />
+            <Parameter Name="G2TFr_EstimatedWaitTime" Mode="In" Type="Decimal" />
+            <Parameter Name="ChatEn_EstimatedWaitTime" Mode="In" Type="Decimal" />
+            <Parameter Name="ChatFr_EstimatedWaitTime" Mode="In" Type="Decimal" />
+            <Parameter Name="ChartAppEn_EstimatedWaitTime" Mode="In" Type="Decimal" />
+            <Parameter Name="ChatAppFr_EstimatedWaitTime" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="Proc_Last24Grade" ReturnType="Collection(RAMModel.Proc_Last24Grade_Result)" />
           <FunctionImport Name="Proc_GetQueue" ReturnType="Collection(RAMModel.Proc_GetQueue_Result)" />

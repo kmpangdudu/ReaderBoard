@@ -28,7 +28,7 @@ namespace Data
         }
     
     
-        public virtual int Proc_Insert_Grade(Nullable<decimal> phoneEn_NumhundledLessThanTarget, Nullable<decimal> phoneFr_NumhundledLessThanTarget, Nullable<decimal> g2TEn_NumhundledLessThanTarget, Nullable<decimal> g2TFr_NumhundledLessThanTarget, Nullable<decimal> chatEn_NumhundledLessThanTarget, Nullable<decimal> chatFr_NumhundledLessThanTarget, Nullable<decimal> chatAppEn_NumhundledLessThanTarget, Nullable<decimal> chatAppFr_NumhundledLessThanTarget, Nullable<decimal> phoneEn_NumOffered, Nullable<decimal> phoneFr_NumOffered, Nullable<decimal> g2TEn_NumOffered, Nullable<decimal> g2TFr_NumOffered, Nullable<decimal> chatEn_NumOffered, Nullable<decimal> chatFr_NumOffered, Nullable<decimal> chatAppEn_NumOffered, Nullable<decimal> chatAppFr_NumOffered)
+        public virtual int Proc_Insert_Grade(Nullable<decimal> phoneEn_NumhundledLessThanTarget, Nullable<decimal> phoneFr_NumhundledLessThanTarget, Nullable<decimal> g2TEn_NumhundledLessThanTarget, Nullable<decimal> g2TFr_NumhundledLessThanTarget, Nullable<decimal> chatEn_NumhundledLessThanTarget, Nullable<decimal> chatFr_NumhundledLessThanTarget, Nullable<decimal> chatAppEn_NumhundledLessThanTarget, Nullable<decimal> chatAppFr_NumhundledLessThanTarget, Nullable<decimal> phoneEn_NumOffered, Nullable<decimal> phoneFr_NumOffered, Nullable<decimal> g2TEn_NumOffered, Nullable<decimal> g2TFr_NumOffered, Nullable<decimal> chatEn_NumOffered, Nullable<decimal> chatFr_NumOffered, Nullable<decimal> chatAppEn_NumOffered, Nullable<decimal> chatAppFr_NumOffered, Nullable<decimal> phoneEn_HandledInQueue, Nullable<decimal> phoneFr_HandledInQueue, Nullable<decimal> g2TEn_HandledInQueue, Nullable<decimal> g2TFr_HandledInQueue, Nullable<decimal> chatEn_HandledInQueue, Nullable<decimal> chatFr_HandledInQueue, Nullable<decimal> chartAppEn_HandledInQueue, Nullable<decimal> chatAppFr_HandledInQueue, Nullable<decimal> phoneEn_EstimatedWaitTime, Nullable<decimal> phoneFr_EstimatedWaitTime, Nullable<decimal> g2TEn_EstimatedWaitTime, Nullable<decimal> g2TFr_EstimatedWaitTime, Nullable<decimal> chatEn_EstimatedWaitTime, Nullable<decimal> chatFr_EstimatedWaitTime, Nullable<decimal> chartAppEn_EstimatedWaitTime, Nullable<decimal> chatAppFr_EstimatedWaitTime)
         {
             var phoneEn_NumhundledLessThanTargetParameter = phoneEn_NumhundledLessThanTarget.HasValue ?
                 new ObjectParameter("PhoneEn_NumhundledLessThanTarget", phoneEn_NumhundledLessThanTarget) :
@@ -94,7 +94,71 @@ namespace Data
                 new ObjectParameter("ChatAppFr_NumOffered", chatAppFr_NumOffered) :
                 new ObjectParameter("ChatAppFr_NumOffered", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_Insert_Grade", phoneEn_NumhundledLessThanTargetParameter, phoneFr_NumhundledLessThanTargetParameter, g2TEn_NumhundledLessThanTargetParameter, g2TFr_NumhundledLessThanTargetParameter, chatEn_NumhundledLessThanTargetParameter, chatFr_NumhundledLessThanTargetParameter, chatAppEn_NumhundledLessThanTargetParameter, chatAppFr_NumhundledLessThanTargetParameter, phoneEn_NumOfferedParameter, phoneFr_NumOfferedParameter, g2TEn_NumOfferedParameter, g2TFr_NumOfferedParameter, chatEn_NumOfferedParameter, chatFr_NumOfferedParameter, chatAppEn_NumOfferedParameter, chatAppFr_NumOfferedParameter);
+            var phoneEn_HandledInQueueParameter = phoneEn_HandledInQueue.HasValue ?
+                new ObjectParameter("PhoneEn_HandledInQueue", phoneEn_HandledInQueue) :
+                new ObjectParameter("PhoneEn_HandledInQueue", typeof(decimal));
+    
+            var phoneFr_HandledInQueueParameter = phoneFr_HandledInQueue.HasValue ?
+                new ObjectParameter("PhoneFr_HandledInQueue", phoneFr_HandledInQueue) :
+                new ObjectParameter("PhoneFr_HandledInQueue", typeof(decimal));
+    
+            var g2TEn_HandledInQueueParameter = g2TEn_HandledInQueue.HasValue ?
+                new ObjectParameter("G2TEn_HandledInQueue", g2TEn_HandledInQueue) :
+                new ObjectParameter("G2TEn_HandledInQueue", typeof(decimal));
+    
+            var g2TFr_HandledInQueueParameter = g2TFr_HandledInQueue.HasValue ?
+                new ObjectParameter("G2TFr_HandledInQueue", g2TFr_HandledInQueue) :
+                new ObjectParameter("G2TFr_HandledInQueue", typeof(decimal));
+    
+            var chatEn_HandledInQueueParameter = chatEn_HandledInQueue.HasValue ?
+                new ObjectParameter("ChatEn_HandledInQueue", chatEn_HandledInQueue) :
+                new ObjectParameter("ChatEn_HandledInQueue", typeof(decimal));
+    
+            var chatFr_HandledInQueueParameter = chatFr_HandledInQueue.HasValue ?
+                new ObjectParameter("ChatFr_HandledInQueue", chatFr_HandledInQueue) :
+                new ObjectParameter("ChatFr_HandledInQueue", typeof(decimal));
+    
+            var chartAppEn_HandledInQueueParameter = chartAppEn_HandledInQueue.HasValue ?
+                new ObjectParameter("ChartAppEn_HandledInQueue", chartAppEn_HandledInQueue) :
+                new ObjectParameter("ChartAppEn_HandledInQueue", typeof(decimal));
+    
+            var chatAppFr_HandledInQueueParameter = chatAppFr_HandledInQueue.HasValue ?
+                new ObjectParameter("ChatAppFr_HandledInQueue", chatAppFr_HandledInQueue) :
+                new ObjectParameter("ChatAppFr_HandledInQueue", typeof(decimal));
+    
+            var phoneEn_EstimatedWaitTimeParameter = phoneEn_EstimatedWaitTime.HasValue ?
+                new ObjectParameter("PhoneEn_EstimatedWaitTime", phoneEn_EstimatedWaitTime) :
+                new ObjectParameter("PhoneEn_EstimatedWaitTime", typeof(decimal));
+    
+            var phoneFr_EstimatedWaitTimeParameter = phoneFr_EstimatedWaitTime.HasValue ?
+                new ObjectParameter("PhoneFr_EstimatedWaitTime", phoneFr_EstimatedWaitTime) :
+                new ObjectParameter("PhoneFr_EstimatedWaitTime", typeof(decimal));
+    
+            var g2TEn_EstimatedWaitTimeParameter = g2TEn_EstimatedWaitTime.HasValue ?
+                new ObjectParameter("G2TEn_EstimatedWaitTime", g2TEn_EstimatedWaitTime) :
+                new ObjectParameter("G2TEn_EstimatedWaitTime", typeof(decimal));
+    
+            var g2TFr_EstimatedWaitTimeParameter = g2TFr_EstimatedWaitTime.HasValue ?
+                new ObjectParameter("G2TFr_EstimatedWaitTime", g2TFr_EstimatedWaitTime) :
+                new ObjectParameter("G2TFr_EstimatedWaitTime", typeof(decimal));
+    
+            var chatEn_EstimatedWaitTimeParameter = chatEn_EstimatedWaitTime.HasValue ?
+                new ObjectParameter("ChatEn_EstimatedWaitTime", chatEn_EstimatedWaitTime) :
+                new ObjectParameter("ChatEn_EstimatedWaitTime", typeof(decimal));
+    
+            var chatFr_EstimatedWaitTimeParameter = chatFr_EstimatedWaitTime.HasValue ?
+                new ObjectParameter("ChatFr_EstimatedWaitTime", chatFr_EstimatedWaitTime) :
+                new ObjectParameter("ChatFr_EstimatedWaitTime", typeof(decimal));
+    
+            var chartAppEn_EstimatedWaitTimeParameter = chartAppEn_EstimatedWaitTime.HasValue ?
+                new ObjectParameter("ChartAppEn_EstimatedWaitTime", chartAppEn_EstimatedWaitTime) :
+                new ObjectParameter("ChartAppEn_EstimatedWaitTime", typeof(decimal));
+    
+            var chatAppFr_EstimatedWaitTimeParameter = chatAppFr_EstimatedWaitTime.HasValue ?
+                new ObjectParameter("ChatAppFr_EstimatedWaitTime", chatAppFr_EstimatedWaitTime) :
+                new ObjectParameter("ChatAppFr_EstimatedWaitTime", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Proc_Insert_Grade", phoneEn_NumhundledLessThanTargetParameter, phoneFr_NumhundledLessThanTargetParameter, g2TEn_NumhundledLessThanTargetParameter, g2TFr_NumhundledLessThanTargetParameter, chatEn_NumhundledLessThanTargetParameter, chatFr_NumhundledLessThanTargetParameter, chatAppEn_NumhundledLessThanTargetParameter, chatAppFr_NumhundledLessThanTargetParameter, phoneEn_NumOfferedParameter, phoneFr_NumOfferedParameter, g2TEn_NumOfferedParameter, g2TFr_NumOfferedParameter, chatEn_NumOfferedParameter, chatFr_NumOfferedParameter, chatAppEn_NumOfferedParameter, chatAppFr_NumOfferedParameter, phoneEn_HandledInQueueParameter, phoneFr_HandledInQueueParameter, g2TEn_HandledInQueueParameter, g2TFr_HandledInQueueParameter, chatEn_HandledInQueueParameter, chatFr_HandledInQueueParameter, chartAppEn_HandledInQueueParameter, chatAppFr_HandledInQueueParameter, phoneEn_EstimatedWaitTimeParameter, phoneFr_EstimatedWaitTimeParameter, g2TEn_EstimatedWaitTimeParameter, g2TFr_EstimatedWaitTimeParameter, chatEn_EstimatedWaitTimeParameter, chatFr_EstimatedWaitTimeParameter, chartAppEn_EstimatedWaitTimeParameter, chatAppFr_EstimatedWaitTimeParameter);
         }
     
         public virtual ObjectResult<Proc_Last24Grade_Result> Proc_Last24Grade()

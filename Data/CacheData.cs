@@ -22,8 +22,8 @@ namespace Data
             public string NumHandledLessThanTarget;
             public string NumOffered;
             public string LongestWaitTime;
-            public string AverageWaitTime;
-            public string HandledToday;
+            public string AverageWaitTime; // Estimate wait time;
+            public string HandledToday; //NumHandledInThisQueue, Number of handled in this queue.
             public string CurrentInQueued;
             public string CounselorAvailable;
             public string CounselorLogin;
@@ -154,6 +154,24 @@ namespace Data
                      , Convert.ToDecimal(stru_Chat_FRE.NumOffered)
                      , Convert.ToDecimal(stru_ChatApp_ENG.NumOffered)
                      , Convert.ToDecimal(stru_ChatApp_FRE.NumOffered)
+
+                     , Convert.ToDecimal(stru_Phone_ENG.HandledToday)
+                     , Convert.ToDecimal(stru_Phone_FRE.HandledToday)
+                     , Convert.ToDecimal(stru_G2T_ENG.HandledToday)
+                     , Convert.ToDecimal(stru_G2T_FRE.HandledToday)
+                     , Convert.ToDecimal(stru_Chat_ENG.HandledToday)
+                     , Convert.ToDecimal(stru_Chat_FRE.HandledToday)
+                     , Convert.ToDecimal(stru_ChatApp_ENG.HandledToday)
+                     , Convert.ToDecimal(stru_ChatApp_FRE.HandledToday)
+
+                     , Convert.ToDecimal(stru_Phone_ENG.AverageWaitTime)
+                     , Convert.ToDecimal(stru_Phone_FRE.AverageWaitTime)
+                     , Convert.ToDecimal(stru_G2T_ENG.AverageWaitTime)
+                     , Convert.ToDecimal(stru_G2T_FRE.AverageWaitTime)
+                     , Convert.ToDecimal(stru_Chat_ENG.AverageWaitTime)
+                     , Convert.ToDecimal(stru_Chat_FRE.AverageWaitTime)
+                     , Convert.ToDecimal(stru_ChatApp_ENG.AverageWaitTime)
+                     , Convert.ToDecimal(stru_ChatApp_FRE.AverageWaitTime)
                      );
 
                 Counter++;
