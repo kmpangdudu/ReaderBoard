@@ -42,5 +42,10 @@ namespace ReaderBoard.DataModel
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_LastHourGrade_Result>("Proc_LastHourGrade");
         }
+    
+        public virtual ObjectResult<Proc_LastHourWaitTime_Result> Proc_LastHourWaitTime()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_LastHourWaitTime_Result>("Proc_LastHourWaitTime");
+        }
     }
 }

@@ -16,8 +16,8 @@ namespace ReaderBoard
         public string NumHandledLessThanTarget;
         public string NumOffered;
         public string LongestWaitTime;
-        public string AverageWaitTime;
-        public string HandledToday;
+        public string AverageWaitTime; // Estimate wait time;
+        public string HandledToday; //NumHandledInThisQueue, Number of handled in this queue.
         public string CurrentInQueued;
         public string CounselorAvailable;
         public string CounselorLogin;
@@ -36,6 +36,7 @@ namespace ReaderBoard
 
     }
 
+
     struct LastHourGrade
     {
         public decimal PhoneAllGrade;
@@ -46,6 +47,13 @@ namespace ReaderBoard
         public decimal ChatGrade;
         public decimal ChatAppGrade;
 
+    }
+
+
+    struct LastHourWaitTime
+    {
+        public decimal PhoneWaitTime;
+        public decimal ChatWaitTime;
     }
 
 
@@ -111,6 +119,8 @@ namespace ReaderBoard
          Last24hrGrade stru_last24HrGrade ;
          LastHourGrade stru_lastHourGrade;
 
+         LastHourWaitTime stru_lastHourWaitTime;
+   
 
         protected bool ChatWorking()
         {
@@ -183,7 +193,10 @@ namespace ReaderBoard
                 getLastHourGrade();
 
                 //get cached last 24 hours grade value from SQL SERVER
-                getLast24HrGrade(); 
+                getLast24HrGrade();
+
+                //get catched last hour weighted mean wait time
+                getLastHourWaitTime();
 
                 Phone();
 
@@ -248,19 +261,7 @@ namespace ReaderBoard
 
             try
             {
-                //int iNumOffered = 
-                //    Convert.ToInt32(stru_Phone_ENG.NumOffered) 
-                //    +Convert.ToInt32(stru_Phone_FRE.NumOffered) 
-                //    +Convert.ToInt32(stru_G2T_ENG.NumOffered) 
-                //    +Convert.ToInt32(stru_G2T_FRE.NumOffered);
-                //iNumOffered = iNumOffered < 0 ? 0 : iNumOffered;
-
-                //int iNumhundledLessThanTarget = 
-                //   Convert.ToInt32(stru_Phone_ENG.NumHandledLessThanTarget) 
-                //    +Convert.ToInt32(stru_Phone_FRE.NumHandledLessThanTarget) 
-                //    +Convert.ToInt32(stru_G2T_ENG.NumHandledLessThanTarget) 
-                //    +Convert.ToInt32(stru_G2T_FRE.NumHandledLessThanTarget);
-                //iNumhundledLessThanTarget = iNumhundledLessThanTarget < 0 ? 0 : iNumhundledLessThanTarget;
+ 
 
                 double[] QLongestWaitTime = new double[4];
                 QLongestWaitTime[0] = Convert.ToDouble(stru_Phone_ENG.LongestWaitTime);
@@ -270,12 +271,8 @@ namespace ReaderBoard
                 double LongestWaitTime = QLongestWaitTime.Max() / 60; // Convert to mintue
                 LongestWaitTime = LongestWaitTime < 0 ? 0 : LongestWaitTime;
 
-                Double AverageWaitTime = 
-                   Convert.ToDouble(stru_Phone_ENG.AverageWaitTime) 
-                    +Convert.ToDouble(stru_Phone_FRE.AverageWaitTime) 
-                    +Convert.ToDouble(stru_G2T_ENG.AverageWaitTime) 
-                    +Convert.ToDouble(stru_G2T_FRE.AverageWaitTime);
-                AverageWaitTime = (AverageWaitTime / 4) / 60; // Average , Convert to mintue
+                Double AverageWaitTime = Convert.ToDouble(stru_lastHourWaitTime.PhoneWaitTime);  //weighted mean
+                AverageWaitTime = (AverageWaitTime) / 60; // Average , Convert to mintue
                 AverageWaitTime = AverageWaitTime < 0 ? 0 : AverageWaitTime;
 
 
@@ -314,17 +311,7 @@ namespace ReaderBoard
                     +Convert.ToInt32(stru_G2T_FRE.CounselorOnContact);
                 CounselorOnContact = CounselorOnContact < 1 ? 0 : CounselorOnContact;
 
-                //decimal ASA = 0.0m;
-                //if (iNumOffered !=0)
-                //{
-                //    ASA = 100.0m * iNumhundledLessThanTarget / iNumOffered;
-                //    lblPhoneGradeService.Value = ASA.ToString("N2");
-                //}
-                //else
-                //{
-                //    ASA = 0.0m;
-                //    lblPhoneGradeService.Value = "0.00";
-                //}
+ 
 
                 //lblPhoneGradeService.Value = (iNumOffered != 0 ? ASA : 0.00 ).ToString("N2"); 
                 decimal p = stru_lastHourGrade.PhoneAllGrade;
@@ -379,19 +366,6 @@ namespace ReaderBoard
             
             try
             {
-                //int iNumOffered = 
-                //   Convert.ToInt32 (stru_Chat_ENG.NumOffered) 
-                //    +Convert.ToInt32(stru_Chat_FRE.NumOffered) 
-                //    +Convert.ToInt32(stru_ChatApp_ENG.NumOffered) 
-                //    +Convert.ToInt32(stru_ChatApp_FRE.NumOffered);
-                //iNumOffered = iNumOffered < 0 ? 0 : iNumOffered;
-
-                //int iNumhundledLessThanTarget = 
-                //   Convert.ToInt32(stru_Chat_ENG.NumHandledLessThanTarget) 
-                //    +Convert.ToInt32(stru_Chat_FRE.NumHandledLessThanTarget) 
-                //    +Convert.ToInt32(stru_ChatApp_ENG.NumHandledLessThanTarget) 
-                //    +Convert.ToInt32(stru_ChatApp_FRE.NumHandledLessThanTarget);
-                //iNumhundledLessThanTarget = iNumhundledLessThanTarget < 0 ? 0 : iNumhundledLessThanTarget;
 
                 double[] QLongestWaitTime = new double[4];
                 QLongestWaitTime[0] = Convert.ToDouble(stru_Chat_ENG.LongestWaitTime);
@@ -401,12 +375,8 @@ namespace ReaderBoard
                 double LongestWaitTime = QLongestWaitTime.Max()  / 60; //changing to minute
                 LongestWaitTime = LongestWaitTime < 0 ? 0 : LongestWaitTime;
 
-                double AverageWaitTime =           
-                   Convert.ToDouble(stru_Chat_ENG.AverageWaitTime) 
-                    +Convert.ToDouble(stru_Chat_FRE.AverageWaitTime) 
-                    +Convert.ToDouble(stru_ChatApp_ENG.AverageWaitTime) 
-                    +Convert.ToDouble(stru_ChatApp_FRE.AverageWaitTime);
-                AverageWaitTime = (AverageWaitTime / 4) / 60 ; //sverage, changing to minute
+                double AverageWaitTime = Convert.ToDouble(stru_lastHourWaitTime.ChatWaitTime);  //weighted mean;
+                AverageWaitTime = (AverageWaitTime) / 60 ; //sverage, changing to minute
                 AverageWaitTime = AverageWaitTime < 0 ? 0 : AverageWaitTime;
 
                 int CallToday =                 
@@ -443,20 +413,7 @@ namespace ReaderBoard
                     +Convert.ToInt32(stru_ChatApp_ENG.CounselorOnContact)
                     +Convert.ToInt32(stru_ChatApp_FRE.CounselorOnContact);
                 CounselorOnContact = CounselorOnContact < 1 ? 0 : CounselorOnContact;
-
-
-                //decimal asa1 = 0.00m;
-
-                //if (iNumOffered !=0)
-                //{
-                //    asa1 = 100.00m * iNumhundledLessThanTarget / iNumOffered;
-                //    lblChatGradeService.Value = asa1.ToString("N2");
-                //}
-                //else
-                //{
-                //    asa1 = 0.00m;
-                //    lblChatGradeService.Value = "0.00";
-                //}
+ 
 
                 //lblChatGradeService.Value = (iNumOffered != 0 ? asa1 : 0.00).ToString("N2");
                 decimal c = stru_lastHourGrade.ChatAllGrade;
@@ -641,6 +598,7 @@ namespace ReaderBoard
         }
 
 
+
         protected void getLastHourGrade()
         {
             //Proc_LastHourGrade_Result
@@ -663,6 +621,32 @@ namespace ReaderBoard
                     stru_lastHourGrade.ChatAllGrade = 0.0m;
                     stru_lastHourGrade.ChatAppGrade = 0.0m;
                     stru_lastHourGrade.ChatGrade = 0.0m;
+                }
+
+            }
+        }
+
+
+
+        protected void getLastHourWaitTime()
+        {
+            //Proc_LastHourWaitTime_Result
+            var lasthourWaitTime = efContext.Proc_LastHourWaitTime();
+
+
+
+            foreach (Proc_LastHourWaitTime_Result x in lasthourWaitTime)
+            {
+
+                stru_lastHourWaitTime.PhoneWaitTime = (decimal)x.phoneWaitTime;
+
+                if (ChatWorking())
+                {
+                    stru_lastHourWaitTime.ChatWaitTime = (decimal)x.ChatWaitTime;
+                }
+                else
+                {
+                    stru_lastHourWaitTime.ChatWaitTime = 0.0m;
                 }
 
             }

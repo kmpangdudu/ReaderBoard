@@ -8,6 +8,7 @@
         <Function Name="Proc_GetQueue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="iceCTI" />
         <Function Name="Proc_Last24Grade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="iceCTI" />
         <Function Name="Proc_LastHourGrade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="iceCTI" />
+        <Function Name="Proc_LastHourWaitTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="iceCTI" />
         <EntityContainer Name="RAMModelStoreContainer" />
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -17,6 +18,7 @@
           <FunctionImport Name="Proc_GetQueue" ReturnType="Collection(RAMModel.Proc_GetQueue_Result)" />
           <FunctionImport Name="Proc_Last24Grade" ReturnType="Collection(RAMModel.Proc_Last24Grade_Result)" />
           <FunctionImport Name="Proc_LastHourGrade" ReturnType="Collection(RAMModel.Proc_LastHourGrade_Result)" />
+          <FunctionImport Name="Proc_LastHourWaitTime" ReturnType="Collection(RAMModel.Proc_LastHourWaitTime_Result)" />
         </EntityContainer>
         <ComplexType Name="Proc_Last24Grade_Result">
           <Property Type="Decimal" Name="PhoneAllGrade" Nullable="true" Precision="6" Scale="2" />
@@ -38,6 +40,10 @@
           <Property Type="Decimal" Name="ChatAllGrade" Nullable="true" Precision="6" Scale="2" />
           <Property Type="Decimal" Name="ChatGrade" Nullable="true" Precision="6" Scale="2" />
           <Property Type="Decimal" Name="ChatAppGrade" Nullable="true" Precision="6" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="Proc_LastHourWaitTime_Result">
+          <Property Type="Decimal" Name="phoneWaitTime" Nullable="true" Precision="16" Scale="2" />
+          <Property Type="Decimal" Name="ChatWaitTime" Nullable="true" Precision="16" Scale="2" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -75,6 +81,14 @@
                 <ScalarProperty Name="ChatAllGrade" ColumnName="ChatAllGrade" />
                 <ScalarProperty Name="ChatGrade" ColumnName="ChatGrade" />
                 <ScalarProperty Name="ChatAppGrade" ColumnName="ChatAppGrade" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_LastHourWaitTime" FunctionName="RAMModel.Store.Proc_LastHourWaitTime">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RAMModel.Proc_LastHourWaitTime_Result">
+                <ScalarProperty Name="phoneWaitTime" ColumnName="phoneWaitTime" />
+                <ScalarProperty Name="ChatWaitTime" ColumnName="ChatWaitTime" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
