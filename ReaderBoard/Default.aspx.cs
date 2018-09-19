@@ -94,19 +94,6 @@ namespace ReaderBoard
         int ChatClosed = Properties.Settings.Default.ChatClosed;
 
 
-
-
-        //string szServerName    ; //"ice1"
-        //string dwSwitchID ; //"11006";
-        //string iQueueID_Phone_ENG;//"6001";
-        //string iQueueID_Phone_FRE;//"6002";
-        //string iQueueID_G2T_ENG;//"6013";
-        //string iQueueID_G2T_FRE;//"6014";
-        //string iQueueID_Chat_ENG;//"6007";
-        //string iQueueID_Chat_FRE;//"6008";
-        //string iQueueID_ChatApp_ENG;//"6020";
-        //string iQueueID_ChatApp_FRE  ;//"6021";
-
          RealTimeData  stru_Phone_ENG;
          RealTimeData  stru_Phone_FRE;
          RealTimeData  stru_G2T_ENG  ;
@@ -261,8 +248,6 @@ namespace ReaderBoard
 
             try
             {
- 
-
                 double[] QLongestWaitTime = new double[4];
                 QLongestWaitTime[0] = Convert.ToDouble(stru_Phone_ENG.LongestWaitTime);
                 QLongestWaitTime[1] = Convert.ToDouble(stru_Phone_FRE.LongestWaitTime);

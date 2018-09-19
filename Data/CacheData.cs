@@ -58,16 +58,7 @@ namespace Data
         static string iQueueID_ChatApp_ENG = Properties.Settings.Default.ChatApp_ENG;//"6020";
         static string iQueueID_ChatApp_FRE = Properties.Settings.Default.ChatApp_FRE;//"6021";
         static int cacheInterval = Properties.Settings.Default.cacheInterval;//Default 300 second , 5 mintues;
-        //static string szServerName; //"ice1"
-        //static string dwSwitchID; //"11006";
-        //static string iQueueID_Phone_ENG;//"6001";
-        //static string iQueueID_Phone_FRE;//"6002";
-        //static string iQueueID_G2T_ENG;//"6013";
-        //static string iQueueID_G2T_FRE;//"6014";
-        //static string iQueueID_Chat_ENG;//"6007";
-        //static string iQueueID_Chat_FRE;//"6008";
-        //static string iQueueID_ChatApp_ENG;//"6020";
-        //static string iQueueID_ChatApp_FRE;//"6021";
+
 
 
         static public RealTimeData stru_Phone_ENG;
