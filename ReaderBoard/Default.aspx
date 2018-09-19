@@ -121,13 +121,15 @@
                         config4.waveColor = "1a1aff";
                         config4.textVertPosition = 0.55; //0.8
                         config4.waveAnimateTime = 1000;
-                        config4.waveHeight = 0.3;
+                        config4.waveHeight = 0.15;
                         config4.waveAnimate = true;
                         config4.waveRise = false; //false
                         config4.waveHeightScaling = true;
                         config4.waveOffset = 0.35; //0.25
                         config4.textSize = 2.2;//0.75
                         config4.waveCount = 3;//3
+                        config4.minValue = 0;
+                        config4.maxValue = 10;
                         config4.displayPercent = false; //true
 
                         if (isNaN(thevalue) || (thevalue <1)) {
@@ -290,7 +292,7 @@
                         config5.waveColor = Grey;   //AAAA39
                         config5.textVertPosition = 0.55; //0.8
                         config5.waveAnimateTime = 1000;
-                        config5.waveHeight = 0.3;
+                        config5.waveHeight = 0.15s;
                         config5.waveAnimate = true;
                         config5.waveRise = true; //false
                         config5.waveHeightScaling = true;
@@ -298,6 +300,8 @@
                         config5.textSize = 2.1;//0.75
                         config5.waveCount = 3;//3
                         config5.displayPercent = false; //true
+                        config5.minValue = 0;
+                        config5.maxValue = 10;
 
 
                         if (isNaN(thevalue) || (thevalue <1)) {
