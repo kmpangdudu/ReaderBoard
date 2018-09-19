@@ -292,7 +292,7 @@
                         config5.waveColor = Grey;   //AAAA39
                         config5.textVertPosition = 0.55; //0.8
                         config5.waveAnimateTime = 1000;
-                        config5.waveHeight = 0.15s;
+                        config5.waveHeight = 0.15;
                         config5.waveAnimate = true;
                         config5.waveRise = true; //false
                         config5.waveHeightScaling = true;
