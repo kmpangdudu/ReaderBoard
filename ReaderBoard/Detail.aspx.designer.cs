@@ -139,6 +139,15 @@ namespace ReaderBoard {
         protected global::System.Web.UI.WebControls.Label lblWaitTime;
         
         /// <summary>
+        /// lblGetHandledQueuedTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGetHandledQueuedTime;
+        
+        /// <summary>
         /// lblCurQueued_g2t control.
         /// </summary>
         /// <remarks>
@@ -209,6 +218,15 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblWaitTime_g2t;
+        
+        /// <summary>
+        /// lblGetHandledQueuedTime_g2t control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGetHandledQueuedTime_g2t;
         
         /// <summary>
         /// lblCurQueued_ChatE control.
@@ -283,6 +301,15 @@ namespace ReaderBoard {
         protected global::System.Web.UI.WebControls.Label lblWaitTime_ChatE;
         
         /// <summary>
+        /// lblGetHandledQueuedTime_ChatE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGetHandledQueuedTime_ChatE;
+        
+        /// <summary>
         /// lblCurQueued_ChatAppE control.
         /// </summary>
         /// <remarks>
@@ -353,6 +380,15 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblWaitTime_ChatAppE;
+        
+        /// <summary>
+        /// lblGetHandledQueuedTime_ChartAppE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGetHandledQueuedTime_ChartAppE;
         
         /// <summary>
         /// lblCurQueued_F control.
@@ -427,6 +463,15 @@ namespace ReaderBoard {
         protected global::System.Web.UI.WebControls.Label lblWaitTime_F;
         
         /// <summary>
+        /// lblGetHandledQueuedTime_F control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGetHandledQueuedTime_F;
+        
+        /// <summary>
         /// lblCurQueued_g2t_f control.
         /// </summary>
         /// <remarks>
@@ -497,6 +542,15 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblWaitTime_g2t_f;
+        
+        /// <summary>
+        /// lblGetHandledQueuedTime_g2t_f control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGetHandledQueuedTime_g2t_f;
         
         /// <summary>
         /// lblCurQueued_ChatF control.
@@ -571,6 +625,15 @@ namespace ReaderBoard {
         protected global::System.Web.UI.WebControls.Label lblWaitTime_ChatF;
         
         /// <summary>
+        /// lblGetHandledQueuedTime_ChatF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGetHandledQueuedTime_ChatF;
+        
+        /// <summary>
         /// lblCurQueued_ChatAppF control.
         /// </summary>
         /// <remarks>
@@ -641,6 +704,15 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblWaitTime_ChatAppF;
+        
+        /// <summary>
+        /// lblGetHandledQueuedTime_charAppF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGetHandledQueuedTime_charAppF;
         
         /// <summary>
         /// Button1 control.

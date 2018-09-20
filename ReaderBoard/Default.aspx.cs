@@ -22,6 +22,7 @@ namespace ReaderBoard
         public string CounselorAvailable;
         public string CounselorLogin;
         public string CounselorOnContact;
+        public string HandledQueueTime;
     }
 
     struct Last24hrGrade
@@ -256,9 +257,28 @@ namespace ReaderBoard
                 double LongestWaitTime = QLongestWaitTime.Max() / 60; // Convert to mintue
                 LongestWaitTime = LongestWaitTime < 0 ? 0 : LongestWaitTime;
 
-                Double AverageWaitTime = Convert.ToDouble(stru_lastHourWaitTime.PhoneWaitTime);  //weighted mean
+                // *****   AverageWaitTime **** //
+                Double AverageWaitTime = 0.0;
+                //AverageWaitTime = Convert.ToDouble(stru_lastHourWaitTime.PhoneWaitTime);  //weighted mean
+
+                int TotalNumOfHandledInThisQueue = 0;
+                    TotalNumOfHandledInThisQueue = Convert.ToInt32(stru_Phone_ENG.HandledToday)
+                        + Convert.ToInt32(stru_Phone_FRE.HandledToday)
+                        + Convert.ToInt32(stru_G2T_ENG.HandledToday)
+                        + Convert.ToInt32(stru_G2T_FRE.HandledToday);
+
+                AverageWaitTime = Convert.ToInt32(stru_Phone_ENG.HandledQueueTime) * Convert.ToInt32(stru_Phone_ENG.HandledToday)
+                                + Convert.ToInt32(stru_Phone_FRE.HandledQueueTime) * Convert.ToInt32(stru_Phone_FRE.HandledToday)
+                                + Convert.ToInt32(stru_G2T_ENG.HandledQueueTime) * Convert.ToInt32(stru_G2T_ENG.HandledToday)
+                                + Convert.ToInt32(stru_G2T_FRE.HandledQueueTime) * Convert.ToInt32(stru_G2T_FRE.HandledToday);
+                AverageWaitTime = AverageWaitTime / TotalNumOfHandledInThisQueue;
                 AverageWaitTime = (AverageWaitTime) / 60; // Average , Convert to mintue
                 AverageWaitTime = AverageWaitTime < 0 ? 0 : AverageWaitTime;
+
+
+
+
+
 
 
                 int CallToday = 
@@ -360,7 +380,23 @@ namespace ReaderBoard
                 double LongestWaitTime = QLongestWaitTime.Max()  / 60; //changing to minute
                 LongestWaitTime = LongestWaitTime < 0 ? 0 : LongestWaitTime;
 
-                double AverageWaitTime = Convert.ToDouble(stru_lastHourWaitTime.ChatWaitTime);  //weighted mean;
+                double AverageWaitTime = 0.0;
+
+                //AverageWaitTime = Convert.ToDouble(stru_lastHourWaitTime.ChatWaitTime);  //weighted mean;
+
+                int TotalNumOfHandledInThisQueue = 0;
+                TotalNumOfHandledInThisQueue = Convert.ToInt32(stru_Chat_ENG.HandledToday)
+                                            + Convert.ToInt32(stru_Chat_FRE.HandledToday)
+                                            + Convert.ToInt32(stru_ChatApp_ENG.HandledToday)
+                                            + Convert.ToInt32(stru_ChatApp_FRE.HandledToday);
+
+                AverageWaitTime = Convert.ToInt32(stru_Chat_ENG.HandledQueueTime) * Convert.ToInt32(stru_Chat_ENG.HandledToday)
+                                + Convert.ToInt32(stru_Chat_FRE.HandledQueueTime) * Convert.ToInt32(stru_Chat_FRE.HandledToday)
+                                + Convert.ToInt32(stru_ChatApp_ENG.HandledQueueTime) * Convert.ToInt32(stru_ChatApp_ENG.HandledToday)
+                                + Convert.ToInt32(stru_ChatApp_FRE.HandledQueueTime) * Convert.ToInt32(stru_ChatApp_FRE.HandledToday);
+
+                AverageWaitTime = AverageWaitTime / TotalNumOfHandledInThisQueue;
+
                 AverageWaitTime = (AverageWaitTime) / 60 ; //sverage, changing to minute
                 AverageWaitTime = AverageWaitTime < 0 ? 0 : AverageWaitTime;
 
@@ -460,6 +496,7 @@ namespace ReaderBoard
             stru_Phone_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Phone_ENG, szServerName);
             stru_Phone_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Phone_ENG, szServerName);
             stru_Phone_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Phone_ENG, szServerName);
+            stru_Phone_ENG.HandledQueueTime = client.GetHandledQueuedTime(dwSwitchID, iQueueID_Phone_ENG, szServerName);
 
 
             //phone_fre
@@ -472,7 +509,7 @@ namespace ReaderBoard
             stru_Phone_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Phone_FRE, szServerName);
             stru_Phone_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Phone_FRE, szServerName);
             stru_Phone_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Phone_FRE, szServerName);
-;
+            stru_Phone_FRE.HandledQueueTime = client.GetHandledQueuedTime(dwSwitchID, iQueueID_Phone_FRE, szServerName);
 
             //G2T_ENG
             stru_G2T_ENG.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_G2T_ENG, szServerName);
@@ -484,7 +521,7 @@ namespace ReaderBoard
             stru_G2T_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_G2T_ENG, szServerName);
             stru_G2T_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_G2T_ENG, szServerName);
             stru_G2T_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_G2T_ENG, szServerName);
-
+            stru_G2T_ENG.HandledQueueTime = client.GetHandledQueuedTime(dwSwitchID, iQueueID_G2T_ENG, szServerName);
 
             //G2T_FRE
             stru_G2T_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_G2T_FRE, szServerName);
@@ -496,10 +533,9 @@ namespace ReaderBoard
             stru_G2T_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_G2T_FRE, szServerName);
             stru_G2T_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_G2T_FRE, szServerName);
             stru_G2T_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_G2T_FRE, szServerName);
+            stru_G2T_FRE.HandledQueueTime = client.GetHandledQueuedTime(dwSwitchID, iQueueID_G2T_FRE, szServerName);
 
 
-
-    
             if ( ChatWorking() ) // Day light theme 在6:00Pm 到 凌晨 2：00am 就 不做下面的
             {
                 //Chat_ENG
@@ -512,7 +548,7 @@ namespace ReaderBoard
                 stru_Chat_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Chat_ENG, szServerName);
                 stru_Chat_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Chat_ENG, szServerName);
                 stru_Chat_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Chat_ENG, szServerName);
-
+                stru_Chat_ENG.HandledQueueTime = client.GetHandledQueuedTime(dwSwitchID, iQueueID_Chat_ENG, szServerName);
 
                 //Chat_FRE
                 stru_Chat_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Chat_FRE, szServerName);
@@ -524,7 +560,7 @@ namespace ReaderBoard
                 stru_Chat_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_Chat_FRE, szServerName);
                 stru_Chat_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Chat_FRE, szServerName);
                 stru_Chat_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Chat_FRE, szServerName);
-
+                stru_Chat_FRE.HandledQueueTime = client.GetHandledQueuedTime(dwSwitchID, iQueueID_Chat_FRE, szServerName);
 
                 //ChatApp_ENG
                 stru_ChatApp_ENG.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
@@ -536,7 +572,7 @@ namespace ReaderBoard
                 stru_ChatApp_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
                 stru_ChatApp_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
                 stru_ChatApp_ENG.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-
+                stru_ChatApp_ENG.HandledQueueTime = client.GetHandledQueuedTime(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
 
                 //ChatApp_FRE
                 stru_ChatApp_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
@@ -548,7 +584,7 @@ namespace ReaderBoard
                 stru_ChatApp_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
                 stru_ChatApp_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
                 stru_ChatApp_FRE.CounselorOnContact = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-;
+                stru_ChatApp_FRE.HandledQueueTime = client.GetHandledQueuedTime(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
             }
 
 

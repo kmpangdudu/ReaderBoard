@@ -69,6 +69,7 @@
                 <p>GetNumAgentsOnContact: &nbsp <asp:Label ID="lblNumAgentsOnContact" runat="server" Text="Label"></asp:Label></p>
                 <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaitTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+                <p>Get the handled queued time:&nbsp <asp:Label ID="lblGetHandledQueuedTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
             </div>
             <div id="G2TE">
                 <h3>Good to Talk</h3>
@@ -80,6 +81,7 @@
                 <p>GetNumAgentsOnContact: &nbsp <asp:Label ID="lblNumAgentsOnContact_g2t" runat="server" Text="Label"></asp:Label></p>
                 <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaittime_g2t" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime_g2t" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+                <p>Get the handled queued time: &nbsp<asp:Label ID="lblGetHandledQueuedTime_g2t" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
             </div>
             <div id="ChatE">
                 <h3>Chat Desktop</h3>
@@ -91,6 +93,7 @@
                 <p>GetNumAgentsOnContact: &nbsp <asp:Label ID="lblNumAgentsOnContact_ChatE" runat="server" Text="Label"></asp:Label></p>
                 <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaittime_ChatE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime_ChatE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+                 <p>Get the handled queued time:&nbsp<asp:Label ID="lblGetHandledQueuedTime_ChatE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
             </div>
             <div id="ChatAppE">
                 <h3>Chat Mobile</h3>
@@ -102,6 +105,7 @@
                 <p>GetNumAgentsOnContact: &nbsp <asp:Label ID="lblNumAgentsOnContact_ChatAppE" runat="server" Text="Label"></asp:Label></p>
                 <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaittime_ChatAppE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime_ChatAppE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+                <p>Get the handled queued time:&nbsp<asp:Label ID="lblGetHandledQueuedTime_ChartAppE" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
             </div>
          </div>
              <br />
@@ -117,6 +121,7 @@
                 <p>GetNumAgentsOnContact: &nbsp <asp:Label ID="lblNumAgentsOnContact_F" runat="server" Text="Label"></asp:Label></p>
                 <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaitTime_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+                <p>Get the handled queued time:&nbsp<asp:Label ID="lblGetHandledQueuedTime_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
             </div>
             <div id="G2TF">
                 <h3>Good to Talk</h3>
@@ -128,6 +133,7 @@
                 <p>GetNumAgentsOnContact: &nbsp <asp:Label ID="lblNumAgentsOnContact_g2t_f" runat="server" Text="Label"></asp:Label></p>
                 <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaitTime_g2t_f" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime_g2t_f" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+                <p>Get the handled queued time:&nbsp<asp:Label ID="lblGetHandledQueuedTime_g2t_f" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
             </div>
             <div id="ChatF">
                 <h3>Chat Desk</h3>
@@ -139,6 +145,7 @@
                 <p>GetNumAgentsOnContact: &nbsp <asp:Label ID="lblNumAgentsOnContact_ChatF" runat="server" Text="Label"></asp:Label></p>
                 <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaitTime_ChatF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime_ChatF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+                <p>Get the handled queued time:&nbsp<asp:Label ID="lblGetHandledQueuedTime_ChatF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
             </div>
             <div id="ChatAppF">
                 <h3>Chat Mobile</h3>
@@ -150,6 +157,7 @@
                 <p>GetNumAgentsOnContact: &nbsp <asp:Label ID="lblNumAgentsOnContact_ChatAppF" runat="server" Text="Label"></asp:Label></p>
                 <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaittime_ChatAppF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime_ChatAppF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+                <p>Get the handled queued time:&nbsp<asp:Label ID="lblGetHandledQueuedTime_charAppF" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
             </div>
         </div>
         <div>
