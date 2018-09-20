@@ -267,10 +267,11 @@ namespace ReaderBoard
                         + Convert.ToInt32(stru_G2T_ENG.HandledToday)
                         + Convert.ToInt32(stru_G2T_FRE.HandledToday);
 
-                AverageWaitTime = Convert.ToInt32(stru_Phone_ENG.HandledQueueTime) * Convert.ToInt32(stru_Phone_ENG.HandledToday)
-                                + Convert.ToInt32(stru_Phone_FRE.HandledQueueTime) * Convert.ToInt32(stru_Phone_FRE.HandledToday)
-                                + Convert.ToInt32(stru_G2T_ENG.HandledQueueTime) * Convert.ToInt32(stru_G2T_ENG.HandledToday)
-                                + Convert.ToInt32(stru_G2T_FRE.HandledQueueTime) * Convert.ToInt32(stru_G2T_FRE.HandledToday);
+                AverageWaitTime = Convert.ToInt32(stru_Phone_ENG.HandledQueueTime) //* Convert.ToInt32(stru_Phone_ENG.HandledToday)
+                                + Convert.ToInt32(stru_Phone_FRE.HandledQueueTime) //* Convert.ToInt32(stru_Phone_FRE.HandledToday)
+                                + Convert.ToInt32(stru_G2T_ENG.HandledQueueTime) //* Convert.ToInt32(stru_G2T_ENG.HandledToday)
+                                + Convert.ToInt32(stru_G2T_FRE.HandledQueueTime) //* Convert.ToInt32(stru_G2T_FRE.HandledToday);
+                                ;
                 AverageWaitTime = AverageWaitTime / TotalNumOfHandledInThisQueue;
                 AverageWaitTime = (AverageWaitTime) / 60; // Average , Convert to mintue
                 AverageWaitTime = AverageWaitTime < 0 ? 0 : AverageWaitTime;
@@ -390,11 +391,11 @@ namespace ReaderBoard
                                             + Convert.ToInt32(stru_ChatApp_ENG.HandledToday)
                                             + Convert.ToInt32(stru_ChatApp_FRE.HandledToday);
 
-                AverageWaitTime = Convert.ToInt32(stru_Chat_ENG.HandledQueueTime) * Convert.ToInt32(stru_Chat_ENG.HandledToday)
-                                + Convert.ToInt32(stru_Chat_FRE.HandledQueueTime) * Convert.ToInt32(stru_Chat_FRE.HandledToday)
-                                + Convert.ToInt32(stru_ChatApp_ENG.HandledQueueTime) * Convert.ToInt32(stru_ChatApp_ENG.HandledToday)
-                                + Convert.ToInt32(stru_ChatApp_FRE.HandledQueueTime) * Convert.ToInt32(stru_ChatApp_FRE.HandledToday);
-
+                AverageWaitTime = Convert.ToInt32(stru_Chat_ENG.HandledQueueTime) //* Convert.ToInt32(stru_Chat_ENG.HandledToday)
+                                + Convert.ToInt32(stru_Chat_FRE.HandledQueueTime) //* Convert.ToInt32(stru_Chat_FRE.HandledToday)
+                                + Convert.ToInt32(stru_ChatApp_ENG.HandledQueueTime) //* Convert.ToInt32(stru_ChatApp_ENG.HandledToday)
+                                + Convert.ToInt32(stru_ChatApp_FRE.HandledQueueTime) //* Convert.ToInt32(stru_ChatApp_FRE.HandledToday);
+                                ;
                 AverageWaitTime = AverageWaitTime / TotalNumOfHandledInThisQueue;
 
                 AverageWaitTime = (AverageWaitTime) / 60 ; //sverage, changing to minute
