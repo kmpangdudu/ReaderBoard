@@ -332,7 +332,7 @@ namespace ReaderBoard
                 lblPhoneLongestWaitTime.Text = timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
 
                 timeSpan = TimeSpan.FromMinutes(AverageWaitTime);
-                lblPhoneAverageWaitTime.Text = timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
+                lblPhoneAverageWaitTime.Text = timeSpan.Hours.ToString("0") +":"+ timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
 
                 lblPhoneCallToday.Text = CallToday.ToString();
                 lblPhonePeopleInQueue.Value = PeopleInQueue.ToString();
@@ -450,7 +450,7 @@ namespace ReaderBoard
                 lblChatLongestWaitTime.Text = timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
 
                 timeSpan = TimeSpan.FromMinutes(AverageWaitTime);
-                lblChatAverageWaitTime.Text = timeSpan.Minutes.ToString("00") + ":"+timeSpan.Seconds.ToString("00");
+                lblChatAverageWaitTime.Text = timeSpan.Hours.ToString("0") +":"+ timeSpan.Minutes.ToString("00") + ":"+timeSpan.Seconds.ToString("00");
 
                 lblChatCallToday.Text = CallToday.ToString();
                 lblChatPeopleInQueue.Value = PeopleInQueue.ToString();

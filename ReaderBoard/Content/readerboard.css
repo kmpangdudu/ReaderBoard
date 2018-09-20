@@ -74,6 +74,14 @@ p {
     margin: 0px;
 }
 
+.bigfont {
+    font-size: 98px;
+}
+
+.bigfont1 {
+    font-size: 90px;
+}
+
 div {
     border-radius: 8px;
     background-color: #fcfcfc;

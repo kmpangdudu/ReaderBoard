@@ -72,7 +72,7 @@
                     <h3 class="">Current wait time</h3>
                 </div>
                 <div class="borderShadow">
-                    <h1 class="bigfont">
+                    <h1 class="bigfont1">
                         <asp:Label ID="lblPhoneAverageWaitTime" runat="server" Text="00:00"></asp:Label>
                     </h1>
                     <h3 class="">Average wait time</h3>
@@ -110,7 +110,7 @@
                         config4.waveColor = "1a1aff";
                         config4.textVertPosition = 0.55; //0.8
                         config4.waveAnimateTime = 1000;
-                        config4.waveHeight = 0.3;
+                        config4.waveHeight = 0.15;
                         config4.waveAnimate = true;
                         config4.waveRise = false; //false
                         config4.waveHeightScaling = true;
@@ -118,6 +118,9 @@
                         config4.textSize = 2.2;//0.75
                         config4.waveCount = 3;//3
                         config4.displayPercent = false; //true
+                        config4.minValue = 0;
+                        config5.maxValue = 10;
+
                         if (isNaN(thevalue) || (thevalue <1)) {
                             thevalue = 0;
                         }
@@ -219,7 +222,7 @@
                     <h3 class="">Current wait time</h3>
                 </div>
                 <div class="borderShadow">
-                    <h1 class="bigfont">
+                    <h1 class="bigfont1">
                         <asp:Label ID="lblChatAverageWaitTime" runat="server" Text="00:00"></asp:Label>
                     </h1>
                     <h3 class="">Average wait time</h3>
@@ -259,7 +262,7 @@
                         config5.waveColor = "FCFCFC";   //AAAA39
                         config5.textVertPosition = 0.55; //0.8
                         config5.waveAnimateTime = 1000;
-                        config5.waveHeight = 0.3;
+                        config5.waveHeight = 0.15;
                         config5.waveAnimate = true;
                         config5.waveRise = true; //false
                         config5.waveHeightScaling = true;
@@ -267,7 +270,8 @@
                         config5.textSize = 2.1;//0.75
                         config5.waveCount = 3;//3
                         config5.displayPercent = false; //true
-
+                        config5.minValue = 0;
+                        config5.maxValue = 10;
 
                         if (isNaN(thevalue) || (thevalue <1)) {
                             thevalue = 0;
