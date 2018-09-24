@@ -76,7 +76,7 @@
                     <h3 class="">Longest Wait Time</h3>
                 </div>
                 <div class="borderShadow">
-                    <h1 class="bigfont1">
+                    <h1 class="bigfont">
                         <asp:Label ID="lblPhoneAverageWaitTime" runat="server" Text="00:00"></asp:Label>
                     </h1>
                     <h3 class="">Average Wait Time</h3>
@@ -247,7 +247,7 @@
                     <h3 class="">Longest Wait Time</h3>
                 </div>
                 <div class="borderShadow">
-                    <h1 class="bigfont1">
+                    <h1 class="bigfont">
                         <asp:Label ID="lblChatAverageWaitTime" runat="server" Text="00:00"></asp:Label>
                     </h1>
                     <h3 class="">Average Wait Time</h3>

@@ -322,18 +322,24 @@ namespace ReaderBoard
                 //lblPhoneGradeService.Value = (iNumOffered != 0 ? ASA : 0.00 ).ToString("N2"); 
                 decimal p = stru_lastHourGrade.PhoneAllGrade;
                 p = (p != (decimal)0.0 ? p : (decimal)0.00);
-                lblPhoneGradeService.Value = ((decimal)1.00 * p).ToString("N2");
+                //lblPhoneGradeService.Value = ((decimal)1.00 * p).ToString("N2");
+                lblPhoneGradeService.Value = Math.Round(p).ToString();
 
                 //lblPhoneGradeService24.Value = (iNumOffered != 0 ? ASA : 0.00 ).ToString("N2"); 
                 decimal p24 = stru_last24HrGrade.PhoneAllGrade;
                 p24 = (p24 != (decimal)0.0 ? p24 : (decimal)0.00);
-                lblPhoneGradeService24.Value = ((decimal)1.00 * p24).ToString("N2");
+                //lblPhoneGradeService24.Value = ((decimal)1.00 * p24).ToString("N2");
+                lblPhoneGradeService24.Value = Math.Round(p24).ToString();
+
+
 
                 var timeSpan = TimeSpan.FromMinutes(LongestWaitTime);
                 lblPhoneLongestWaitTime.Text = timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
 
                 timeSpan = TimeSpan.FromMinutes(AverageWaitTime);
-                lblPhoneAverageWaitTime.Text = timeSpan.Hours.ToString("0") +":"+ timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
+                //lblPhoneAverageWaitTime.Text = timeSpan.Hours.ToString("0") +":"+ timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
+                lblPhoneAverageWaitTime.Text =  timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
+
 
                 lblPhoneCallToday.Text = CallToday.ToString();
                 lblPhonePeopleInQueue.Value = PeopleInQueue.ToString();
@@ -440,18 +446,21 @@ namespace ReaderBoard
                 //lblChatGradeService.Value = (iNumOffered != 0 ? asa1 : 0.00).ToString("N2");
                 decimal c = stru_lastHourGrade.ChatAllGrade;
                 c = (c != (decimal)0.0 ? c : (decimal)0.00);
-                lblChatGradeService.Value = ((decimal)1.00 * c).ToString("N2");
+                //lblChatGradeService.Value = ((decimal)1.00 * c).ToString("N2");
+                lblChatGradeService.Value = Math.Round(c).ToString();
 
                 //lblChatGradeService24.Value = (iNumOffered != 0 ? asa1 : 0.00).ToString("N2");
                 decimal c24 = stru_last24HrGrade.ChatAllGrade;
                 c24 = (c24 != (decimal)0.0 ? c24 : (decimal)0.00);
-                lblChatGradeService24.Value = ((decimal)1.00 * c24).ToString("N2");
+                //lblChatGradeService24.Value = ((decimal)1.00 * c24).ToString("N2");
+                lblChatGradeService24.Value = Math.Round(c24).ToString();
 
                 var timeSpan = TimeSpan.FromMinutes(LongestWaitTime);
                 lblChatLongestWaitTime.Text = timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
 
                 timeSpan = TimeSpan.FromMinutes(AverageWaitTime);
-                lblChatAverageWaitTime.Text = timeSpan.Hours.ToString("0") +":"+ timeSpan.Minutes.ToString("00") + ":"+timeSpan.Seconds.ToString("00");
+                lblChatAverageWaitTime.Text = timeSpan.Minutes.ToString("00") + ":"+timeSpan.Seconds.ToString("00");
+                //lblChatAverageWaitTime.Text = timeSpan.Hours.ToString("0") + ":" + timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
 
                 lblChatCallToday.Text = CallToday.ToString();
                 lblChatPeopleInQueue.Value = PeopleInQueue.ToString();

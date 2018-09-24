@@ -243,20 +243,21 @@ $(document).ready(function () {
         var middleTextCount = svg.append('text')
             .datum(0)
             .text(function (d) {
-                return d + '%';
+                //return d + '%';
+                return d  ;
             })
 
             .attr({
                 class: 'middleText',
                 'text-anchor': 'middle',
-                dy: 10,  // william center Text V position
+                dy: 24,  // william center Text V position ,default 10
                 dx: 0
             })
             //domID
             .style({
                  
                 fill: 'url(#gradient' + domId + ')',
-                'font-size': '32px',// william display foreSize
+                'font-size': '80px',// william display foreSize default 32px
                 'font-weight': 'bold',
                 'color': '#FF0000'
             });
@@ -275,7 +276,9 @@ $(document).ready(function () {
                     d.endAngle = interpolateForeground(t);
 
                     //middleTextCount.text(Math.floor(interpolateText(t)) + '%'); //william middle text 
-                    middleTextCount.text(interpolateText(t) + '%');
+                   // middleTextCount.text(interpolateText(t) + '%');
+                    middleTextCount.text(interpolateText(t));
+
 
                     return arcProgress(d);
                 };
