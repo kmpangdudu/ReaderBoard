@@ -15,10 +15,10 @@ namespace Data
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class RAMEntities : DbContext
+    public partial class ReaderboardDataEntities : DbContext
     {
-        public RAMEntities()
-            : base("name=RAMEntities")
+        public ReaderboardDataEntities()
+            : base("name=ReaderboardDataEntities")
         {
         }
     

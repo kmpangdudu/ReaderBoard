@@ -119,7 +119,7 @@
                         config4.waveCount = 3;//3
                         config4.displayPercent = false; //true
                         config4.minValue = 0;
-                        config5.maxValue = 10;
+                        config5.maxValue = 20;
 
                         if (isNaN(thevalue) || (thevalue <1)) {
                             thevalue = 0;
@@ -271,7 +271,7 @@
                         config5.waveCount = 3;//3
                         config5.displayPercent = false; //true
                         config5.minValue = 0;
-                        config5.maxValue = 10;
+                        config5.maxValue = 20;
 
                         if (isNaN(thevalue) || (thevalue <1)) {
                             thevalue = 0;

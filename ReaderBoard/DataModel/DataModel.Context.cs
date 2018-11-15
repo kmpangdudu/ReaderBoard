@@ -15,10 +15,10 @@ namespace ReaderBoard.DataModel
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class RAMEntities : DbContext
+    public partial class ReaderBoardEntities : DbContext
     {
-        public RAMEntities()
-            : base("name=RAMEntities")
+        public ReaderBoardEntities()
+            : base("name=ReaderBoardEntities")
         {
         }
     

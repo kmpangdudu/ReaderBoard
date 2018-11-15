@@ -70,6 +70,8 @@
                 <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaitTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>Get the handled queued time:&nbsp <asp:Label ID="lblGetHandledQueuedTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+                <p>Get CTI User Data:&nbsp <asp:Label ID="lblGetCTIUserData" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+                <p>Get Ice User Data:&nbsp <asp:Label ID="lblGetIceUserData" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
             </div>
             <div id="G2TE">
                 <h3>Good to Talk</h3>
@@ -122,6 +124,8 @@
                 <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaitTime_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>Get the handled queued time:&nbsp<asp:Label ID="lblGetHandledQueuedTime_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+                <p>Get CTI User Data:&nbsp <asp:Label ID="lblGetCTIUserData_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+                <p>Get Ice User Data:&nbsp <asp:Label ID="lblGetIceUserData_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
             </div>
             <div id="G2TF">
                 <h3>Good to Talk</h3>
@@ -164,6 +168,9 @@
         <div>
             <br /><br /><br />
             <asp:Button ID="Button1" runat="server" Text="testing others" OnClick="Button1_Click" />
+            <br />
+            AgentID <asp:TextBox ID="tbAgentID" runat="server" Width="100px" AutoPostBack="True" OnTextChanged="Page_Load">1502</asp:TextBox>
+
         </div>
             <div id="test1">
                 <p>QueueStats Phone_Eng: <asp:Label ID="lblQueueStats" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>

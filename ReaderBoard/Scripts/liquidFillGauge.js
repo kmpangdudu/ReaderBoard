@@ -5,7 +5,7 @@ function liquidFillGaugeDefaultSettings() {
     var def =
         {
             minValue: 0, // The gauge minimum value. default 0
-            maxValue: 10, // The gauge maximum value.
+            maxValue: 100, // The gauge maximum value.
             circleThickness: 0.1, // The outer circle thickness as a percentage of it's radius.
             circleFillGap: 0.05, // The size of the gap between the outer circle and wave circle as a percentage of the outer circles radius.
             circleColor: Grey, // The color of the outer circle.

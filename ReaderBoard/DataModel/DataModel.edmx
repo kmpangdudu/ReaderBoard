@@ -14,7 +14,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RAMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="RAMEntities" annotation:LazyLoadingEnabled="true" >
+        <EntityContainer Name="ReaderBoardEntities" annotation:LazyLoadingEnabled="true" >
           <FunctionImport Name="Proc_GetQueue" ReturnType="Collection(RAMModel.Proc_GetQueue_Result)" />
           <FunctionImport Name="Proc_Last24Grade" ReturnType="Collection(RAMModel.Proc_Last24Grade_Result)" />
           <FunctionImport Name="Proc_LastHourGrade" ReturnType="Collection(RAMModel.Proc_LastHourGrade_Result)" />
@@ -50,7 +50,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="RAMModelStoreContainer" CdmEntityContainer="RAMEntities" >
+        <EntityContainerMapping StorageEntityContainer="RAMModelStoreContainer" CdmEntityContainer="ReaderBoardEntities" >
         <FunctionImportMapping FunctionImportName="Proc_GetQueue" FunctionName="RAMModel.Store.Proc_GetQueue">
             <ResultMapping>
               <ComplexTypeMapping TypeName="RAMModel.Proc_GetQueue_Result">

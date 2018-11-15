@@ -148,6 +148,24 @@ namespace ReaderBoard {
         protected global::System.Web.UI.WebControls.Label lblGetHandledQueuedTime;
         
         /// <summary>
+        /// lblGetCTIUserData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGetCTIUserData;
+        
+        /// <summary>
+        /// lblGetIceUserData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGetIceUserData;
+        
+        /// <summary>
         /// lblCurQueued_g2t control.
         /// </summary>
         /// <remarks>
@@ -472,6 +490,24 @@ namespace ReaderBoard {
         protected global::System.Web.UI.WebControls.Label lblGetHandledQueuedTime_F;
         
         /// <summary>
+        /// lblGetCTIUserData_F control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGetCTIUserData_F;
+        
+        /// <summary>
+        /// lblGetIceUserData_F control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGetIceUserData_F;
+        
+        /// <summary>
         /// lblCurQueued_g2t_f control.
         /// </summary>
         /// <remarks>
@@ -722,6 +758,15 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// tbAgentID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbAgentID;
         
         /// <summary>
         /// lblQueueStats control.

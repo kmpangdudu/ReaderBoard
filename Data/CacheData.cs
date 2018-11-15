@@ -42,7 +42,7 @@ namespace Data
 
 
 
-        static RAMEntities  efContext = new RAMEntities();
+        static ReaderboardDataEntities efContext = new ReaderboardDataEntities();
 
         static CTIServiceClient client = new CTIServiceClient();
 

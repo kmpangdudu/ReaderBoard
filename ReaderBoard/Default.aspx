@@ -129,7 +129,7 @@
                         config4.textSize = 2.2;//0.75
                         config4.waveCount = 3;//3
                         config4.minValue = 0;
-                        config4.maxValue = 10;
+                        config4.maxValue = 20;
                         config4.displayPercent = false; //true
 
                         if (isNaN(thevalue) || (thevalue <1)) {
@@ -301,7 +301,7 @@
                         config5.waveCount = 3;//3
                         config5.displayPercent = false; //true
                         config5.minValue = 0;
-                        config5.maxValue = 10;
+                        config5.maxValue = 20;
 
 
                         if (isNaN(thevalue) || (thevalue <1)) {

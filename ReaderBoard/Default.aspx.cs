@@ -60,7 +60,7 @@ namespace ReaderBoard
 
     public partial class _Default : Page
     {
-        RAMEntities efContext = new RAMEntities();
+        ReaderBoardEntities efContext = new ReaderBoardEntities();
 
         CTIServiceClient client = new CTIServiceClient();
 
