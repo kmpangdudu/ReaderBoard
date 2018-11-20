@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Readerboard</title>
-    <meta http-equiv="refresh" content="120" />
+    <meta http-equiv="refresh" content="30" />
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <script src="http://d3js.org/d3.v3.min.js" lang="JavaScript"></script>
     <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript" ></script>

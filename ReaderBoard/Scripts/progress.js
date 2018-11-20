@@ -1,4 +1,4 @@
-window.onload = function onLoad() {
+﻿window.onload = function onLoad() {
 
     startTime();
 
@@ -7,10 +7,10 @@ window.onload = function onLoad() {
         color: '#00ff00',
         // This has to be the same size as the maximum width to
         // prevent clipping
-        strokeWidth: 10,
-        trailWidth: 150,
+        strokeWidth: 10, //10
+        trailWidth: 250, //150
         easing: 'easeInOut',
-        duration: 7000,
+        duration: 5000, //7000 扫的快慢 ， 1000：一秒； 7000： 7秒
         text: {
             autoStyleContainer: true
         },
@@ -31,7 +31,8 @@ window.onload = function onLoad() {
     });
     //circle.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
     //circle.text.style.fontSize = '2rem';
-    circle.animate(1);  // Number from 0.0 to 1.0
+    circle.animate(1.0);  // Number from 0.0 to 1.0 ; 
+    // 扫过的周长，0，就不扫， 1 扫一半，就是半圆 ，0.75 扫3/4个圆
 
 
 
