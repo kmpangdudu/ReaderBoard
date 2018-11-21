@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Real time SOAP values in detail </title>
-	<meta http-equiv="refresh" content="30" />
+    <meta http-equiv="refresh" content="30" />
     <script src="http://d3js.org/d3.v3.min.js" lang="JavaScript"></script>
     <script src="Scripts/liquidFillGauge.js" lang="JavaScript"></script>
     <script src="Scripts/liquidFillGauge.js" lang="JavaScript"></script>
