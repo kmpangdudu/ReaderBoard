@@ -71,8 +71,11 @@
             <div class="  borderLine">
                 <div class="borderShadow">
                     <h1 class="bigfont">
-                        <asp:Label ID="lblPhoneLongestWaitTime" runat="server" Text="00:00"></asp:Label>
+                        
+                        <asp:Label ID="lblPhoneLongestWaitTime" runat="server" Text="00:00" Visible="False"></asp:Label>
                     </h1>
+                    <h1 id ="pLongestWaitTime" class="bigfont">0:00:00</h1>
+             
                     <h3 class="">Longest Wait Time</h3>
                 </div>
                 <div class="borderShadow">
@@ -129,7 +132,7 @@
                         config4.textSize = 2.2;//0.75
                         config4.waveCount = 3;//3
                         config4.minValue = 0;
-                        config4.maxValue = 20;
+                        config4.maxValue = 0;
                         config4.displayPercent = false; //true
 
                         if (isNaN(thevalue) || (thevalue <1)) {
@@ -242,8 +245,9 @@
             <div class=" borderLine">
                 <div class="borderShadow">
                     <h1 class="bigfont">
-                        <asp:Label ID="lblChatLongestWaitTime" runat="server" Text="00:00"></asp:Label>
+                        <asp:Label ID="lblChatLongestWaitTime" runat="server" Text="00:00" Visible="False"></asp:Label>
                     </h1>
+                    <h1 id ="cLongestWaitTime" class="bigfont">0:00:00</h1>
                     <h3 class="">Longest Wait Time</h3>
                 </div>
                 <div class="borderShadow">
@@ -301,7 +305,7 @@
                         config5.waveCount = 3;//3
                         config5.displayPercent = false; //true
                         config5.minValue = 0;
-                        config5.maxValue = 20;
+                        config5.maxValue = 0;
 
 
                         if (isNaN(thevalue) || (thevalue <1)) {
@@ -342,7 +346,7 @@
 
 
             <!-- Chat Counselor Available       -->
-            <div class="borderLine ">
+            s<div class="borderLine ">
                 <h4>Counselor</h4>
                 <h2>
                     <asp:Label ID="lblChatCounselorAvailable" runat="server" Text="0" ></asp:Label><%--green--%>
@@ -409,6 +413,9 @@
         <asp:HiddenField ID="HiddenChatFrTimeStart" runat="server" />
         <asp:HiddenField ID="HiddenChatFrTimeEnd" runat="server" />
         <asp:HiddenField ID="HiddenChatClosed" runat="server" />
+
+        <asp:HiddenField ID="HiddenPhoneLongestWaitTime" runat="server" Value="00:00"/>
+        <asp:HiddenField ID="HiddenChatLongestWaitTime" runat="server" Value="00:00" />
     </form>
 </body>
 </html>

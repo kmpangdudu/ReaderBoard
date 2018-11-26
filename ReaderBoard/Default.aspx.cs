@@ -334,7 +334,8 @@ namespace ReaderBoard
 
 
                 var timeSpan = TimeSpan.FromMinutes(LongestWaitTime);
-                lblPhoneLongestWaitTime.Text = timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
+                lblPhoneLongestWaitTime.Text = timeSpan.Hours.ToString("0")+":"+timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
+                HiddenPhoneLongestWaitTime.Value = lblPhoneLongestWaitTime.Text;
 
                 timeSpan = TimeSpan.FromMinutes(AverageWaitTime);
                 //lblPhoneAverageWaitTime.Text = timeSpan.Hours.ToString("0") +":"+ timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
@@ -456,7 +457,8 @@ namespace ReaderBoard
                 lblChatGradeService24.Value = Math.Round(c24).ToString();
 
                 var timeSpan = TimeSpan.FromMinutes(LongestWaitTime);
-                lblChatLongestWaitTime.Text = timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
+                lblChatLongestWaitTime.Text = timeSpan.Hours.ToString("0")+":"+timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
+                HiddenChatLongestWaitTime.Value = lblChatLongestWaitTime.Text;
 
                 timeSpan = TimeSpan.FromMinutes(AverageWaitTime);
                 lblChatAverageWaitTime.Text = timeSpan.Minutes.ToString("00") + ":"+timeSpan.Seconds.ToString("00");

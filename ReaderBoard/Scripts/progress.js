@@ -2,6 +2,41 @@
 
     startTime();
 
+    var phoneHour, phoneMinute, phoneSecond, chatHour, chatMinute, chatSecond, pmillisecond, cmillisecond;
+    var phoneLWT, chatLWT;
+    phoneLWT = document.getElementById('HiddenPhoneLongestWaitTime').value;
+    chatLWT = document.getElementById('HiddenChatLongestWaitTime').value;
+
+    phoneHour = parseInt(phoneLWT.substr(0, 1),10);
+    phoneMinute = parseInt(phoneLWT.substr(2, 2),10);
+    phoneSecond = parseInt(phoneLWT.substr(-2),10);
+    pmillisecond = 0;
+
+
+    chatHour = parseInt(chatLWT.substr(0, 1), 10);
+    chatMinute = parseInt(chatLWT.substr(2, 2), 10);
+    chatSecond = parseInt(chatLWT.substr(-2), 10);
+    cmillisecond = 0;
+    
+    var phoneQueued = document.getElementById('lblPhonePeopleInQueue').value;
+    phoneQueued = parseInt(phoneQueued, 10);  
+    if (phoneQueued > 0) {
+           phoneLongestWaitTime();
+    } else {
+        document.getElementById("pLongestWaitTime").innerHTML =  "0:00:00" ;
+    }
+    
+
+    var chatQueued = document.getElementById('lblChatPeopleInQueue').value;
+    chatQueued = parseInt(chatQueued, 10);  
+    if (chatQueued > 0) {
+        
+        chatLongestWaitTime();
+    } else {
+        document.getElementById("cLongestWaitTime").innerHTML = "0:00:00";
+    }
+
+
 
     var circle = new ProgressBar.Circle(progress, {
         color: '#00ff00',
@@ -36,7 +71,7 @@
 
 
 
-
+    //Timestamp on the left hand
     function startTime() {
         var today = new Date();
         var hr = today.getHours();
@@ -67,5 +102,52 @@
             i = "0" + i;
         }
         return i;
+    }
+
+    function phoneLongestWaitTime() {
+       
+        pmillisecond = pmillisecond + 50;
+        if (pmillisecond >= 1000) {
+            pmillisecond = 0;
+            phoneSecond = phoneSecond + 1;
+        }
+        if (phoneSecond >= 60) {
+            phoneSecond = 0;
+            phoneMinute = phoneMinute + 1;
+        }
+        if (phoneMinute >= 60) {
+            phoneMinute = 0;
+            phoneHour = phoneHour + 1;
+        }
+
+        //Add a zero in front of numbers<10
+        hr = checkTime(phoneHour);
+        min = checkTime(phoneMinute);
+        sec = checkTime(phoneSecond);
+        document.getElementById('pLongestWaitTime').innerHTML = phoneHour + ':' + min + ':' + sec ;
+        int = setTimeout(function () { phoneLongestWaitTime() }, 50);
+    }
+
+    function chatLongestWaitTime() {
+        cmillisecond = cmillisecond + 50;
+        if (cmillisecond >= 1000) {
+            cmillisecond = 0;
+            chatSecond = chatSecond + 1;
+        }
+        if (chatSecond >= 60) {
+            chatSecond = 0;
+            chatMinute = chatMinute + 1;
+        }
+        if (chatMinute >= 60) {
+            chatMinute = 0;
+            chatHour = chatHour + 1;
+        }
+
+        //Add a zero in front of numbers<10
+        hr = checkTime(chatHour);
+        min = checkTime(chatMinute);
+        sec = checkTime(chatSecond);
+        document.getElementById('cLongestWaitTime').innerHTML = chatHour + ':' + min + ':' + sec;
+        int = setTimeout(function () { chatLongestWaitTime() }, 50);
     }
 };
