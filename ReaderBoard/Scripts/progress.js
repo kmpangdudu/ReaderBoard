@@ -23,7 +23,7 @@
     if (phoneQueued > 0) {
            phoneLongestWaitTime();
     } else {
-        document.getElementById("pLongestWaitTime").innerHTML =  "0:00:00" ;
+        document.getElementById("pLongestWaitTime").innerHTML =  "00:00" ;
     }
     
 
@@ -33,7 +33,7 @@
         
         chatLongestWaitTime();
     } else {
-        document.getElementById("cLongestWaitTime").innerHTML = "0:00:00";
+        document.getElementById("cLongestWaitTime").innerHTML = "00:00";
     }
 
 
@@ -124,8 +124,8 @@
         hr = checkTime(phoneHour);
         min = checkTime(phoneMinute);
         sec = checkTime(phoneSecond);
-        document.getElementById('pLongestWaitTime').innerHTML = phoneHour + ':' + min + ':' + sec ;
-        int = setTimeout(function () { phoneLongestWaitTime() }, 50);
+        document.getElementById('pLongestWaitTime').innerHTML = hr == 0 ? ( min + ':' + sec) : (phoneHour + ':' + min + ':' + sec) ;
+        ticker = setTimeout(function () { phoneLongestWaitTime() }, 50);
     }
 
     function chatLongestWaitTime() {
@@ -147,7 +147,7 @@
         hr = checkTime(chatHour);
         min = checkTime(chatMinute);
         sec = checkTime(chatSecond);
-        document.getElementById('cLongestWaitTime').innerHTML = chatHour + ':' + min + ':' + sec;
-        int = setTimeout(function () { chatLongestWaitTime() }, 50);
+        document.getElementById('cLongestWaitTime').innerHTML = hr == 0 ? ( min + ':' + sec) : (chatHour + ':' + min + ':' + sec);
+        ticker = setTimeout(function () { chatLongestWaitTime() }, 50);
     }
 };

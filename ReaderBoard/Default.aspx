@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Readerboard</title>
-    <meta http-equiv="refresh" content="30" />
+    <meta http-equiv="refresh" content="60" />
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <script src="http://d3js.org/d3.v3.min.js" lang="JavaScript"></script>
     <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript" ></script>
@@ -30,9 +30,9 @@
                 <div class="ChatDivDown">
                     <h2>Phone</h2>
                 </div>
- <div>
-     <img src="Content/phone-icon3.png" class="phone"/>
- </div>
+                 <div>
+                     <img src="Content/phone-icon3.png" class="phone"/>
+                 </div>
                 <div id="clockdate">
                     <div class="clock">
                         <div id="clock"></div>
@@ -74,7 +74,7 @@
                         
                         <asp:Label ID="lblPhoneLongestWaitTime" runat="server" Text="00:00" Visible="False"></asp:Label>
                     </h1>
-                    <h1 id ="pLongestWaitTime" class="bigfont">0:00:00</h1>
+                    <h1 id ="pLongestWaitTime" class="bigfont">00:00</h1>
              
                     <h3 class="">Longest Wait Time</h3>
                 </div>
@@ -247,7 +247,7 @@
                     <h1 class="bigfont">
                         <asp:Label ID="lblChatLongestWaitTime" runat="server" Text="00:00" Visible="False"></asp:Label>
                     </h1>
-                    <h1 id ="cLongestWaitTime" class="bigfont">0:00:00</h1>
+                    <h1 id ="cLongestWaitTime" class="bigfont">00:00</h1>
                     <h3 class="">Longest Wait Time</h3>
                 </div>
                 <div class="borderShadow">
@@ -346,7 +346,7 @@
 
 
             <!-- Chat Counselor Available       -->
-            s<div class="borderLine ">
+            <div class="borderLine ">
                 <h4>Counselor</h4>
                 <h2>
                     <asp:Label ID="lblChatCounselorAvailable" runat="server" Text="0" ></asp:Label><%--green--%>
