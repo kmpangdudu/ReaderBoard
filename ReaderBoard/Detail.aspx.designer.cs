@@ -769,33 +769,6 @@ namespace ReaderBoard {
         protected global::System.Web.UI.WebControls.TextBox tbAgentID;
         
         /// <summary>
-        /// lblQueueStats control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblQueueStats;
-        
-        /// <summary>
-        /// lblChat_Eng control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblChat_Eng;
-        
-        /// <summary>
-        /// lblChatApp_Eng control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblChatApp_Eng;
-        
-        /// <summary>
         /// GetTargetASA_phone_Eng control.
         /// </summary>
         /// <remarks>
@@ -938,6 +911,33 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblHandledLessThanTargetASA_ChatApp_Fr;
+        
+        /// <summary>
+        /// lblQueueStats control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblQueueStats;
+        
+        /// <summary>
+        /// lblChat_Eng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChat_Eng;
+        
+        /// <summary>
+        /// lblChatApp_Eng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChatApp_Eng;
         
         /// <summary>
         /// lblerror1 control.

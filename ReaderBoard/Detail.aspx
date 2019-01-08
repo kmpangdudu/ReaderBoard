@@ -177,75 +177,91 @@
         </div>
         <div>
         <div>
-            <br /><br /><br />
+            <br />
             <asp:Button ID="Button1" runat="server" Text="testing others" OnClick="Button1_Click" />
             <br />
             AgentID <asp:TextBox ID="tbAgentID" runat="server" Width="100px" AutoPostBack="True" OnTextChanged="Page_Load">1502</asp:TextBox>
 
         </div>
-            <div id="test1">
+    <div id="test1" class="container">
+        <div class="container">
+            <table>
+                <tr>
+                    <td><font style="font-weight: 800">GetTargetASA</font></td>
+                    <td>phone</td>
+                    <td>G2T</td>
+                    <td>Chat</td>
+                    <td>ChatApp</td>
+                </tr>
+                <tr>
+                    <td>English</td>
+                    <td>
+                        <asp:Label ID="GetTargetASA_phone_Eng" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
+                    <td>
+                        <asp:Label ID="GetTargetASA_G2T_Eng" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
+                    <td>
+                        <asp:Label ID="GetTargetASA_Chat_Eng" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
+                    <td>
+                        <asp:Label ID="GetTargetASA_ChatApp_Eng" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
+                </tr>
+                <tr>
+                    <td>French</td>
+                    <td>
+                        <asp:Label ID="GetTargetASA_phone_Fr" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
+                    <td>
+                        <asp:Label ID="GetTargetASA_G2T_Fr" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
+                    <td>
+                        <asp:Label ID="GetTargetASA_Chat_Fr" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
+                    <td>
+                        <asp:Label ID="GetTargetASA_ChatApp_Fr" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
+
+                </tr>
+            </table>
+        </div>
+        <br />
+ 
+        <div class="container">
+            <table>
+                <tr>
+                    <td><font style="font-weight: 800">NumHandledLessThanTargetASA</font></td>
+                    <td>Phone</td>
+                    <td>G2T</td>
+                    <td>Chat</td>
+                    <td>ChatApp</td>
+                </tr>
+                <tr>
+                    <td>English</td>
+                    <td>
+                        <asp:Label ID="lblHandledLessThanTargetASA_Phone_En" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
+                    <td>
+                        <asp:Label ID="lblHandledLessThanTargetASA_G2T_En" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
+                    <td>
+                        <asp:Label ID="lblHandledLessThanTargetASA_Chat_E" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></td>
+                    <td>
+                        <asp:Label ID="lblHandledLessThanTargetASA_ChatApp_E" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></td>
+
+                </tr>
+                <tr>
+                    <td>French</td>
+                    <td>
+                        <asp:Label ID="lblHandledLessThanTargetASA_Phone_Fr" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
+                    <td>
+                        <asp:Label ID="lblHandledLessThanTargetASA_G2T_Fr" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
+                    <td>
+                        <asp:Label ID="lblHandledLessThanTargetASA_Chat_Fr" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></td>
+                    <td>
+                        <asp:Label ID="lblHandledLessThanTargetASA_ChatApp_Fr" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+ 
+       </div>
+
                 <p>QueueStats Phone_Eng: <asp:Label ID="lblQueueStats" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>QueueStats Chat_Eng: <asp:Label ID="lblChat_Eng" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>QueueStats ChatApp_Eng: <asp:Label ID="lblChatApp_Eng" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <br/>
-                 
-                
-                <table>
-                    <tr>
-                        <td><font style="font-weight:800">GetTargetASA</font></td>
-                        <td> phone</td>
-                         <td> G2T</td>
-                         <td> Chat</td>
-                         <td> ChatApp</td>
-                    </tr>
-                    <tr>
-                        <td>English</td>
-                        <td><asp:Label ID="GetTargetASA_phone_Eng" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
-                        <td><asp:Label ID="GetTargetASA_G2T_Eng" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
-                        <td><asp:Label ID="GetTargetASA_Chat_Eng" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
-                        <td><asp:Label ID="GetTargetASA_ChatApp_Eng" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
-                    </tr>
-                    <tr>
-                        <td>French</td>
-                        <td><asp:Label ID="GetTargetASA_phone_Fr" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
-                        <td><asp:Label ID="GetTargetASA_G2T_Fr" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
-                        <td><asp:Label ID="GetTargetASA_Chat_Fr" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
-                        <td><asp:Label ID="GetTargetASA_ChatApp_Fr" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
-
-                    </tr>
-                </table>
-             
-                <br />
-                <br/>
-                
-                <table>
-                    <tr>
-                        <td><font style="font-weight:800">NumHandledLessThanTargetASA</font></td>
-                        <td>Phone</td>
-                        <td>G2T</td>
-                        <td>Chat</td>
-                        <td>ChatApp</td>
-                    </tr>
-                    <tr><td>English</td>
-                        <td><asp:Label ID="lblHandledLessThanTargetASA_Phone_En" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
-                        <td><asp:Label ID="lblHandledLessThanTargetASA_G2T_En" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
-                        <td><asp:Label ID="lblHandledLessThanTargetASA_Chat_E" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></td>
-                        <td><asp:Label ID="lblHandledLessThanTargetASA_ChatApp_E" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></td>
-
-                    </tr>
-                    <tr><td>French</td>
-                        <td><asp:Label ID="lblHandledLessThanTargetASA_Phone_Fr" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
-                        <td><asp:Label ID="lblHandledLessThanTargetASA_G2T_Fr" runat="server" Font-Size="25px" ForeColor="Red" Text=""></asp:Label></td>
-                        <td><asp:Label ID="lblHandledLessThanTargetASA_Chat_Fr" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></td>
-                        <td><asp:Label ID="lblHandledLessThanTargetASA_ChatApp_Fr" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></td>
-                    </tr>
-                </table>
-
-            </div>
- 
-       </div>
-
-
 
         <div>
             <asp:Label ID="lblerror1" runat="server" Text=""></asp:Label>
