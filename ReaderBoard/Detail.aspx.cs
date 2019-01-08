@@ -240,13 +240,23 @@ namespace ReaderBoard
                 lblChat_Eng.Text = client.GetQueueStatsString(dwSwitchID, iQueueID_Chat_ENG, aaa, szServerName);
                 lblChatApp_Eng.Text = client.GetQueueStatsString(dwSwitchID, iQueueID_ChatApp_ENG, aaa, szServerName);
 
-                GetTargetASA_phone_Eng.Text = client.GetTargetASA(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-                GetTargetASA_Chat_Eng.Text = client.GetTargetASA(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                GetTargetASA_phone_Eng.Text = client.GetTargetASA(dwSwitchID, iQueueID_Phone_ENG, szServerName);
+                GetTargetASA_phone_Fr.Text = client.GetTargetASA(dwSwitchID, iQueueID_Phone_FRE, szServerName);
+                GetTargetASA_G2T_Eng.Text = client.GetTargetASA(dwSwitchID, iQueueID_G2T_ENG, szServerName);
+                GetTargetASA_G2T_Fr.Text = client.GetTargetASA(dwSwitchID, iQueueID_G2T_FRE, szServerName);
+                GetTargetASA_Chat_Eng.Text = client.GetTargetASA(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+                GetTargetASA_Chat_Fr.Text = client.GetTargetASA(dwSwitchID, iQueueID_Chat_FRE, szServerName);
                 GetTargetASA_ChatApp_Eng.Text = client.GetTargetASA(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                GetTargetASA_ChatApp_Fr.Text = client.GetTargetASA(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
 
-                lblHandledLessThanTargetASA_Phone_E.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Phone_ENG, szServerName);
+                lblHandledLessThanTargetASA_Phone_En.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Phone_ENG, szServerName);
+                lblHandledLessThanTargetASA_Phone_Fr.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Phone_FRE, szServerName);
+                lblHandledLessThanTargetASA_G2T_En.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_G2T_ENG, szServerName);
+                lblHandledLessThanTargetASA_G2T_Fr.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_G2T_FRE, szServerName);
                 lblHandledLessThanTargetASA_Chat_E.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+                lblHandledLessThanTargetASA_Chat_Fr.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Chat_FRE, szServerName);
                 lblHandledLessThanTargetASA_ChatApp_E.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                lblHandledLessThanTargetASA_ChatApp_Fr.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
             }
             catch (Exception erd)
             {
