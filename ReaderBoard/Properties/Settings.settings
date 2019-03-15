@@ -69,10 +69,13 @@
       <Value Profile="(Default)">0.2</Value>
     </Setting>
     <Setting Name="DashboardRefreshing" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">3</Value>
+      <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="dimOpacityNight" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">0.1</Value>
+      <Value Profile="(Default)">1.0</Value>
+    </Setting>
+    <Setting Name="walkUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://my.e2rm.com/webgetservice/get.asmx/getParticipantScoreBoard?eventID=250875&amp;languageCode=en-CA&amp;sortBy=OnlineAndOfflineAmount&amp;listItemCount=20&amp;externalQuestionID=SponsoredBy2019&amp;externalAnswerID=Kids%20Help%20Phone&amp;Source=</Value>
     </Setting>
   </Settings>
 </SettingsFile>

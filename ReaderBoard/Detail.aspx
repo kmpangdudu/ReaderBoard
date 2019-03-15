@@ -38,7 +38,7 @@
             font-size:116px;
         }
         .midfont {
-            font-size:32px;
+            font-size:22px;
         }
 		.color{
 		color:#FF0000；
@@ -81,8 +81,7 @@
                 <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaitTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>Get the handled queued time:&nbsp <asp:Label ID="lblGetHandledQueuedTime" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Get CTI User Data:&nbsp <asp:Label ID="lblGetCTIUserData" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Get Ice User Data:&nbsp <asp:Label ID="lblGetIceUserData" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+
             </div>
             <div id="G2TE">
                 <h3>Good to Talk</h3>
@@ -135,8 +134,8 @@
                 <p>Longest wait time:&nbsp <asp:Label ID="lblLongestwaitTime_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>Estimated Wait Time:&nbsp<asp:Label ID="lblWaitTime_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>Get the handled queued time:&nbsp<asp:Label ID="lblGetHandledQueuedTime_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Get CTI User Data:&nbsp <asp:Label ID="lblGetCTIUserData_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
-                <p>Get Ice User Data:&nbsp <asp:Label ID="lblGetIceUserData_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+<%--                <p>Get CTI User Data:&nbsp <asp:Label ID="lblGetCTIUserData_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
+                <p>Get Ice User Data:&nbsp <asp:Label ID="lblGetIceUserData_F" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>--%>
             </div>
             <div id="G2TF">
                 <h3>Good to Talk</h3>
@@ -177,11 +176,26 @@
         </div>
         <div>
         <div>
-            <br />
-            <asp:Button ID="Button1" runat="server" Text="testing others" OnClick="Button1_Click" />
-            <br />
-            AgentID <asp:TextBox ID="tbAgentID" runat="server" Width="100px" AutoPostBack="True" OnTextChanged="Page_Load">1502</asp:TextBox>
+  
+          
 
+            
+            <table>
+                <tr><td>AgentID:<asp:TextBox ID="tbAgentID" runat="server" Width="100px" AutoPostBack="True" OnTextChanged="Page_Load"></asp:TextBox></td>
+                    <td>Get CTI User Data</td><td>Get Ice User Data</td><td>GetIceAgentState</td>
+                    <td>iSessionID</td><td>iIceID</td><td>szDN</td>
+                </tr>
+                <tr>
+                    <td><asp:Button ID="btnGetAgent" runat="server" Text="Get Agent's....." OnClick="btnGetAgent_Click" /></td>
+                    <td> <asp:Label ID="lblGetCTIUserData" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></td>
+                    <td><asp:Label ID="lblGetIceUserData" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></td>
+                    <td> <asp:Label ID="lblGetIceAgentState" runat="server" Text=""  Font-Size="25px" ForeColor="Red"></asp:Label></td>
+                    <td>
+                        <asp:Label ID="lbliSessionID" runat="server" Text=""   Font-Size="25px" ForeColor="Red"></asp:Label></td>
+                    <td><asp:Label ID="lbliIcdID" runat="server" Text=""   Font-Size="25px" ForeColor="Red"></asp:Label></td></td>
+                    <td><asp:Label ID="lblszDN" runat="server" Text=""   Font-Size="25px" ForeColor="Red"></asp:Label></td></td>
+                </tr>
+                </table>
         </div>
     <div id="test1" class="container">
         <div class="container">
@@ -255,9 +269,10 @@
             </table>
         </div>
     </div>
+           
  
        </div>
-
+ 
                 <p>QueueStats Phone_Eng: <asp:Label ID="lblQueueStats" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>QueueStats Chat_Eng: <asp:Label ID="lblChat_Eng" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>
                 <p>QueueStats ChatApp_Eng: <asp:Label ID="lblChatApp_Eng" runat="server" Text="" Font-Size="25px" ForeColor="Red"></asp:Label></p>

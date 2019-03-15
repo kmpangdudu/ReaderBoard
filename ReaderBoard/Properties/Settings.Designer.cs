@@ -12,7 +12,7 @@ namespace ReaderBoard.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.6.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -223,7 +223,7 @@ namespace ReaderBoard.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public string DashboardRefreshing {
             get {
                 return ((string)(this["DashboardRefreshing"]));
@@ -232,10 +232,21 @@ namespace ReaderBoard.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.0")]
         public string dimOpacityNight {
             get {
                 return ((string)(this["dimOpacityNight"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://my.e2rm.com/webgetservice/get.asmx/getParticipantScoreBoard?eventID=250875" +
+            "&languageCode=en-CA&sortBy=OnlineAndOfflineAmount&listItemCount=20&externalQuest" +
+            "ionID=SponsoredBy2019&externalAnswerID=Kids%20Help%20Phone&Source=")]
+        public string walkUrl {
+            get {
+                return ((string)(this["walkUrl"]));
             }
         }
     }

@@ -66,15 +66,9 @@ namespace ReaderBoard
                 lblLongestwaitTime.Text = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Phone_ENG, szServerName);
                 lblNumAgentsOnContact.Text = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Phone_ENG, szServerName);
                 lblGetHandledQueuedTime.Text = client.GetHandledQueuedTime(dwSwitchID, iQueueID_Phone_ENG, szServerName);
-                string iSessionID = "0";
-                string iIceID = tbAgentID.Text; 
-                string szDN = "0";
 
-                iSessionID = client.GetSessionIDIceID(iIceID); //string
-                client.GetSessionIDDN(szDN); //string GetSessionIDDN
-                lblGetCTIUserData.Text = client.GetCTIUserData(iSessionID); //string
-                lblGetIceUserData.Text = client.GetIceUserData(iSessionID); //string
-                
+
+
             }
             catch (Exception erd)
             {
@@ -98,8 +92,8 @@ namespace ReaderBoard
                 string iSessionID = "0";
                 string iIceID = tbAgentID.Text;
                 iSessionID = client.GetSessionIDIceID(iIceID);
-                lblGetCTIUserData_F.Text = client.GetCTIUserData(iSessionID);
-                lblGetIceUserData_F.Text = client.GetIceUserData(iSessionID);
+                //lblGetCTIUserData_F.Text = client.GetCTIUserData(iSessionID);
+                //lblGetIceUserData_F.Text = client.GetIceUserData(iSessionID);
 
             }
             catch (Exception erd)
@@ -264,10 +258,20 @@ namespace ReaderBoard
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+
+
+        protected void btnGetAgent_Click(object sender, EventArgs e)
         {
-            Test();
- 
+            string iSessionID = "0";
+            string iIceID = tbAgentID.Text;
+            string szDN = "0";
+            string dwAgentID = tbAgentID.Text;
+
+            iSessionID = client.GetSessionIDIceID(iIceID); //string
+            client.GetSessionIDDN(szDN); //string GetSessionIDDN
+            lblGetCTIUserData.Text = client.GetCTIUserData(iSessionID); //string
+            lblGetIceUserData.Text = client.GetIceUserData(iSessionID); //string
+            lblGetIceAgentState.Text = client.GetIceAgentState(dwSwitchID, dwAgentID, szServerName);// all string
         }
     }
 }
