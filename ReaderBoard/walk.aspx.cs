@@ -81,6 +81,7 @@ namespace ReaderBoard
                     {
                         dt.Rows.Add(new object[] { name, collect });
                     }
+                    name = string.Empty;
                 }
 
                 ds.Tables.Add(dt);

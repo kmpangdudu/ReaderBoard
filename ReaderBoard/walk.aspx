@@ -22,13 +22,13 @@
                 GridLines="None" 
                 AlternatingRowStyle-BackColor="#e8e8e8" 
                 ForeColor="#333333" 
-                Font-Size="32px" CssClass="center" Width="100%"
+                Font-Size="20px" CssClass="center" Width="100%"
                 >
               
 <AlternatingRowStyle BackColor="#DDDDDD"></AlternatingRowStyle>
               
                 <Columns>
-                            <asp:BoundField DataField="name" HeaderText="Donor" ReadOnly="True" 
+                            <asp:BoundField DataField="name" HeaderText="Walker" ReadOnly="True" 
                                 ItemStyle-BorderStyle="None" 
                                 ItemStyle-CssClass="text_left"  HeaderStyle-HorizontalAlign="Left" />
                             <asp:BoundField DataField="amount" HeaderText="Amount($)"
@@ -36,7 +36,7 @@
                                 ItemStyle-CssClass="text_right" 
                                 HeaderStyle-HorizontalAlign="Right" />
                         </Columns>
-                <HeaderStyle BackColor="#9b9b9b" Font-Size="40px"/>
+                <HeaderStyle BackColor="#9b9b9b" Font-Size="28px"/>
             </asp:GridView>
             </div>
         </div>
