@@ -319,7 +319,7 @@ div {
 
 /*following area for walk*/
 #walk {
-    max-width: 80%;
+    max-width: 90%;
  
 }
 .imgdiv {
@@ -328,7 +328,7 @@ div {
 }
 .center {
     margin: auto;
-    width: 80%;
+    width: 90%;
     /*border: 3px solid green;*/
     padding: 10px;
     text-align: center;

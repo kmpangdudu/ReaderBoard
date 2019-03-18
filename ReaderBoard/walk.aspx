@@ -9,7 +9,7 @@
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/readerboard.css" rel="stylesheet" />
 </head>
-<body>
+<body style="overflow-y: hidden;background-color: #FFFFFF;">
     <form id="form1" runat="server">
         <div class ="center">
             <div id="imgdiv"  >
@@ -22,7 +22,7 @@
                 GridLines="None" 
                 AlternatingRowStyle-BackColor="#e8e8e8" 
                 ForeColor="#333333" 
-                Font-Size="20px" CssClass="center" Width="100%"
+                Font-Size="26px" CssClass="center" Width="100%"
                 >
               
 <AlternatingRowStyle BackColor="#DDDDDD"></AlternatingRowStyle>
@@ -36,7 +36,7 @@
                                 ItemStyle-CssClass="text_right" 
                                 HeaderStyle-HorizontalAlign="Right" />
                         </Columns>
-                <HeaderStyle BackColor="#9b9b9b" Font-Size="28px"/>
+                <HeaderStyle BackColor="#9b9b9b" Font-Size="34px"/>
             </asp:GridView>
             </div>
         </div>
