@@ -343,3 +343,7 @@ div {
     padding-right:30px;
     margin:30px;
 }
+.hiddenPager {
+    visibility: hidden;
+    display: none;
+}

@@ -22,8 +22,8 @@
                 GridLines="None" 
                 AlternatingRowStyle-BackColor="#e8e8e8" 
                 ForeColor="#333333" 
-                Font-Size="26px" CssClass="center" Width="100%"
-                >
+                Font-Size="28px" CssClass="center" Width="100%"
+                AllowPaging="true" PageSize="10"   PagerStyle-CssClass="hiddenPager">
               
 <AlternatingRowStyle BackColor="#DDDDDD"></AlternatingRowStyle>
               
@@ -36,7 +36,7 @@
                                 ItemStyle-CssClass="text_right" 
                                 HeaderStyle-HorizontalAlign="Right" />
                         </Columns>
-                <HeaderStyle BackColor="#9b9b9b" Font-Size="34px"/>
+                <HeaderStyle BackColor="#9b9b9b" Font-Size="36px"/>
             </asp:GridView>
             </div>
         </div>
