@@ -59,6 +59,12 @@ h6 {
     font-weight: bold;
     /*text-shadow: -2px -2px 2px #99d6ff;*/
 }
+.clock1 {
+    font-size: 23px !important;
+    color: #0095C8 !important;
+    font-weight: bold;
+    /*text-shadow: -2px -2px 2px #99d6ff;*/
+}
 .phone {
     height :120px;
     margin-top:20px;
@@ -80,6 +86,19 @@ p {
 
 .bigfont1 {
     font-size: 90px;
+}
+.font28 {
+    font-size: 36px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.font48 {
+    font-size: 48px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.padding37{
+    padding:37px;
 }
 
 div {
@@ -108,13 +127,29 @@ div {
         padding: 5px 0 5px 0;
     }
 
-#ENG, #phone, #chat, #phoneE, #G2TE, #ChatE, #ChatAppE {
+#ENG, #phone, #chat, #phoneE, #G2TE, #ChatE, #ChatAppE,
+#PhoneContact, #ChatContact
+{
     background-color: #ddd;
     padding: 2px;
     margin: 2px 2px 0px 2px;
     /*border: double;
     border: 10px double #999;
     border-width: 1px;*/
+}
+
+#PhoneContact, #ChatContact,  #num {
+    background-color: #ddd;
+    padding: 2px;
+    /*margin: 2px 2px 0px 2px;*/
+    /*padding: 2px;
+    margin: 2px 1px 2px 1px;*/
+    /*border: double;
+    border: 10px double #999;
+    border-width: 1px;*/
+}
+#all_contain{
+    margin:3px;
 }
 
 #FRE, #PhoneF, #G2TF, #ChatF, #ChatAppF {
@@ -204,6 +239,11 @@ div {
 
 .borderLineThick {
     border: 5px double #FF0000;
+}
+.borderLine1 {
+    border: 1px double #777;
+    text-align: center;
+    /*margin:5px;*/
 }
 
 .borderLineThick {
@@ -317,14 +357,18 @@ div {
 }
 
 
+
 /*following area for walk*/
-#walk {
+#walk, #header {
     max-width: 90%;
- 
+    font-size:26px;
+	
+	 
 }
-.imgdiv {
+#imgdiv {
   
     max-height: 60%;
+	padding-top:10px
 }
 .center {
     margin: auto;
@@ -335,8 +379,8 @@ div {
 }
 .text_left {
     text-align: left;
-    padding-left: 30px;
-    margin: 30px;
+    padding-left: 15px;
+    margin: 0px;
 }
 .text_right {
     text-align: right;

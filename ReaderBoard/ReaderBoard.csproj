@@ -199,6 +199,7 @@
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="favicon.ico" />
+    <Content Include="readerboard.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\custom2.js" />
@@ -301,6 +302,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="readerboard.aspx.cs">
+      <DependentUpon>readerboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="readerboard.aspx.designer.cs">
+      <DependentUpon>readerboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="walk.aspx.cs">
       <DependentUpon>walk.aspx</DependentUpon>
