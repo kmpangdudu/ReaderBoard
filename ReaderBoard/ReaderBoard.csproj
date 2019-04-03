@@ -155,6 +155,7 @@
     <Content Include="Content\dark.css" />
     <Content Include="Content\green30x15.png" />
     <Content Include="Content\OnContact.png" />
+    <Content Include="Content\readerboard1.css" />
     <Content Include="Content\readerboard.css" />
     <Content Include="Content\red.png" />
     <Content Include="Content\Site.css" />
