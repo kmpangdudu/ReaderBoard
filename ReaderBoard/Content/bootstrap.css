@@ -784,8 +784,9 @@ pre code {
 }
 
 .row {
-  /*margin-right: -15px;
+    /*margin-right: -15px;
   margin-left: -15px;*/
+    background-color: #107DA9;
 }
 
 .row:before,
