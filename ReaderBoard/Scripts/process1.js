@@ -170,6 +170,26 @@
 
 
     function tick_PhoneEn_LongestWaitTime() {
+        pmillisecond = pmillisecond + 50;
+        if (pmillisecond >= 1000) {
+            pmillisecond = 0;
+            phoneSecond = phoneSecond + 1;
+        }
+        if (phoneSecond >= 60) {
+            phoneSecond = 0;
+            phoneMinute = phoneMinute + 1;
+        }
+        if (phoneMinute >= 60) {
+            phoneMinute = 0;
+            phoneHour = phoneHour + 1;
+        }
+
+        //Add a zero in front of numbers<10
+        hr = checkTime(phoneHour);
+        min = checkTime(phoneMinute);
+        sec = checkTime(phoneSecond);
+        document.getElementById('pLongestWaitTime').innerHTML = hr == 0 ? (min + ':' + sec) : (phoneHour + ':' + min + ':' + sec);
+        ticker = setTimeout(function () { tick_PhoneEn_LongestWaitTime() }, 50);
     }
 
     function tick_G2TEn_LongestWaitTime() {
