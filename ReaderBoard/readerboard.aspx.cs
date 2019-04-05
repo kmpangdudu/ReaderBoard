@@ -1,17 +1,245 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ReaderBoard.DataModel;
+using ReaderBoard.iceCTI;
+using System;
+using System.Data.Entity.Core.Objects;
+using System.Drawing;
 using System.Linq;
-using System.Web;
+using System.Net;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Web.UI.DataVisualization.Charting;
+using System.Web.UI.HtmlControls;
 
 namespace ReaderBoard
 {
+    struct RealTimeDataShort
+    {
+        public string _HandledToday { get; set; } //NumHandledInThisQueue, Number of handled in this queue.
+        public string _CurrentInQueued { get; set; }
+        public string _LongestWaitTime { get; set; }
+    }
+
     public partial class readerboard : System.Web.UI.Page
     {
+
+       ReaderBoardEntities efContext = new ReaderBoardEntities();
+
+       CTIServiceClient client = new CTIServiceClient();
+
+       DateTime today = DateTime.Now;
+       string refreshing = Properties.Settings.Default.DashboardRefreshing;//Default 3- second;
+       string szServerName = Properties.Settings.Default.szServerName; //"ice1"
+       string dwSwitchID = Properties.Settings.Default.dwSwitchID; //"11006";
+       string iQueueID_Phone_ENG = Properties.Settings.Default.Phone_ENG;//"6001";
+       string iQueueID_Phone_FRE = Properties.Settings.Default.Phone_FRE;//"6002";
+       string iQueueID_G2T_ENG = Properties.Settings.Default.G2T_ENG;//"6013";
+       string iQueueID_G2T_FRE = Properties.Settings.Default.G2T_FRE;//"6014";
+       string iQueueID_Chat_ENG = Properties.Settings.Default.Chat_ENG;//"6007";
+       string iQueueID_Chat_FRE = Properties.Settings.Default.Chat_FRE;//"6008";
+       string iQueueID_ChatApp_ENG = Properties.Settings.Default.ChatApp_ENG;//"6020";
+       string iQueueID_ChatApp_FRE = Properties.Settings.Default.ChatApp_FRE;//"6021";
+
+        RealTimeDataShort stru_Phone_ENG;
+        RealTimeDataShort stru_Phone_FRE;
+        RealTimeDataShort stru_G2T_ENG;
+        RealTimeDataShort stru_G2T_FRE;
+        RealTimeDataShort stru_Chat_ENG;
+        RealTimeDataShort stru_Chat_FRE;
+        RealTimeDataShort stru_ChatApp_ENG;
+        RealTimeDataShort stru_ChatApp_FRE;
         protected void Page_Load(object sender, EventArgs e)
         {
+            // refreshing is the number of seconds , default value is 300 = 5 mintues in setting section
+            Response.AppendHeader("Refresh", refreshing);
 
+            if (!IsPostBack)
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            }
+
+            try
+            {
+                // get SOAP DATA
+                getSOAP();
+                // process phone stuffs
+                Phone();
+                // process chat stuffs
+                Chat();
+            }
+            catch (Exception erd)
+            {
+                lblerror.Text = erd.ToString();
+            }
+
+        } //Page_Load
+
+        protected void getSOAP()
+        {
+            //Phone_eng          
+            stru_Phone_ENG._LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Phone_ENG, szServerName);
+            stru_Phone_ENG._HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Phone_ENG, szServerName);
+            stru_Phone_ENG._CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_Phone_ENG, szServerName);
+    
+            //phone_fre
+            stru_Phone_FRE._LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Phone_FRE, szServerName);
+            stru_Phone_FRE._HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Phone_FRE, szServerName);
+            stru_Phone_FRE._CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_Phone_FRE, szServerName);
+                            
+            //G2T_ENG
+            stru_G2T_ENG._LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_G2T_ENG, szServerName);
+            stru_G2T_ENG._HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_G2T_ENG, szServerName);
+            stru_G2T_ENG._CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_G2T_ENG, szServerName);
+
+            //G2T_FRE
+            stru_G2T_FRE._LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_G2T_FRE, szServerName);
+            stru_G2T_FRE._HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_G2T_FRE, szServerName);
+            stru_G2T_FRE._CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_G2T_FRE, szServerName);
+
+            //Chat_ENG
+            stru_Chat_ENG._LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+            stru_Chat_ENG._HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+            stru_Chat_ENG._CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_Chat_ENG, szServerName);
+
+            //Chat_FRE
+            stru_Chat_FRE._LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Chat_FRE, szServerName);
+            stru_Chat_FRE._HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Chat_FRE, szServerName);
+            stru_Chat_FRE._CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_Chat_FRE, szServerName);
+
+            //ChatApp_ENG
+            stru_ChatApp_ENG._LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+            stru_ChatApp_ENG._HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+            stru_ChatApp_ENG._CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+
+            //ChatApp_FRE
+            stru_ChatApp_FRE._LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+            stru_ChatApp_FRE._HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+            stru_ChatApp_FRE._CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
         }
-    }
+
+        protected void Phone()
+        {
+
+            try
+            {
+                // Current in the Queue
+                int Queued_Phone_ENG = Convert.ToInt32(stru_Phone_ENG._CurrentInQueued);
+                int Queued_Phone_FRE = Convert.ToInt32(stru_Phone_FRE._CurrentInQueued);
+                int Queued_G2T_ENG = Convert.ToInt32(stru_G2T_ENG._CurrentInQueued);
+                int Queued_G2T_FRE = Convert.ToInt32(stru_G2T_FRE._CurrentInQueued);
+                lblInQueue_Phone_ENG.Text = Queued_Phone_ENG.ToString();
+                lblInQueue_Phone_FRE.Text = Queued_Phone_FRE.ToString();
+                lblInQueue_G2T_ENG.Text = Queued_G2T_ENG.ToString();
+                lblInQueue_G2T_FRE.Text = Queued_G2T_FRE.ToString();
+                HiddenlblInQueue_Phone_ENG.Value = Queued_Phone_ENG.ToString();
+                HiddenlblInQueue_Phone_FRE.Value = Queued_Phone_FRE.ToString();
+                HiddenlblInQueue_G2T_ENG.Value = Queued_G2T_ENG.ToString();
+                HiddenlblInQueue_G2T_FRE.Value = Queued_G2T_FRE.ToString();
+
+                // Total in the Queue
+                lblTotalNumOfInQueue_Phone.Text = (Queued_Phone_ENG + Queued_Phone_FRE + Queued_G2T_ENG + Queued_G2T_FRE).ToString();
+
+
+                //Longest wait time 
+                double LongestWaitTime_Phone_ENG = Convert.ToDouble(stru_Phone_ENG._LongestWaitTime) / 60;// Convert to mintue
+                double LongestWaitTime_Phone_FRE = Convert.ToDouble(stru_Phone_FRE._LongestWaitTime) / 60; // Convert to mintue
+                double LongestWaitTime_G2T_ENG = Convert.ToDouble(stru_G2T_ENG._LongestWaitTime) / 60; // Convert to mintue
+                double LongestWaitTime_G2T_FRE = Convert.ToDouble(stru_G2T_FRE._LongestWaitTime) / 60; // Convert to mintue
+
+                var timeSpan = TimeSpan.FromMinutes(LongestWaitTime_Phone_ENG);
+                lblPhoneLongestWaitTime_Phone_ENG.Text = timeSpan.Hours.ToString("0") + ":" + timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
+                HiddenPhoneEnLongestWaitTime.Value = lblPhoneLongestWaitTime_Phone_ENG.Text;
+
+                var timeSpan2 = TimeSpan.FromMinutes(LongestWaitTime_Phone_FRE);
+                lblPhoneLongestWaitTime_Phone_FRE.Text = timeSpan2.Hours.ToString("0") + ":" + timeSpan2.Minutes.ToString("00") + ":" + timeSpan2.Seconds.ToString("00");
+                HiddenPhoneFrLongestWaitTime.Value = lblPhoneLongestWaitTime_Phone_FRE.Text;
+
+                var timeSpan3 = TimeSpan.FromMinutes(LongestWaitTime_G2T_ENG);
+                lblPhoneLongestWaitTime_G2T_ENG.Text = timeSpan3.Hours.ToString("0") + ":" + timeSpan3.Minutes.ToString("00") + ":" + timeSpan3.Seconds.ToString("00");
+                HiddenG2TEnLongestWaitTime.Value = lblPhoneLongestWaitTime_G2T_ENG.Text;
+
+                var timeSpan4 = TimeSpan.FromMinutes(LongestWaitTime_G2T_FRE);
+                lblPhoneLongestWaitTime_G2T_FRE.Text = timeSpan4.Hours.ToString("0") + ":" + timeSpan4.Minutes.ToString("00") + ":" + timeSpan4.Seconds.ToString("00");
+                HiddenG2TFrLongestWaitTime.Value = lblPhoneLongestWaitTime_G2T_FRE.Text;
+
+
+                // total phone handled totay
+                int TotalPhoneHandled = 0;
+                TotalPhoneHandled = Convert.ToInt32(stru_Phone_ENG._HandledToday)
+                                    + Convert.ToInt32(stru_Phone_FRE._HandledToday)
+                                    + Convert.ToInt32(stru_G2T_ENG._HandledToday)
+                                    + Convert.ToInt32(stru_G2T_FRE._HandledToday);
+
+                lblTotalPhoneHandled.Text = TotalPhoneHandled.ToString();  // <-- sum
+
+            }
+            catch (Exception erd)
+            {
+                lblerror.Text = erd.ToString();
+            }
+        } //end process phone
+
+
+        protected void Chat()
+        {
+            try
+            {
+                // Current in the Queue
+                int Queued_Chat_ENG = Convert.ToInt32(stru_Chat_ENG._CurrentInQueued);
+                int Queued_Chat_FRE = Convert.ToInt32(stru_Chat_FRE._CurrentInQueued);
+                int Queued_ChatApp_ENG = Convert.ToInt32(stru_ChatApp_ENG._CurrentInQueued);
+                int Queued_ChatApp_FRE = Convert.ToInt32(stru_ChatApp_FRE._CurrentInQueued);
+
+                lblInQueue_Chat_ENG.Text = Queued_Chat_ENG.ToString();
+                lblInQueue_Chat_FRE.Text = Queued_Chat_FRE.ToString();
+                lblInQueue_ChatApp_ENG.Text = Queued_ChatApp_ENG.ToString();
+                lblInQueue_ChatApp_FRE.Text = Queued_ChatApp_FRE.ToString();
+                HiddenlblInQueue_Chat_ENG.Value = Queued_Chat_ENG.ToString();
+                HiddenlblInQueue_Chat_FRE.Value = Queued_Chat_FRE.ToString();
+                HiddenlblInQueue_ChatApp_ENG.Value = Queued_ChatApp_ENG.ToString();
+                HiddenlblInQueue_ChatApp_FRE.Value = Queued_ChatApp_FRE.ToString();
+
+                // Total in the Queue
+                lblTotalNumOfInQueue_Chat.Text = (Queued_Chat_ENG + Queued_Chat_FRE + Queued_ChatApp_ENG + Queued_ChatApp_FRE).ToString();
+
+
+                //Longest wait time 
+                double LongestWaitTime_Chat_ENG = Convert.ToDouble(stru_Chat_ENG._LongestWaitTime) / 60;// Convert to mintue
+                double LongestWaitTime_Chat_FRE = Convert.ToDouble(stru_Chat_FRE._LongestWaitTime) / 60; // Convert to mintue
+                double LongestWaitTime_ChatApp_ENG = Convert.ToDouble(stru_ChatApp_ENG._LongestWaitTime) / 60; // Convert to mintue
+                double LongestWaitTime_ChatApp_FRE = Convert.ToDouble(stru_ChatApp_FRE._LongestWaitTime) / 60; // Convert to mintue
+
+                var timeSpan = TimeSpan.FromMinutes(LongestWaitTime_Chat_ENG);
+                lblLongestWaitTime_Chat_ENG.Text = timeSpan.Hours.ToString("0") + ":" + timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
+                HiddenChatWebEnLongestWaitTime.Value = lblLongestWaitTime_Chat_ENG.Text;
+
+                var timeSpan2 = TimeSpan.FromMinutes(LongestWaitTime_Chat_FRE);
+                lblLongestWaitTime_Chat_FRE.Text = timeSpan2.Hours.ToString("0") + ":" + timeSpan2.Minutes.ToString("00") + ":" + timeSpan2.Seconds.ToString("00");
+                HiddenChatWebFrLongestWaitTime.Value = lblLongestWaitTime_Chat_FRE.Text;
+
+                var timeSpan3 = TimeSpan.FromMinutes(LongestWaitTime_ChatApp_ENG);
+                lblLongestWaitTime_ChatApp_ENG.Text = timeSpan3.Hours.ToString("0") + ":" + timeSpan3.Minutes.ToString("00") + ":" + timeSpan3.Seconds.ToString("00");
+                HiddenChatAppEnLongestWaitTime.Value = lblLongestWaitTime_ChatApp_ENG.Text;
+
+                var timeSpan4 = TimeSpan.FromMinutes(LongestWaitTime_ChatApp_FRE);
+                lblLongestWaitTime_ChatApp_FRE.Text = timeSpan4.Hours.ToString("0") + ":" + timeSpan4.Minutes.ToString("00") + ":" + timeSpan4.Seconds.ToString("00");
+                HiddenChatAppFrLongestWaitTime.Value = lblLongestWaitTime_ChatApp_FRE.Text;
+
+
+                // total Chat handled totay
+                int TotalChatHandled = 0;
+                TotalChatHandled = Convert.ToInt32(stru_Chat_ENG._HandledToday)
+                                    + Convert.ToInt32(stru_Chat_FRE._HandledToday)
+                                    + Convert.ToInt32(stru_ChatApp_ENG._HandledToday)
+                                    + Convert.ToInt32(stru_ChatApp_FRE._HandledToday);
+
+                lblTotalChatHandled.Text = TotalChatHandled.ToString();  // <-- sum
+
+            }
+            catch (Exception erd)
+            {
+                lblerror.Text = erd.ToString();
+            }
+
+        } //end process chat
+
+    } // end class readerboard
 }

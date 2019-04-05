@@ -223,7 +223,7 @@ namespace ReaderBoard.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
         public string DashboardRefreshing {
             get {
                 return ((string)(this["DashboardRefreshing"]));

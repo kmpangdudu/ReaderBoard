@@ -1,12 +1,9 @@
 ﻿using ReaderBoard.DataModel;
 using ReaderBoard.iceCTI;
 using System;
-using System.Data.Entity.Core.Objects;
-using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Web.UI;
-using System.Web.UI.DataVisualization.Charting;
 using System.Web.UI.HtmlControls;
 
 namespace ReaderBoard
