@@ -33,7 +33,7 @@
       <Value Profile="(Default)">6021</Value>
     </Setting>
     <Setting Name="cacheInterval" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">5000</Value>
+      <Value Profile="(Default)">300000</Value>
     </Setting>
   </Settings>
 </SettingsFile>

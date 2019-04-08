@@ -14,9 +14,6 @@
     <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript" ></script>
     <script src="Scripts/process1.js"></script>
-     <script src="Scripts/custom2.js"></script>
-    <script src="Scripts/googleGauge.js"></script>
-    <script src="Scripts/liquidFillGauge.js"></script>
     <!-- add     background-color: #CCC; commented .row margin R786 of bootstrap.css   -->
 </head>
 <body>
@@ -137,7 +134,7 @@
                                     </div>
                                     <h3 class="font24">Longest Wait</h3>
                                     <h4 class="font34">
-                                        <asp:Label ID="lblPhoneLongestWaitTime_Phone_ENG" runat="server"></asp:Label>
+                                        <asp:Label ID="lblPhoneLongestWaitTime_Phone_ENG" runat="server" Visible="false"></asp:Label>
                                         <asp:HiddenField ID="HiddenPhoneEnLongestWaitTime" runat="server" />
                                     </h4>
                                     <h4 id="PhoneEN_LongestWaitTime" class="font34">00:00</h4>
@@ -160,7 +157,7 @@
 
                                     <h3 class="font24">Longest Wait</h3>
                                     <h4 class="font34">
-                                        <asp:Label ID="lblPhoneLongestWaitTime_G2T_ENG" runat="server"></asp:Label>
+                                        <asp:Label ID="lblPhoneLongestWaitTime_G2T_ENG" runat="server" Visible="false"></asp:Label>
                                         <asp:HiddenField ID="HiddenG2TEnLongestWaitTime" runat="server" />
                                     </h4>
                                     <h4 id="G2TEN_LongestWaitTime" class="font34">00:00</h4>
@@ -215,7 +212,7 @@
                                     </div>
                                     <h3 class="font24">Longest Wait</h3>
                                     <h4 class="font34">
-                                        <asp:Label ID="lblPhoneLongestWaitTime_Phone_FRE" runat="server"></asp:Label>
+                                        <asp:Label ID="lblPhoneLongestWaitTime_Phone_FRE" runat="server" Visible="false"></asp:Label>
                                         <asp:HiddenField ID="HiddenPhoneFrLongestWaitTime" runat="server" />
                                     </h4>
                                     <h4 id="phoneFR_LongestWaitTime" class="font34">00:00</h4>
@@ -239,7 +236,7 @@
                                     </div>
                                     <h3 class="font24">Longest Wait</h3>
                                     <h4 class="font34">
-                                        <asp:Label ID="lblPhoneLongestWaitTime_G2T_FRE" runat="server"></asp:Label>
+                                        <asp:Label ID="lblPhoneLongestWaitTime_G2T_FRE" runat="server" Visible="false"></asp:Label>
                                         <asp:HiddenField ID="HiddenG2TFrLongestWaitTime" runat="server" />
                                     </h4>
                                     <h4 id="G2TFR_LongestWaitTime" class="font34">00:00</h4>
@@ -300,7 +297,7 @@
                                     </div>
                                     <h3 class="font24">Longest Wait</h3>
                                     <h4 class="font34">
-                                        <asp:Label ID="lblLongestWaitTime_Chat_ENG" runat="server"></asp:Label>
+                                        <asp:Label ID="lblLongestWaitTime_Chat_ENG" runat="server" Visible="false"></asp:Label>
                                         <asp:HiddenField ID="HiddenChatWebEnLongestWaitTime" runat="server" />
                                     </h4>
                                     <h4 id="cWebEn_LongestWaitTime" class="font34">00:00</h4>
@@ -325,7 +322,7 @@
                                     </div>
                                     <h3 class="font24">Longest Wait</h3>
                                     <h4 class="font34">
-                                        <asp:Label ID="lblLongestWaitTime_ChatApp_ENG" runat="server"></asp:Label>
+                                        <asp:Label ID="lblLongestWaitTime_ChatApp_ENG" runat="server" Visible="false"></asp:Label>
                                         <asp:HiddenField ID="HiddenChatAppEnLongestWaitTime" runat="server" />
                                     </h4>
                                     <h4 id="cAppEn_LongestWaitTime" class="font34">00:00</h4>
@@ -354,7 +351,7 @@
                                     </div>
                                     <h3 class="font24">Longest Wait</h3>
                                     <h4 class="font34">
-                                        <asp:Label ID="lblLongestWaitTime_Chat_FRE" runat="server"></asp:Label>
+                                        <asp:Label ID="lblLongestWaitTime_Chat_FRE" runat="server" Visible="false"></asp:Label>
                                         <asp:HiddenField ID="HiddenChatWebFrLongestWaitTime" runat="server" />
                                     </h4>
                                     <h4 id="cWebFr_LongestWaitTime" class="font34">00:00</h4>
@@ -377,7 +374,7 @@
                                     </div>
                                     <h3 class="font24">Longest Wait</h3>
                                     <h4 class="font34">
-                                        <asp:Label ID="lblLongestWaitTime_ChatApp_FRE" runat="server"></asp:Label>
+                                        <asp:Label ID="lblLongestWaitTime_ChatApp_FRE" runat="server" Visible="false"></asp:Label>
                                         <asp:HiddenField ID="HiddenChatAppFrLongestWaitTime" runat="server" />
                                     </h4>
                                     <h4 id="cAppFr_LongestWaitTime" class="font34">00:00</h4>
