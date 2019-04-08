@@ -96,21 +96,40 @@
                     <div id="colEng" class="col-xs-12 col-md-6 divbgcWithPage borderLine1">
                         <div class="row">
                             <div class="col-xs-12 col borderLine1">
-                                <div>
+                                <div id ="phoneen">
                                     <h3 class="font30">English </h3>
                                 </div>
                             </div>
                         </div>
+                        <script>
+                            $(document).ready(function () {
+                                $("#phoneen").mouseover(function () {
+                                    $("#phoneen").addClass("theplan hover1");
+                                    $("#enkhp").addClass("theplan hover1");
+                                    $("#eng2t").addClass("theplan hover1");
+                                    $("enkhpphone").addClass("theplan hover1");
+                                    $("eng2tphone").addClass("theplan hover1");
+                                });
+                                $("#phoneen").mouseout(function () {
+                                    $("#phoneen").removeClass("theplan hover1");
+                                    $("#enkhp").removeClass("theplan hover1");
+                                    $("#eng2t").removeClass("theplan hover1");
+                                    $("enkhpphone").removeClass("theplan hover1");
+                                    $("eng2tphone").removeClass("theplan hover1");
+                                });
+
+                            });
+                        </script>
                         <%--                <div class="blank4r">
                      <!-- add 4px space -->
                  </div>--%>
                         <div class="row">
-                            <div class="col-xs-12 col-md-6 borderLine1">
+                            <div id="enkhp" class="col-xs-12 col-md-6 borderLine1">
                                 <div>
                                     <h3 class="font24">KHP </h3>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-md-6 borderLine1">
+                            <div id ="eng2t" class="col-xs-12 col-md-6 borderLine1">
                                 <div>
                                     <h3 class="font24">G2T </h3>
                                 </div>
@@ -121,13 +140,13 @@
                      <!-- add 4px space -->
                  </div>--%>
 
-                        <div class="row ">
+                        <div  class="row ">
                             <div class="col-xs-12 col-md-6 borderLine1">
-                                <div>
+                                <div id ="enkhpphone" class="theplan">
                                     <h3 class="font24">In the Queue</h3>
                                     <h4 class="font34">
                                         <asp:Label ID="lblInQueue_Phone_ENG" runat="server"></asp:Label>
-                                        <asp:HiddenField ID="HiddenlblInQueue_Phone_ENG" runat="server" />               
+                                        <asp:HiddenField ID="HiddenlblInQueue_Phone_ENG" runat="server" />
                                     </h4>
                                     <div class="blank4r divbgcWithPageFCFCFC">
                                         <!-- add 4px space -->
@@ -138,14 +157,14 @@
                                         <asp:HiddenField ID="HiddenPhoneEnLongestWaitTime" runat="server" />
                                     </h4>
                                     <h4 id="PhoneEN_LongestWaitTime" class="font34">00:00</h4>
-                                    <div class="blank4r divbgcWithPageFCFCFC">
+                                    <div class="blank4r divbgcWithPageFCFCFC theplan">
                                         <!-- add 4px space -->
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-md-6 borderLine1">
-                                <div>
+                                <div id ="eng2tphone" class="theplan">
                                     <h3 class="font24">In the Queue</h3>
                                     <h4 class="font34">
                                         <asp:Label ID="lblInQueue_G2T_ENG" runat="server"></asp:Label>

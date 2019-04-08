@@ -105,7 +105,7 @@
         ticks("PhoneEN_LongestWaitTime", phoneENmillisecond, phoneENSecond, phoneENMinute, phoneENHour);
     } else {
   
-        document.getElementById("PhoneEN_LongestWaitTime").innerHTML = "12:34";
+        document.getElementById("PhoneEN_LongestWaitTime").innerHTML = "00:00";
     }
 
 

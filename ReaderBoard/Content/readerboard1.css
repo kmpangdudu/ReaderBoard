@@ -499,3 +499,32 @@ div {
     visibility: hidden;
     display: none;
 }
+
+
+.row div.theplan {
+    flex-direction: column;
+    transition: all .5s;
+}
+
+
+    .row div.theplan:hover { /* when mouse hover over pricing table */
+        transform: scale(1.05);
+        transition: all 0.5s;
+        z-index: 100;
+        box-shadow: 0 0 10px gray;
+        border-radius: 4px;
+    }
+
+
+
+.theplan {
+    flex-direction: column;
+    transition: all .5s;
+}
+.hover1 { /* when mouse hover over pricing table */
+    transform: scale(1.05);
+    transition: all 0.5s;
+    z-index: 100;
+    box-shadow: 0 0 10px gray;
+    border-radius: 4px;
+}
