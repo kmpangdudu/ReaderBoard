@@ -193,4 +193,39 @@
         ticker = setTimeout(function () { ticks(_LWT, _ms, _sec, _mins, _hrs) }, 50);
     }
 
+
+
+
+
+    var circle = new ProgressBar.Circle(progress, {
+        color: '#00ff00',
+        // This has to be the same size as the maximum width to
+        // prevent clipping
+        strokeWidth: 10, //10
+        trailWidth: 250, //150
+        easing: 'easeInOut',
+        duration: 5000, //7000 扫的快慢 ， 1000：一秒； 7000： 7秒
+        text: {
+            autoStyleContainer: true
+        },
+        from: { color: '#00FF00', width: 100 }, //0095C8(KHP Blue)
+        to: { color: '#0095C8', width: 0 }, //#FFF(White) 0000FF(Blue) 00FF00(Green)
+        // Set default step function for all animate calls
+        step: function (state, circle) {
+            circle.path.setAttribute('stroke', state.color);
+            circle.path.setAttribute('stroke-width', state.width);
+
+            var value = Math.round(circle.value() * 100);
+            if (value === 0) {
+                circle.setText('');
+            } else {
+                circle.setText(value);
+            }
+        }
+    });
+    //circle.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+    //circle.text.style.fontSize = '2rem';
+    circle.animate(1.0);  // Number from 0.0 to 1.0 ; 
+    // 扫过的周长，0，就不扫， 1 扫一半，就是半圆 ，0.75 扫3/4个圆
+
 };

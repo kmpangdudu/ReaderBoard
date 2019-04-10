@@ -526,12 +526,15 @@ div {
 
 .theplan {
     flex-direction: column;
-    transition: all .5s;
+    transition: all .05s;
 }
+
 .hover1 { /* when mouse hover over pricing table */
-    transform: scale(1.05);
-    transition: all 0.5s;
+    transform: scale(1.08);
+    transition: all 0.05s;
     z-index: 100;
-    box-shadow: 0 0 10px gray;
+    /*box-shadow: 0 0 10px gray;*/
     border-radius: 4px;
+    /*color: #030ff8;*/
+    color: #107DA9;
 }

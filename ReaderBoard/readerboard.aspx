@@ -10,10 +10,11 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/readerboard1.css" rel="stylesheet" />
     <script src="http://d3js.org/d3.v3.min.js" lang="JavaScript"></script>
-    <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript" ></script>
+    <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript"></script>
     <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
     <script src="Scripts/process1.js"></script>
+
     <!-- add     background-color: #CCC; commented .row margin R786 of bootstrap.css   -->
 </head>
 <body>
@@ -88,48 +89,28 @@
             <%--  start display SOAP Status parts--%>
             <div id="num" class="col-xs-12 col-md-7 divbgcWithPage borderLine1">
 
-
-
                 <%--start Phone SOAP display row --%>
                 <div id="phone" class="row divbgcWithPage">
 
                     <div id="colEng" class="col-xs-12 col-md-6 divbgcWithPage borderLine1">
-                        <div class="row">
+                        <div id="English" class="row">
                             <div class="col-xs-12 col borderLine1">
-                                <div id ="phoneen">
+                                <div>
                                     <h3 class="font30">English </h3>
                                 </div>
                             </div>
                         </div>
-                        <script>
-                            $(document).ready(function () {
-                                $("#phoneen").mouseover(function () {
-                                    $("#phoneen").addClass("theplan hover1");
-                                    $("#enkhp").addClass("theplan hover1");
-                                    $("#eng2t").addClass("theplan hover1");
-                                    $("enkhpphone").addClass("theplan hover1");
-                                    $("eng2tphone").addClass("theplan hover1");
-                                });
-                                $("#phoneen").mouseout(function () {
-                                    $("#phoneen").removeClass("theplan hover1");
-                                    $("#enkhp").removeClass("theplan hover1");
-                                    $("#eng2t").removeClass("theplan hover1");
-                                    $("enkhpphone").removeClass("theplan hover1");
-                                    $("eng2tphone").removeClass("theplan hover1");
-                                });
 
-                            });
-                        </script>
                         <%--                <div class="blank4r">
                      <!-- add 4px space -->
                  </div>--%>
-                        <div class="row">
-                            <div id="enkhp" class="col-xs-12 col-md-6 borderLine1">
+                        <div id="KHPG2T_EN" class="row">
+                            <div id="KHP_EN" class="col-xs-12 col-md-6 borderLine1">
                                 <div>
                                     <h3 class="font24">KHP </h3>
                                 </div>
                             </div>
-                            <div id ="eng2t" class="col-xs-12 col-md-6 borderLine1">
+                            <div id="G2T_EN" class="col-xs-12 col-md-6 borderLine1">
                                 <div>
                                     <h3 class="font24">G2T </h3>
                                 </div>
@@ -140,9 +121,10 @@
                      <!-- add 4px space -->
                  </div>--%>
 
-                        <div  class="row ">
-                            <div class="col-xs-12 col-md-6 borderLine1">
-                                <div id ="enkhpphone" class="theplan">
+                        <div id="Phone_EN" class="row ">
+                            <!-- English KHP Phone -->
+                            <div id="KHP_PHONE_EN" class="col-xs-12 col-md-6 borderLine1">
+                                <div>
                                     <h3 class="font24">In the Queue</h3>
                                     <h4 class="font34">
                                         <asp:Label ID="lblInQueue_Phone_ENG" runat="server"></asp:Label>
@@ -163,8 +145,9 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-md-6 borderLine1">
-                                <div id ="eng2tphone" class="theplan">
+                            <!-- English G2T Phone -->
+                            <div id="G2T_PHONE_EN" class="col-xs-12 col-md-6 borderLine1">
+                                <div>
                                     <h3 class="font24">In the Queue</h3>
                                     <h4 class="font34">
                                         <asp:Label ID="lblInQueue_G2T_ENG" runat="server"></asp:Label>
@@ -189,8 +172,11 @@
                     </div>
 
 
+
+
+                    <!-- French start -->
                     <div id="ColFre" class="col-xs-12 col-md-6 divbgcWithPage borderLine1">
-                        <div class="row">
+                        <div id="French" class="row">
                             <div class="col-xs-12 col borderLine1">
                                 <div>
                                     <h3 class="font30">French</h3>
@@ -200,13 +186,13 @@
                         <%--          <div class="blank4r">
                      <!-- add 4px space -->
                  </div>--%>
-                        <div class="row">
-                            <div class="col-xs-12 col-md-6 borderLine1">
+                        <div id="KHP_G2T_Fr" class="row">
+                            <div id="KHP_FR" class="col-xs-12 col-md-6 borderLine1">
                                 <div>
                                     <h3 class="font24">KHP </h3>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-md-6 borderLine1">
+                            <div id="G2T_FR" class="col-xs-12 col-md-6 borderLine1">
                                 <div>
                                     <h3 class="font24">G2T </h3>
                                 </div>
@@ -218,7 +204,7 @@
 
                         <!--  French KHP Phone -->
                         <div class="row ">
-                            <div class="col-xs-12 col-md-6 borderLine1">
+                            <div id="KHP_PHONE_FR" class="col-xs-12 col-md-6 borderLine1">
                                 <div>
                                     <h3 class="font24">In the Queue</h3>
                                     <h4 class="font34">
@@ -242,7 +228,7 @@
                             </div>
 
                             <!--  French G2T Phone -->
-                            <div class="col-xs-12 col-md-6 borderLine1">
+                            <div id="G2T_PHONE_FR" class="col-xs-12 col-md-6 borderLine1">
                                 <div>
                                     <h3 class="font24">In the Queue</h3>
                                     <h4 class="font34">
@@ -302,9 +288,9 @@
 
                     <div id="ChatColEng" class="col-xs-12 col-md-6 divbgcWithPage borderLine1">
 
-                        <div class="row ">
+                        <div id="Chat_EN" class="row ">
                             <!-- Web Chat English -->
-                            <div class="col-xs-12 col-md-6   borderLine1">
+                            <div id="WebChat_EN" class="col-xs-12 col-md-6   borderLine1">
                                 <div>
                                     <h3 class="font24">Web Queue</h3>
                                     <h4 class="font34">
@@ -329,7 +315,7 @@
 
 
                             <!-- App Chat English -->
-                            <div class="col-xs-12 col-md-6 borderLine1">
+                            <div id="AppChat_EN" class="col-xs-12 col-md-6 borderLine1">
                                 <div>
                                     <h3 class="font24">App Queue</h3>
                                     <h4 class="font34">
@@ -358,7 +344,7 @@
                         <!-- Web Chat French -->
                         <div class="row divbgcWithPage">
 
-                            <div class="col-xs-12 col-md-6  borderLine1">
+                            <div id="WebChat_FR" class="col-xs-12 col-md-6  borderLine1">
                                 <div>
                                     <h3 class="font24">Web Queue</h3>
                                     <h4 class="font34">
@@ -381,7 +367,7 @@
                             </div>
 
                             <!-- App Chat French -->
-                            <div class="col-xs-12 col-md-6 borderLine1">
+                            <div id="AppChat_FR" class="col-xs-12 col-md-6 borderLine1">
                                 <div>
                                     <h3 class="font24">App Queue</h3>
                                     <h4 class="font34">
@@ -460,23 +446,12 @@
                 <div class="row " style="height: 900px">
                     <div class="col borderLine1">
                         <div class="padding-top16" style="height: 710px;">
-  <%--                          <ul style="font-size: 24px; text-align: left">
-                                <li>Mary Simon   on a call</li>
-                                <li>Bill Simth  ready</li>
-                                <li>David Bush   available</li>
-                                <li>Joe  logged on</li>
-                                <li>John  on hold</li>
-                                <li>Brittany Hunt  logged off</li>
-                                <li>Anupreet Minhas on external conference</li>
-                                <li>Andrée-Anne Forest alerted of an incoming call</li>
-                                <li>Carley Leathem  responding to customer email</li>
-                            </ul>--%>
-                            <asp:GridView ID="gvCounsellor" runat="server" 
-                                AutoGenerateColumns="False" AllowPaging="True" PageSize="15" 
-                                OnSorting="gvCounsellor_Sorting" 
-                                ShowHeader="False" OnPageIndexChanging="gvCounsellor_PageIndexChanging" 
-                                BorderStyle="None" GridLines="None" 
-                                PagerSettings-Mode="NumericFirstLast" PagerStyle-HorizontalAlign="Center" 
+                            <asp:GridView ID="gvCounsellor" runat="server"
+                                AutoGenerateColumns="False" AllowPaging="True" PageSize="15"
+                                OnSorting="gvCounsellor_Sorting"
+                                ShowHeader="False" OnPageIndexChanging="gvCounsellor_PageIndexChanging"
+                                BorderStyle="None" GridLines="None"
+                                PagerSettings-Mode="NumericFirstLast" PagerStyle-HorizontalAlign="Center"
                                 RowStyle-Width="100%" Width="100%" Height="100%">
                                 <AlternatingRowStyle BackColor="#e8e8e8" />
                                 <Columns>
@@ -500,16 +475,16 @@
                                         ItemStyle-CssClass="text_right"
                                         HeaderStyle-HorizontalAlign="Right" ReadOnly="True" ShowHeader="False">
                                         <HeaderStyle HorizontalAlign="Right"></HeaderStyle>
-                                        <ItemStyle BorderStyle="None" CssClass="text_right font20" Width="45%" ></ItemStyle>
+                                        <ItemStyle BorderStyle="None" CssClass="text_right font20" Width="45%"></ItemStyle>
                                     </asp:BoundField>
                                 </Columns>
 
-                            <PagerSettings Mode="NumericFirstLast" PageButtonCount="20"></PagerSettings>
+                                <PagerSettings Mode="NumericFirstLast" PageButtonCount="20"></PagerSettings>
 
-                                <PagerStyle BorderStyle="None" Font-Size="X-Large"  />
-                             
-<RowStyle Width="100%"></RowStyle>
-                             
+                                <PagerStyle BorderStyle="None" Font-Size="20px" />
+
+                                <RowStyle Width="100%"></RowStyle>
+
                             </asp:GridView>
                         </div>
                     </div>
@@ -519,5 +494,6 @@
         </div>
         <asp:Label ID="lblerror" runat="server" Text=""></asp:Label>
     </form>
+   <script src="Scripts/readerboard.js" lang="JavaScript"></script>
 </body>
 </html>

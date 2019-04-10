@@ -281,29 +281,31 @@ namespace ReaderBoard
                 string[] codes = agentstatuscode.Split(','); // split codes by " ,  "
                 string agentstatus = "";
                 int weight = 0;
+                 
+          
 
                 var _status = new Proc_GetAgentStatus_Result();
-                if (!String.IsNullOrEmpty(codes[0]))
+                if ((!String.IsNullOrEmpty(codes[0]) ) && ( (  codes[0]  != "25"))  )
                 {
                     _status = efContext.Proc_GetAgentStatus(Convert.ToInt32(codes[0])).First();
                     agentstatus = _status.status;
                     weight = Convert.ToInt32(_status.Weight);
-                }
-                else
-                {
-                    _status = efContext.Proc_GetAgentStatus(25).First();
-                    agentstatus = _status.status;
-                    weight = Convert.ToInt32(_status.Weight);
-                }
+               
+                //else
+                //{
+                //    _status = efContext.Proc_GetAgentStatus(25).First();
+                //    agentstatus = _status.status;
+                //    weight = Convert.ToInt32(_status.Weight);
+                //}
 
-                agents.Add(new agent() {
-                    agentID = _x.AgentID
-                    , agentName = _x.AgentName
-                    , statusecode = codes[0]
-                    , status = agentstatus
-                    , weight = weight
-                });
-
+                    agents.Add(new agent() {
+                        agentID = _x.AgentID
+                        , agentName = _x.AgentName
+                        , statusecode = codes[0]
+                        , status = agentstatus
+                        , weight = weight
+                    });
+                }
    
             }
         }

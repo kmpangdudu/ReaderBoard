@@ -231,6 +231,7 @@
     <Content Include="Scripts\process1.js" />
     <Content Include="Scripts\processDark.js" />
     <Content Include="Scripts\progress.js" />
+    <Content Include="Scripts\readerboard.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
