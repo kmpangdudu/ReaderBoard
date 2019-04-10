@@ -171,6 +171,16 @@
       <DependentUpon>DataModel.edmx</DependentUpon>
       <LastGenOutput>DataModel.cs</LastGenOutput>
     </Content>
+    <Content Include="DataModel\iceModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>iceModel.edmx</DependentUpon>
+      <LastGenOutput>iceModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModel\iceModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>iceModel.edmx</DependentUpon>
+      <LastGenOutput>iceModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Default.aspx" />
     <Content Include="Detail.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -193,6 +203,13 @@
     </EntityDeploy>
     <Content Include="DataModel\DataModel.edmx.diagram">
       <DependentUpon>DataModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="DataModel\iceModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>iceModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DataModel\iceModel.edmx.diagram">
+      <DependentUpon>iceModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -272,6 +289,27 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\iceModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iceModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\iceModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\iceModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iceModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Proc_GetAgentStatus_Result.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Proc_GetAgent_Result.cs">
+      <DependentUpon>iceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel\Proc_GetQueue_Result.cs">
       <DependentUpon>DataModel.tt</DependentUpon>

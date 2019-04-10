@@ -5,6 +5,9 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="RAMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="Proc_GetAgentStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="iceCTI">
+          <Parameter Name="statusecode" Type="int" Mode="In" />
+        </Function>
         <Function Name="Proc_GetQueue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="iceCTI" />
         <Function Name="Proc_Last24Grade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="iceCTI" />
         <Function Name="Proc_LastHourGrade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="iceCTI" />
@@ -19,6 +22,9 @@
           <FunctionImport Name="Proc_Last24Grade" ReturnType="Collection(RAMModel.Proc_Last24Grade_Result)" />
           <FunctionImport Name="Proc_LastHourGrade" ReturnType="Collection(RAMModel.Proc_LastHourGrade_Result)" />
           <FunctionImport Name="Proc_LastHourWaitTime" ReturnType="Collection(RAMModel.Proc_LastHourWaitTime_Result)" />
+          <FunctionImport Name="Proc_GetAgentStatus" ReturnType="Collection(RAMModel.Proc_GetAgentStatus_Result)">
+          <Parameter Name="statusecode" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Proc_Last24Grade_Result">
           <Property Type="Decimal" Name="PhoneAllGrade" Nullable="true" Precision="6" Scale="2" />
@@ -44,6 +50,10 @@
         <ComplexType Name="Proc_LastHourWaitTime_Result">
           <Property Type="Decimal" Name="phoneWaitTime" Nullable="true" Precision="16" Scale="2" />
           <Property Type="Decimal" Name="ChatWaitTime" Nullable="true" Precision="16" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="Proc_GetAgentStatus_Result">
+          <Property Type="Int32" Name="Weight" Nullable="true" />
+          <Property Type="String" Name="status" Nullable="true" MaxLength="255" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -89,6 +99,14 @@
               <ComplexTypeMapping TypeName="RAMModel.Proc_LastHourWaitTime_Result">
                 <ScalarProperty Name="phoneWaitTime" ColumnName="phoneWaitTime" />
                 <ScalarProperty Name="ChatWaitTime" ColumnName="ChatWaitTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_GetAgentStatus" FunctionName="RAMModel.Store.Proc_GetAgentStatus" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RAMModel.Proc_GetAgentStatus_Result">
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="status" ColumnName="status" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -460,7 +460,7 @@
                 <div class="row " style="height: 900px">
                     <div class="col borderLine1">
                         <div class="padding-top16" style="height: 710px;">
-                            <ul style="font-size: 24px; text-align: left">
+  <%--                          <ul style="font-size: 24px; text-align: left">
                                 <li>Mary Simon   on a call</li>
                                 <li>Bill Simth  ready</li>
                                 <li>David Bush   available</li>
@@ -470,7 +470,47 @@
                                 <li>Anupreet Minhas on external conference</li>
                                 <li>Andrée-Anne Forest alerted of an incoming call</li>
                                 <li>Carley Leathem  responding to customer email</li>
-                            </ul>
+                            </ul>--%>
+                            <asp:GridView ID="gvCounsellor" runat="server" 
+                                AutoGenerateColumns="False" AllowPaging="True" PageSize="15" 
+                                OnSorting="gvCounsellor_Sorting" 
+                                ShowHeader="False" OnPageIndexChanging="gvCounsellor_PageIndexChanging" 
+                                BorderStyle="None" GridLines="None" 
+                                PagerSettings-Mode="NumericFirstLast" PagerStyle-HorizontalAlign="Center" 
+                                RowStyle-Width="100%" Width="100%" Height="100%">
+                                <AlternatingRowStyle BackColor="#e8e8e8" />
+                                <Columns>
+                                    <asp:BoundField DataField="Weight" HeaderText="Weight"
+                                        ItemStyle-BorderStyle="None"
+                                        ItemStyle-CssClass="text_right"
+                                        HeaderStyle-HorizontalAlign="Right" Visible="False" ReadOnly="True" SortExpression="Weight">
+                                        <HeaderStyle HorizontalAlign="Right"></HeaderStyle>
+                                        <ItemStyle BorderStyle="None" CssClass="text_right"></ItemStyle>
+                                    </asp:BoundField>
+
+                                    <asp:BoundField DataField="Counsellor" HeaderText="Counsellor" ReadOnly="True"
+                                        ItemStyle-CssClass="text_left font22" HeaderStyle-HorizontalAlign="Left" ShowHeader="False" ItemStyle-Height="30px">
+                                        <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                                        <ItemStyle BorderStyle="None" CssClass="text_left font22" Width="55%" Wrap="False"></ItemStyle>
+                                    </asp:BoundField>
+
+
+                                    <asp:BoundField DataField="Status" HeaderText="Status"
+                                        ItemStyle-BorderStyle="None"
+                                        ItemStyle-CssClass="text_right"
+                                        HeaderStyle-HorizontalAlign="Right" ReadOnly="True" ShowHeader="False">
+                                        <HeaderStyle HorizontalAlign="Right"></HeaderStyle>
+                                        <ItemStyle BorderStyle="None" CssClass="text_right font20" Width="45%" ></ItemStyle>
+                                    </asp:BoundField>
+                                </Columns>
+
+                            <PagerSettings Mode="NumericFirstLast" PageButtonCount="20"></PagerSettings>
+
+                                <PagerStyle BorderStyle="None" Font-Size="X-Large"  />
+                             
+<RowStyle Width="100%"></RowStyle>
+                             
+                            </asp:GridView>
                         </div>
                     </div>
                 </div>

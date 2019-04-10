@@ -47,5 +47,14 @@ namespace ReaderBoard.DataModel
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_LastHourWaitTime_Result>("Proc_LastHourWaitTime");
         }
+    
+        public virtual ObjectResult<Proc_GetAgentStatus_Result> Proc_GetAgentStatus(Nullable<int> statusecode)
+        {
+            var statusecodeParameter = statusecode.HasValue ?
+                new ObjectParameter("statusecode", statusecode) :
+                new ObjectParameter("statusecode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_GetAgentStatus_Result>("Proc_GetAgentStatus", statusecodeParameter);
+        }
     }
 }

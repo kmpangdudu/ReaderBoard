@@ -1,6 +1,8 @@
 ﻿using ReaderBoard.DataModel;
 using ReaderBoard.iceCTI;
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity.Core.Objects;
 using System.Drawing;
 using System.Linq;
@@ -8,6 +10,7 @@ using System.Net;
 using System.Web.UI;
 using System.Web.UI.DataVisualization.Charting;
 using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
 
 namespace ReaderBoard
 {
@@ -17,15 +20,28 @@ namespace ReaderBoard
         public string _CurrentInQueued { get; set; }
         public string _LongestWaitTime { get; set; }
     }
+    struct agent
+    {
+        public int weight { get; set; }
+        public int agentID { get; set; }
+        public string agentName { get; set; }
+        public string statusecode { get; set; }
+        public String status { get; set; }
+
+    }
 
     public partial class readerboard : System.Web.UI.Page
     {
 
        ReaderBoardEntities efContext = new ReaderBoardEntities();
+       AgentEntities efagent = new AgentEntities();
 
        CTIServiceClient client = new CTIServiceClient();
 
-       DateTime today = DateTime.Now;
+      
+        List<agent> agents = new List<agent>();
+
+        DateTime today = DateTime.Now;
        string refreshing = Properties.Settings.Default.DashboardRefreshing;//Default 3- second;
        string szServerName = Properties.Settings.Default.szServerName; //"ice1"
        string dwSwitchID = Properties.Settings.Default.dwSwitchID; //"11006";
@@ -58,12 +74,23 @@ namespace ReaderBoard
 
             try
             {
+                // get agents
+                getAgents();
+
                 // get SOAP DATA
                 getSOAP();
+                
                 // process phone stuffs
                 Phone();
+                
                 // process chat stuffs
                 Chat();
+
+                
+                //process Counsellor status
+                gvCounsellor.DataSource = DSCounsellor(); // generate DataSet of Counsellor
+                gvCounsellor.DataBind();
+
             }
             catch (Exception erd)
             {
@@ -113,6 +140,9 @@ namespace ReaderBoard
             stru_ChatApp_FRE._LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
             stru_ChatApp_FRE._HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
             stru_ChatApp_FRE._CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+
+            
+            
         }
 
         protected void Phone()
@@ -241,5 +271,108 @@ namespace ReaderBoard
 
         } //end process chat
 
+        protected void getAgents()
+        {
+            var _agents =  efagent.Proc_GetAgent();
+            foreach (Proc_GetAgent_Result _x in _agents)
+            {
+                // check agent status
+                string agentstatuscode = client.GetIceAgentState(dwSwitchID, _x.AgentID.ToString(), szServerName);// all string
+                string[] codes = agentstatuscode.Split(','); // split codes by " ,  "
+                string agentstatus = "";
+                int weight = 0;
+
+                var _status = new Proc_GetAgentStatus_Result();
+                if (!String.IsNullOrEmpty(codes[0]))
+                {
+                    _status = efContext.Proc_GetAgentStatus(Convert.ToInt32(codes[0])).First();
+                    agentstatus = _status.status;
+                    weight = Convert.ToInt32(_status.Weight);
+                }
+                else
+                {
+                    _status = efContext.Proc_GetAgentStatus(25).First();
+                    agentstatus = _status.status;
+                    weight = Convert.ToInt32(_status.Weight);
+                }
+
+                agents.Add(new agent() {
+                    agentID = _x.AgentID
+                    , agentName = _x.AgentName
+                    , statusecode = codes[0]
+                    , status = agentstatus
+                    , weight = weight
+                });
+
+   
+            }
+        }
+
+        protected  DataSet DSCounsellor()
+        {
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable("counsellor");
+            dt.Clear();
+            dt.Columns.Add("Weight", typeof(int));
+            dt.Columns.Add("Counsellor", typeof(string));
+            dt.Columns.Add("Status", typeof(string));
+
+
+            if (agents != null)
+            { 
+                foreach (agent _x in agents)
+                {
+                    dt.Rows.Add(new object[] {  _x.weight, _x.agentName, _x.status});
+                }
+
+                //Sort by weight 
+                DataView dv = new DataView(dt);
+                dv.Sort = "Weight ASC, Counsellor ASC";
+                dt = dv.ToTable();
+                // add data table to DataSet
+                ds.Tables.Add(dt);
+ 
+            }
+ 
+            return ds;
+        }
+
+         
+        protected void gvCounsellor_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvCounsellor.PageIndex = e.NewPageIndex;
+            BindData(); //重新绑定GridView数据的函数
+        }
+        void BindData()
+        {
+            this.gvCounsellor.DataSource = DSCounsellor(); //就是连接数据库那些，
+                                                         //SqlConnection,SqlCommand,SqlAdapter,…..
+            this.gvCounsellor.DataBind();
+        }
+
+        protected void gvCounsellor_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            // 从事件参数获取排序数据列
+            string sortExpression = e.SortExpression.ToString();
+
+            // 假定为排序方向为“顺序”
+            string sortDirection = "ASC";
+
+            // “ASC”与事件参数获取到的排序方向进行比较，进行GridView排序方向参数的修改
+            if (sortExpression == this.gvCounsellor.Attributes["SortExpression"])
+            {
+                //获得下一次的排序状态
+                sortDirection = (this.gvCounsellor.Attributes["SortDirection"].ToString() == sortDirection ? "DESC" : "ASC");
+            }
+
+            // 重新设定GridView排序数据列及排序方向
+            this.gvCounsellor.Attributes["SortExpression"] = sortExpression;
+            this.gvCounsellor.Attributes["SortDirection"] = sortDirection;
+
+            //this.BindGridView();
+
+        }
+
+  
     } // end class readerboard
 }
