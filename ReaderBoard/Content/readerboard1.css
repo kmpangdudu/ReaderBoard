@@ -12,7 +12,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 body {
-    background-color: #107DA9;
+    background-color: #0095C8;
     color: #333333;
     font-family: ArialRoundedMTBold, "Arial Rounded MT Bold", Arial, Helvetica, sans-serif;
     /*font-family: "Arial Rounded MT Bold", Arial,"Helvetica Rounded" Helvetica, sans-serif !important;*/
@@ -304,47 +304,47 @@ div {
 }
 
 .borderLine1 {
-    border: 1px solid #107DA9;
+    border: 1px solid #0095C8;
     text-align: center;
     padding: 5px 0px 0px 2px;
-    background-color: #107DA9;
+    background-color: #0095C8;
 }
 
 .blank1r {
     padding: 1px 0px;
-    background-color: #107DA9;
+    background-color: #0095C8;
     border-radius: 7px;
 }
 
 .blank2r {
     padding: 2px 0px;
-    background-color: #107DA9;
+    background-color: #0095C8;
     border-radius: 7px;
 }
 
 .blank4r {
     padding: 6px;
-    background-color: #107DA9;
+    background-color: #0095C8;
     border-radius: 7px;
 }
 
 .blank8r {
     padding: 8px 0px;
-    background-color: #107DA9;
+    background-color: #0095C8;
 }
 
 .blank10r {
     padding: 10px 0px;
-    background-color: #107DA9;
+    background-color: #0095C8;
 }
 
 .blank12r {
     padding: 12px 0px;
-    background-color: #107DA9;
+    background-color: #0095C8;
 }
 
 .divbgcWithPage {
-    background-color: #107DA9;
+    background-color: #0095C8;
 }
 
 .divbgcWithPageFCFCFC {
@@ -536,5 +536,5 @@ div {
     /*box-shadow: 0 0 10px gray;*/
     border-radius: 4px;
     /*color: #030ff8;*/
-    color: #107DA9;
+    color: #0095C8;
 }
