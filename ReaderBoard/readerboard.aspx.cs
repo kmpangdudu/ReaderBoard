@@ -64,6 +64,8 @@ namespace ReaderBoard
         RealTimeDataShort stru_ChatApp_FRE;
         protected void Page_Load(object sender, EventArgs e)
         {
+            string errMsg = "";  //for debug only
+
             // refreshing is the number of seconds , default value is 300 = 5 mintues in setting section
             Response.AppendHeader("Refresh", refreshing);
 
@@ -74,27 +76,39 @@ namespace ReaderBoard
 
             try
             {
+                
+
                 // get agents
                 getAgents();
 
-                // get SOAP DATA
-                getSOAP();
-                
-                // process phone stuffs
-                Phone();
-                
-                // process chat stuffs
-                Chat();
-
-                
                 //process Counsellor status
                 gvCounsellor.DataSource = DSCounsellor(); // generate DataSet of Counsellor
                 gvCounsellor.DataBind();
 
+                //errMsg = "Done agent";
+
+                // get SOAP DATA
+                getSOAP();
+
+                //errMsg = "Done SOAP";
+
+                // process phone stuffs
+                Phone();
+
+                //errMsg = "Done PHONE";
+
+                // process chat stuffs
+                Chat();
+
+                //errMsg = "Done Chat";
+
+
+
             }
             catch (Exception erd)
             {
-                lblerror.Text = erd.ToString();
+                //lblerror.Text = erd.ToString();
+                errMsg = erd.ToString();
             }
 
         } //Page_Load
@@ -273,40 +287,46 @@ namespace ReaderBoard
 
         protected void getAgents()
         {
-            var _agents =  efagent.Proc_GetAgent();
-            foreach (Proc_GetAgent_Result _x in _agents)
-            {
-                // check agent status
-                string agentstatuscode = client.GetIceAgentState(dwSwitchID, _x.AgentID.ToString(), szServerName);// all string
-                string[] codes = agentstatuscode.Split(','); // split codes by " ,  "
-                string agentstatus = "";
-                int weight = 0;
-                 
-          
-
-                var _status = new Proc_GetAgentStatus_Result();
-                if ((!String.IsNullOrEmpty(codes[0]) ) && ( (  codes[0]  != "25"))  )
+            var _status = new Proc_GetAgentStatus_Result();
+            _status.status = "";
+            _status.Weight = 1;
+            var _agents =  efagent.Proc_GetAgent( ).ToList();
+             
+            try
+            { 
+                foreach (Proc_GetAgent_Result _x in _agents)
                 {
-                    _status = efContext.Proc_GetAgentStatus(Convert.ToInt32(codes[0])).First();
-                    agentstatus = _status.status;
-                    weight = Convert.ToInt32(_status.Weight);
+                    // check agent status
+                    string agentstatuscode = client.GetIceAgentState(dwSwitchID, _x.AgentID.ToString(), szServerName);// all string
+                    string[] codes = agentstatuscode.Split(','); // split codes by " ,  "
+                    string agentstatus = "";
+                    int weight = 0;
+                
+                    if ((!String.IsNullOrEmpty(codes[0]) ) && ( (  codes[0]  != "25"))  )
+                    {
+                        _status = efContext.Proc_GetAgentStatus(Convert.ToInt32(codes[0])).FirstOrDefault();
+                        agentstatus = _status.status;
+                        weight = Convert.ToInt32(_status.Weight);
                
-                //else
-                //{
-                //    _status = efContext.Proc_GetAgentStatus(25).First();
-                //    agentstatus = _status.status;
-                //    weight = Convert.ToInt32(_status.Weight);
-                //}
 
-                    agents.Add(new agent() {
-                        agentID = _x.AgentID
-                        , agentName = _x.AgentName
-                        , statusecode = codes[0]
-                        , status = agentstatus
-                        , weight = weight
-                    });
-                }
+                        agents.Add(new agent() {
+                            agentID = _x.AgentID
+                            , agentName = _x.AgentName
+                            , statusecode = codes[0]
+                            , status = agentstatus
+                            , weight = weight
+                        });
+                    }
+                    else
+                    {
+                        continue;
+                    }
    
+                }
+            }
+            catch (Exception erd)
+            {
+                //lblerror.Text = erd.ToString();
             }
         }
 

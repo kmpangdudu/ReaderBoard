@@ -13,7 +13,9 @@
     <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript"></script>
     <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+	 
     <script src="Scripts/process1.js"></script>
+	 
 
     <!-- add     background-color: #CCC; commented .row margin R786 of bootstrap.css   -->
 </head>
@@ -443,7 +445,7 @@
                 <%--   <div class="blank4r"><!-- add 4px space --></div>--%>
 
 
-                <div class="row " style="height: 900px">
+                <div class="row " >
                     <div class="col borderLine1">
                         <div class="padding-top16" style="height: 710px;">
                             <asp:GridView ID="gvCounsellor" runat="server"
