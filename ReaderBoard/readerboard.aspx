@@ -494,7 +494,7 @@
             </div>
 
         </div>
-        <asp:Label ID="lblerror" runat="server" Text=""></asp:Label>
+        <asp:Label ID="lblerror" runat="server" Text="" Visible="false"></asp:Label>
     </form>
    <script src="Scripts/readerboard.js" lang="JavaScript"></script>
 </body>

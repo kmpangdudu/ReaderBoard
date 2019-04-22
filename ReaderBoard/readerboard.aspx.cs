@@ -291,9 +291,10 @@ namespace ReaderBoard
             _status.status = "";
             _status.Weight = 1;
             var _agents =  efagent.Proc_GetAgent( ).ToList();
-             
+            string errmsg = "";
             try
-            { 
+            {
+                int i = 1;
                 foreach (Proc_GetAgent_Result _x in _agents)
                 {
                     // check agent status
@@ -301,12 +302,33 @@ namespace ReaderBoard
                     string[] codes = agentstatuscode.Split(','); // split codes by " ,  "
                     string agentstatus = "";
                     int weight = 0;
-                
+                    
+                    //errmsg = "AgentID="+_x.AgentID.ToString() + " <====> " + i.ToString() +"   <---->  Agent Name = " + _x.AgentName + " <---->    Codes="+codes[0];
+
+                    //i = i + 1; 
+                    //if (i == 51)
+                    //{
+                    //    errmsg += "";
+                    //}
+
+
+
+
+
                     if ((!String.IsNullOrEmpty(codes[0]) ) && ( (  codes[0]  != "25"))  )
                     {
-                        _status = efContext.Proc_GetAgentStatus(Convert.ToInt32(codes[0])).FirstOrDefault();
-                        agentstatus = _status.status;
-                        weight = Convert.ToInt32(_status.Weight);
+                        try
+                        {
+                            _status = efContext.Proc_GetAgentStatus(Convert.ToInt32(codes[0])).FirstOrDefault();
+                            agentstatus = _status.status;
+                            weight = Convert.ToInt32(_status.Weight);
+                        }
+                        catch
+                        {
+                            continue;
+                        }
+                        
+
                
 
                         agents.Add(new agent() {
@@ -327,6 +349,7 @@ namespace ReaderBoard
             catch (Exception erd)
             {
                 //lblerror.Text = erd.ToString();
+                //errmsg += "  <----->   "+  erd.ToString();
             }
         }
 
