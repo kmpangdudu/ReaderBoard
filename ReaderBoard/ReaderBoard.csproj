@@ -256,6 +256,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="walk.aspx" />
+    <Content Include="walker.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -357,6 +358,13 @@
     </Compile>
     <Compile Include="walk.aspx.designer.cs">
       <DependentUpon>walk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="walker.aspx.cs">
+      <DependentUpon>walker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="walker.aspx.designer.cs">
+      <DependentUpon>walker.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
