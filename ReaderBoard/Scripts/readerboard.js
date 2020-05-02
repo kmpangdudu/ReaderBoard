@@ -57,6 +57,20 @@ $(document).ready(function () {
     });
 });
 
+//Hlth_English Label hover
+$(document).ready(function () {
+    $("#Hlth_EN").mouseover(function () {
+        $("#Hlth_PHONE_EN").addClass("theplan hover1");
+        $("#Hlth_EN").addClass("theplan hover1");
+        $("#English").addClass("theplan hover1");
+    });
+    $("#Hlth_EN").mouseout(function () {
+        $("#Hlth_PHONE_EN").removeClass("theplan hover1");
+        $("#Hlth_EN").removeClass("theplan hover1");
+        $("#English").removeClass("theplan hover1");
+    });
+});
+
 
 //KHP_French Label hover
 $(document).ready(function () {
@@ -83,6 +97,20 @@ $(document).ready(function () {
     $("#G2T_FR").mouseout(function () {
         $("#G2T_PHONE_FR").removeClass("theplan hover1");
         $("#G2T_FR").removeClass("theplan hover1");
+        $("#French").removeClass("theplan hover1");
+    });
+});
+
+//Hlth_French Label hover
+$(document).ready(function () {
+    $("#Hlth_FR").mouseover(function () {
+        $("#Hlth_PHONE_FR").addClass("theplan hover1");
+        $("#Hlth_FR").addClass("theplan hover1");
+        $("#French").addClass("theplan hover1");
+    });
+    $("#Hlth_FR").mouseout(function () {
+        $("#Hlth_PHONE_FR").removeClass("theplan hover1");
+        $("#Hlth_FR").removeClass("theplan hover1");
         $("#French").removeClass("theplan hover1");
     });
 });
@@ -135,6 +163,22 @@ $(document).ready(function () {
     });
 });
 
+//KHP Health English SOAP Label hover
+$(document).ready(function () {
+    $("#Hlth_PHONE_EN").mouseover(function () {
+        $("#Hlth_PHONE_EN").addClass("theplan hover1");
+        $("#English").addClass("theplan hover1");
+        $("#Hlth_EN").addClass("theplan hover1");
+
+
+    });
+    $("#Hlth_PHONE_EN").mouseout(function () {
+        $("#Hlth_PHONE_EN").removeClass("theplan hover1");
+        $("#English").removeClass("theplan hover1");
+        $("#Hlth_EN").removeClass("theplan hover1");
+    });
+});
+
 
 //KHP PHone French SOAP Label hover
 $(document).ready(function () {
@@ -168,6 +212,24 @@ $(document).ready(function () {
         $("#G2T_FR").removeClass("theplan hover1");
     });
 });
+
+//KHP Health French SOAP Label hover
+$(document).ready(function () {
+    $("#Hlth_PHONE_FR").mouseover(function () {
+        $("#Hlth_PHONE_FR").addClass("theplan hover1");
+        $("#French").addClass("theplan hover1");
+        $("#Hlth_FR").addClass("theplan hover1");
+
+
+    });
+    $("#Hlth_PHONE_FR").mouseout(function () {
+        $("#Hlth_PHONE_FR").removeClass("theplan hover1");
+        $("#French").removeClass("theplan hover1");
+        $("#Hlth_FR").removeClass("theplan hover1");
+    });
+});
+
+
 
 
 //WebChat English SOAP Label hover

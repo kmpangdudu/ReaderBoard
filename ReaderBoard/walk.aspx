@@ -13,21 +13,21 @@
 <body style="background-color: #DDDDDD;">
     <form id="form1" runat="server">
         <div class="container">
-            <div class="row">
+            <div class="row center background-color_fcfcfc">
                 <div id="imgdiv" class="col-sm-12 col-md-12">
                     <img id="walk" alt="walk so kids can talk" src="./content/wskct.jpg"   class="img-rounded center-block"/>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-sm-12 col-md-12  text-left">
+                <div class="col-sm-12 col-md-12  text-left padding_L_R_50">
                     <%--<p id="header" class="text_left" style="padding-left: 45px;">Kids Help Phone Team</p>--%>
                      <p style="font-size:26px;">Kids Help Phone Team</p>
                 </div>
             </div>
 
             <div class="row">
-                <div id="donordiv" class="col-sm-12 col-md-12">
+                <div id="donordiv" class="col-sm-12 col-md-12 padding_L_R_50">
                     <asp:GridView ID="gvdonor" runat="server" AutoGenerateColumns="False"
                         BorderStyle="None"
                         CellPadding="15"

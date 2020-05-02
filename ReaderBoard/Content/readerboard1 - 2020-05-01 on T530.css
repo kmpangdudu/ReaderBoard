@@ -12,7 +12,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 body {
-    background-color: #ccc;
+    background-color: #0095C8;
     color: #333333;
     font-family: ArialRoundedMTBold, "Arial Rounded MT Bold", Arial, Helvetica, sans-serif;
     /*font-family: "Arial Rounded MT Bold", Arial,"Helvetica Rounded" Helvetica, sans-serif !important;*/
@@ -27,7 +27,7 @@ h1 {
 }
 
 h2 {
-    font-size: 72px;
+    font-size: 46px;
     /*text-shadow: -5px -5px 5px #999;*/
     margin: 5px;
 }
@@ -41,37 +41,57 @@ h3 {
 h4 {
     font-size: 60px;
     /*text-shadow: -4px -4px 4px #999;*/
-    margin: 30px 0 0 0;
+    margin: 30px 0 62px 0;
 }
+
 h5 {
     font-size: 16px;
     /*text-shadow: -4px -4px 4px #999;*/
     margin: 0px;
 }
+
 h6 {
     font-size: 48px;
     /*text-shadow: -4px -4px 4px #999;*/
     margin: 60px 0 40px 0;
 }
+
 .clock {
     font-size: 24px !important;
     color: #0095C8 !important;
     font-weight: bold;
     /*text-shadow: -2px -2px 2px #99d6ff;*/
 }
-.phone {
-    height :120px;
-    margin-top:20px;
+
+.clock1 {
+    font-size: 23px !important;
+    color: #0095C8 !important;
+    font-weight: bold;
+    height: 115px;
+    /*text-shadow: -2px -2px 2px #99d6ff;*/
 }
+
+.phone {
+    height: 120px;
+    margin-top: 20px;
+}
+
 #clockdate {
     margin-top: 50px;
 }
-#clock{
-    margin-top:15px;
+
+#clock {
+    /*margin-top:7px;*/
+    padding-top: 20px;
 }
+
 p {
     padding: 0px 0px 0px 10px;
     margin: 0px;
+}
+
+.padding-top16 {
+    padding-top: 16px;
 }
 
 .bigfont {
@@ -81,9 +101,77 @@ p {
 .bigfont1 {
     font-size: 90px;
 }
+.font20 {
+    font-size: 20px;
+    padding: 6px 0px;
+}
+.font22 {
+    font-size: 22px;
+    padding: 6px 0px;
+}
+.font24 {
+    font-size: 24px;
+    padding: 12px 0px;
+}
+
+.font26 {
+    font-size: 26px;
+    padding: 12px 0px;
+}
+
+.font28 {
+    font-size: 28px;
+    padding: 12px 0px;
+}
+
+.font30 {
+    font-size: 30px;
+    padding: 12px 0px;
+}
+
+.font34 {
+    font-size: 34px;
+    margin-top: 10px;
+    /*margin-bottom: 10px;*/
+}
+
+.fontx {
+    font-size: 24px;
+    margin-top: 10px;
+    /*margin-bottom: 10px;*/
+}
+ 
+
+.font38 {
+    font-size: 38px;
+    margin-top: 10px;
+    /*margin-bottom: 10px;*/
+}
+
+.font40 {
+    font-size: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.font42 {
+    font-size: 42px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.font48 {
+    font-size: 48px;
+    margin-top: 10px;
+    /*margin-bottom: 10px;*/
+}
+
+.padding37 {
+    padding: 37px;
+}
 
 div {
-    border-radius: 8px;
+    border-radius: 4px;
     background-color: #fcfcfc;
 }
 
@@ -108,13 +196,29 @@ div {
         padding: 5px 0 5px 0;
     }
 
-#ENG, #phone, #chat, #phoneE, #G2TE, #ChatE, #ChatAppE {
-    background-color: #ddd;
-    padding: 2px;
-    margin: 2px 2px 0px 2px;
+#ENG, #phone, #chat, #phoneE, #G2TE, #ChatE, #ChatAppE,
+#PhoneContact, #ChatContact {
+    /*background-color: #ddd;*/
+    /*padding: 2px;
+    margin: 2px 2px 0px 2px;*/
     /*border: double;
     border: 10px double #999;
     border-width: 1px;*/
+}
+
+#PhoneContact, #ChatContact, #num {
+    /*background-color: #ddd;*/
+    padding: 0px;
+    /*margin: 2px 2px 0px 2px;*/
+    /*padding: 2px;
+    margin: 2px 1px 2px 1px;*/
+    /*border: double;
+    border: 10px double #999;
+    border-width: 1px;*/
+}
+
+#all_contain {
+    margin: 1px;
 }
 
 #FRE, #PhoneF, #G2TF, #ChatF, #ChatAppF {
@@ -162,7 +266,7 @@ div {
 }
 
 .container_parent {
-    width: 96%;     /*96%;*/
+    width: 96%; /*96%;*/
     margin: 3px;
     padding: 3px;
     text-align: center;
@@ -203,7 +307,63 @@ div {
 }
 
 .borderLineThick {
-    border: 5px double #FF0000;
+    border: 5px double;
+}
+
+.borderLine1 {
+    border: 1px solid #0095C8;
+    text-align: center;
+    padding: 5px 0px 0px 2px;
+    background-color: #0095C8;
+}
+
+.blank1r {
+    padding: 1px 0px;
+    background-color: #0095C8;
+    border-radius: 7px;
+}
+
+.blank2r {
+    padding: 2px 0px;
+    background-color: #0095C8;
+    border-radius: 7px;
+}
+
+.blank4r {
+    padding: 6px;
+    background-color: #0095C8;
+    border-radius: 7px;
+}
+
+.blank8r {
+    padding: 8px 0px;
+    background-color: #0095C8;
+}
+
+.blank10r {
+    padding: 10px 0px;
+    background-color: #0095C8;
+}
+
+.blank12r {
+    padding: 12px 0px;
+    background-color: #0095C8;
+}
+
+.divbgcWithPage {
+    background-color: #0095C8;
+}
+
+.divbgcWithPageFCFCFC {
+    background-color: #FCFCFC;
+}
+
+.margin-upMin6 {
+    margin: -6px 0px;
+}
+
+.Margin-top-min25 {
+    margin-top: -25px;
 }
 
 .borderLineThick {
@@ -265,7 +425,7 @@ div {
     background-size: cover;
 }
 
- 
+
 
 #PhoneCounslor1, #ChatCounslor1 {
     margin: 5px;
@@ -284,7 +444,7 @@ div {
 .dimmed {
     opacity: 0.3;
 }
- 
+
 
 
 /************   Grade  ***************/
@@ -316,17 +476,19 @@ div {
     padding: 0 25px;
 }
 
+
+
 /*following area for walk*/
 #walk, #header {
-    max-width: 75%;
-    font-size:26px;
-	
-	 
+    max-width: 90%;
+    font-size: 26px;
 }
+
 #imgdiv {
     max-height: 60%;
-	padding-top:10px
+    padding-top: 10px
 }
+
 .center {
     margin: auto;
     width: 90%;
@@ -334,24 +496,45 @@ div {
     padding: 10px;
     text-align: center;
 }
+
 .text_left {
     text-align: left;
     padding-left: 15px;
     margin: 0px;
 }
+
 .text_right {
     text-align: right;
-    padding-right:30px;
-    margin:30px;
+    padding-right: 30px;
+    margin: 30px;
 }
+
 .hiddenPager {
     visibility: hidden;
     display: none;
 }
 
-.background-color_fcfcfc{
-	background-color:#fcfcfc;
+
+
+ 
+
+.theplan {
+    flex-direction: column;
+        transition:all 1s;
+-moz-transition:all 1s; /* Firefox 4 */
+-webkit-transition:all 1s; /* Safari and Chrome */
+-o-transition:all 2s; /* Opera */
 }
-.padding_L_R_50{
-	padding: 0px 100px;
-	}
+
+.hover1 { /* when mouse hover over pricing table */
+    transform: scale(1.08);
+        transition:all 1s;
+-moz-transition:all 1s; /* Firefox 4 */
+-webkit-transition:all 1s; /* Safari and Chrome */
+-o-transition:all 1s; /* Opera */
+    z-index: 100;
+    /*box-shadow: 0 0 10px gray;*/
+    border-radius: 4px;
+    /*color: #030ff8;*/
+    color: #0095C8;
+}

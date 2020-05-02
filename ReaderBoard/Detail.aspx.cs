@@ -14,6 +14,9 @@ namespace ReaderBoard
         string iQueueID_Phone_FRE = Properties.Settings.Default.Phone_FRE;//"6002";
         string iQueueID_G2T_ENG = Properties.Settings.Default.G2T_ENG;//"6013";
         string iQueueID_G2T_FRE = Properties.Settings.Default.G2T_FRE;//"6014";
+        string iQueueID_Hlth_ENG = Properties.Settings.Default.Hlth_ENG;//"6017";
+        string iQueueID_Hlth_FRE = Properties.Settings.Default.Hlth_FRE;//"6018";
+
         string iQueueID_Chat_ENG = Properties.Settings.Default.Chat_ENG;//"6007";
         string iQueueID_Chat_FRE = Properties.Settings.Default.Chat_FRE;//"6008";
         string iQueueID_ChatApp_ENG = Properties.Settings.Default.ChatApp_ENG;//"6020";
@@ -32,6 +35,9 @@ namespace ReaderBoard
                 Phone_FRE();
                 G2T_ENG();
                 G2T_FRE();
+                Hlth_ENG();
+                Hlth_FRE();
+
                 Chat_ENG();
                 Chat_FRE();
                 ChatApp_ENG();
@@ -57,15 +63,15 @@ namespace ReaderBoard
         {
             try
             {
-                lblCurQueued.Text = client.GetCurQueued(dwSwitchID, iQueueID_Phone_ENG, szServerName);
-                lblAgentsLoggedOn.Text = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Phone_ENG, szServerName);
-                lblAgentsReady.Text = client.GetNumAgentsReady(dwSwitchID, iQueueID_Phone_ENG, szServerName);
-                lbloffered.Text = client.GetNumOffered(dwSwitchID, iQueueID_Phone_ENG, szServerName);
-                lblHandled.Text = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Phone_ENG, szServerName);
-                lblWaitTime.Text = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_Phone_ENG, szServerName);
-                lblLongestwaitTime.Text = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Phone_ENG, szServerName);
-                lblNumAgentsOnContact.Text = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Phone_ENG, szServerName);
-                lblGetHandledQueuedTime.Text = client.GetHandledQueuedTime(dwSwitchID, iQueueID_Phone_ENG, szServerName);
+                lblCurQueued.Text            = client.GetCurQueued            (dwSwitchID, iQueueID_Phone_ENG, szServerName);
+                lblAgentsLoggedOn.Text       = client.GetNumAgentsLoggedOn    (dwSwitchID, iQueueID_Phone_ENG, szServerName);
+                lblAgentsReady.Text          = client.GetNumAgentsReady       (dwSwitchID, iQueueID_Phone_ENG, szServerName);
+                lbloffered.Text              = client.GetNumOffered           (dwSwitchID, iQueueID_Phone_ENG, szServerName);
+                lblHandled.Text              = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Phone_ENG, szServerName);
+                lblWaitTime.Text             = client.GetEstimatedWaitTime    (dwSwitchID, iQueueID_Phone_ENG, szServerName);
+                lblLongestwaitTime.Text      = client.GetCurLongestQueuedTime (dwSwitchID, iQueueID_Phone_ENG, szServerName);
+                lblNumAgentsOnContact.Text   = client.GetNumAgentsOnContact   (dwSwitchID, iQueueID_Phone_ENG, szServerName);
+                lblGetHandledQueuedTime.Text = client.GetHandledQueuedTime    (dwSwitchID, iQueueID_Phone_ENG, szServerName);
 
 
 
@@ -142,6 +148,52 @@ namespace ReaderBoard
                 lblerror1.Text = erd.ToString();
             }
         }
+
+        protected void Hlth_ENG()
+        {
+            try
+            {
+                lblCurQueued_hlth.Text = client.GetCurQueued(dwSwitchID, iQueueID_Hlth_ENG, szServerName);
+                lblAgentsLoggedOn_hlth.Text = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Hlth_ENG, szServerName);
+                lblAgentsReady_hlth.Text = client.GetNumAgentsReady(dwSwitchID, iQueueID_Hlth_ENG, szServerName);
+                lbloffered_hlth.Text = client.GetNumOffered(dwSwitchID, iQueueID_Hlth_ENG, szServerName);
+                lblHandled_hlth.Text = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Hlth_ENG, szServerName);
+                lblWaitTime_hlth.Text = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_Hlth_ENG, szServerName);
+                lblLongestwaittime_hlth.Text = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Hlth_ENG, szServerName);
+                lblNumAgentsOnContact_hlth.Text = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Hlth_ENG, szServerName);
+                lblGetHandledQueuedTime_hlth.Text = client.GetHandledQueuedTime(dwSwitchID, iQueueID_Hlth_ENG, szServerName);
+            }
+            catch (Exception erd)
+            {
+                lblerror1.Text = erd.ToString();
+            }
+
+        }
+
+
+        protected void Hlth_FRE()
+        {
+            try
+            {
+                lblCurQueued_hlth_f.Text = client.GetCurQueued(dwSwitchID, iQueueID_Hlth_FRE, szServerName);
+                lblAgentsLoggedOn_hlth_f.Text = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_Hlth_FRE, szServerName);
+                lblAgentsReady_hlth_f.Text = client.GetNumAgentsReady(dwSwitchID, iQueueID_Hlth_FRE, szServerName);
+                lbloffered_hlth_f.Text = client.GetNumOffered(dwSwitchID, iQueueID_Hlth_FRE, szServerName);
+                lblHandled_hlth_f.Text = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Hlth_FRE, szServerName);
+                lblWaitTime_hlth_f.Text = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Hlth_FRE, szServerName);
+                lblLongestwaitTime_hlth_f.Text = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_Hlth_FRE, szServerName);
+                lblNumAgentsOnContact_hlth_f.Text = client.GetNumAgentsOnContact(dwSwitchID, iQueueID_Hlth_FRE, szServerName);
+                lblGetHandledQueuedTime_hlth_f.Text = client.GetHandledQueuedTime(dwSwitchID, iQueueID_Hlth_FRE, szServerName);
+            }
+            catch (Exception erd)
+            {
+                lblerror1.Text = erd.ToString();
+            }
+        }
+
+
+
+
 
         protected void Chat_ENG()
         {
@@ -238,6 +290,8 @@ namespace ReaderBoard
                 GetTargetASA_phone_Fr.Text = client.GetTargetASA(dwSwitchID, iQueueID_Phone_FRE, szServerName);
                 GetTargetASA_G2T_Eng.Text = client.GetTargetASA(dwSwitchID, iQueueID_G2T_ENG, szServerName);
                 GetTargetASA_G2T_Fr.Text = client.GetTargetASA(dwSwitchID, iQueueID_G2T_FRE, szServerName);
+                GetTargetASA_Hlth_Eng.Text = client.GetTargetASA(dwSwitchID, iQueueID_Hlth_ENG, szServerName);
+                GetTargetASA_Hlth_Fr.Text = client.GetTargetASA(dwSwitchID, iQueueID_Hlth_FRE, szServerName);
                 GetTargetASA_Chat_Eng.Text = client.GetTargetASA(dwSwitchID, iQueueID_Chat_ENG, szServerName);
                 GetTargetASA_Chat_Fr.Text = client.GetTargetASA(dwSwitchID, iQueueID_Chat_FRE, szServerName);
                 GetTargetASA_ChatApp_Eng.Text = client.GetTargetASA(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
@@ -247,6 +301,8 @@ namespace ReaderBoard
                 lblHandledLessThanTargetASA_Phone_Fr.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Phone_FRE, szServerName);
                 lblHandledLessThanTargetASA_G2T_En.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_G2T_ENG, szServerName);
                 lblHandledLessThanTargetASA_G2T_Fr.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_G2T_FRE, szServerName);
+                lblHandledLessThanTargetASA_Hlth_En.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Hlth_ENG, szServerName);
+                lblHandledLessThanTargetASA_Hlth_Fr.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Hlth_FRE, szServerName);
                 lblHandledLessThanTargetASA_Chat_E.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Chat_ENG, szServerName);
                 lblHandledLessThanTargetASA_Chat_Fr.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Chat_FRE, szServerName);
                 lblHandledLessThanTargetASA_ChatApp_E.Text = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);

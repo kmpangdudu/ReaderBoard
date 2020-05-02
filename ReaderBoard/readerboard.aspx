@@ -13,9 +13,7 @@
     <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript"></script>
     <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
-	 
     <script src="Scripts/process1.js"></script>
-	 
 
     <!-- add     background-color: #CCC; commented .row margin R786 of bootstrap.css   -->
 </head>
@@ -29,6 +27,7 @@
                     </div>
                 </div>
             </div>
+            <!--  Left hand column to show clock, icon  -->
             <div id="imgColumn" class="col-xs-12 col-md-2 divbgcWithPage borderLine1 ">
 
                 <div id="divlock" class="row ">
@@ -107,14 +106,19 @@
                      <!-- add 4px space -->
                  </div>--%>
                         <div id="KHPG2T_EN" class="row">
-                            <div id="KHP_EN" class="col-xs-12 col-md-6 borderLine1">
+                            <div id="KHP_EN" class="col-xs-12 col-md-4 borderLine1">
                                 <div>
                                     <h3 class="font24">KHP </h3>
                                 </div>
                             </div>
-                            <div id="G2T_EN" class="col-xs-12 col-md-6 borderLine1">
+                            <div id="G2T_EN" class="col-xs-12 col-md-4 borderLine1">
                                 <div>
                                     <h3 class="font24">G2T </h3>
+                                </div>
+                            </div>
+                            <div id="Hlth_EN" class="col-xs-12 col-md-4 borderLine1">
+                                <div>
+                                    <h3 class="font24">Health </h3>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +129,7 @@
 
                         <div id="Phone_EN" class="row ">
                             <!-- English KHP Phone -->
-                            <div id="KHP_PHONE_EN" class="col-xs-12 col-md-6 borderLine1">
+                            <div id="KHP_PHONE_EN" class="col-xs-12 col-md-4 borderLine1">
                                 <div>
                                     <h3 class="font24">In the Queue</h3>
                                     <h4 class="font34">
@@ -148,7 +152,7 @@
                             </div>
 
                             <!-- English G2T Phone -->
-                            <div id="G2T_PHONE_EN" class="col-xs-12 col-md-6 borderLine1">
+                            <div id="G2T_PHONE_EN" class="col-xs-12 col-md-4 borderLine1">
                                 <div>
                                     <h3 class="font24">In the Queue</h3>
                                     <h4 class="font34">
@@ -165,6 +169,30 @@
                                         <asp:HiddenField ID="HiddenG2TEnLongestWaitTime" runat="server" />
                                     </h4>
                                     <h4 id="G2TEN_LongestWaitTime" class="font34">00:00</h4>
+                                    <div class="blank4r divbgcWithPageFCFCFC">
+                                        <!-- add 4px space -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- English Health Phone -->
+                            <div id="Hlth_PHONE_EN" class="col-xs-12 col-md-4 borderLine1">
+                                <div>
+                                    <h3 class="font24">In the Queue</h3>
+                                    <h4 class="font34">
+                                        <asp:Label ID="lblInQueue_Hlth_ENG" runat="server"></asp:Label>
+                                        <asp:HiddenField ID="HiddenlblInQueue_Hlth_ENG" runat="server" />
+                                    </h4>
+                                    <div class="blank4r divbgcWithPageFCFCFC">
+                                        <!-- add 4px space -->
+                                    </div>
+
+                                    <h3 class="font24">Longest Wait</h3>
+                                    <h4 class="font34">
+                                        <asp:Label ID="lblPhoneLongestWaitTime_Hlth_ENG" runat="server" Visible="false"></asp:Label>
+                                        <asp:HiddenField ID="HiddenHlthEnLongestWaitTime" runat="server" />
+                                    </h4>
+                                    <h4 id="HlthEN_LongestWaitTime" class="font34">00:00</h4>
                                     <div class="blank4r divbgcWithPageFCFCFC">
                                         <!-- add 4px space -->
                                     </div>
@@ -189,14 +217,19 @@
                      <!-- add 4px space -->
                  </div>--%>
                         <div id="KHP_G2T_Fr" class="row">
-                            <div id="KHP_FR" class="col-xs-12 col-md-6 borderLine1">
+                            <div id="KHP_FR" class="col-xs-12 col-md-4 borderLine1">
                                 <div>
                                     <h3 class="font24">KHP </h3>
                                 </div>
                             </div>
-                            <div id="G2T_FR" class="col-xs-12 col-md-6 borderLine1">
+                            <div id="G2T_FR" class="col-xs-12 col-md-4 borderLine1">
                                 <div>
                                     <h3 class="font24">G2T </h3>
+                                </div>
+                            </div>
+                            <div id="Hlth_FR" class="col-xs-12 col-md-4 borderLine1">
+                                <div>
+                                    <h3 class="font24">Health </h3>
                                 </div>
                             </div>
                         </div>
@@ -206,7 +239,7 @@
 
                         <!--  French KHP Phone -->
                         <div class="row ">
-                            <div id="KHP_PHONE_FR" class="col-xs-12 col-md-6 borderLine1">
+                            <div id="KHP_PHONE_FR" class="col-xs-12 col-md-4 borderLine1">
                                 <div>
                                     <h3 class="font24">In the Queue</h3>
                                     <h4 class="font34">
@@ -230,7 +263,7 @@
                             </div>
 
                             <!--  French G2T Phone -->
-                            <div id="G2T_PHONE_FR" class="col-xs-12 col-md-6 borderLine1">
+                            <div id="G2T_PHONE_FR" class="col-xs-12 col-md-4 borderLine1">
                                 <div>
                                     <h3 class="font24">In the Queue</h3>
                                     <h4 class="font34">
@@ -247,6 +280,30 @@
                                         <asp:HiddenField ID="HiddenG2TFrLongestWaitTime" runat="server" />
                                     </h4>
                                     <h4 id="G2TFR_LongestWaitTime" class="font34">00:00</h4>
+                                    <div class="blank4r divbgcWithPageFCFCFC">
+                                        <!-- add 4px space -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--  French Health Phone -->
+                            <div id="Hlth_PHONE_FR" class="col-xs-12 col-md-4 borderLine1">
+                                <div>
+                                    <h3 class="font24">In the Queue</h3>
+                                    <h4 class="font34">
+                                        <asp:Label ID="lblInQueue_Hlth_FRE" runat="server"></asp:Label>
+                                        <asp:HiddenField ID="HiddenlblInQueue_Hlth_FRE" runat="server" />
+                                    </h4>
+
+                                    <div class="blank4r divbgcWithPageFCFCFC">
+                                        <!-- add 4px space -->
+                                    </div>
+                                    <h3 class="font24">Longest Wait</h3>
+                                    <h4 class="font34">
+                                        <asp:Label ID="lblPhoneLongestWaitTime_Hlth_FRE" runat="server" Visible="false"></asp:Label>
+                                        <asp:HiddenField ID="HiddenHlthFrLongestWaitTime" runat="server" />
+                                    </h4>
+                                    <h4 id="HlthFR_LongestWaitTime" class="font34">00:00</h4>
                                     <div class="blank4r divbgcWithPageFCFCFC">
                                         <!-- add 4px space -->
                                     </div>
@@ -445,7 +502,7 @@
                 <%--   <div class="blank4r"><!-- add 4px space --></div>--%>
 
 
-                <div class="row " >
+                <div class="row ">
                     <div class="col borderLine1">
                         <div class="padding-top16" style="height: 710px;">
                             <asp:GridView ID="gvCounsellor" runat="server"

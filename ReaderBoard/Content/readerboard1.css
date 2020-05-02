@@ -508,23 +508,30 @@ div {
 }
 
 
+.row div.theplan {
+    flex-direction: column;
+    transition: all .5s;
+}
 
- 
+
+    .row div.theplan:hover { /* when mouse hover over pricing table */
+        transform: scale(1.03);
+        transition: all 0.5s;
+        z-index: 100;
+        box-shadow: 0 0 10px gray;
+        border-radius: 4px;
+    }
+
+
 
 .theplan {
     flex-direction: column;
-        transition:all 1s;
--moz-transition:all 1s; /* Firefox 4 */
--webkit-transition:all 1s; /* Safari and Chrome */
--o-transition:all 2s; /* Opera */
+    transition: all .05s;
 }
 
 .hover1 { /* when mouse hover over pricing table */
-    transform: scale(1.08);
-        transition:all 1s;
--moz-transition:all 1s; /* Firefox 4 */
--webkit-transition:all 1s; /* Safari and Chrome */
--o-transition:all 1s; /* Opera */
+    transform: scale(1.03);
+    transition: all 0.05s;
     z-index: 100;
     /*box-shadow: 0 0 10px gray;*/
     border-radius: 4px;

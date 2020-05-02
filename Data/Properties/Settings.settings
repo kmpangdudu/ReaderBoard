@@ -35,5 +35,11 @@
     <Setting Name="cacheInterval" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">300000</Value>
     </Setting>
+    <Setting Name="Hlth_ENG" Type="System.String" Scope="User">
+      <Value Profile="(Default)">6017</Value>
+    </Setting>
+    <Setting Name="Hlth_FRE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">6018</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

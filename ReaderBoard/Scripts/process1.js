@@ -5,31 +5,42 @@
  
 
     var phoneENLWT = document.getElementById('HiddenPhoneEnLongestWaitTime').value;
-    var phoneENHour = parseInt(phoneENLWT.substr(0, 1), 10);
+    var phoneENHour =   parseInt(phoneENLWT.substr(0, 1), 10);
     var phoneENMinute = parseInt(phoneENLWT.substr(2, 2), 10);
     var phoneENSecond = parseInt(phoneENLWT.substr(-2), 10);
     var phoneENmillisecond = 0;
 
 
     var G2TENLWT = document.getElementById('HiddenG2TEnLongestWaitTime').value;
-    var G2TENNHour = parseInt(G2TENLWT.substr(0, 1), 10);
+    var G2TENNHour =  parseInt(G2TENLWT.substr(0, 1), 10);
     var G2TENMinute = parseInt(G2TENLWT.substr(2, 2), 10);
     var G2TENSecond = parseInt(G2TENLWT.substr(-2), 10);
     var G2TENmillisecond = 0;
 
+    var HlthENLWT = document.getElementById('HiddenHlthEnLongestWaitTime').value;
+    var HlthENNHour =  parseInt(HlthENLWT.substr(0, 1), 10);
+    var HlthENMinute = parseInt(HlthENLWT.substr(2, 2), 10);
+    var HlthENSecond = parseInt(HlthENLWT.substr(-2), 10);
+    var HlthENmillisecond = 0;
+
     var phoneFrLWT = document.getElementById('HiddenPhoneFrLongestWaitTime').value;
-    var phoneFrHour = parseInt(phoneFrLWT.substr(0, 1), 10);
+    var phoneFrHour =   parseInt(phoneFrLWT.substr(0, 1), 10);
     var phoneFrMinute = parseInt(phoneFrLWT.substr(2, 2), 10);
     var phoneFrSecond = parseInt(phoneFrLWT.substr(-2), 10);
     var phoneFrmillisecond = 0;
 
 
     var G2TFrLWT = document.getElementById('HiddenG2TFrLongestWaitTime').value;
-    var G2TFrHour = parseInt(G2TFrLWT.substr(0, 1), 10);
+    var G2TFrHour =   parseInt(G2TFrLWT.substr(0, 1), 10);
     var G2TFrMinute = parseInt(G2TFrLWT.substr(2, 2), 10);
     var G2TFrSecond = parseInt(G2TFrLWT.substr(-2), 10);
     var G2TFrmillisecond = 0;
 
+    var HlthFrLWT = document.getElementById('HiddenHlthFrLongestWaitTime').value;
+    var HlthFrHour =   parseInt(HlthFrLWT.substr(0, 1), 10);
+    var HlthFrMinute = parseInt(HlthFrLWT.substr(2, 2), 10);
+    var HlthFrSecond = parseInt(HlthFrLWT.substr(-2), 10);
+    var HlthFrmillisecond = 0;
 
 
 
@@ -118,6 +129,17 @@
     } else {
         document.getElementById("G2TEN_LongestWaitTime").innerHTML = "00:00";
     }
+
+    // Health English
+    var HlthEnQueued = document.getElementById('HiddenlblInQueue_Hlth_ENG').value;
+    HlthEnQueued = parseInt(HlthEnQueued, 10);
+    if (HlthEnQueued > 0) {
+        ticks("HlthEN_LongestWaitTime", HlthENmillisecond, HlthENSecond, HlthENMinute, HlthENNHour);
+    } else {
+        document.getElementById("HlthEN_LongestWaitTime").innerHTML = "00:00";
+    }
+
+
     // Phone French
     var phoneFrQueued = document.getElementById('HiddenlblInQueue_Phone_FRE').value;
     phoneFrQueued = parseInt(phoneFrQueued, 10);
@@ -134,6 +156,16 @@
     } else {
         document.getElementById("G2TFR_LongestWaitTime").innerHTML = "00:00";
     }
+    // Health French
+    var HlthFrQueued = document.getElementById('HiddenlblInQueue_Hlth_FRE').value;
+    HlthFrQueued = parseInt(HlthFrQueued, 10);
+    if (HlthFrQueued > 0) {
+        ticks("HlthFR_LongestWaitTime", HlthFrmillisecond, HlthFrSecond, HlthFrMinute, HlthFrHour);
+    } else {
+        document.getElementById("HlthFR_LongestWaitTime").innerHTML = "00:00";
+    }
+
+
 
     // Chat Web English
     var ChatWebEnQueued = document.getElementById('HiddenlblInQueue_Chat_ENG').value;

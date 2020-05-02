@@ -3,13 +3,8 @@ using ReaderBoard.iceCTI;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity.Core.Objects;
-using System.Drawing;
 using System.Linq;
 using System.Net;
-using System.Web.UI;
-using System.Web.UI.DataVisualization.Charting;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace ReaderBoard
@@ -45,21 +40,34 @@ namespace ReaderBoard
        string refreshing = Properties.Settings.Default.DashboardRefreshing;//Default 3- second;
        string szServerName = Properties.Settings.Default.szServerName; //"ice1"
        string dwSwitchID = Properties.Settings.Default.dwSwitchID; //"11006";
+
        string iQueueID_Phone_ENG = Properties.Settings.Default.Phone_ENG;//"6001";
        string iQueueID_Phone_FRE = Properties.Settings.Default.Phone_FRE;//"6002";
+
        string iQueueID_G2T_ENG = Properties.Settings.Default.G2T_ENG;//"6013";
        string iQueueID_G2T_FRE = Properties.Settings.Default.G2T_FRE;//"6014";
+
+       string iQueueID_Hlth_ENG = Properties.Settings.Default.Hlth_ENG;//"6017";
+       string iQueueID_Hlth_FRE = Properties.Settings.Default.Hlth_FRE;//"6018";
+
        string iQueueID_Chat_ENG = Properties.Settings.Default.Chat_ENG;//"6007";
        string iQueueID_Chat_FRE = Properties.Settings.Default.Chat_FRE;//"6008";
+
        string iQueueID_ChatApp_ENG = Properties.Settings.Default.ChatApp_ENG;//"6020";
        string iQueueID_ChatApp_FRE = Properties.Settings.Default.ChatApp_FRE;//"6021";
 
         RealTimeDataShort stru_Phone_ENG;
         RealTimeDataShort stru_Phone_FRE;
+
         RealTimeDataShort stru_G2T_ENG;
         RealTimeDataShort stru_G2T_FRE;
+
+        RealTimeDataShort stru_Hlth_ENG;
+        RealTimeDataShort stru_Hlth_FRE;
+
         RealTimeDataShort stru_Chat_ENG;
         RealTimeDataShort stru_Chat_FRE;
+
         RealTimeDataShort stru_ChatApp_ENG;
         RealTimeDataShort stru_ChatApp_FRE;
         protected void Page_Load(object sender, EventArgs e)
@@ -97,6 +105,7 @@ namespace ReaderBoard
 
                 //errMsg = "Done PHONE";
 
+                
                 // process chat stuffs
                 Chat();
 
@@ -135,6 +144,16 @@ namespace ReaderBoard
             stru_G2T_FRE._HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_G2T_FRE, szServerName);
             stru_G2T_FRE._CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_G2T_FRE, szServerName);
 
+            //Hlth_EN
+            stru_Hlth_ENG._LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Hlth_ENG, szServerName);
+            stru_Hlth_ENG._HandledToday =   client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Hlth_ENG, szServerName);
+            stru_Hlth_ENG._CurrentInQueued = client.GetCurQueued(           dwSwitchID, iQueueID_Hlth_ENG, szServerName);
+
+            //Hlth_FR
+            stru_Hlth_FRE._LongestWaitTime = client.GetCurLongestQueuedTime( dwSwitchID, iQueueID_Hlth_FRE, szServerName);
+            stru_Hlth_FRE._HandledToday =    client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Hlth_FRE, szServerName);
+            stru_Hlth_FRE._CurrentInQueued = client.GetCurQueued(            dwSwitchID, iQueueID_Hlth_FRE, szServerName);
+
             //Chat_ENG
             stru_Chat_ENG._LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_Chat_ENG, szServerName);
             stru_Chat_ENG._HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_Chat_ENG, szServerName);
@@ -169,24 +188,40 @@ namespace ReaderBoard
                 int Queued_Phone_FRE = Convert.ToInt32(stru_Phone_FRE._CurrentInQueued);
                 int Queued_G2T_ENG = Convert.ToInt32(stru_G2T_ENG._CurrentInQueued);
                 int Queued_G2T_FRE = Convert.ToInt32(stru_G2T_FRE._CurrentInQueued);
+                int Queued_Hlth_ENG = Convert.ToInt32(stru_Hlth_ENG._CurrentInQueued);
+                int Queued_Hlth_FRE = Convert.ToInt32(stru_Hlth_FRE._CurrentInQueued);
+
                 lblInQueue_Phone_ENG.Text = Queued_Phone_ENG.ToString();
                 lblInQueue_Phone_FRE.Text = Queued_Phone_FRE.ToString();
                 lblInQueue_G2T_ENG.Text = Queued_G2T_ENG.ToString();
                 lblInQueue_G2T_FRE.Text = Queued_G2T_FRE.ToString();
+                lblInQueue_Hlth_ENG.Text = Queued_Hlth_ENG.ToString();
+                lblInQueue_Hlth_FRE.Text = Queued_Hlth_FRE.ToString();
+
                 HiddenlblInQueue_Phone_ENG.Value = Queued_Phone_ENG.ToString();
                 HiddenlblInQueue_Phone_FRE.Value = Queued_Phone_FRE.ToString();
                 HiddenlblInQueue_G2T_ENG.Value = Queued_G2T_ENG.ToString();
                 HiddenlblInQueue_G2T_FRE.Value = Queued_G2T_FRE.ToString();
+                HiddenlblInQueue_Hlth_ENG.Value = Queued_Hlth_ENG.ToString();
+                HiddenlblInQueue_Hlth_FRE.Value = Queued_Hlth_FRE.ToString();
 
-                // Total in the Queue
-                lblTotalNumOfInQueue_Phone.Text = (Queued_Phone_ENG + Queued_Phone_FRE + Queued_G2T_ENG + Queued_G2T_FRE).ToString();
+                // Total in the Queue ; to be display on the left hand column
+                lblTotalNumOfInQueue_Phone.Text = 
+                    (Queued_Phone_ENG 
+                    + Queued_Phone_FRE 
+                    + Queued_G2T_ENG 
+                    + Queued_G2T_FRE 
+                    + Queued_Hlth_ENG 
+                    + Queued_Hlth_FRE).ToString();
 
 
                 //Longest wait time 
                 double LongestWaitTime_Phone_ENG = Convert.ToDouble(stru_Phone_ENG._LongestWaitTime) / 60;// Convert to mintue
                 double LongestWaitTime_Phone_FRE = Convert.ToDouble(stru_Phone_FRE._LongestWaitTime) / 60; // Convert to mintue
-                double LongestWaitTime_G2T_ENG = Convert.ToDouble(stru_G2T_ENG._LongestWaitTime) / 60; // Convert to mintue
-                double LongestWaitTime_G2T_FRE = Convert.ToDouble(stru_G2T_FRE._LongestWaitTime) / 60; // Convert to mintue
+                double LongestWaitTime_G2T_ENG =   Convert.ToDouble(stru_G2T_ENG._LongestWaitTime) / 60; // Convert to mintue
+                double LongestWaitTime_G2T_FRE =   Convert.ToDouble(stru_G2T_FRE._LongestWaitTime) / 60; // Convert to mintue
+                double LongestWaitTime_Hlth_ENG =  Convert.ToDouble(stru_Hlth_ENG._LongestWaitTime) / 60; // Convert to mintue
+                double LongestWaitTime_Hlth_FRE =  Convert.ToDouble(stru_Hlth_FRE._LongestWaitTime) / 60; // Convert to mintue
 
                 var timeSpan = TimeSpan.FromMinutes(LongestWaitTime_Phone_ENG);
                 lblPhoneLongestWaitTime_Phone_ENG.Text = timeSpan.Hours.ToString("0") + ":" + timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
@@ -204,13 +239,24 @@ namespace ReaderBoard
                 lblPhoneLongestWaitTime_G2T_FRE.Text = timeSpan4.Hours.ToString("0") + ":" + timeSpan4.Minutes.ToString("00") + ":" + timeSpan4.Seconds.ToString("00");
                 HiddenG2TFrLongestWaitTime.Value = lblPhoneLongestWaitTime_G2T_FRE.Text;
 
+                var timeSpan5 = TimeSpan.FromMinutes(LongestWaitTime_Hlth_ENG);
+                lblPhoneLongestWaitTime_Hlth_ENG.Text = timeSpan5.Hours.ToString("0") + ":" + timeSpan5.Minutes.ToString("00") + ":" + timeSpan5.Seconds.ToString("00");
+                HiddenG2TEnLongestWaitTime.Value = lblPhoneLongestWaitTime_G2T_ENG.Text;
 
-                // total phone handled totay
+                var timeSpan6 = TimeSpan.FromMinutes(LongestWaitTime_Hlth_FRE);
+                lblPhoneLongestWaitTime_Hlth_FRE.Text = timeSpan6.Hours.ToString("0") + ":" + timeSpan6.Minutes.ToString("00") + ":" + timeSpan6.Seconds.ToString("00");
+                HiddenG2TFrLongestWaitTime.Value = lblPhoneLongestWaitTime_G2T_FRE.Text;
+
+
+                // total phone handled totay , display on the bottom of phone scation 
                 int TotalPhoneHandled = 0;
                 TotalPhoneHandled = Convert.ToInt32(stru_Phone_ENG._HandledToday)
                                     + Convert.ToInt32(stru_Phone_FRE._HandledToday)
                                     + Convert.ToInt32(stru_G2T_ENG._HandledToday)
-                                    + Convert.ToInt32(stru_G2T_FRE._HandledToday);
+                                    + Convert.ToInt32(stru_G2T_FRE._HandledToday)
+                                    + Convert.ToInt32(stru_Hlth_ENG._HandledToday)
+                                    + Convert.ToInt32(stru_Hlth_FRE._HandledToday)
+                                    ;
 
                 lblTotalPhoneHandled.Text = TotalPhoneHandled.ToString();  // <-- sum
 

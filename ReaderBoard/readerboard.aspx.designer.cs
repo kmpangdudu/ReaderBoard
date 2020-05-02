@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ReaderBoard {
-    
-    
-    public partial class readerboard {
-        
+namespace ReaderBoard
+{
+
+
+    public partial class readerboard
+    {
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// lblTotalNumOfInQueue_Phone control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalNumOfInQueue_Phone;
-        
+
         /// <summary>
         /// lblTotalNumOfInQueue_Chat control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalNumOfInQueue_Chat;
-        
+
         /// <summary>
         /// lblInQueue_Phone_ENG control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblInQueue_Phone_ENG;
-        
+
         /// <summary>
         /// HiddenlblInQueue_Phone_ENG control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenlblInQueue_Phone_ENG;
-        
+
         /// <summary>
         /// lblPhoneLongestWaitTime_Phone_ENG control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPhoneLongestWaitTime_Phone_ENG;
-        
+
         /// <summary>
         /// HiddenPhoneEnLongestWaitTime control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenPhoneEnLongestWaitTime;
-        
+
         /// <summary>
         /// lblInQueue_G2T_ENG control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblInQueue_G2T_ENG;
-        
+
         /// <summary>
         /// HiddenlblInQueue_G2T_ENG control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenlblInQueue_G2T_ENG;
-        
+
         /// <summary>
         /// lblPhoneLongestWaitTime_G2T_ENG control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPhoneLongestWaitTime_G2T_ENG;
-        
+
         /// <summary>
         /// HiddenG2TEnLongestWaitTime control.
         /// </summary>
@@ -110,7 +112,43 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenG2TEnLongestWaitTime;
-        
+
+        /// <summary>
+        /// lblInQueue_Hlth_ENG control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInQueue_Hlth_ENG;
+
+        /// <summary>
+        /// HiddenlblInQueue_Hlth_ENG control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenlblInQueue_Hlth_ENG;
+
+        /// <summary>
+        /// lblPhoneLongestWaitTime_Hlth_ENG control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPhoneLongestWaitTime_Hlth_ENG;
+
+        /// <summary>
+        /// HiddenHlthEnLongestWaitTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenHlthEnLongestWaitTime;
+
         /// <summary>
         /// lblInQueue_Phone_FRE control.
         /// </summary>
@@ -119,7 +157,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblInQueue_Phone_FRE;
-        
+
         /// <summary>
         /// HiddenlblInQueue_Phone_FRE control.
         /// </summary>
@@ -128,7 +166,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenlblInQueue_Phone_FRE;
-        
+
         /// <summary>
         /// lblPhoneLongestWaitTime_Phone_FRE control.
         /// </summary>
@@ -137,7 +175,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPhoneLongestWaitTime_Phone_FRE;
-        
+
         /// <summary>
         /// HiddenPhoneFrLongestWaitTime control.
         /// </summary>
@@ -146,7 +184,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenPhoneFrLongestWaitTime;
-        
+
         /// <summary>
         /// lblInQueue_G2T_FRE control.
         /// </summary>
@@ -155,7 +193,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblInQueue_G2T_FRE;
-        
+
         /// <summary>
         /// HiddenlblInQueue_G2T_FRE control.
         /// </summary>
@@ -164,7 +202,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenlblInQueue_G2T_FRE;
-        
+
         /// <summary>
         /// lblPhoneLongestWaitTime_G2T_FRE control.
         /// </summary>
@@ -173,7 +211,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPhoneLongestWaitTime_G2T_FRE;
-        
+
         /// <summary>
         /// HiddenG2TFrLongestWaitTime control.
         /// </summary>
@@ -182,7 +220,43 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenG2TFrLongestWaitTime;
-        
+
+        /// <summary>
+        /// lblInQueue_Hlth_FRE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInQueue_Hlth_FRE;
+
+        /// <summary>
+        /// HiddenlblInQueue_Hlth_FRE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenlblInQueue_Hlth_FRE;
+
+        /// <summary>
+        /// lblPhoneLongestWaitTime_Hlth_FRE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPhoneLongestWaitTime_Hlth_FRE;
+
+        /// <summary>
+        /// HiddenHlthFrLongestWaitTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenHlthFrLongestWaitTime;
+
         /// <summary>
         /// lblTotalPhoneHandled control.
         /// </summary>
@@ -191,7 +265,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalPhoneHandled;
-        
+
         /// <summary>
         /// lblInQueue_Chat_ENG control.
         /// </summary>
@@ -200,7 +274,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblInQueue_Chat_ENG;
-        
+
         /// <summary>
         /// HiddenlblInQueue_Chat_ENG control.
         /// </summary>
@@ -209,7 +283,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenlblInQueue_Chat_ENG;
-        
+
         /// <summary>
         /// lblLongestWaitTime_Chat_ENG control.
         /// </summary>
@@ -218,7 +292,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLongestWaitTime_Chat_ENG;
-        
+
         /// <summary>
         /// HiddenChatWebEnLongestWaitTime control.
         /// </summary>
@@ -227,7 +301,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenChatWebEnLongestWaitTime;
-        
+
         /// <summary>
         /// lblInQueue_ChatApp_ENG control.
         /// </summary>
@@ -236,7 +310,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblInQueue_ChatApp_ENG;
-        
+
         /// <summary>
         /// HiddenlblInQueue_ChatApp_ENG control.
         /// </summary>
@@ -245,7 +319,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenlblInQueue_ChatApp_ENG;
-        
+
         /// <summary>
         /// lblLongestWaitTime_ChatApp_ENG control.
         /// </summary>
@@ -254,7 +328,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLongestWaitTime_ChatApp_ENG;
-        
+
         /// <summary>
         /// HiddenChatAppEnLongestWaitTime control.
         /// </summary>
@@ -263,7 +337,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenChatAppEnLongestWaitTime;
-        
+
         /// <summary>
         /// lblInQueue_Chat_FRE control.
         /// </summary>
@@ -272,7 +346,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblInQueue_Chat_FRE;
-        
+
         /// <summary>
         /// HiddenlblInQueue_Chat_FRE control.
         /// </summary>
@@ -281,7 +355,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenlblInQueue_Chat_FRE;
-        
+
         /// <summary>
         /// lblLongestWaitTime_Chat_FRE control.
         /// </summary>
@@ -290,7 +364,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLongestWaitTime_Chat_FRE;
-        
+
         /// <summary>
         /// HiddenChatWebFrLongestWaitTime control.
         /// </summary>
@@ -299,7 +373,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenChatWebFrLongestWaitTime;
-        
+
         /// <summary>
         /// lblInQueue_ChatApp_FRE control.
         /// </summary>
@@ -308,7 +382,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblInQueue_ChatApp_FRE;
-        
+
         /// <summary>
         /// HiddenlblInQueue_ChatApp_FRE control.
         /// </summary>
@@ -317,7 +391,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenlblInQueue_ChatApp_FRE;
-        
+
         /// <summary>
         /// lblLongestWaitTime_ChatApp_FRE control.
         /// </summary>
@@ -326,7 +400,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLongestWaitTime_ChatApp_FRE;
-        
+
         /// <summary>
         /// HiddenChatAppFrLongestWaitTime control.
         /// </summary>
@@ -335,7 +409,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenChatAppFrLongestWaitTime;
-        
+
         /// <summary>
         /// lblTotalChatHandled control.
         /// </summary>
@@ -344,7 +418,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalChatHandled;
-        
+
         /// <summary>
         /// gvCounsellor control.
         /// </summary>
@@ -353,7 +427,7 @@ namespace ReaderBoard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvCounsellor;
-        
+
         /// <summary>
         /// lblerror control.
         /// </summary>
