@@ -145,18 +145,6 @@ namespace Data.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("300000")]
-        public int cacheInterval {
-            get {
-                return ((int)(this["cacheInterval"]));
-            }
-            set {
-                this["cacheInterval"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("6017")]
         public string Hlth_ENG {
             get {
@@ -176,6 +164,18 @@ namespace Data.Properties {
             }
             set {
                 this["Hlth_FRE"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        public int cacheInterval {
+            get {
+                return ((int)(this["cacheInterval"]));
+            }
+            set {
+                this["cacheInterval"] = value;
             }
         }
     }

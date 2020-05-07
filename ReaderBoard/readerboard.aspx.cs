@@ -337,10 +337,10 @@ namespace ReaderBoard
             _status.status = "";
             _status.Weight = 1;
             var _agents =  efagent.Proc_GetAgent( ).ToList();
-            string errmsg = "";
+            //string errmsg = "";
             try
             {
-                int i = 1;
+                //int i = 1;
                 foreach (Proc_GetAgent_Result _x in _agents)
                 {
                     // check agent status
