@@ -349,8 +349,9 @@
 
                         <div id="Chat_EN" class="row ">
                             <!-- Web Chat English -->
-                            <div id="WebChat_EN" class="col-xs-12 col-md-6   borderLine1">
-                                <div>
+                            <div id="WebChat_EN" class="col-xs-12  borderLine1">
+                        
+                                <div class="col-xs-12">
                                     <h3 class="font24">Web Queue</h3>
                                     <h4 class="font34">
                                         <asp:Label ID="lblInQueue_Chat_ENG" runat="server"></asp:Label>
@@ -374,6 +375,7 @@
 
 
                             <!-- App Chat English -->
+                            <%--
                             <div id="AppChat_EN" class="col-xs-12 col-md-6 borderLine1">
                                 <div>
                                     <h3 class="font24">App Queue</h3>
@@ -395,6 +397,7 @@
                                     </div>
                                 </div>
                             </div>
+                            --%>
                         </div>
                     </div>
 
@@ -403,7 +406,7 @@
                         <!-- Web Chat French -->
                         <div class="row divbgcWithPage">
 
-                            <div id="WebChat_FR" class="col-xs-12 col-md-6  borderLine1">
+                            <div id="WebChat_FR" class="col-xs-12   borderLine1">  <!-- removed col-md-6   -->
                                 <div>
                                     <h3 class="font24">Web Queue</h3>
                                     <h4 class="font34">
@@ -426,6 +429,7 @@
                             </div>
 
                             <!-- App Chat French -->
+                        <%--   
                             <div id="AppChat_FR" class="col-xs-12 col-md-6 borderLine1">
                                 <div>
                                     <h3 class="font24">App Queue</h3>
@@ -435,8 +439,8 @@
                                     </h4>
                                     <div class="blank4r divbgcWithPageFCFCFC">
                                         <!-- add 4px space -->
-                                    </div>
-                                    <h3 class="font24">Longest Wait</h3>
+                                 </div>
+                                    <h3 class="font24">Longest Wait aaaa</h3>
                                     <h4 class="font34">
                                         <asp:Label ID="lblLongestWaitTime_ChatApp_FRE" runat="server" Visible="false"></asp:Label>
                                         <asp:HiddenField ID="HiddenChatAppFrLongestWaitTime" runat="server" />
@@ -446,7 +450,8 @@
                                         <!-- add 4px space -->
                                     </div>
                                 </div>
-                            </div>
+                            </div>--%>
+                
                         </div>
                     </div>
                 </div>

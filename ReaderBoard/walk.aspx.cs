@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Xml;
 
 namespace ReaderBoard
@@ -16,7 +11,7 @@ namespace ReaderBoard
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-                {
+            {
                 url = Properties.Settings.Default.walkUrl;
             }
 
@@ -57,7 +52,7 @@ namespace ReaderBoard
                     string ln = ParticipantScoreBoard["ParticipantLastName"].InnerText;
                     string collect1 = ParticipantScoreBoard["onlineTotalCollected"].InnerText;
                     string collect2 = ParticipantScoreBoard["offlineTotalCollected"].InnerText;
-                   
+
                     try
                     {
                         if (!string.IsNullOrEmpty(fn))

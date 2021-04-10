@@ -74,7 +74,7 @@ namespace ReaderBoard
         string iQueueID_ChatApp_ENG = Properties.Settings.Default.ChatApp_ENG;//"6020";
         string iQueueID_ChatApp_FRE = Properties.Settings.Default.ChatApp_FRE;//"6021";
 
- 
+
 
         int dayTimeStart = Properties.Settings.Default.dayTimeStart;
         int dayTimeEnd = Properties.Settings.Default.dayTimeEnd;
@@ -92,20 +92,20 @@ namespace ReaderBoard
         int ChatClosed = Properties.Settings.Default.ChatClosed;
 
 
-         RealTimeData  stru_Phone_ENG;
-         RealTimeData  stru_Phone_FRE;
-         RealTimeData  stru_G2T_ENG  ;
-         RealTimeData  stru_G2T_FRE  ;
-         RealTimeData  stru_Chat_ENG ;
-         RealTimeData  stru_Chat_FRE;
-         RealTimeData  stru_ChatApp_ENG ;
-         RealTimeData  stru_ChatApp_FRE;
+        RealTimeData stru_Phone_ENG;
+        RealTimeData stru_Phone_FRE;
+        RealTimeData stru_G2T_ENG;
+        RealTimeData stru_G2T_FRE;
+        RealTimeData stru_Chat_ENG;
+        RealTimeData stru_Chat_FRE;
+        RealTimeData stru_ChatApp_ENG;
+        RealTimeData stru_ChatApp_FRE;
 
-         Last24hrGrade stru_last24HrGrade ;
-         LastHourGrade stru_lastHourGrade;
+        Last24hrGrade stru_last24HrGrade;
+        LastHourGrade stru_lastHourGrade;
 
-         LastHourWaitTime stru_lastHourWaitTime;
-   
+        LastHourWaitTime stru_lastHourWaitTime;
+
 
         protected bool ChatWorking()
         {
@@ -126,12 +126,12 @@ namespace ReaderBoard
         {
             // refreshing is the number of seconds , default value is 300 = 5 mintues in setting section
             //Response.AppendHeader("Refresh", refreshing);
-         
+
 
             if (!IsPostBack)
             {
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                   
+
                 // var   queues = efContext.Proc_GetQueue();
                 //foreach (Proc_GetQueue_Result x in queues)
                 //{
@@ -150,19 +150,19 @@ namespace ReaderBoard
                 //    }
                 //}
 
-                HiddendayTimeStart.Value =     dayTimeStart.ToString();
-                HiddendayTimeEnd.Value =       dayTimeEnd.ToString();
+                HiddendayTimeStart.Value = dayTimeStart.ToString();
+                HiddendayTimeEnd.Value = dayTimeEnd.ToString();
 
-                HiddenChatEnDayStart.Value =   ChatEnDayStart.ToString();
-                HiddenChatEnDayEnd.Value =     ChatEnDayEnd.ToString();
+                HiddenChatEnDayStart.Value = ChatEnDayStart.ToString();
+                HiddenChatEnDayEnd.Value = ChatEnDayEnd.ToString();
 
-                HiddenChatEnTimeStart.Value =  ChatEnTimeStart.ToString();
-                HiddenChatEnTimeEnd.Value =    ChatEnTimeEnd.ToString();
-                HiddenChatFrDayStart.Value =   ChatFrDayStart.ToString();
-                HiddenChatFrDayEnd.Value =     ChatFrDayEnd.ToString();
-                HiddenChatFrTimeStart.Value =  ChatFrTimeStart.ToString();
-                HiddenChatFrTimeEnd.Value =    ChatFrTimeEnd.ToString();
-                HiddenChatClosed.Value =       ChatClosed.ToString();
+                HiddenChatEnTimeStart.Value = ChatEnTimeStart.ToString();
+                HiddenChatEnTimeEnd.Value = ChatEnTimeEnd.ToString();
+                HiddenChatFrDayStart.Value = ChatFrDayStart.ToString();
+                HiddenChatFrDayEnd.Value = ChatFrDayEnd.ToString();
+                HiddenChatFrTimeStart.Value = ChatFrTimeStart.ToString();
+                HiddenChatFrTimeEnd.Value = ChatFrTimeEnd.ToString();
+                HiddenChatClosed.Value = ChatClosed.ToString();
 
             };
 
@@ -200,7 +200,7 @@ namespace ReaderBoard
                 }
 
                 // when Tuesday in the night add more gery
-                if ((dayTimeEnd <= today.Hour) && ((Convert.ToInt32(today.DayOfWeek) == 2)) )
+                if ((dayTimeEnd <= today.Hour) && ((Convert.ToInt32(today.DayOfWeek) == 2)))
                 {
                     dimmed.Attributes.CssStyle.Add("opacity", Properties.Settings.Default.dimOpacityNight);
                 }
@@ -217,8 +217,8 @@ namespace ReaderBoard
 
         protected void ApplyTheme()
         {
- 
- 
+
+
             if ((dayTimeStart <= today.Hour) & (today.Hour < dayTimeEnd))  // Day light theme
             {
                 HtmlGenericControl myCss = new HtmlGenericControl();
@@ -240,7 +240,7 @@ namespace ReaderBoard
 
             }
         }
- 
+
         protected void Phone()
         {
 
@@ -259,10 +259,10 @@ namespace ReaderBoard
                 //AverageWaitTime = Convert.ToDouble(stru_lastHourWaitTime.PhoneWaitTime);  //weighted mean
 
                 int TotalNumOfHandledInThisQueue = 0;
-                    TotalNumOfHandledInThisQueue = Convert.ToInt32(stru_Phone_ENG.HandledToday)
-                        + Convert.ToInt32(stru_Phone_FRE.HandledToday)
-                        + Convert.ToInt32(stru_G2T_ENG.HandledToday)
-                        + Convert.ToInt32(stru_G2T_FRE.HandledToday);
+                TotalNumOfHandledInThisQueue = Convert.ToInt32(stru_Phone_ENG.HandledToday)
+                    + Convert.ToInt32(stru_Phone_FRE.HandledToday)
+                    + Convert.ToInt32(stru_G2T_ENG.HandledToday)
+                    + Convert.ToInt32(stru_G2T_FRE.HandledToday);
 
                 AverageWaitTime = Convert.ToInt32(stru_Phone_ENG.HandledQueueTime) //* Convert.ToInt32(stru_Phone_ENG.HandledToday)
                                 + Convert.ToInt32(stru_Phone_FRE.HandledQueueTime) //* Convert.ToInt32(stru_Phone_FRE.HandledToday)
@@ -279,42 +279,42 @@ namespace ReaderBoard
 
 
 
-                int CallToday = 
-                   Convert.ToInt32(stru_Phone_ENG.HandledToday) 
-                    +Convert.ToInt32(stru_Phone_FRE.HandledToday) 
-                    +Convert.ToInt32(stru_G2T_ENG.HandledToday) 
-                    +Convert.ToInt32(stru_G2T_FRE.HandledToday);
+                int CallToday =
+                   Convert.ToInt32(stru_Phone_ENG.HandledToday)
+                    + Convert.ToInt32(stru_Phone_FRE.HandledToday)
+                    + Convert.ToInt32(stru_G2T_ENG.HandledToday)
+                    + Convert.ToInt32(stru_G2T_FRE.HandledToday);
                 CallToday = CallToday < 0 ? 0 : CallToday;
 
-                int PeopleInQueue = 
-                   Convert.ToInt32(stru_Phone_ENG.CurrentInQueued) 
-                    +Convert.ToInt32(stru_Phone_FRE.CurrentInQueued) 
-                    +Convert.ToInt32(stru_G2T_ENG.CurrentInQueued) 
-                    +Convert.ToInt32(stru_G2T_FRE.CurrentInQueued);
+                int PeopleInQueue =
+                   Convert.ToInt32(stru_Phone_ENG.CurrentInQueued)
+                    + Convert.ToInt32(stru_Phone_FRE.CurrentInQueued)
+                    + Convert.ToInt32(stru_G2T_ENG.CurrentInQueued)
+                    + Convert.ToInt32(stru_G2T_FRE.CurrentInQueued);
                 PeopleInQueue = PeopleInQueue < 0 ? 0 : PeopleInQueue;
 
-                int CounselorAvailable = 
-                   Convert.ToInt32(stru_Phone_ENG.CounselorAvailable) 
-                    +Convert.ToInt32(stru_Phone_FRE.CounselorAvailable) 
-                    +Convert.ToInt32(stru_G2T_ENG.CounselorAvailable) 
-                    +Convert.ToInt32(stru_G2T_FRE.CounselorAvailable);
+                int CounselorAvailable =
+                   Convert.ToInt32(stru_Phone_ENG.CounselorAvailable)
+                    + Convert.ToInt32(stru_Phone_FRE.CounselorAvailable)
+                    + Convert.ToInt32(stru_G2T_ENG.CounselorAvailable)
+                    + Convert.ToInt32(stru_G2T_FRE.CounselorAvailable);
                 CounselorAvailable = CounselorAvailable < 1 ? 0 : CounselorAvailable;
 
-                int CounselorLogin = 
-                   Convert.ToInt32(stru_Phone_ENG.CounselorLogin) 
-                    +Convert.ToInt32(stru_Phone_FRE.CounselorLogin) 
-                    +Convert.ToInt32(stru_G2T_ENG.CounselorLogin) 
-                    +Convert.ToInt32(stru_G2T_FRE.CounselorLogin);
+                int CounselorLogin =
+                   Convert.ToInt32(stru_Phone_ENG.CounselorLogin)
+                    + Convert.ToInt32(stru_Phone_FRE.CounselorLogin)
+                    + Convert.ToInt32(stru_G2T_ENG.CounselorLogin)
+                    + Convert.ToInt32(stru_G2T_FRE.CounselorLogin);
                 CounselorLogin = CounselorLogin < 1 ? 0 : CounselorLogin;
 
                 int CounselorOnContact =
                    Convert.ToInt32(stru_Phone_ENG.CounselorOnContact)
-                    +Convert.ToInt32(stru_Phone_FRE.CounselorOnContact)
-                    +Convert.ToInt32(stru_G2T_ENG.CounselorOnContact)
-                    +Convert.ToInt32(stru_G2T_FRE.CounselorOnContact);
+                    + Convert.ToInt32(stru_Phone_FRE.CounselorOnContact)
+                    + Convert.ToInt32(stru_G2T_ENG.CounselorOnContact)
+                    + Convert.ToInt32(stru_G2T_FRE.CounselorOnContact);
                 CounselorOnContact = CounselorOnContact < 1 ? 0 : CounselorOnContact;
 
- 
+
 
                 //lblPhoneGradeService.Value = (iNumOffered != 0 ? ASA : 0.00 ).ToString("N2"); 
                 decimal p = stru_lastHourGrade.PhoneAllGrade;
@@ -331,38 +331,38 @@ namespace ReaderBoard
 
 
                 var timeSpan = TimeSpan.FromMinutes(LongestWaitTime);
-                lblPhoneLongestWaitTime.Text = timeSpan.Hours.ToString("0")+":"+timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
+                lblPhoneLongestWaitTime.Text = timeSpan.Hours.ToString("0") + ":" + timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
                 HiddenPhoneLongestWaitTime.Value = lblPhoneLongestWaitTime.Text;
 
                 timeSpan = TimeSpan.FromMinutes(AverageWaitTime);
                 //lblPhoneAverageWaitTime.Text = timeSpan.Hours.ToString("0") +":"+ timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
-                lblPhoneAverageWaitTime.Text =  timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
+                lblPhoneAverageWaitTime.Text = timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
 
 
                 lblPhoneCallToday.Text = CallToday.ToString();
                 lblPhonePeopleInQueue.Value = PeopleInQueue.ToString();
                 //lblPhoneCounselorAvailable.Text = CounselorAvailable.ToString();  // <-- sum
-                lblPhoneCounselorAvailable.Text = stru_Phone_ENG.CounselorAvailable==null? "0" : stru_Phone_ENG.CounselorAvailable;
+                lblPhoneCounselorAvailable.Text = stru_Phone_ENG.CounselorAvailable == null ? "0" : stru_Phone_ENG.CounselorAvailable;
                 lblPhoneCounselorLogin.Text = CounselorLogin.ToString();
                 //lblPhoneCounselorOnContact.Text = CounselorOnContact.ToString(); // <-- sum
-                lblPhoneCounselorOnContact.Text = stru_Phone_ENG.CounselorOnContact==null?"0": stru_Phone_ENG.CounselorOnContact;
+                lblPhoneCounselorOnContact.Text = stru_Phone_ENG.CounselorOnContact == null ? "0" : stru_Phone_ENG.CounselorOnContact;
                 //lblPhoneCounselorNotReady.Text = (CounselorLogin - CounselorAvailable - CounselorOnContact).ToString();  // <-- sum
-                lblPhoneCounselorNotReady.Text = (Convert.ToInt32 (stru_Phone_ENG.CounselorLogin)
-                                                    -Convert.ToInt32(stru_Phone_ENG.CounselorAvailable )
-                                                    -Convert.ToInt32(stru_Phone_ENG.CounselorOnContact)).ToString();
-                 
-                HiddenPhone_Eng_In.Value = stru_Phone_ENG.CounselorLogin == null? "0" : stru_Phone_ENG.CounselorLogin;
-                HiddenPhone_Eng_Availabe.Value = stru_Phone_ENG.CounselorAvailable == null ?  "0" : stru_Phone_ENG.CounselorAvailable;
-                HiddenPhone_Fre_In.Value = stru_Phone_FRE.CounselorLogin == null ?  "0" : stru_Phone_FRE.CounselorLogin;
-                HiddenPhone_Fre_Availabe.Value = stru_Phone_FRE.CounselorAvailable == null ?  "0" : stru_Phone_FRE.CounselorAvailable;
-                HiddenG2T_Eng_In.Value = stru_G2T_ENG.CounselorLogin == null ?  "0" : stru_G2T_ENG.CounselorLogin;
-                HiddenG2T_Eng_Availabe.Value = stru_G2T_ENG.CounselorAvailable == null ?  "0" : stru_G2T_ENG.CounselorAvailable;
-                HiddenG2T_Fre_In.Value = stru_G2T_FRE.CounselorLogin == null ?  "0" : stru_G2T_FRE.CounselorLogin;
-                HiddenG2T_Fre_Availabe.Value = stru_G2T_FRE.CounselorAvailable == null ?  "0" : stru_G2T_FRE.CounselorAvailable;
-                HiddenPhone_Eng_AgentOnContact.Value = stru_Phone_ENG.CounselorOnContact == null ?  "0" : stru_Phone_ENG.CounselorOnContact;
-                HiddenPhone_Fre_AgentOnContact.Value = stru_Phone_FRE.CounselorOnContact == null ?  "0" : stru_Phone_FRE.CounselorOnContact;
-                HiddenG2T_Eng_AgentOnContact.Value = stru_G2T_ENG.CounselorOnContact == null ?  "0" : stru_G2T_ENG.CounselorOnContact;
-                HiddenG2T_Fre_AgentOnContact.Value = stru_G2T_FRE.CounselorOnContact == null ?  "0" : stru_G2T_FRE.CounselorOnContact;
+                lblPhoneCounselorNotReady.Text = (Convert.ToInt32(stru_Phone_ENG.CounselorLogin)
+                                                    - Convert.ToInt32(stru_Phone_ENG.CounselorAvailable)
+                                                    - Convert.ToInt32(stru_Phone_ENG.CounselorOnContact)).ToString();
+
+                HiddenPhone_Eng_In.Value = stru_Phone_ENG.CounselorLogin == null ? "0" : stru_Phone_ENG.CounselorLogin;
+                HiddenPhone_Eng_Availabe.Value = stru_Phone_ENG.CounselorAvailable == null ? "0" : stru_Phone_ENG.CounselorAvailable;
+                HiddenPhone_Fre_In.Value = stru_Phone_FRE.CounselorLogin == null ? "0" : stru_Phone_FRE.CounselorLogin;
+                HiddenPhone_Fre_Availabe.Value = stru_Phone_FRE.CounselorAvailable == null ? "0" : stru_Phone_FRE.CounselorAvailable;
+                HiddenG2T_Eng_In.Value = stru_G2T_ENG.CounselorLogin == null ? "0" : stru_G2T_ENG.CounselorLogin;
+                HiddenG2T_Eng_Availabe.Value = stru_G2T_ENG.CounselorAvailable == null ? "0" : stru_G2T_ENG.CounselorAvailable;
+                HiddenG2T_Fre_In.Value = stru_G2T_FRE.CounselorLogin == null ? "0" : stru_G2T_FRE.CounselorLogin;
+                HiddenG2T_Fre_Availabe.Value = stru_G2T_FRE.CounselorAvailable == null ? "0" : stru_G2T_FRE.CounselorAvailable;
+                HiddenPhone_Eng_AgentOnContact.Value = stru_Phone_ENG.CounselorOnContact == null ? "0" : stru_Phone_ENG.CounselorOnContact;
+                HiddenPhone_Fre_AgentOnContact.Value = stru_Phone_FRE.CounselorOnContact == null ? "0" : stru_Phone_FRE.CounselorOnContact;
+                HiddenG2T_Eng_AgentOnContact.Value = stru_G2T_ENG.CounselorOnContact == null ? "0" : stru_G2T_ENG.CounselorOnContact;
+                HiddenG2T_Fre_AgentOnContact.Value = stru_G2T_FRE.CounselorOnContact == null ? "0" : stru_G2T_FRE.CounselorOnContact;
             }
             catch (Exception erd)
             {
@@ -373,7 +373,7 @@ namespace ReaderBoard
 
         protected void Chat()
         {
-            
+
             try
             {
 
@@ -382,7 +382,7 @@ namespace ReaderBoard
                 QLongestWaitTime[1] = Convert.ToDouble(stru_Chat_FRE.LongestWaitTime);
                 QLongestWaitTime[2] = Convert.ToDouble(stru_ChatApp_ENG.LongestWaitTime);
                 QLongestWaitTime[3] = Convert.ToDouble(stru_ChatApp_FRE.LongestWaitTime);
-                double LongestWaitTime = QLongestWaitTime.Max()  / 60; //changing to minute
+                double LongestWaitTime = QLongestWaitTime.Max() / 60; //changing to minute
                 LongestWaitTime = LongestWaitTime < 0 ? 0 : LongestWaitTime;
 
                 double AverageWaitTime = 0.0;
@@ -402,44 +402,44 @@ namespace ReaderBoard
                                 ;
                 AverageWaitTime = AverageWaitTime / TotalNumOfHandledInThisQueue;
 
-                AverageWaitTime = (AverageWaitTime) / 60 ; //sverage, changing to minute
+                AverageWaitTime = (AverageWaitTime) / 60; //sverage, changing to minute
                 AverageWaitTime = AverageWaitTime < 0 ? 0 : AverageWaitTime;
 
-                int CallToday =                 
-                   Convert.ToInt32(stru_Chat_ENG.HandledToday) 
-                    +Convert.ToInt32(stru_Chat_FRE.HandledToday) 
-                    +Convert.ToInt32(stru_ChatApp_ENG.HandledToday) 
-                    +Convert.ToInt32(stru_ChatApp_FRE.HandledToday);
+                int CallToday =
+                   Convert.ToInt32(stru_Chat_ENG.HandledToday)
+                    + Convert.ToInt32(stru_Chat_FRE.HandledToday)
+                    + Convert.ToInt32(stru_ChatApp_ENG.HandledToday)
+                    + Convert.ToInt32(stru_ChatApp_FRE.HandledToday);
                 CallToday = CallToday < 0 ? 0 : CallToday;
 
-                int PeopleInQueue =             
-                   Convert.ToInt32(stru_Chat_ENG.CurrentInQueued) 
-                    +Convert.ToInt32(stru_Chat_FRE.CurrentInQueued) 
-                    +Convert.ToInt32(stru_ChatApp_ENG.CurrentInQueued) 
-                    +Convert.ToInt32(stru_ChatApp_FRE.CurrentInQueued);
+                int PeopleInQueue =
+                   Convert.ToInt32(stru_Chat_ENG.CurrentInQueued)
+                    + Convert.ToInt32(stru_Chat_FRE.CurrentInQueued)
+                    + Convert.ToInt32(stru_ChatApp_ENG.CurrentInQueued)
+                    + Convert.ToInt32(stru_ChatApp_FRE.CurrentInQueued);
                 PeopleInQueue = PeopleInQueue < 0 ? 0 : PeopleInQueue;
 
-                int CounselorAvailable =        
-                   Convert.ToInt32(stru_Chat_ENG.CounselorAvailable) 
-                    +Convert.ToInt32(stru_Chat_FRE.CounselorAvailable) 
-                    +Convert.ToInt32(stru_ChatApp_ENG.CounselorAvailable) 
-                    +Convert.ToInt32(stru_ChatApp_FRE.CounselorAvailable);
+                int CounselorAvailable =
+                   Convert.ToInt32(stru_Chat_ENG.CounselorAvailable)
+                    + Convert.ToInt32(stru_Chat_FRE.CounselorAvailable)
+                    + Convert.ToInt32(stru_ChatApp_ENG.CounselorAvailable)
+                    + Convert.ToInt32(stru_ChatApp_FRE.CounselorAvailable);
                 CounselorAvailable = CounselorAvailable < 1 ? 0 : CounselorAvailable;
 
-                int CounselorLogin =            
-                   Convert.ToInt32(stru_Chat_ENG.CounselorLogin) 
-                    +Convert.ToInt32(stru_Chat_FRE.CounselorLogin) 
-                    +Convert.ToInt32(stru_ChatApp_ENG.CounselorLogin) 
-                    +Convert.ToInt32(stru_ChatApp_FRE.CounselorLogin);
+                int CounselorLogin =
+                   Convert.ToInt32(stru_Chat_ENG.CounselorLogin)
+                    + Convert.ToInt32(stru_Chat_FRE.CounselorLogin)
+                    + Convert.ToInt32(stru_ChatApp_ENG.CounselorLogin)
+                    + Convert.ToInt32(stru_ChatApp_FRE.CounselorLogin);
                 CounselorLogin = CounselorLogin < 1 ? 0 : CounselorLogin;
 
                 int CounselorOnContact =
                    Convert.ToInt32(stru_Chat_ENG.CounselorOnContact)
-                    +Convert.ToInt32(stru_Chat_FRE.CounselorOnContact)
-                    +Convert.ToInt32(stru_ChatApp_ENG.CounselorOnContact)
-                    +Convert.ToInt32(stru_ChatApp_FRE.CounselorOnContact);
+                    + Convert.ToInt32(stru_Chat_FRE.CounselorOnContact)
+                    + Convert.ToInt32(stru_ChatApp_ENG.CounselorOnContact)
+                    + Convert.ToInt32(stru_ChatApp_FRE.CounselorOnContact);
                 CounselorOnContact = CounselorOnContact < 1 ? 0 : CounselorOnContact;
- 
+
 
                 //lblChatGradeService.Value = (iNumOffered != 0 ? asa1 : 0.00).ToString("N2");
                 decimal c = stru_lastHourGrade.ChatAllGrade;
@@ -454,26 +454,26 @@ namespace ReaderBoard
                 lblChatGradeService24.Value = Math.Round(c24).ToString();
 
                 var timeSpan = TimeSpan.FromMinutes(LongestWaitTime);
-                lblChatLongestWaitTime.Text = timeSpan.Hours.ToString("0")+":"+timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
+                lblChatLongestWaitTime.Text = timeSpan.Hours.ToString("0") + ":" + timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
                 HiddenChatLongestWaitTime.Value = lblChatLongestWaitTime.Text;
 
                 timeSpan = TimeSpan.FromMinutes(AverageWaitTime);
-                lblChatAverageWaitTime.Text = timeSpan.Minutes.ToString("00") + ":"+timeSpan.Seconds.ToString("00");
+                lblChatAverageWaitTime.Text = timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
                 //lblChatAverageWaitTime.Text = timeSpan.Hours.ToString("0") + ":" + timeSpan.Minutes.ToString("00") + ":" + timeSpan.Seconds.ToString("00");
 
                 lblChatCallToday.Text = CallToday.ToString();
                 lblChatPeopleInQueue.Value = PeopleInQueue.ToString();
                 //lblChatCounselorAvailable.Text = CounselorAvailable.ToString(); // <-- sum
-                lblChatCounselorAvailable.Text = stru_Chat_ENG.CounselorAvailable == null? "0": stru_Chat_ENG.CounselorAvailable;
+                lblChatCounselorAvailable.Text = stru_Chat_ENG.CounselorAvailable == null ? "0" : stru_Chat_ENG.CounselorAvailable;
                 lblChatCounselorLogin.Text = stru_Chat_ENG.CounselorLogin;
                 //lblChatCounselorOnContact.Text = CounselorOnContact.ToString();  // <-- sum
-                lblChatCounselorOnContact.Text = stru_Chat_ENG.CounselorOnContact == null? "0": stru_Chat_ENG.CounselorOnContact;
+                lblChatCounselorOnContact.Text = stru_Chat_ENG.CounselorOnContact == null ? "0" : stru_Chat_ENG.CounselorOnContact;
                 //lblChatCounselorNotReady.Text = (CounselorLogin - CounselorAvailable - CounselorOnContact).ToString(); //<-- sum
                 lblChatCounselorNotReady.Text = (Convert.ToInt32(stru_Chat_ENG.CounselorLogin)
-                    -Convert.ToDecimal (stru_Chat_ENG.CounselorAvailable )
-                    -Convert.ToDecimal (stru_Chat_ENG.CounselorOnContact)).ToString();
+                    - Convert.ToDecimal(stru_Chat_ENG.CounselorAvailable)
+                    - Convert.ToDecimal(stru_Chat_ENG.CounselorOnContact)).ToString();
 
-                HiddenWebChat_Eng_In.Value = stru_Chat_ENG.CounselorLogin == null? "0" : stru_Chat_ENG.CounselorLogin;
+                HiddenWebChat_Eng_In.Value = stru_Chat_ENG.CounselorLogin == null ? "0" : stru_Chat_ENG.CounselorLogin;
                 HiddenWebChat_Eng_Avaiable.Value = stru_Chat_ENG.CounselorAvailable == null ? "0" : stru_Chat_ENG.CounselorAvailable;
                 HiddenWebChat_Fre_In.Value = stru_Chat_FRE.CounselorLogin == null ? "0" : stru_Chat_FRE.CounselorLogin;
                 HiddenWebChat_Fre_Avaiable.Value = stru_Chat_FRE.CounselorAvailable == null ? "0" : stru_Chat_FRE.CounselorAvailable;
@@ -545,7 +545,7 @@ namespace ReaderBoard
             stru_G2T_FRE.HandledQueueTime = client.GetHandledQueuedTime(dwSwitchID, iQueueID_G2T_FRE, szServerName);
 
 
-            if ( ChatWorking() ) // Day light theme 在6:00Pm 到 凌晨 2：00am 就 不做下面的
+            if (ChatWorking()) // Day light theme 在6:00Pm 到 凌晨 2：00am 就 不做下面的
             {
                 //Chat_ENG
                 stru_Chat_ENG.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_Chat_ENG, szServerName);
@@ -607,10 +607,10 @@ namespace ReaderBoard
 
             foreach (Proc_Last24Grade_Result x in last24HrGrade)
             {
-            stru_last24HrGrade.PhoneAllGrade = (decimal)x.PhoneAllGrade;
-            stru_last24HrGrade.PhoneGrade = (decimal)x.PhoneGrade;
-            stru_last24HrGrade.G2TGrade = (decimal)x.G2TGrade;
-            
+                stru_last24HrGrade.PhoneAllGrade = (decimal)x.PhoneAllGrade;
+                stru_last24HrGrade.PhoneGrade = (decimal)x.PhoneGrade;
+                stru_last24HrGrade.G2TGrade = (decimal)x.G2TGrade;
+
                 if (ChatWorking())
                 {
                     stru_last24HrGrade.ChatAllGrade = (decimal)x.ChatAllGrade;

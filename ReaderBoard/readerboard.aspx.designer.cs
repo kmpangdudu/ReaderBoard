@@ -303,42 +303,6 @@ namespace ReaderBoard
         protected global::System.Web.UI.WebControls.HiddenField HiddenChatWebEnLongestWaitTime;
 
         /// <summary>
-        /// lblInQueue_ChatApp_ENG control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInQueue_ChatApp_ENG;
-
-        /// <summary>
-        /// HiddenlblInQueue_ChatApp_ENG control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenlblInQueue_ChatApp_ENG;
-
-        /// <summary>
-        /// lblLongestWaitTime_ChatApp_ENG control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLongestWaitTime_ChatApp_ENG;
-
-        /// <summary>
-        /// HiddenChatAppEnLongestWaitTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenChatAppEnLongestWaitTime;
-
-        /// <summary>
         /// lblInQueue_Chat_FRE control.
         /// </summary>
         /// <remarks>
@@ -373,42 +337,6 @@ namespace ReaderBoard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenChatWebFrLongestWaitTime;
-
-        /// <summary>
-        /// lblInQueue_ChatApp_FRE control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInQueue_ChatApp_FRE;
-
-        /// <summary>
-        /// HiddenlblInQueue_ChatApp_FRE control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenlblInQueue_ChatApp_FRE;
-
-        /// <summary>
-        /// lblLongestWaitTime_ChatApp_FRE control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLongestWaitTime_ChatApp_FRE;
-
-        /// <summary>
-        /// HiddenChatAppFrLongestWaitTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenChatAppFrLongestWaitTime;
 
         /// <summary>
         /// lblTotalChatHandled control.

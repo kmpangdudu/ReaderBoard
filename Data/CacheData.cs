@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Data.iceCTIService;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Data.iceCTIService;
 using System.Timers;
 
 namespace Data
@@ -55,8 +52,8 @@ namespace Data
         static string iQueueID_G2T_FRE = Properties.Settings.Default.G2T_FRE;//"6014";
         static string iQueueID_Chat_ENG = Properties.Settings.Default.Chat_ENG;//"6007";
         static string iQueueID_Chat_FRE = Properties.Settings.Default.Chat_FRE;//"6008";
-        static string iQueueID_ChatApp_ENG = Properties.Settings.Default.ChatApp_ENG;//"6020";
-        static string iQueueID_ChatApp_FRE = Properties.Settings.Default.ChatApp_FRE;//"6021";
+        //static string iQueueID_ChatApp_ENG = Properties.Settings.Default.ChatApp_ENG;//"6020";
+        //static string iQueueID_ChatApp_FRE = Properties.Settings.Default.ChatApp_FRE;//"6021";
         static int cacheInterval = Properties.Settings.Default.cacheInterval;//Default 300 second , 5 mintues;
 
 
@@ -67,10 +64,10 @@ namespace Data
         static public RealTimeData stru_G2T_FRE;
         static public RealTimeData stru_Chat_ENG;
         static public RealTimeData stru_Chat_FRE;
-        static public RealTimeData stru_ChatApp_ENG;
-        static public RealTimeData stru_ChatApp_FRE;
+        //static public RealTimeData stru_ChatApp_ENG;
+        //static public RealTimeData stru_ChatApp_FRE;
 
-        static public  Last24hrGrade stru_last24HrGrade;
+        static public Last24hrGrade stru_last24HrGrade;
 
         static public int Counter = 0; //counting cached grades in current session
 
@@ -117,11 +114,11 @@ namespace Data
             Console.WriteLine("Press \'q\' to quit the caching data procrss.");
             while (Console.Read() != 'q') ;
         }
- 
+
 
         static void insertData(object source, ElapsedEventArgs e)
         {
-            
+
             getSOAP();
 
             //insert into DATABASE
@@ -134,8 +131,9 @@ namespace Data
                      , Convert.ToDecimal(stru_G2T_FRE.NumHandledLessThanTarget)
                      , Convert.ToDecimal(stru_Chat_ENG.NumHandledLessThanTarget)
                      , Convert.ToDecimal(stru_Chat_FRE.NumHandledLessThanTarget)
-                     , Convert.ToDecimal(stru_ChatApp_ENG.NumHandledLessThanTarget)
-                     , Convert.ToDecimal(stru_ChatApp_FRE.NumHandledLessThanTarget)
+                     //, Convert.ToDecimal(stru_ChatApp_ENG.NumHandledLessThanTarget)
+                     //, Convert.ToDecimal(stru_ChatApp_FRE.NumHandledLessThanTarget)
+                 ,0.0m,0.0m
 
                      , Convert.ToDecimal(stru_Phone_ENG.NumOffered)
                      , Convert.ToDecimal(stru_Phone_FRE.NumOffered)
@@ -143,17 +141,19 @@ namespace Data
                      , Convert.ToDecimal(stru_G2T_FRE.NumOffered)
                      , Convert.ToDecimal(stru_Chat_ENG.NumOffered)
                      , Convert.ToDecimal(stru_Chat_FRE.NumOffered)
-                     , Convert.ToDecimal(stru_ChatApp_ENG.NumOffered)
-                     , Convert.ToDecimal(stru_ChatApp_FRE.NumOffered)
-
+                     
+                     //, Convert.ToDecimal(stru_ChatApp_ENG.NumOffered)
+                     //, Convert.ToDecimal(stru_ChatApp_FRE.NumOffered)
+                    , 0.0m   , 0.0m
                      , Convert.ToDecimal(stru_Phone_ENG.HandledToday)
                      , Convert.ToDecimal(stru_Phone_FRE.HandledToday)
                      , Convert.ToDecimal(stru_G2T_ENG.HandledToday)
                      , Convert.ToDecimal(stru_G2T_FRE.HandledToday)
                      , Convert.ToDecimal(stru_Chat_ENG.HandledToday)
                      , Convert.ToDecimal(stru_Chat_FRE.HandledToday)
-                     , Convert.ToDecimal(stru_ChatApp_ENG.HandledToday)
-                     , Convert.ToDecimal(stru_ChatApp_FRE.HandledToday)
+                     //, Convert.ToDecimal(stru_ChatApp_ENG.HandledToday)
+                     //, Convert.ToDecimal(stru_ChatApp_FRE.HandledToday)
+                     , 0.0m,  0.0m
 
                      , Convert.ToDecimal(stru_Phone_ENG.AverageWaitTime)
                      , Convert.ToDecimal(stru_Phone_FRE.AverageWaitTime)
@@ -161,8 +161,9 @@ namespace Data
                      , Convert.ToDecimal(stru_G2T_FRE.AverageWaitTime)
                      , Convert.ToDecimal(stru_Chat_ENG.AverageWaitTime)
                      , Convert.ToDecimal(stru_Chat_FRE.AverageWaitTime)
-                     , Convert.ToDecimal(stru_ChatApp_ENG.AverageWaitTime)
-                     , Convert.ToDecimal(stru_ChatApp_FRE.AverageWaitTime)
+                     //, Convert.ToDecimal(stru_ChatApp_ENG.AverageWaitTime)
+                     //, Convert.ToDecimal(stru_ChatApp_FRE.AverageWaitTime)
+                     , 0.0m,  0.0m
                      );
 
                 Counter++;
@@ -186,7 +187,7 @@ namespace Data
             Console.Write("Cached: " + Counter.ToString());
 
             Console.SetCursorPosition(33, 15);
-            
+
         }
 
 
@@ -209,7 +210,7 @@ namespace Data
             {
                 Console.SetCursorPosition(15, 15);
                 Console.Write("Network Fault when gets data from DB:" + DateTime.Now.ToString());
-                
+
             }
 
         }
@@ -287,25 +288,25 @@ namespace Data
 
 
                 //ChatApp_ENG
-                stru_ChatApp_ENG.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-                stru_ChatApp_ENG.NumOffered = client.GetNumOffered(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-                stru_ChatApp_ENG.LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-                stru_ChatApp_ENG.AverageWaitTime = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-                stru_ChatApp_ENG.HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-                stru_ChatApp_ENG.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-                stru_ChatApp_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
-                stru_ChatApp_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                //stru_ChatApp_ENG.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                //stru_ChatApp_ENG.NumOffered = client.GetNumOffered(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                //stru_ChatApp_ENG.LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                //stru_ChatApp_ENG.AverageWaitTime = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                //stru_ChatApp_ENG.HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                //stru_ChatApp_ENG.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                //stru_ChatApp_ENG.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
+                //stru_ChatApp_ENG.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_ChatApp_ENG, szServerName);
 
 
                 //ChatApp_FRE
-                stru_ChatApp_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-                stru_ChatApp_FRE.NumOffered = client.GetNumOffered(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-                stru_ChatApp_FRE.LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-                stru_ChatApp_FRE.AverageWaitTime = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-                stru_ChatApp_FRE.HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-                stru_ChatApp_FRE.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-                stru_ChatApp_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
-                stru_ChatApp_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                //stru_ChatApp_FRE.NumHandledLessThanTarget = client.GetNumHandledLessThanTargetASA(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                //stru_ChatApp_FRE.NumOffered = client.GetNumOffered(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                //stru_ChatApp_FRE.LongestWaitTime = client.GetCurLongestQueuedTime(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                //stru_ChatApp_FRE.AverageWaitTime = client.GetEstimatedWaitTime(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                //stru_ChatApp_FRE.HandledToday = client.GetNumHandledInThisQueue(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                //stru_ChatApp_FRE.CurrentInQueued = client.GetCurQueued(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                //stru_ChatApp_FRE.CounselorAvailable = client.GetNumAgentsReady(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
+                //stru_ChatApp_FRE.CounselorLogin = client.GetNumAgentsLoggedOn(dwSwitchID, iQueueID_ChatApp_FRE, szServerName);
 
             }
             catch
@@ -313,7 +314,7 @@ namespace Data
                 Console.SetCursorPosition(15, 15);
                 Console.Write("Network Fault when gets data from SOAP:" + DateTime.Now.ToString());
             }
- 
+
         }
     }
 }
